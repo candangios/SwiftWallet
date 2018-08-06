@@ -1,0 +1,68 @@
+PODS:
+  - BigInt (3.1.0):
+    - SipHash (~> 1.2)
+  - CryptoSwift (0.11.0)
+  - Realm (3.7.5):
+    - Realm/Headers (= 3.7.5)
+  - Realm/Headers (3.7.5)
+  - RealmSwift (3.7.5):
+    - Realm (= 3.7.5)
+  - Result (4.0.0)
+  - SipHash (1.2.2)
+  - TrezorCrypto (0.0.6)
+  - TrustCore (0.1.0):
+    - BigInt
+    - TrezorCrypto (~> 0.0.6)
+  - TrustKeystore (0.4.1):
+    - BigInt
+    - CryptoSwift
+    - TrezorCrypto (~> 0.0.6)
+    - TrustCore
+
+DEPENDENCIES:
+  - CryptoSwift
+  - RealmSwift
+  - Result
+  - TrustCore (from `https://github.com/TrustWallet/trust-core`, branch `master`)
+  - TrustKeystore (from `https://github.com/TrustWallet/trust-keystore`, branch `master`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BigInt
+    - CryptoSwift
+    - Realm
+    - RealmSwift
+    - Result
+    - SipHash
+    - TrezorCrypto
+
+EXTERNAL SOURCES:
+  TrustCore:
+    :branch: master
+    :git: https://github.com/TrustWallet/trust-core
+  TrustKeystore:
+    :branch: master
+    :git: https://github.com/TrustWallet/trust-keystore
+
+CHECKOUT OPTIONS:
+  TrustCore:
+    :commit: 4659b30157543d3249fd9be70b9810f02425d27c
+    :git: https://github.com/TrustWallet/trust-core
+  TrustKeystore:
+    :commit: 5f413ebb70217eeda18d163448d4f503454de4dc
+    :git: https://github.com/TrustWallet/trust-keystore
+
+SPEC CHECKSUMS:
+  BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
+  CryptoSwift: ad5208dd2aae0a764ea4ce2c2d34bd067cae67f0
+  Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
+  RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
+  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
+  SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
+  TrezorCrypto: bea2dab002f9a5fe885df004694b9ece52dc088b
+  TrustCore: 93ff9cc773878f5d8f4bd2f1836343e037afd852
+  TrustKeystore: c54b52ade9c97d31d23ded9ae2518c62dd73b5fe
+
+PODFILE CHECKSUM: 3d57cb0d123a4e8bba92fc71c61d4712d8d50c40
+
+COCOAPODS: 1.5.2
