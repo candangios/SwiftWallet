@@ -2,6 +2,7 @@ PODS:
   - BigInt (3.1.0):
     - SipHash (~> 1.2)
   - CryptoSwift (0.11.0)
+  - KeychainSwift (11.0.0)
   - Realm (3.7.5):
     - Realm/Headers (= 3.7.5)
   - Realm/Headers (3.7.5)
@@ -21,6 +22,7 @@ PODS:
 
 DEPENDENCIES:
   - CryptoSwift
+  - KeychainSwift (~> 11.0)
   - RealmSwift
   - Result
   - TrustCore (from `https://github.com/TrustWallet/trust-core`, branch `master`)
@@ -30,6 +32,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BigInt
     - CryptoSwift
+    - KeychainSwift
     - Realm
     - RealmSwift
     - Result
@@ -55,6 +58,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   CryptoSwift: ad5208dd2aae0a764ea4ce2c2d34bd067cae67f0
+  KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
   Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
   RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
@@ -63,6 +67,6 @@ SPEC CHECKSUMS:
   TrustCore: 93ff9cc773878f5d8f4bd2f1836343e037afd852
   TrustKeystore: c54b52ade9c97d31d23ded9ae2518c62dd73b5fe
 
-PODFILE CHECKSUM: 3d57cb0d123a4e8bba92fc71c61d4712d8d50c40
+PODFILE CHECKSUM: a3bd5b0b2602941a5e51e91e80055557b7ac1b94
 
 COCOAPODS: 1.5.2

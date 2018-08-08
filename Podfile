@@ -11,6 +11,7 @@ target 'TomoWallet' do
   pod 'TrustKeystore', :git=>'https://github.com/TrustWallet/trust-keystore', :branch=>'master'
   pod 'RealmSwift'
   pod 'Result'
+  pod 'KeychainSwift', '~> 11.0'
   
 
   target 'TomoWalletTests' do

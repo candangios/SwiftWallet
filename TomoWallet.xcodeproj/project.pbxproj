@@ -8,7 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		49700F7214BAEC1C4F28F382 /* Pods_TomoWalletUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8A64AD2FA92E0D32E49CF5 /* Pods_TomoWalletUITests.framework */; };
-		86391AD82117EF19002FAC67 /* KeysStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391AD72117EF19002FAC67 /* KeysStore.swift */; };
+		8619C15B21193E9100C90F72 /* EtherKeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619C15A21193E9100C90F72 /* EtherKeyStore.swift */; };
+		8619C15E211946F000C90F72 /* WalletStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619C15D211946F000C90F72 /* WalletStorage.swift */; };
+		8619C160211951EA00C90F72 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619C15F211951EA00C90F72 /* Config.swift */; };
+		8619C162211952B800C90F72 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619C161211952B800C90F72 /* Currency.swift */; };
+		861B6920211A939F002AB55F /* PasswordGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B691F211A939F002AB55F /* PasswordGenerator.swift */; };
+		861B6922211A9583002AB55F /* ImportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B6921211A9583002AB55F /* ImportType.swift */; };
+		86391AD82117EF19002FAC67 /* Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391AD72117EF19002FAC67 /* Keystore.swift */; };
 		86391B76211442EB0045A610 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391B75211442EB0045A610 /* AppDelegate.swift */; };
 		86391B78211442EB0045A610 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391B77211442EB0045A610 /* ViewController.swift */; };
 		86391B7B211442EB0045A610 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86391B79211442EB0045A610 /* Main.storyboard */; };
@@ -54,7 +60,13 @@
 		68F76200A97EAB7C7127A08B /* Pods-TomoWalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomoWalletTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TomoWalletTests/Pods-TomoWalletTests.release.xcconfig"; sourceTree = "<group>"; };
 		76282DB80A18BFADD0223FC2 /* Pods_TomoWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TomoWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7900F1D077997F6DCB28724D /* Pods-TomoWalletUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomoWalletUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TomoWalletUITests/Pods-TomoWalletUITests.release.xcconfig"; sourceTree = "<group>"; };
-		86391AD72117EF19002FAC67 /* KeysStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysStore.swift; sourceTree = "<group>"; };
+		8619C15A21193E9100C90F72 /* EtherKeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherKeyStore.swift; sourceTree = "<group>"; };
+		8619C15D211946F000C90F72 /* WalletStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletStorage.swift; sourceTree = "<group>"; };
+		8619C15F211951EA00C90F72 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		8619C161211952B800C90F72 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		861B691F211A939F002AB55F /* PasswordGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGenerator.swift; sourceTree = "<group>"; };
+		861B6921211A9583002AB55F /* ImportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportType.swift; sourceTree = "<group>"; };
+		86391AD72117EF19002FAC67 /* Keystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keystore.swift; sourceTree = "<group>"; };
 		86391B72211442EB0045A610 /* TomoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86391B75211442EB0045A610 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86391B77211442EB0045A610 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,11 +125,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8619C15C211946DB00C90F72 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				8619C15D211946F000C90F72 /* WalletStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		86391AD52117EEB6002FAC67 /* EtherClient */ = {
 			isa = PBXGroup;
 			children = (
 				86879FDE2117FFC70099A2CC /* Types */,
 				86391AD62117EEC0002FAC67 /* KeyStoreProtocol */,
+				861B691F211A939F002AB55F /* PasswordGenerator.swift */,
 			);
 			path = EtherClient;
 			sourceTree = "<group>";
@@ -125,8 +146,9 @@
 		86391AD62117EEC0002FAC67 /* KeyStoreProtocol */ = {
 			isa = PBXGroup;
 			children = (
-				86391AD72117EF19002FAC67 /* KeysStore.swift */,
+				86391AD72117EF19002FAC67 /* Keystore.swift */,
 				86879FF121184BD10099A2CC /* KeystoreError.swift */,
+				8619C15A21193E9100C90F72 /* EtherKeyStore.swift */,
 			);
 			path = KeyStoreProtocol;
 			sourceTree = "<group>";
@@ -200,6 +222,7 @@
 		86879FD82117F4620099A2CC /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				8619C15C211946DB00C90F72 /* Storage */,
 				86879FD92117F46C0099A2CC /* ObjType */,
 			);
 			path = Wallet;
@@ -220,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				86879FDF2117FFDC0099A2CC /* WalletType.swift */,
+				861B6921211A9583002AB55F /* ImportType.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -237,6 +261,8 @@
 			children = (
 				86879FE92118413D0099A2CC /* RPCServer.swift */,
 				86879FEE211847320099A2CC /* Constants.swift */,
+				8619C15F211951EA00C90F72 /* Config.swift */,
+				8619C161211952B800C90F72 /* Currency.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -421,6 +447,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TomoWallet/Pods-TomoWallet-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -433,6 +460,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -507,16 +535,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8619C162211952B800C90F72 /* Currency.swift in Sources */,
+				8619C15E211946F000C90F72 /* WalletStorage.swift in Sources */,
+				8619C15B21193E9100C90F72 /* EtherKeyStore.swift in Sources */,
 				86879FEA2118413D0099A2CC /* RPCServer.swift in Sources */,
 				86391BA521145F700045A610 /* AppCoordinator.swift in Sources */,
+				8619C160211951EA00C90F72 /* Config.swift in Sources */,
 				86391B78211442EB0045A610 /* ViewController.swift in Sources */,
 				86879FE6211809270099A2CC /* WalletEntryPoint.swift in Sources */,
+				861B6922211A9583002AB55F /* ImportType.swift in Sources */,
 				86879FF221184BD10099A2CC /* KeystoreError.swift in Sources */,
 				86391B76211442EB0045A610 /* AppDelegate.swift in Sources */,
 				86879FE02117FFDC0099A2CC /* WalletType.swift in Sources */,
+				861B6920211A939F002AB55F /* PasswordGenerator.swift in Sources */,
 				86879FED211845DD0099A2CC /* Address.swift in Sources */,
 				86879FEF211847320099A2CC /* Constants.swift in Sources */,
-				86391AD82117EF19002FAC67 /* KeysStore.swift in Sources */,
+				86391AD82117EF19002FAC67 /* Keystore.swift in Sources */,
 				86879FE2211803860099A2CC /* WalletObject.swift in Sources */,
 				86879FDD2117FF7D0099A2CC /* WalletInfo.swift in Sources */,
 				86879FDB2117F4E70099A2CC /* WalletAddress.swift in Sources */,
