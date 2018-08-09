@@ -8,13 +8,14 @@
 
 import UIKit
 import RealmSwift
+import MBProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    let urlNavigatorCoordinator = URLNavigatorCoordinator()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -22,38 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let realm = try! Realm()
         let walletStore = WalletStorage(realm: realm)
         let keyStore = EtherKeyStore(storage: walletStore)
-        keyStore.createAccount(with: "tomochain") { (results) in
-            switch results {
-            case .success(let account):
-                print(account)
-                
-                let account1 = account.accounts.first
-                keyStore.exportPrivateKey(account: account1!, completion: { (result) in
-                    switch result{
-                    case.success(let data):
-                        let privatekey = String(data: data, encoding: .utf8 );
-                        print(privatekey)
-                    case .failure(_):
-                        break
-                    }
-                })
-                
-                keyStore.exportMnemonic(wallet: account, completion: { (result) in
-                    switch result {
-                    case .success(let  data):
-                        print(data)
-                       
-                    case .failure(let error):
-                        break
-                    }
-                })
-          
-                
-                
-            case .failure(let error):
-                print( error)
-            }
-        }
+        
+        let containerCoordinator = ContainerCoordinator(window: window!, keystore: keyStore, navigator: urlNavigatorCoordinator)
+        containerCoordinator.start()
+
         return true
     }
 

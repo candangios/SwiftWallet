@@ -11,8 +11,8 @@ import TrustCore
 import TrustKeystore
 import Result
 
-protocol Keystore {
-    var hasWallet: Bool { get };
+protocol Keystore: class {
+    var hasWallets: Bool { get };
     var mainWallet: WalletInfo? { get };
     var wallets:[WalletInfo] { get }
     var keysDirectory: URL { get }

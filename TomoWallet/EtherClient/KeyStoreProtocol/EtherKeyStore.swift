@@ -13,8 +13,6 @@ import TrustKeystore
 import TrustCore
 import UIKit
 class EtherKeyStore: Keystore {
-
-
     struct keys {
         static let recentlyUsedAddress: String = "recentlyUsedAddress"
         static let recentlyUsedWallet: String = "recentlyUsedWallet"
@@ -41,7 +39,7 @@ class EtherKeyStore: Keystore {
         self.storage = storage
     }
     
-    var hasWallet: Bool  {
+    var hasWallets: Bool  {
         return !wallets.isEmpty
     }
     

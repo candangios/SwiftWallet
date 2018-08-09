@@ -12,6 +12,9 @@ target 'TomoWallet' do
   pod 'RealmSwift'
   pod 'Result'
   pod 'KeychainSwift', '~> 11.0'
+  pod 'MBProgressHUD', '~> 1.1.0'
+  
+  pod 'URLNavigator'
   
 
   target 'TomoWalletTests' do

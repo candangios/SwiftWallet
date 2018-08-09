@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1C7C18DDE670092EFA14BAD0D43E26F2"
+               BlueprintIdentifier = "E72DC049321E4169C33F7B4D8D72965C"
                BlueprintName = "TrezorCrypto"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "TrezorCrypto.framework">

@@ -22,7 +22,17 @@
 		86391B80211442EC0045A610 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86391B7E211442EC0045A610 /* LaunchScreen.storyboard */; };
 		86391B8B211442EC0045A610 /* TomoWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391B8A211442EC0045A610 /* TomoWalletTests.swift */; };
 		86391B96211442EC0045A610 /* TomoWalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391B95211442EC0045A610 /* TomoWalletUITests.swift */; };
-		86391BA521145F700045A610 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391BA421145F700045A610 /* AppCoordinator.swift */; };
+		86391BA521145F700045A610 /* ContainerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391BA421145F700045A610 /* ContainerCoordinator.swift */; };
+		8653952B211BE04E00DB2DDE /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653952A211BE04E00DB2DDE /* BaseCoordinator.swift */; };
+		86539531211BE6D800DB2DDE /* WalletCreatedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653952F211BE6D800DB2DDE /* WalletCreatedVC.swift */; };
+		86539532211BE6D800DB2DDE /* WalletCreatedVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86539530211BE6D800DB2DDE /* WalletCreatedVC.xib */; };
+		86539536211BE8D800DB2DDE /* WalletCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86539535211BE8D800DB2DDE /* WalletCreateViewModel.swift */; };
+		8653953A211C268F00DB2DDE /* URLNavigatorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86539539211C268F00DB2DDE /* URLNavigatorCoordinator.swift */; };
+		8653953C211C2A3A00DB2DDE /* PushNotifilecationsRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653953B211C2A3A00DB2DDE /* PushNotifilecationsRegistrar.swift */; };
+		86539545211C2CC000DB2DDE /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86539543211C2CC000DB2DDE /* WelcomeVC.swift */; };
+		86539546211C2CC000DB2DDE /* WelcomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86539544211C2CC000DB2DDE /* WelcomeVC.xib */; };
+		86539548211C2D5100DB2DDE /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86539547211C2D5100DB2DDE /* WelcomeModel.swift */; };
+		8653954B211C306400DB2DDE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653954A211C306400DB2DDE /* UIColor.swift */; };
 		86879FDB2117F4E70099A2CC /* WalletAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86879FDA2117F4E70099A2CC /* WalletAddress.swift */; };
 		86879FDD2117FF7D0099A2CC /* WalletInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86879FDC2117FF7D0099A2CC /* WalletInfo.swift */; };
 		86879FE02117FFDC0099A2CC /* WalletType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86879FDF2117FFDC0099A2CC /* WalletType.swift */; };
@@ -80,7 +90,17 @@
 		86391B91211442EC0045A610 /* TomoWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomoWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86391B95211442EC0045A610 /* TomoWalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomoWalletUITests.swift; sourceTree = "<group>"; };
 		86391B97211442EC0045A610 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		86391BA421145F700045A610 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		86391BA421145F700045A610 /* ContainerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerCoordinator.swift; sourceTree = "<group>"; };
+		8653952A211BE04E00DB2DDE /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		8653952F211BE6D800DB2DDE /* WalletCreatedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreatedVC.swift; sourceTree = "<group>"; };
+		86539530211BE6D800DB2DDE /* WalletCreatedVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletCreatedVC.xib; sourceTree = "<group>"; };
+		86539535211BE8D800DB2DDE /* WalletCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateViewModel.swift; sourceTree = "<group>"; };
+		86539539211C268F00DB2DDE /* URLNavigatorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLNavigatorCoordinator.swift; sourceTree = "<group>"; };
+		8653953B211C2A3A00DB2DDE /* PushNotifilecationsRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotifilecationsRegistrar.swift; sourceTree = "<group>"; };
+		86539543211C2CC000DB2DDE /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		86539544211C2CC000DB2DDE /* WelcomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeVC.xib; sourceTree = "<group>"; };
+		86539547211C2D5100DB2DDE /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
+		8653954A211C306400DB2DDE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		86879FDA2117F4E70099A2CC /* WalletAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAddress.swift; sourceTree = "<group>"; };
 		86879FDC2117FF7D0099A2CC /* WalletInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInfo.swift; sourceTree = "<group>"; };
 		86879FDF2117FFDC0099A2CC /* WalletType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletType.swift; sourceTree = "<group>"; };
@@ -178,12 +198,16 @@
 		86391B74211442EB0045A610 /* TomoWallet */ = {
 			isa = PBXGroup;
 			children = (
+				86539537211C263F00DB2DDE /* Core */,
+				8653952D211BE51400DB2DDE /* Modunles */,
+				8653952C211BE1A300DB2DDE /* UI */,
+				86539529211BE02200DB2DDE /* Foundation */,
 				86879FEB211845B70099A2CC /* Extentions */,
 				86879FE7211841130099A2CC /* Settings */,
 				86391AD52117EEB6002FAC67 /* EtherClient */,
 				86391BA321144AF60045A610 /* Wallet */,
 				86391B75211442EB0045A610 /* AppDelegate.swift */,
-				86391BA421145F700045A610 /* AppCoordinator.swift */,
+				86391BA421145F700045A610 /* ContainerCoordinator.swift */,
 				86391B77211442EB0045A610 /* ViewController.swift */,
 				86391B79211442EB0045A610 /* Main.storyboard */,
 				86391B7C211442EC0045A610 /* Assets.xcassets */,
@@ -217,6 +241,107 @@
 				86879FD82117F4620099A2CC /* Wallet */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		86539529211BE02200DB2DDE /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				8653952A211BE04E00DB2DDE /* BaseCoordinator.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		8653952C211BE1A300DB2DDE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		8653952D211BE51400DB2DDE /* Modunles */ = {
+			isa = PBXGroup;
+			children = (
+				8653953D211C2C0000DB2DDE /* WelCome */,
+				8653952E211BE65600DB2DDE /* Wallet */,
+			);
+			path = Modunles;
+			sourceTree = "<group>";
+		};
+		8653952E211BE65600DB2DDE /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				86539534211BE8A200DB2DDE /* Viewcontrollers */,
+				86539533211BE89500DB2DDE /* ViewModels */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		86539533211BE89500DB2DDE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				86539535211BE8D800DB2DDE /* WalletCreateViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		86539534211BE8A200DB2DDE /* Viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				8653952F211BE6D800DB2DDE /* WalletCreatedVC.swift */,
+				86539530211BE6D800DB2DDE /* WalletCreatedVC.xib */,
+			);
+			path = Viewcontrollers;
+			sourceTree = "<group>";
+		};
+		86539537211C263F00DB2DDE /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				86539538211C264400DB2DDE /* Coordinators */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		86539538211C264400DB2DDE /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				86539539211C268F00DB2DDE /* URLNavigatorCoordinator.swift */,
+				8653953B211C2A3A00DB2DDE /* PushNotifilecationsRegistrar.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		8653953D211C2C0000DB2DDE /* WelCome */ = {
+			isa = PBXGroup;
+			children = (
+				86539540211C2C5C00DB2DDE /* ViewControllers */,
+				8653953F211C2C4F00DB2DDE /* ViewModels */,
+				8653953E211C2C4800DB2DDE /* Views */,
+			);
+			path = WelCome;
+			sourceTree = "<group>";
+		};
+		8653953E211C2C4800DB2DDE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8653953F211C2C4F00DB2DDE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				86539547211C2D5100DB2DDE /* WelcomeModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		86539540211C2C5C00DB2DDE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				86539543211C2CC000DB2DDE /* WelcomeVC.swift */,
+				86539544211C2CC000DB2DDE /* WelcomeVC.xib */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		86879FD82117F4620099A2CC /* Wallet */ = {
@@ -271,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				86879FEC211845DD0099A2CC /* Address.swift */,
+				8653954A211C306400DB2DDE /* UIColor.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -417,7 +543,9 @@
 			files = (
 				86391B80211442EC0045A610 /* LaunchScreen.storyboard in Resources */,
 				86391B7D211442EC0045A610 /* Assets.xcassets in Resources */,
+				86539532211BE6D800DB2DDE /* WalletCreatedVC.xib in Resources */,
 				86391B7B211442EB0045A610 /* Main.storyboard in Resources */,
+				86539546211C2CC000DB2DDE /* WelcomeVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +576,7 @@
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -455,12 +584,14 @@
 				"${BUILT_PRODUCTS_DIR}/TrezorCrypto/TrezorCrypto.framework",
 				"${BUILT_PRODUCTS_DIR}/TrustCore/TrustCore.framework",
 				"${BUILT_PRODUCTS_DIR}/TrustKeystore/TrustKeystore.framework",
+				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -468,6 +599,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrezorCrypto.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrustCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrustKeystore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -536,25 +668,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				8619C162211952B800C90F72 /* Currency.swift in Sources */,
+				8653954B211C306400DB2DDE /* UIColor.swift in Sources */,
 				8619C15E211946F000C90F72 /* WalletStorage.swift in Sources */,
 				8619C15B21193E9100C90F72 /* EtherKeyStore.swift in Sources */,
 				86879FEA2118413D0099A2CC /* RPCServer.swift in Sources */,
-				86391BA521145F700045A610 /* AppCoordinator.swift in Sources */,
+				86391BA521145F700045A610 /* ContainerCoordinator.swift in Sources */,
 				8619C160211951EA00C90F72 /* Config.swift in Sources */,
+				86539536211BE8D800DB2DDE /* WalletCreateViewModel.swift in Sources */,
 				86391B78211442EB0045A610 /* ViewController.swift in Sources */,
 				86879FE6211809270099A2CC /* WalletEntryPoint.swift in Sources */,
+				86539531211BE6D800DB2DDE /* WalletCreatedVC.swift in Sources */,
+				8653953A211C268F00DB2DDE /* URLNavigatorCoordinator.swift in Sources */,
 				861B6922211A9583002AB55F /* ImportType.swift in Sources */,
 				86879FF221184BD10099A2CC /* KeystoreError.swift in Sources */,
 				86391B76211442EB0045A610 /* AppDelegate.swift in Sources */,
 				86879FE02117FFDC0099A2CC /* WalletType.swift in Sources */,
+				86539548211C2D5100DB2DDE /* WelcomeModel.swift in Sources */,
 				861B6920211A939F002AB55F /* PasswordGenerator.swift in Sources */,
 				86879FED211845DD0099A2CC /* Address.swift in Sources */,
+				86539545211C2CC000DB2DDE /* WelcomeVC.swift in Sources */,
 				86879FEF211847320099A2CC /* Constants.swift in Sources */,
 				86391AD82117EF19002FAC67 /* Keystore.swift in Sources */,
 				86879FE2211803860099A2CC /* WalletObject.swift in Sources */,
 				86879FDD2117FF7D0099A2CC /* WalletInfo.swift in Sources */,
+				8653953C211C2A3A00DB2DDE /* PushNotifilecationsRegistrar.swift in Sources */,
 				86879FDB2117F4E70099A2CC /* WalletAddress.swift in Sources */,
 				86879FE42118057C0099A2CC /* WalletInfoType.swift in Sources */,
+				8653952B211BE04E00DB2DDE /* BaseCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,6 +871,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 96RKVGSUGN;
 				INFOPLIST_FILE = TomoWallet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -750,6 +891,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 96RKVGSUGN;
 				INFOPLIST_FILE = TomoWallet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

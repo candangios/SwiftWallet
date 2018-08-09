@@ -13,7 +13,6 @@ import TrustCore
 struct WalletInfo {
     let type: WalletType
     let info: WalletObject
-    
     var address: Address {
         switch type {
         case .privateKey, .hd:
