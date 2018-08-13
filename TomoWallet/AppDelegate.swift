@@ -23,9 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let realm = try! Realm()
         let walletStore = WalletStorage(realm: realm)
         let keyStore = EtherKeyStore(storage: walletStore)
+        let welcome = WelcomeVC()
+        welcome.keystore = keyStore
+        window?.rootViewController = welcome
+        window?.makeKeyAndVisible()
         
-        let containerCoordinator = ContainerCoordinator(window: window!, keystore: keyStore, navigator: urlNavigatorCoordinator)
-        containerCoordinator.start()
+//        let containerCoordinator = ContainerCoordinator(window: window!, keystore: keyStore, navigator: urlNavigatorCoordinator)
+//        containerCoordinator.start()
 
         return true
     }

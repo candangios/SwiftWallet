@@ -13,6 +13,9 @@ public protocol Address: CustomStringConvertible {
     /// Validates that the string is a valid address.
     static func isValid(string: String) -> Bool
 
+    /// Coin this address is for.
+    var coin: Coin { get }
+
     /// Raw representation of the address.
     var data: Data { get }
 

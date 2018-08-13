@@ -547,8 +547,6 @@ void SyncSession::handle_error(SyncError error)
             case ClientError::pong_timeout:
                 // Not real errors, don't need to be reported to the binding.
                 return;
-            case ClientError::bad_timestamp:
-            case ClientError::connect_timeout:
             case ClientError::unknown_message:
             case ClientError::bad_syntax:
             case ClientError::limits_exceeded:

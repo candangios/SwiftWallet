@@ -25,7 +25,7 @@ enum WalletType {
         case .hd(let account):
             return Keys.walletHD + account.identifier
         case .address(let coin, let address):
-            return Keys.address + "\(coin.coinType)" + "-" + "\(address.description)"
+            return Keys.address + "\(coin.rawValue)" + "-" + "\(address.description)"
         }
     }
 }

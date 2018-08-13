@@ -15,6 +15,7 @@ class WalletCreatedVC: UIViewController {
     
     
     let viewModel: WalletCreateViewModel
+   
     
     init(viewModel: WalletCreateViewModel) {
         self.viewModel = viewModel
@@ -27,6 +28,7 @@ class WalletCreatedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+  
 
         // Do any additional setup after loading the view.
     }

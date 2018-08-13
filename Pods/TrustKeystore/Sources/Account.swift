@@ -20,12 +20,7 @@ public final class Account: Codable, Hashable {
 
     /// Coin this account is for.
     public var coin: Coin {
-        return Coin(coinType: derivationPath.coinType)
-    }
-
-    /// Chain identifier
-    public var chainID: Int {
-        return coin.blockchain.chainID
+        return address.coin
     }
 
     /// Creates a new `Account`.
@@ -104,21 +99,26 @@ public final class Account: Codable, Hashable {
     // MARK: Codable
 
     enum CodingKeys: String, CodingKey {
+        case coin
         case addressData
         case derivationPath
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        derivationPath = try container.decode(DerivationPath.self, forKey: .derivationPath)
-
+        let coin = try container.decode(Coin.self, forKey: .coin)
         let addressData = try container.decode(Data.self, forKey: .addressData)
+
         let maybeAddress: Address?
-        switch derivationPath.coinType {
-        case Coin.bitcoin.coinType:
+        switch coin {
+        case .bitcoin:
             maybeAddress = BitcoinAddress(data: addressData)
-        default:
-            maybeAddress = EthereumAddress(data: addressData)
+        case .ethereum,
+             .poa,
+             .ethereumClassic,
+             .callisto,
+             .gochain:
+            maybeAddress = EthereumAddress(data: addressData, coin: coin)
         }
 
         guard let address = maybeAddress else {
@@ -126,11 +126,29 @@ public final class Account: Codable, Hashable {
         }
 
         self.address = address
+        derivationPath = try container.decode(DerivationPath.self, forKey: .derivationPath)
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(address.data, forKey: .addressData)
+        try container.encode(address.coin, forKey: .coin)
         try container.encode(derivationPath, forKey: .derivationPath)
+    }
+}
+
+extension Coin: Codable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let coinID = try container.decode(Int.self)
+        guard let coin = Coin(rawValue: coinID) else {
+            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Invalid coin \(coinID)")
+        }
+        self = coin
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(self.rawValue)
     }
 }

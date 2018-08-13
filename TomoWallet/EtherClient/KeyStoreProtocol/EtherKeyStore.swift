@@ -118,10 +118,10 @@ class EtherKeyStore: Keystore {
                 
             }
         case .privatekey(let privatekey):
-            let privateKeyData = PrivateKey(data: Data(hexString: privatekey)!)
+            let privateKeyData = PrivateKey(data: Data(hexString: privatekey)!)!
             DispatchQueue.global(qos: .userInitiated).async {
                 do{
-                    let wallet = try self.keyStore.import(privateKey: privateKeyData!, password: newPassword)
+                    let wallet = try self.keyStore.import(privateKey: privateKeyData, password: newPassword, coin: coin)
                     self.setPassword(newPassword, for: wallet)
                     DispatchQueue.main.async {
                         completion(.success(WalletInfo(type: .privateKey(wallet))))
@@ -176,11 +176,11 @@ class EtherKeyStore: Keystore {
             return (.failure(.failedToParseJSON))
         }
         do{
-            //TODO: Blockchain. Pass blockchain ID
-            let wallet = try keyStore.import(json: data, password: password, newPassword: newPassword)
+           // TODO: Blockchain. Pass blockchain ID
+            let wallet = try keyStore.import(json: data, password: password, newPassword: newPassword, coin: coin)
             let _ = setPassword(newPassword, for: wallet)
             return .success(WalletInfo(type: .hd(wallet)))
-            
+
         }catch{
             switch error {
             case KeyStore.Error.accountAlreadyExists:
@@ -189,17 +189,19 @@ class EtherKeyStore: Keystore {
                 return .failure(.failedToImport(error))
             }
         }
+       
     }
     
     func importPrivateKey(privateKey: PrivateKey, password: String, coin: Coin) -> Result<WalletInfo, KeystoreError> {
         do {
-            let wallet = try keyStore.import(privateKey: privateKey, password: password)
+            let wallet = try keyStore.import(privateKey: privateKey, password: password, coin: coin)
             let w = WalletInfo(type: .privateKey(wallet))
             let _ = setPassword(password, for: wallet)
             return .success(w)
         } catch {
             return .failure(.failedToImport(error))
         }
+
     }
     
     

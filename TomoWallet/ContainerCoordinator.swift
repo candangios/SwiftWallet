@@ -10,7 +10,11 @@ import UIKit
 import TrustCore
 import URLNavigator
 
-class ContainerCoordinator: UIViewController, BaseCoordinator {
+class ContainerCoordinator: Coordinator {
+    var childCoordinators: [Coordinator] = []
+    
+    var navigationController: UINavigationController
+    
     private let keystore: Keystore
     private var navigator: URLNavigatorCoordinator
     private var window: UIWindow!
@@ -19,8 +23,13 @@ class ContainerCoordinator: UIViewController, BaseCoordinator {
     init(window: UIWindow, keystore: Keystore, navigator: URLNavigatorCoordinator = URLNavigatorCoordinator()) {
         self.keystore = keystore
         self.navigator = navigator
+        self.navigationController = UINavigationController()
         self.window = window
         
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func start() {

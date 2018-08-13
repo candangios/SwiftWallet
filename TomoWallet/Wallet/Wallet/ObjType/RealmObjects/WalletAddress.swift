@@ -15,7 +15,7 @@ final class WalletAddress: Object {
     @objc private dynamic var rawCoin = -1
     public var coin: Coin {
         get { return self.coin }
-        set { self.coin = Coin(coinType: rawCoin)}
+        set { self.coin = Coin(rawValue: rawCoin)!}
     }
     
     convenience init(
