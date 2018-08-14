@@ -19,16 +19,24 @@ class TokensCoordinator: Coordinator {
     let store: TokensDataStore
     let transactionsStore: TransactionsStorage
     
-    init(keystore: Keystore, walletSesstion: WalletSession) {
+    lazy var tokensViewController: WalletVC = {
+   
+        let controller = WalletVC()
+//        controller.delegate = self
+        return controller
+    }()
+    
+    init(keystore: Keystore, walletSesstion: WalletSession, navigationController: NavigationController = NavigationController(isHiddenNavigationBar: true)) {
         self.session = walletSesstion
         self.keystore = keystore
         self.store = session.tokensStorage
         self.transactionsStore = session.transactionsStorage
+        self.navigationController = navigationController
         
     }
     
     func start() {
-        
+        self.navigationController.show(tokensViewController, sender: self)
     }
     
     

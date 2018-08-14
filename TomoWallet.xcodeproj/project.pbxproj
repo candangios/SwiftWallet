@@ -329,6 +329,7 @@
 				8652121421227C5200F79E4D /* Storage */,
 				8652121121227B2100F79E4D /* Coordinator */,
 				8652120A212278FD00F79E4D /* CoinTicker */,
+				8652120B21227A9600F79E4D /* ViewControllers */,
 			);
 			path = Tokens;
 			sourceTree = "<group>";
@@ -391,7 +392,6 @@
 		8653952D211BE51400DB2DDE /* Modunles */ = {
 			isa = PBXGroup;
 			children = (
-				8652120B21227A9600F79E4D /* ViewControllers */,
 				86521209212278DB00F79E4D /* Tokens */,
 				86521205212275AB00F79E4D /* Transactions */,
 				8649579521216DD200C98D0B /* TabbarContainer */,

@@ -40,6 +40,7 @@ class EtherKeyStore: Keystore {
     }
     
     var hasWallets: Bool  {
+        print(wallets)
         return !wallets.isEmpty
     }
     

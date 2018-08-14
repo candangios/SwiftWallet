@@ -40,7 +40,21 @@ class InCoordinator: Coordinator {
         self.navigator = navigator
     }
     func start() {
+        showMainController(account: self.initialWallet)
         
+    }
+    func showMainController(account: WalletInfo){
+        
+        let realm = try? Realm()
+        let sharedRealm = try? Realm()
+        let session = WalletSession(
+            account: account,
+            realm: realm!,
+            sharedRealm: sharedRealm!,
+            config: config
+        )
+        
+        let tokensCoordinator = TokensCoordinator(keystore: self.keystore, walletSesstion: session, navigationController: self.navigationController)
     }
     
     
