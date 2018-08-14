@@ -13,7 +13,7 @@ struct Config {
         static let currencyID = "currencyID"
     }
     
-    static let dbMigrationSchemaVersion: UInt64 = 77
+    static let dbMigrationSchemaVersion: UInt64 = 0
     
     static let current: Config = Config()
     
@@ -47,11 +47,14 @@ struct Config {
     var servers: [Coin] {
         return [
             Coin.ethereum,
-//            Coin.ethereumClassic,
-//            Coin.poa,
-//            Coin.callisto,
-//            Coin.gochain,
-//            Coin.ethereumTestNet
+            Coin.ethereumClassic,
+            Coin.poa,
+            Coin.callisto,
+            Coin.gochain,
         ]
     }
+}
+
+extension Coin{
+   
 }

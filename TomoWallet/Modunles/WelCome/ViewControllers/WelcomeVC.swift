@@ -15,18 +15,10 @@ protocol WelcomeVC_Delegate: class {
 }
 
 class WelcomeVC: UIViewController {
-    
-    weak var delegate : WelcomeVC_Delegate?
-    var keystore: Keystore?
-
+    var delegate : WelcomeVC_Delegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        keystore?.createAccount(with: "tomochain") { (result) in
-            MBProgressHUD.hide(for: self.view, animated: true)
-         
-        }
- 
+
     }
 
     override func didReceiveMemoryWarning() {

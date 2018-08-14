@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,26 +21,54 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNe-0R-7xB">
-                    <rect key="frame" x="33" y="124" width="309" height="55"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Cretae Wallet"/>
-                    <connections>
-                        <action selector="createWalletAction:" destination="-1" eventType="touchUpInside" id="6Yh-dn-frU"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV4-bb-h8z">
-                    <rect key="frame" x="33" y="207" width="309" height="55"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV4-bb-h8z">
+                    <rect key="frame" x="35" y="545" width="305" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="lV4-bb-h8z" secondAttribute="height" multiplier="51:10" id="r2o-3C-i0b"/>
+                    </constraints>
                     <state key="normal" title="Import Wallet"/>
                     <connections>
                         <action selector="importWalletAction:" destination="-1" eventType="touchUpInside" id="o1m-8L-FyN"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="XyU-kg-e0R">
+                    <rect key="frame" x="87" y="156" width="201" height="154"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="XyU-kg-e0R" secondAttribute="height" multiplier="201:154" id="aS1-4C-spf"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="201" id="oYi-el-08N"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNe-0R-7xB">
+                    <rect key="frame" x="35" y="434.5" width="305" height="59.5"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="eNe-0R-7xB" secondAttribute="height" multiplier="51:10" id="7Fi-ty-Tv7"/>
+                    </constraints>
+                    <state key="normal" title="Cretae Wallet">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="createWalletAction:" destination="-1" eventType="touchUpInside" id="6Yh-dn-frU"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lV4-bb-h8z" secondAttribute="bottom" constant="62" id="8N1-1t-uBw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lV4-bb-h8z" secondAttribute="trailing" constant="35" id="GZ8-w4-sd3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XyU-kg-e0R" secondAttribute="trailing" constant="87" id="IQE-7E-izy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eNe-0R-7xB" secondAttribute="trailing" constant="35" id="JcN-4x-z83"/>
+                <constraint firstItem="XyU-kg-e0R" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="87" id="eH4-ra-TxA"/>
+                <constraint firstItem="lV4-bb-h8z" firstAttribute="top" secondItem="eNe-0R-7xB" secondAttribute="bottom" constant="51" id="iY6-2p-Jax"/>
+                <constraint firstItem="XyU-kg-e0R" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="136" id="mv5-Ll-TIW"/>
+                <constraint firstItem="lV4-bb-h8z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="uG9-HA-OwR"/>
+                <constraint firstItem="eNe-0R-7xB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="vF0-OY-8Uw"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="24.5" y="51.5"/>
+            <point key="canvasLocation" x="-112.5" y="14.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="Logo" width="100" height="77"/>
+    </resources>
 </document>

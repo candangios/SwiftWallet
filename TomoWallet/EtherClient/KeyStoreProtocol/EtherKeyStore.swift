@@ -91,6 +91,8 @@ class EtherKeyStore: Keystore {
     internal func keychainKey(for account: Wallet) -> String {
         return account.identifier
     }
+    
+    
     // Async
     @available(iOS 10.0, *)
     func createAccount(with password: String, completion: @escaping (Result<Wallet, KeystoreError>) -> Void) {
