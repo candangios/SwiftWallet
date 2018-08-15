@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-class TokensCoordinator: Coordinator {
+class TokensCoordinator:NSObject, Coordinator {
     
     var childCoordinators: [Coordinator] = []
     
@@ -19,10 +20,15 @@ class TokensCoordinator: Coordinator {
     let store: TokensDataStore
     let transactionsStore: TransactionsStorage
     
-    lazy var tokensViewController: WalletVC = {
-   
-        let controller = WalletVC()
-//        controller.delegate = self
+    lazy var network: NetworkProtocol = {
+        return ApiNetwork(provider: ApiProviderFactory.makeProvider(), wallet: session.account)
+    }()
+
+    
+    lazy var tokensViewController: TokensVC = {
+        let viewModel = TokensViewModel(session: session, store: store, tokensNetwork: network, transactionStore: transactionsStore)
+        let controller = TokensVC(viewModel: viewModel)
+        controller.delegate = self
         return controller
     }()
     
@@ -36,7 +42,14 @@ class TokensCoordinator: Coordinator {
     }
     
     func start() {
-        self.navigationController.show(tokensViewController, sender: self)
+        self.navigationController.pushViewController(tokensViewController, animated: true)
+    }
+}
+
+extension TokensCoordinator: TokensVC_Delegate{
+    
+    func didPressAddToken(in viewController: UIViewController) {
+        print("hehe")
     }
     
     

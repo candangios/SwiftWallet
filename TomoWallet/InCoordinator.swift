@@ -45,8 +45,13 @@ class InCoordinator: Coordinator {
     }
     func showMainController(account: WalletInfo){
         
-        let realm = try? Realm()
-        let sharedRealm = try? Realm()
+        let migration = MigrationInitializer(account: account)
+   
+        
+        let sharedMigration = SharedMigrationInitializer()
+        let realm = try? Realm(configuration: migration.config)
+        let sharedRealm = try? Realm(configuration: sharedMigration.config)
+        
         let session = WalletSession(
             account: account,
             realm: realm!,
@@ -55,6 +60,9 @@ class InCoordinator: Coordinator {
         )
         
         let tokensCoordinator = TokensCoordinator(keystore: self.keystore, walletSesstion: session, navigationController: self.navigationController)
+        tokensCoordinator.start()
+        
+        self.childCoordinators.append(tokensCoordinator)
     }
     
     

@@ -16,5 +16,4 @@ final class TransactionsStorage{
         self.account = account
         self.realm = realm
     }
-    
 }

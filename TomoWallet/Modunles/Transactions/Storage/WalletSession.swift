@@ -28,12 +28,12 @@ final class WalletSession {
         return TransactionsStorage(account: account, realm: realm)
     }()
     
-//    lazy var currentRPC: RPCServer = {
-//        if account.multiWallet {
-//            return .main
-//        }
-//        return account.coin!.server
-//    }()
+    lazy var currentRPC: RPCServer = {
+        if account.multiWallet {
+            return .main
+        }
+        return account.coin!.server
+    }()
     
     init(
         account: WalletInfo,

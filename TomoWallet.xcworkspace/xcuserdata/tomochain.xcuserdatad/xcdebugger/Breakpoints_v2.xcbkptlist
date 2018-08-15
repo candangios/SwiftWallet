@@ -25,14 +25,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TomoWallet/EtherClient/KeyStoreProtocol/EtherKeyStore.swift"
-            timestampString = "555924317.169806"
+            filePath = "TomoWallet/Modunles/Wallet/Coordinator/WalletCoordinator.swift"
+            timestampString = "556021319.932785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "hasWallets"
-            landmarkType = "24">
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "createInstantWallet()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Result.Result&lt;TrustKeystore.Wallet, TomoWallet.KeystoreError&gt;) -&gt; () in TomoWallet.WalletCoordinator.createInstantWallet() -&gt; ()"
+                  moduleName = "TomoWallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomochain/SwiftWallet/TomoWallet/Modunles/Wallet/Coordinator/WalletCoordinator.swift"
+                  timestampString = "556021319.953145"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "97">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Result.Result&lt;Swift.Array&lt;Swift.String&gt;, TomoWallet.KeystoreError&gt;) -&gt; () in closure #1 (Result.Result&lt;TrustKeystore.Wallet, TomoWallet.KeystoreError&gt;) -&gt; () in TomoWallet.WalletCoordinator.createInstantWallet() -&gt; ()"
+                  moduleName = "TomoWallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomochain/SwiftWallet/TomoWallet/Modunles/Wallet/Coordinator/WalletCoordinator.swift"
+                  timestampString = "556021319.955148"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

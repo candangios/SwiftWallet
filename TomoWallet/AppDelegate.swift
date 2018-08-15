@@ -20,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Get the default Realm
-        let realm = try! Realm()
+        let sharedMigration = SharedMigrationInitializer()
+      
+        let realm = try! Realm(configuration: sharedMigration.config)
         let walletStore = WalletStorage(realm: realm)
         let keyStore = EtherKeyStore(storage: walletStore)
         let mainCoordinator = MainCoordinator(window: window!, keystore: keyStore, navigator: urlNavigatorCoordinator)

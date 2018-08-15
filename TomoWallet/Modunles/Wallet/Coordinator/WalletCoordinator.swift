@@ -52,7 +52,9 @@ class WalletCoordinator: Coordinator{
         let hud = MBProgressHUD.showAdded(to: navigationController.view, animated: true)
         hud.label.text = "Creating Wallet..."
         let password = PasswordGenerator.generateRandom()
-        self.keystore.createAccount(with: password) { (result) in
+        
+    
+        self.keystore.createAccount(with: password, coin: .ethereum) { (result) in
             switch result{
             case .success(let acount):
                 self.keystore.exportMnemonic(wallet: acount, completion: { (mnemonicResult) in

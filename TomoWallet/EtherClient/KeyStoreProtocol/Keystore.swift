@@ -20,6 +20,8 @@ protocol Keystore: class {
     var recentlyUsedWallet: WalletInfo? { get set }
     @available(iOS 10.0, *)
     // Wallet Manager
+    
+    func createAccount(with password: String, coin: Coin, completion: @escaping(Result<Wallet, KeystoreError>) -> Void)
     func createAccount(with password: String, completion: @escaping(Result<Wallet, KeystoreError>) -> Void)
     func importWallet(type: ImportType, coin: Coin, completion: @escaping (Result<WalletInfo, KeystoreError>) -> Void)
     func importKeystore(value: String, password: String, newPassword: String, coin: Coin, completion: @escaping(Result<WalletInfo,KeystoreError>) -> Void)

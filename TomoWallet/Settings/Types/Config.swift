@@ -55,6 +55,4 @@ struct Config {
     }
 }
 
-extension Coin{
-   
-}
+
