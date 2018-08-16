@@ -79,7 +79,7 @@ enum RPCServer {
     var rpcURL: URL {
         let urlString: String = {
             switch self {
-            case .main: return "https://mainnet.infura.io/llyrtzQ3YhkdESt2Fzrk"
+            case .main: return "https://mainnet.infura.io/v3/a78f819911994678934d1c811f3c4b47"
             case .classic: return "https://web3.gastracker.io"
             case .callisto: return "https://clo-geth.0xinfra.com"
             case .poa: return "https://poa.infura.io"
