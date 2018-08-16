@@ -25,46 +25,78 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TomoWallet/Modunles/Wallet/Coordinator/WalletCoordinator.swift"
-            timestampString = "556021319.932785"
+            filePath = "TomoWallet/Modunles/Tokens/ViewModels/TokensViewModel.swift"
+            timestampString = "556022319.331625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "createInstantWallet()"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "tokensInfo()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/Modunles/Tokens/ViewModels/TokensViewModel.swift"
+            timestampString = "556022319.3316669"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "prices(for:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Result.Result&lt;TrustKeystore.Wallet, TomoWallet.KeystoreError&gt;) -&gt; () in TomoWallet.WalletCoordinator.createInstantWallet() -&gt; ()"
+                  symbolName = "TomoWallet.TokensViewModel.(prices in _CFB21508A3BA2045A5093BF3377366B3)(for: Swift.Array&lt;TomoWallet.TokenObject&gt;) -&gt; ()"
                   moduleName = "TomoWallet"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomochain/SwiftWallet/TomoWallet/Modunles/Wallet/Coordinator/WalletCoordinator.swift"
-                  timestampString = "556021319.953145"
+                  urlString = "file:///Users/tomochain/SwiftWallet/TomoWallet/Modunles/Tokens/ViewModels/TokensViewModel.swift"
+                  timestampString = "556021895.710866"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "97">
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "28">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Result.Result&lt;Swift.Array&lt;Swift.String&gt;, TomoWallet.KeystoreError&gt;) -&gt; () in closure #1 (Result.Result&lt;TrustKeystore.Wallet, TomoWallet.KeystoreError&gt;) -&gt; () in TomoWallet.WalletCoordinator.createInstantWallet() -&gt; ()"
+                  symbolName = "closure #1 (TomoWallet.TokenObject) -&gt; TomoWallet.TokenPrice in TomoWallet.TokensViewModel.(prices in _CFB21508A3BA2045A5093BF3377366B3)(for: Swift.Array&lt;TomoWallet.TokenObject&gt;) -&gt; ()"
                   moduleName = "TomoWallet"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomochain/SwiftWallet/TomoWallet/Modunles/Wallet/Coordinator/WalletCoordinator.swift"
-                  timestampString = "556021319.955148"
+                  urlString = "file:///Users/tomochain/SwiftWallet/TomoWallet/Modunles/Tokens/ViewModels/TokensViewModel.swift"
+                  timestampString = "556021895.712567"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "32">
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "15">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/Modunles/Tokens/ViewModels/TokensViewModel.swift"
+            timestampString = "556022319.331705"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "prices(for:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

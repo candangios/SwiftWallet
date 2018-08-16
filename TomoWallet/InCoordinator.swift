@@ -61,7 +61,6 @@ class InCoordinator: Coordinator {
         
         let tokensCoordinator = TokensCoordinator(keystore: self.keystore, walletSesstion: session, navigationController: self.navigationController)
         tokensCoordinator.start()
-        
         self.childCoordinators.append(tokensCoordinator)
     }
     

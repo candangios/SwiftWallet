@@ -14,6 +14,7 @@ import MBProgressHUD
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var mainCoordinator: MainCoordinator!
 
     let urlNavigatorCoordinator = URLNavigatorCoordinator()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -25,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let realm = try! Realm(configuration: sharedMigration.config)
         let walletStore = WalletStorage(realm: realm)
         let keyStore = EtherKeyStore(storage: walletStore)
-        let mainCoordinator = MainCoordinator(window: window!, keystore: keyStore, navigator: urlNavigatorCoordinator)
+        mainCoordinator = MainCoordinator(window: window!, keystore: keyStore, navigator: urlNavigatorCoordinator)
         mainCoordinator.start()
         return true
     }

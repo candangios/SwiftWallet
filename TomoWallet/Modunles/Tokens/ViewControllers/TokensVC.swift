@@ -31,9 +31,6 @@ class TokensVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.fetch()
-
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

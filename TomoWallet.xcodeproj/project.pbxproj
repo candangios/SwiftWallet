@@ -66,6 +66,7 @@
 		86539546211C2CC000DB2DDE /* WelcomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86539544211C2CC000DB2DDE /* WelcomeVC.xib */; };
 		86539548211C2D5100DB2DDE /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86539547211C2D5100DB2DDE /* WelcomeModel.swift */; };
 		8653954B211C306400DB2DDE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653954A211C306400DB2DDE /* UIColor.swift */; };
+		865AD13C21251C8E00E435E8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AD13B21251C8E00E435E8 /* Error.swift */; };
 		867FA6A32121952F0026D183 /* WalletCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867FA6A22121952F0026D183 /* WalletCoordinator.swift */; };
 		86879FDB2117F4E70099A2CC /* WalletAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86879FDA2117F4E70099A2CC /* WalletAddress.swift */; };
 		86879FDD2117FF7D0099A2CC /* WalletInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86879FDC2117FF7D0099A2CC /* WalletInfo.swift */; };
@@ -76,6 +77,12 @@
 		86879FED211845DD0099A2CC /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86879FEC211845DD0099A2CC /* Address.swift */; };
 		86879FEF211847320099A2CC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86879FEE211847320099A2CC /* Constants.swift */; };
 		86879FF221184BD10099A2CC /* KeystoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86879FF121184BD10099A2CC /* KeystoreError.swift */; };
+		86C0DDB821251E220096CB30 /* ConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0DDB621251E220096CB30 /* ConfirmVC.swift */; };
+		86C0DDB921251E220096CB30 /* ConfirmVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0DDB721251E220096CB30 /* ConfirmVC.xib */; };
+		86C0DDBC21253A410096CB30 /* PassphraseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0DDBA21253A410096CB30 /* PassphraseVC.swift */; };
+		86C0DDBD21253A410096CB30 /* PassphraseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0DDBB21253A410096CB30 /* PassphraseVC.xib */; };
+		86C0DDC021253C2C0096CB30 /* VerifyPassphraseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0DDBE21253C2C0096CB30 /* VerifyPassphraseVC.swift */; };
+		86C0DDC121253C2C0096CB30 /* VerifyPassphraseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0DDBF21253C2C0096CB30 /* VerifyPassphraseVC.xib */; };
 		9F13B2C232B23C6BACBCA1C5 /* Pods_TomoWalletTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3C333584A3328BBEAD4707 /* Pods_TomoWalletTests.framework */; };
 		B8B3192A5CEFFFE37CD81791 /* Pods_TomoWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76282DB80A18BFADD0223FC2 /* Pods_TomoWallet.framework */; };
 /* End PBXBuildFile section */
@@ -167,6 +174,7 @@
 		86539544211C2CC000DB2DDE /* WelcomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeVC.xib; sourceTree = "<group>"; };
 		86539547211C2D5100DB2DDE /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
 		8653954A211C306400DB2DDE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		865AD13B21251C8E00E435E8 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		867FA6A22121952F0026D183 /* WalletCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCoordinator.swift; sourceTree = "<group>"; };
 		86879FDA2117F4E70099A2CC /* WalletAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAddress.swift; sourceTree = "<group>"; };
 		86879FDC2117FF7D0099A2CC /* WalletInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInfo.swift; sourceTree = "<group>"; };
@@ -177,6 +185,12 @@
 		86879FEC211845DD0099A2CC /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		86879FEE211847320099A2CC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		86879FF121184BD10099A2CC /* KeystoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreError.swift; sourceTree = "<group>"; };
+		86C0DDB621251E220096CB30 /* ConfirmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmVC.swift; sourceTree = "<group>"; };
+		86C0DDB721251E220096CB30 /* ConfirmVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmVC.xib; sourceTree = "<group>"; };
+		86C0DDBA21253A410096CB30 /* PassphraseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseVC.swift; sourceTree = "<group>"; };
+		86C0DDBB21253A410096CB30 /* PassphraseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassphraseVC.xib; sourceTree = "<group>"; };
+		86C0DDBE21253C2C0096CB30 /* VerifyPassphraseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPassphraseVC.swift; sourceTree = "<group>"; };
+		86C0DDBF21253C2C0096CB30 /* VerifyPassphraseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifyPassphraseVC.xib; sourceTree = "<group>"; };
 		8C69E34F93D204ED8CBDB39C /* Pods-TomoWalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomoWalletTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TomoWalletTests/Pods-TomoWalletTests.debug.xcconfig"; sourceTree = "<group>"; };
 		90C25A80C737DFB936E2E6B0 /* Pods-TomoWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomoWallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TomoWallet/Pods-TomoWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		CC3C333584A3328BBEAD4707 /* Pods_TomoWalletTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TomoWalletTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -388,6 +402,7 @@
 		8649579021213D8700C98D0B /* Type */ = {
 			isa = PBXGroup;
 			children = (
+				8643B0DA212420C900F46C21 /* CoinViewModel.swift */,
 				8649579121213DA300C98D0B /* WalletEntryPoint.swift */,
 			);
 			path = Type;
@@ -511,7 +526,6 @@
 			isa = PBXGroup;
 			children = (
 				86539535211BE8D800DB2DDE /* WalletCreateViewModel.swift */,
-				8643B0DA212420C900F46C21 /* CoinViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -521,6 +535,12 @@
 			children = (
 				8653952F211BE6D800DB2DDE /* WalletCreatedVC.swift */,
 				86539530211BE6D800DB2DDE /* WalletCreatedVC.xib */,
+				86C0DDB621251E220096CB30 /* ConfirmVC.swift */,
+				86C0DDB721251E220096CB30 /* ConfirmVC.xib */,
+				86C0DDBA21253A410096CB30 /* PassphraseVC.swift */,
+				86C0DDBB21253A410096CB30 /* PassphraseVC.xib */,
+				86C0DDBE21253C2C0096CB30 /* VerifyPassphraseVC.swift */,
+				86C0DDBF21253C2C0096CB30 /* VerifyPassphraseVC.xib */,
 			);
 			path = Viewcontrollers;
 			sourceTree = "<group>";
@@ -632,6 +652,7 @@
 				8649578A2121386600C98D0B /* TrustCore */,
 				8653954A211C306400DB2DDE /* UIColor.swift */,
 				8643B0D32123E17000F46C21 /* Bundel.swift */,
+				865AD13B21251C8E00E435E8 /* Error.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -777,9 +798,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C0DDB921251E220096CB30 /* ConfirmVC.xib in Resources */,
 				86391B80211442EC0045A610 /* LaunchScreen.storyboard in Resources */,
 				86391B7D211442EC0045A610 /* Assets.xcassets in Resources */,
 				86539532211BE6D800DB2DDE /* WalletCreatedVC.xib in Resources */,
+				86C0DDBD21253A410096CB30 /* PassphraseVC.xib in Resources */,
+				86C0DDC121253C2C0096CB30 /* VerifyPassphraseVC.xib in Resources */,
 				86391B7B211442EB0045A610 /* Main.storyboard in Resources */,
 				8643B0BA2123CF6C00F46C21 /* TokensVC.xib in Resources */,
 				86539546211C2CC000DB2DDE /* WelcomeVC.xib in Resources */,
@@ -973,9 +997,11 @@
 				86539531211BE6D800DB2DDE /* WalletCreatedVC.swift in Sources */,
 				8653953A211C268F00DB2DDE /* URLNavigatorCoordinator.swift in Sources */,
 				86495794212166A800C98D0B /* InCoordinator.swift in Sources */,
+				86C0DDBC21253A410096CB30 /* PassphraseVC.swift in Sources */,
 				861B6922211A9583002AB55F /* ImportType.swift in Sources */,
 				86879FF221184BD10099A2CC /* KeystoreError.swift in Sources */,
 				86391B76211442EB0045A610 /* AppDelegate.swift in Sources */,
+				86C0DDC021253C2C0096CB30 /* VerifyPassphraseVC.swift in Sources */,
 				86879FE02117FFDC0099A2CC /* WalletType.swift in Sources */,
 				86539548211C2D5100DB2DDE /* WelcomeModel.swift in Sources */,
 				8643B0CB2123DF6500F46C21 /* Transaction.swift in Sources */,
@@ -983,6 +1009,7 @@
 				8643B0DD212422EA00F46C21 /* EtherNumberFormatter.swift in Sources */,
 				86879FED211845DD0099A2CC /* Address.swift in Sources */,
 				8643B0C32123D1B700F46C21 /* TokensPrice.swift in Sources */,
+				865AD13C21251C8E00E435E8 /* Error.swift in Sources */,
 				8652125A2122EE2E00F79E4D /* MigrationInitializer.swift in Sources */,
 				8643B0D921240BA000F46C21 /* ApiProviderFactory.swift in Sources */,
 				8649579221213DA300C98D0B /* WalletEntryPoint.swift in Sources */,
@@ -995,6 +1022,7 @@
 				8649578C2121387A00C98D0B /* Coin.swift in Sources */,
 				86391AD82117EF19002FAC67 /* Keystore.swift in Sources */,
 				86879FE2211803860099A2CC /* WalletObject.swift in Sources */,
+				86C0DDB821251E220096CB30 /* ConfirmVC.swift in Sources */,
 				8643B0C92123DE4400F46C21 /* ArrayResponse.swift in Sources */,
 				86879FDD2117FF7D0099A2CC /* WalletInfo.swift in Sources */,
 				8643B0C52123D27F00F46C21 /* CoinTicker.swift in Sources */,

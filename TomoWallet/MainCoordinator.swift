@@ -56,25 +56,33 @@ class MainCoordinator:NSObject, Coordinator {
     func showTransactions(for wallet: WalletInfo){
         let inCoordinator = InCoordinator(keystore: self.keystore, navigationController: self.navigationController, wallet: wallet, navigator: navigator.navigator)
         inCoordinator.start()
-        self.childCoordinators.append(inCoordinator)
+        self.addCoordinator(inCoordinator)
     }
     
     func showInitialWalletCoordinator (entryPoint: WalletEntryPoint){
         let initialWalletCoordinator = InitialWalletCoordinator(keystore: self.keystore, navigationController: self.navigationController, entryPoint: entryPoint)
         initialWalletCoordinator.start()
-        self.childCoordinators.append(initialWalletCoordinator)
+        self.addCoordinator(initialWalletCoordinator)
     }
 }
 
 extension MainCoordinator: WelcomeVC_Delegate{
-    // Created first main wallet.
     func didPressCreateWallet(in viewController: WelcomeVC) {
         showInitialWalletCoordinator(entryPoint: .createInstantWallet)
-
     }
-    // Import wallet.
     func didPressImportWallet(in viewController: WelcomeVC) {
       
+    }
+}
+
+extension MainCoordinator: WalletCoordinator_Delegate{
+    func didFinish(with account: WalletInfo, in coordinator: WalletCoordinator) {
+        self.removeCoordinator(coordinator)
+        
+    }
+    
+    func didCancel(in coordinator: WalletCoordinator) {
+        self.removeCoordinator(coordinator)
     }
     
     

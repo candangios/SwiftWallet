@@ -8,6 +8,8 @@
 
 import UIKit
 
+import MBProgressHUD
+
 class NavigationController: UINavigationController {
     let _isHiddenNavigationBar: Bool
     init(isHiddenNavigationBar: Bool) {
@@ -23,12 +25,26 @@ class NavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    }
+    
+    func displayLoading(text: String, animated: Bool)  {
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: animated)
+        hud.label.text = "Creating Wallet..."
+    }
+    func hideLoading(animated: Bool)  {
+        MBProgressHUD.hide(for: self.view, animated: animated)
+    }
+    
+    func displayError(error: Error) {
+        let alertController = UIAlertController(title: error.prettyError, message: "", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.popoverPresentationController?.sourceView = self.view
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
     
 

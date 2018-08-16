@@ -9,9 +9,17 @@
 import Foundation
 import UIKit
 
+
+protocol InitialWalletCoordinator_Delegate: class {
+    func didCancel(in coordinator: InitialWalletCoordinator)
+    func didAddAccount(_ account: WalletInfo, in coordinator: InitialWalletCoordinator)
+}
+
 class InitialWalletCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: NavigationController
+    
+    weak var delegate: InitialWalletCoordinator_Delegate?
     
     let keystore: Keystore
     let entryPoint: WalletEntryPoint
@@ -33,11 +41,21 @@ class InitialWalletCoordinator: Coordinator {
         }
     }
     func createInstanWallet() {
-        
         let walletCoordinator = WalletCoordinator(keystore: self.keystore, navigationController: self.navigationController, entryPoint: entryPoint)
+        walletCoordinator.delegate = self
         walletCoordinator.start()
-        self.childCoordinators.append(walletCoordinator)
-
+        self.addCoordinator(walletCoordinator)
+    }
+}
+extension InitialWalletCoordinator: WalletCoordinator_Delegate{
+    func didFinish(with account: WalletInfo, in coordinator: WalletCoordinator) {
+        self.delegate?.didAddAccount(account, in: self)
+        self.removeCoordinator(coordinator)
+    }
+    
+    func didCancel(in coordinator: WalletCoordinator) {
+        self.delegate?.didCancel(in: self)
+        self.removeCoordinator(coordinator)
     }
     
     

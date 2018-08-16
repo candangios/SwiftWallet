@@ -10,7 +10,7 @@ import Foundation
 struct Constants {
     
     // used KeyEtherStore
-    public static let keychainKeyPrefix = "trustwallet"
+    public static let keychainKeyPrefix = "tomowallet"
     
     
  

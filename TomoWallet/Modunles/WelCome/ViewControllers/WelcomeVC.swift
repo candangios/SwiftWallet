@@ -15,7 +15,7 @@ protocol WelcomeVC_Delegate: class {
 }
 
 class WelcomeVC: UIViewController {
-    var delegate : WelcomeVC_Delegate?
+    weak var delegate : WelcomeVC_Delegate?
     override func viewDidLoad() {
         super.viewDidLoad()
 

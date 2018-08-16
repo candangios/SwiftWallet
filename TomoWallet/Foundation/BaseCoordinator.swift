@@ -7,9 +7,22 @@
 //
 import UIKit
 
-protocol Coordinator {
+protocol Coordinator: class {
     var childCoordinators: [Coordinator] { get set }
     var navigationController: NavigationController { get set }
     
     func start()
+}
+extension Coordinator {
+    func addCoordinator(_ coordinator: Coordinator) {
+        childCoordinators.append(coordinator)
+    }
+    
+    func removeCoordinator(_ coordinator: Coordinator) {
+        childCoordinators = childCoordinators.filter { $0 !== coordinator }
+    }
+    
+    func removeAllCoordinators() {
+        childCoordinators.removeAll()
+    }
 }

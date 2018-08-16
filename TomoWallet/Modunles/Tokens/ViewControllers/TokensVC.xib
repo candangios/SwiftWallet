@@ -20,24 +20,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vum-zo-3V3">
-                    <rect key="frame" x="0.0" y="347" width="375" height="320"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJ4-6H-Ccb">
-                    <rect key="frame" x="153" y="197" width="69" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="testDelegate:" destination="-1" eventType="touchUpInside" id="Mtz-F8-8pQ"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="vum-zo-3V3" secondAttribute="bottom" id="97I-bF-rSe"/>
-                <constraint firstItem="vum-zo-3V3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9jY-r3-eCz"/>
-                <constraint firstAttribute="trailing" secondItem="vum-zo-3V3" secondAttribute="trailing" id="rsV-1Z-1xM"/>
-                <constraint firstItem="vum-zo-3V3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="347" id="zGd-n4-XbS"/>
+                <constraint firstItem="vum-zo-3V3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4Hw-b7-P1g"/>
+                <constraint firstAttribute="trailing" secondItem="vum-zo-3V3" secondAttribute="trailing" id="A4w-Aw-8RA"/>
+                <constraint firstItem="vum-zo-3V3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aqA-0b-z9w"/>
+                <constraint firstAttribute="bottom" secondItem="vum-zo-3V3" secondAttribute="bottom" id="xXJ-PS-stg"/>
             </constraints>
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>

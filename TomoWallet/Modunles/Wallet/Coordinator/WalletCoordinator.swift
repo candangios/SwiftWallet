@@ -7,14 +7,17 @@
 //
 
 import Foundation
-import MBProgressHUD
+import TrustCore
+import TrustKeystore
+import UIKit
+
 protocol WalletCoordinator_Delegate: class {
     
+    func didFinish(with account: WalletInfo, in coordinator: WalletCoordinator)
+    func didCancel(in coordinator: WalletCoordinator)
 }
 
 class WalletCoordinator: Coordinator{
-
-    
     var childCoordinators: [Coordinator] = []
     var navigationController: NavigationController
     weak var delegate: WalletCoordinator_Delegate?
@@ -49,32 +52,43 @@ class WalletCoordinator: Coordinator{
         }
     }
     func createInstantWallet() {
-        let hud = MBProgressHUD.showAdded(to: navigationController.view, animated: true)
-        hud.label.text = "Creating Wallet..."
+        self.navigationController.displayLoading(text: "Creating Wallet...", animated: true)
         let password = PasswordGenerator.generateRandom()
-        
-    
         self.keystore.createAccount(with: password, coin: .ethereum) { (result) in
             switch result{
-            case .success(let acount):
-                self.keystore.exportMnemonic(wallet: acount, completion: { (mnemonicResult) in
-                    DispatchQueue.main.async {
-                        MBProgressHUD.hide(for: self.navigationController.view, animated: true)
-                    }
+            case .success(let wallet):
+                self.keystore.exportMnemonic(wallet: wallet, completion: { (mnemonicResult) in
+                   self.navigationController.hideLoading(animated: true)
                     switch mnemonicResult{
                     case .success(let words):
-                        print(words)
-                        break
+                        self.pushBackup(for: wallet, words: words)
+                       
                     case .failure(let error):
-                        print(error)
-                        break
+                        self.navigationController.displayError(error: error)
                     }
                 })
             case .failure(let error):
-                print(error)
-                break
+                self.navigationController.displayError(error: error)
             }
         }
+    }
+    
+    func pushBackup(for wallet: Wallet, words: [String]) {
+        let controller = ConfirmVC(account: wallet, words: words, mode: .showAndVerify)
+        controller.delegate = self
+       
+        navigationController.pushViewController(controller, animated: true)
+    }
+}
+
+extension WalletCoordinator: PassphraseVC_Delegate{
+    func didPressVerify(in controller: ConfirmVC, with account: Wallet, words: [String]) {
+       
+//        self.delegate?.didFinish(with: account., in: self)
+    }
+    
+    func didSkip(in controller: ConfirmVC, with account: Wallet) {
+        self.delegate?.didCancel(in: self)
     }
     
     
