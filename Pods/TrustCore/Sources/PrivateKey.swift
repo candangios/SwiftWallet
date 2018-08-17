@@ -70,9 +70,11 @@ public final class PrivateKey: Hashable, CustomStringConvertible {
              .poa,
              .ethereumClassic,
              .callisto,
-             .gochain:
+             .gochain,
+             .rinkeby:
             return EthereumPublicKey(data: Crypto.getPublicKey(from: data))!
         }
+      
     }
 
     public var description: String {

@@ -58,11 +58,13 @@ extension Coin {
         case .bitcoin:
             return DerivationPath(purpose: 44, coinType: self.rawValue, account: 0, change: 0, address: index)
         case .ethereum,
-             .poa,
              .ethereumClassic,
+             .poa,
              .callisto,
-             .gochain:
+             .gochain,
+             .rinkeby:
             return DerivationPath(purpose: 44, coinType: self.rawValue, account: 0, change: 0, address: index)
         }
+      
     }
 }
