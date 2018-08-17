@@ -47,7 +47,6 @@ class InCoordinator: Coordinator {
         
         let migration = MigrationInitializer(account: account)
    
-        
         let sharedMigration = SharedMigrationInitializer()
         let realm = try? Realm(configuration: migration.config)
         let sharedRealm = try? Realm(configuration: sharedMigration.config)

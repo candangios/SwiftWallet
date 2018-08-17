@@ -54,6 +54,7 @@ class MainCoordinator:NSObject, Coordinator {
     }
     
     func showTransactions(for wallet: WalletInfo){
+        self.navigationController.setNavigationBarHidden(false, animated: true)
         let inCoordinator = InCoordinator(keystore: self.keystore, navigationController: self.navigationController, wallet: wallet, navigator: navigator.navigator)
         inCoordinator.start()
         self.addCoordinator(inCoordinator)

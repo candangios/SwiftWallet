@@ -14,6 +14,14 @@ protocol PassphraseVC_Delegate: class{
 }
 
 
+
+enum WalletInfoField {
+    case name(String)
+    case backup(Bool)
+    case mainWallet(Bool)
+    case balance(String)
+}
+
 enum PassphraseMode {
     case showOnly
     case showAndVerify

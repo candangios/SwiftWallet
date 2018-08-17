@@ -14,7 +14,7 @@ import RealmSwift
 import TrustCore
 import PromiseKit
 import TrustKeystore
-protocol TokenViewModel_Delegate {
+protocol TokenViewModel_Delegate: class {
     func refresh()
 }
 
@@ -27,6 +27,8 @@ final class TokensViewModel: NSObject{
     var tokensObserver: NotificationToken?
     let transactionStore: TransactionsStorage
     let session: WalletSession
+    
+    weak var delegate: TokenViewModel_Delegate?
     init(
         session: WalletSession,
         config: Config = Config(),
@@ -40,14 +42,21 @@ final class TokensViewModel: NSObject{
         self.tokensNetwork = tokensNetwork
         self.tokens = store.tokens
         self.transactionStore = transactionStore
+        print(self.session.currentRPC)
         super.init()
     }
     // public Function
     func fetch() {
-        
-        print(tokens.count)
         self.tokensInfo()
-
+    }
+    func cellViewModel(for path: IndexPath) -> TokenViewCellViewModel {
+        let token = tokens[path.row]
+        
+        return TokenViewCellViewModel(
+            viewModel: TokenObjectViewModel(token: token),
+            ticker: store.coinTicker(by: token.address),
+            store: transactionStore
+        )
     }
     
     // private func
@@ -72,16 +81,17 @@ final class TokensViewModel: NSObject{
         firstly {
             tokensNetwork.tickers(with: prices)
             }.done { [weak self] tickers in
-                guard let strongSelf = self else { return }
-//                strongSelf.store.saveTickers(tickers: tickers)
+                print(tickers)
+                self?.store.update(tokens: tokens, action: .updateInfo)
+             
             }.catch { error in
                 NSLog("prices \(error)")
             }.finally { [weak self] in
                 guard let strongSelf = self else { return }
-//                strongSelf.balances(for: tokens)
+                strongSelf.balances(for: tokens)
         }
     }
-//    private func balances(for tokens: [TokenObject]) {
+    private func balances(for tokens: [TokenObject]) {
 //        let balances: [BalanceNetworkProvider] = tokens.compactMap {
 //            return TokenViewModel.balance(for: $0, wallet: session.account)
 //        }
@@ -97,8 +107,8 @@ final class TokensViewModel: NSObject{
 //                self?.delegate?.refresh()
 //            }
 //        }
-//
+
 //        operationQueue.addOperations(balancesOperations, waitUntilFinished: false)
-//    }
+    }
 
 }

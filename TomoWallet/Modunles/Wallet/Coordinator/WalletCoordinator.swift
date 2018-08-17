@@ -61,8 +61,8 @@ class WalletCoordinator: Coordinator{
                    self.navigationController.hideLoading(animated: true)
                     switch mnemonicResult{
                     case .success(let words):
+                        self.markAsMainWallet(for: wallet)
                         self.pushBackup(for: wallet, words: words)
-                       
                     case .failure(let error):
                         self.navigationController.displayError(error: error)
                     }
@@ -78,6 +78,21 @@ class WalletCoordinator: Coordinator{
         controller.delegate = self
        
         navigationController.pushViewController(controller, animated: true)
+    }
+    
+    
+    private func markAsMainWallet(for account: Wallet) {
+        let type = WalletType.hd(account)
+        let wallet = WalletInfo(type: type, info: keystore.storage.get(for: type))
+        markAsMainWallet(for: wallet)
+    }
+    
+    private func markAsMainWallet(for wallet: WalletInfo) {
+        let initialName = "MainWallet"
+        keystore.store(object: wallet.info, fields: [
+            .name(initialName),
+            .mainWallet(true),
+        ])
     }
 }
 

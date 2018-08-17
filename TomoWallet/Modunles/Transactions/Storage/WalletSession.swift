@@ -17,7 +17,6 @@ final class WalletSession {
     var sessionID: String {
         return "\(account.description))"
     }
-    
     lazy var walletStorage: WalletStorage = {
         return WalletStorage(realm: sharedRealm)
     }()

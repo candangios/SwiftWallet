@@ -47,5 +47,6 @@ protocol Keystore: class {
 //    func store(object: WalletObject, fields: [WalletInfoField])
 //    func update(wallet: Wallet) -> Result<Void, KeystoreError>
  
+    func store(object: WalletObject, fields: [WalletInfoField])
     
 }

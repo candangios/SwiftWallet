@@ -77,6 +77,8 @@ class TokensDataStore {
     func getToken(for address: Address) -> TokenObject? {
         return realm.object(ofType: TokenObject.self, forPrimaryKey: address.description)
     }
+    
+    
     private func nativeCoin() -> [TokenObject] {
         return account.accounts.compactMap { ac in
             let coin = ac.coin

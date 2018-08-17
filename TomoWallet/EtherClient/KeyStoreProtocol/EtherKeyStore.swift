@@ -13,7 +13,7 @@ import TrustKeystore
 import TrustCore
 import UIKit
 class EtherKeyStore: Keystore {
-    struct keys {
+    struct Keys {
         static let recentlyUsedAddress: String = "recentlyUsedAddress"
         static let recentlyUsedWallet: String = "recentlyUsedWallet"
     }
@@ -65,7 +65,23 @@ class EtherKeyStore: Keystore {
             ].flatMap { $0 }.sorted(by: { $0.info.createdAt < $1.info.createdAt })
     }
     
-    var recentlyUsedWallet: WalletInfo?
+    var recentlyUsedWallet: WalletInfo?{
+        set {
+            keychain.set(newValue?.description ?? "", forKey: Keys.recentlyUsedWallet, withAccess: defaultKeychainAccess)
+        }
+        get {
+            let walletKey = keychain.get(Keys.recentlyUsedWallet)
+            let foundWallet = wallets.filter { $0.description == walletKey }.first
+            guard let wallet = foundWallet else {
+                // Old way to match recently selected address
+                let address = keychain.get(Keys.recentlyUsedAddress)
+                return wallets.filter {
+                    $0.address.description == address || $0.description.lowercased() == address?.lowercased()
+                    }.first
+            }
+            return wallet
+        }
+    }
     
     func createAccout(password: String) -> Wallet {
         let derivationPaths = Config.current.servers.map { $0.derivationPath(at: 0) }
@@ -350,6 +366,25 @@ class EtherKeyStore: Keystore {
         }
         try? keyStore.update(wallet: wallet, password: password, newPassword: password)
         return .success(())
+    }
+    
+    
+    func store(object: WalletObject, fields: [WalletInfoField]) {
+        try? storage.realm.write {
+            for field in fields {
+                switch field {
+                case .name(let name):
+                    object.name = name
+                case .backup(let completedBackup):
+                    object.completedBackup = completedBackup
+                case .mainWallet(let mainWallet):
+                    object.mainWallet = mainWallet
+                case .balance(let balance):
+                    object.balance = balance
+                }
+            }
+            storage.realm.add(object, update: true)
+        }
     }
  
 }

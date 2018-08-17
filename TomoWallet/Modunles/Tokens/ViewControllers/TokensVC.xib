@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TokensVC" customModule="TomoWallet" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="vum-zo-3V3" id="ngr-LS-2Y3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

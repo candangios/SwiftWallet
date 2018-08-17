@@ -118,7 +118,6 @@ enum RPCServer {
             case .callisto: return "https://callisto.trustwalletapp.com"
             case .poa: return "https://poa.trustwalletapp.com"
             case .gochain: return "https://gochain.trustwalletapp.com"
-                
             case .rinkebyTestnet:
                 return "https://api.trustwalletapp.com"
             }

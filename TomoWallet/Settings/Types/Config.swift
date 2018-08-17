@@ -51,6 +51,7 @@ struct Config {
             Coin.poa,
             Coin.callisto,
             Coin.gochain,
+            Coin.rinkeby,
         ]
     }
 }
