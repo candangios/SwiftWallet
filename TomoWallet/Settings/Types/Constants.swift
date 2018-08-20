@@ -23,6 +23,6 @@ struct Constants {
     public static let dappsRinkebyOpenSea = "https://rinkeby.opensea.io"
     public static let images = "https://trustwalletapp.com/images"
     
-    public static let TomoAPI  = URL(string: "http://45.117.82.104:8000")!
+    public static let TomoAPI  = URL(string: "http://45.117.82.104:8003")!
     
 }

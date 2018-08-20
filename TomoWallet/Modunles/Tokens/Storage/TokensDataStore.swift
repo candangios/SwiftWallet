@@ -106,7 +106,24 @@ class TokensDataStore {
         }
     }
     
-    
+    //Background update of the Realm model.
+    // update Balance from infura
+    func update(balance: BigInt, for address: Address) {
+        if let token = getToken(for: address) {
+            let tokenBalance = getBalance(for: token.address, with: balance, and: token.decimals)
+            self.realm.writeAsync(obj: token) { (realm, _ ) in
+                let update = self.objectToUpdate(for: (address, balance), tokenBalance: tokenBalance)
+                realm.create(TokenObject.self, value: update, update: true)
+            }
+        }
+    }
+    private func objectToUpdate(for balance: (key: Address, value: BigInt), tokenBalance: Double) -> [String: Any] {
+        return [
+            "contract": balance.key.description,
+            "value": balance.value.description,
+            "balance": tokenBalance,
+        ]
+    }
     
     // update refesh from serverApi
     func update(tokens: [TokenObject], action: TokenAction) {
@@ -127,6 +144,14 @@ class TokensDataStore {
                     realm.create(TokenObject.self, value: update, update: true)
                 }
             }
+        }
+    }
+    func saveTickers(tickers: [CoinTicker]) {
+        guard !tickers.isEmpty else {
+            return
+        }
+        try? realm.write {
+            realm.add(tickers, update: true)
         }
     }
     

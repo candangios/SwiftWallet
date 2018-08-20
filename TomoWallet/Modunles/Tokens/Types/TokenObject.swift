@@ -113,9 +113,9 @@ final class TokenObject: Object, Decodable {
         return BigInt(value) ?? BigInt()
     }
     
-//    var valueBalance: Balance {
-//        return Balance(value: valueBigInt)
-//    }
+    var valueBalance: Balance {
+        return Balance(value: valueBigInt)
+    }
 
     override static func primaryKey() -> String? {
         return "contract"

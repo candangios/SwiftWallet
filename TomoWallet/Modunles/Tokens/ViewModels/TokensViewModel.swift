@@ -42,7 +42,6 @@ final class TokensViewModel: NSObject{
         self.tokensNetwork = tokensNetwork
         self.tokens = store.tokens
         self.transactionStore = transactionStore
-        print(self.session.currentRPC)
         super.init()
     }
     // public Function
@@ -67,7 +66,8 @@ final class TokensViewModel: NSObject{
         firstly {
             tokensNetwork.tokensList()
         }.done { [weak self] tokens in
-            self?.store.update(tokens: tokens, action: .updateInfo)
+            guard let strongSelf = self else { return }
+            strongSelf.store.update(tokens: tokens, action: .updateInfo)
         }.catch { error in
             print("tokensInfo \(error)")
         }.finally { [weak self] in
@@ -82,33 +82,54 @@ final class TokensViewModel: NSObject{
             tokensNetwork.tickers(with: prices)
             }.done { [weak self] tickers in
                 print(tickers)
-                self?.store.update(tokens: tokens, action: .updateInfo)
-             
+                guard let strongSelf = self else { return }
+                strongSelf.store.saveTickers(tickers: tickers)
             }.catch { error in
                 NSLog("prices \(error)")
             }.finally { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.balances(for: tokens)
+             
         }
     }
     private func balances(for tokens: [TokenObject]) {
-//        let balances: [BalanceNetworkProvider] = tokens.compactMap {
+        let account = session.account
+        let balances: [BalanceNetworkProvider] = tokens.compactMap {
+            let token = $0
+            switch token.type{
+            case .coin:
+                return CoinNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, addressUpdate: token.address)
+            case.ERC20:
+                return TokenNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, contract: token.address, addressUpdate: token.address)
+
+            }
+            
 //            return TokenViewModel.balance(for: $0, wallet: session.account)
-//        }
-//        let operationQueue: OperationQueue = OperationQueue()
-//        operationQueue.qualityOfService = .background
-//
-//        let balancesOperations = Array(balances.lazy.map {
-//            TokenBalanceOperation(balanceProvider: $0, store: self.store)
-//        })
-//
-//        operationQueue.operations.onFinish { [weak self] in
-//            DispatchQueue.main.async {
-//                self?.delegate?.refresh()
-//            }
-//        }
+        }
+        let operationQueue: OperationQueue = OperationQueue()
+        operationQueue.qualityOfService = .background
 
-//        operationQueue.addOperations(balancesOperations, waitUntilFinished: false)
+        let balancesOperations = Array(balances.lazy.map {
+            TokenBalanceOperation(balanceProvider: $0, store: self.store)
+        })
+
+        operationQueue.operations.onFinish { [weak self] in
+            DispatchQueue.main.async {
+                self?.delegate?.refresh()
+            }
+        }
+
+        operationQueue.addOperations(balancesOperations, waitUntilFinished: false)
     }
-
+}
+extension Array where Element: Operation {
+    /// Execute block after all operations from the array.
+    func onFinish(block: @escaping () -> Void) {
+        let doneOperation = BlockOperation(block: block)
+        self.forEach { [unowned doneOperation] in
+            doneOperation.addDependency($0)
+            
+        }
+        OperationQueue().addOperation(doneOperation)
+    }
 }
