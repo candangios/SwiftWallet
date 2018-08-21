@@ -14,6 +14,8 @@ import BigInt
 import APIKit
 import JSONRPCKit
 
+import Alamofire
+
 final class TokenNetworkProvider: BalanceNetworkProvider {
     
     let server: RPCServer

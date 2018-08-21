@@ -31,6 +31,11 @@
 		86391B8B211442EC0045A610 /* TomoWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391B8A211442EC0045A610 /* TomoWalletTests.swift */; };
 		86391B96211442EC0045A610 /* TomoWalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391B95211442EC0045A610 /* TomoWalletUITests.swift */; };
 		86391BA521145F700045A610 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391BA421145F700045A610 /* MainCoordinator.swift */; };
+		8643624F212BBFE6002D7D3E /* CookiesStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643624E212BBFE6002D7D3E /* CookiesStoreError.swift */; };
+		86436251212BC635002D7D3E /* RPCApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86436250212BC635002D7D3E /* RPCApi.swift */; };
+		86436256212C238A002D7D3E /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86436254212C238A002D7D3E /* TransactionsViewController.swift */; };
+		86436257212C238A002D7D3E /* TransactionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86436255212C238A002D7D3E /* TransactionsViewController.xib */; };
+		86436259212C23A9002D7D3E /* TransactionsViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86436258212C23A9002D7D3E /* TransactionsViewmodel.swift */; };
 		8643B0B92123CF6C00F46C21 /* TokensVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643B0B72123CF6C00F46C21 /* TokensVC.swift */; };
 		8643B0BA2123CF6C00F46C21 /* TokensVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8643B0B82123CF6C00F46C21 /* TokensVC.xib */; };
 		8643B0BD2123CFF200F46C21 /* TokensViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643B0BC2123CFF200F46C21 /* TokensViewModel.swift */; };
@@ -160,6 +165,11 @@
 		86391B95211442EC0045A610 /* TomoWalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomoWalletUITests.swift; sourceTree = "<group>"; };
 		86391B97211442EC0045A610 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86391BA421145F700045A610 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		8643624E212BBFE6002D7D3E /* CookiesStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesStoreError.swift; sourceTree = "<group>"; };
+		86436250212BC635002D7D3E /* RPCApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCApi.swift; sourceTree = "<group>"; };
+		86436254212C238A002D7D3E /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		86436255212C238A002D7D3E /* TransactionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionsViewController.xib; sourceTree = "<group>"; };
+		86436258212C23A9002D7D3E /* TransactionsViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewmodel.swift; sourceTree = "<group>"; };
 		8643B0B72123CF6C00F46C21 /* TokensVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensVC.swift; sourceTree = "<group>"; };
 		8643B0B82123CF6C00F46C21 /* TokensVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TokensVC.xib; sourceTree = "<group>"; };
 		8643B0BC2123CFF200F46C21 /* TokensViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensViewModel.swift; sourceTree = "<group>"; };
@@ -362,7 +372,6 @@
 				8653952C211BE1A300DB2DDE /* UI */,
 				86539529211BE02200DB2DDE /* Foundation */,
 				86879FEB211845B70099A2CC /* Extentions */,
-				86879FE7211841130099A2CC /* Settings */,
 				86391AD52117EEB6002FAC67 /* EtherClient */,
 				86391BA321144AF60045A610 /* Wallet */,
 				86391B75211442EB0045A610 /* AppDelegate.swift */,
@@ -402,6 +411,23 @@
 				86879FD82117F4620099A2CC /* Wallet */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		86436252212C2327002D7D3E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				86436254212C238A002D7D3E /* TransactionsViewController.swift */,
+				86436255212C238A002D7D3E /* TransactionsViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		86436253212C2347002D7D3E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				86436258212C23A9002D7D3E /* TransactionsViewmodel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8643B0BB2123CFA800F46C21 /* ViewModels */ = {
@@ -491,6 +517,8 @@
 		86521205212275AB00F79E4D /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
+				86436253212C2347002D7D3E /* ViewModels */,
+				86436252212C2327002D7D3E /* ViewControllers */,
 				8643B0D721240B6000F46C21 /* Coordinators */,
 				8643B0CC2123DFB400F46C21 /* Types */,
 				86521206212275E500F79E4D /* Storage */,
@@ -633,6 +661,7 @@
 		86539537211C263F00DB2DDE /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				86879FE7211841130099A2CC /* Settings */,
 				861024052126DA8F00A831BE /* Formatters */,
 				8643B0BE2123D09400F46C21 /* NetworkAPI */,
 				865212562122EDB500F79E4D /* Realm */,
@@ -702,6 +731,7 @@
 				86591368212A795900440972 /* Transactions */,
 				86591367212A794900440972 /* Balance */,
 				86591371212AA8A800440972 /* CastError.swift */,
+				8643624E212BBFE6002D7D3E /* CookiesStoreError.swift */,
 			);
 			path = RPCNetwork;
 			sourceTree = "<group>";
@@ -711,6 +741,7 @@
 			children = (
 				86591369212A79B600440972 /* CoinNetworkProvider.swift */,
 				8659137C212AB1DC00440972 /* TokenNetworkProvider.swift */,
+				86436250212BC635002D7D3E /* RPCApi.swift */,
 			);
 			path = Balance;
 			sourceTree = "<group>";
@@ -960,6 +991,7 @@
 				8643B0BA2123CF6C00F46C21 /* TokensVC.xib in Resources */,
 				86539546211C2CC000DB2DDE /* WelcomeVC.xib in Resources */,
 				861023F5212676A200A831BE /* TokensHeaderView.xib in Resources */,
+				86436257212C238A002D7D3E /* TransactionsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1133,12 +1165,15 @@
 				8652125C2122EEAC00F79E4D /* RealmConfiguration.swift in Sources */,
 				8659137D212AB1DC00440972 /* TokenNetworkProvider.swift in Sources */,
 				861023FF2126822300A831BE /* TokenViewCellViewModel.swift in Sources */,
+				86436259212C23A9002D7D3E /* TransactionsViewmodel.swift in Sources */,
+				8643624F212BBFE6002D7D3E /* CookiesStoreError.swift in Sources */,
 				8643B0CE2123DFBF00F46C21 /* TransactionState.swift in Sources */,
 				8652121921227D8100F79E4D /* TokenObject.swift in Sources */,
 				8643B0DB212420C900F46C21 /* CoinViewModel.swift in Sources */,
 				8643B0D02123E00100F46C21 /* LocalizedOperationObject.swift in Sources */,
 				8653954B211C306400DB2DDE /* UIColor.swift in Sources */,
 				8619C15E211946F000C90F72 /* WalletStorage.swift in Sources */,
+				86436251212BC635002D7D3E /* RPCApi.swift in Sources */,
 				8619C15B21193E9100C90F72 /* EtherKeyStore.swift in Sources */,
 				861024072126DAB400A831BE /* ImageURLFormatter.swift in Sources */,
 				86879FEA2118413D0099A2CC /* RPCServer.swift in Sources */,
@@ -1205,6 +1240,7 @@
 				865212082122761500F79E4D /* WalletSession.swift in Sources */,
 				86102404212682E400A831BE /* TokenObjectViewModel.swift in Sources */,
 				8653952B211BE04E00DB2DDE /* BaseCoordinator.swift in Sources */,
+				86436256212C238A002D7D3E /* TransactionsViewController.swift in Sources */,
 				8652121B21227FBD00F79E4D /* TransactionsStorage.swift in Sources */,
 				8649578E21213C9700C98D0B /* InitialWalletCoordinator.swift in Sources */,
 				867FA6A32121952F0026D183 /* WalletCoordinator.swift in Sources */,

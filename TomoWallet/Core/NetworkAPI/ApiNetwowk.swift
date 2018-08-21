@@ -23,9 +23,8 @@ enum TrustNetworkProtocolError: LocalizedError {
 }
 
 protocol NetworkProtocol {
-//    func collectibles() -> Promise<[CollectibleTokenCategory]>
     func tickers(with tokenPrices: [TokenPrice]) -> Promise<[CoinTicker]>
-    
+
     func tokensList() -> Promise<[TokenObject]>
     func transactions(for address: Address, on server: RPCServer, startBlock: Int, page: Int, contract: String?, completion: @escaping (_ result: ([Transaction]?, Bool)) -> Void)
     func search(query: String) -> Promise<[TokenObject]>

@@ -16,9 +16,12 @@ protocol BalanceProtocol {
 }
 struct Balance: BalanceProtocol {
     let value: BigInt
+    let result: String
+
     
     init(value: BigInt) {
         self.value = value
+        result = ""
     }
     
     var isZero: Bool {
@@ -32,5 +35,26 @@ struct Balance: BalanceProtocol {
     var amountFull: String {
         return EtherNumberFormatter.full.string(from: value)
     }
+    
+    enum keys: String, CodingKey {
+        case result
+    }
+    
+  
+
 }
+extension Balance: Decodable{
+    
+    init(from decoder: Decoder) throws {
+
+        let values = try decoder.container(keyedBy: keys.self)
+        
+        
+        result = try values.decode(String.self, forKey: .result)
+        self.value = try BigInt(from: decoder)
+        
+      
+    }
+}
+
 

@@ -28,6 +28,11 @@ final class TokensViewModel: NSObject{
     let transactionStore: TransactionsStorage
     let session: WalletSession
     
+    lazy var network: NetworkProtocol = {
+        return ApiNetwork(provider: ApiProviderFactory.makeProvider(), wallet: session.account)
+    }()
+
+    
     weak var delegate: TokenViewModel_Delegate?
     init(
         session: WalletSession,
@@ -98,12 +103,12 @@ final class TokensViewModel: NSObject{
             let token = $0
             switch token.type{
             case .coin:
-                return CoinNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, addressUpdate: token.address)
+                return CoinNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, addressUpdate: token.address, provider: ApiProviderFactory.makeBalanceProvider())
+//                return CoinNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, addressUpdate: token.address)
             case.ERC20:
                 return TokenNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, contract: token.address, addressUpdate: token.address)
 
             }
-            
 //            return TokenViewModel.balance(for: $0, wallet: session.account)
         }
         let operationQueue: OperationQueue = OperationQueue()

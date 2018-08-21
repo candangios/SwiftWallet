@@ -22,4 +22,11 @@ struct ApiProviderFactory {
         )
         return MoyaProvider<API>(manager: manager)
     }
+    static func makeBalanceProvider() -> MoyaProvider<RPCApi> {
+        let manager = Manager(
+            configuration: URLSessionConfiguration.default,
+            serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies)
+        )
+        return MoyaProvider<RPCApi>(manager: manager)
+    }
 }
