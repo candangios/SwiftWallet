@@ -122,7 +122,6 @@ final class TokensViewModel: NSObject{
                 self?.delegate?.refresh()
             }
         }
-
         operationQueue.addOperations(balancesOperations, waitUntilFinished: false)
     }
 }

@@ -10,12 +10,7 @@ import Foundation
 import TrustCore
 import PromiseKit
 import BigInt
-import APIKit
-import JSONRPCKit
-
 import Moya
-
-
 
 protocol BalanceNetworkProvider {
     var addressUpdate: EthereumAddress { get }
@@ -45,9 +40,12 @@ final class CoinNetworkProvider: BalanceNetworkProvider {
                 switch result {
                 case .success(let response):
                     do {
-                        let balance = try response.map(Balance.self)
+                        let balanceDecodable = try response.map(BalanceDecodable.self)
+                        guard let value = BigInt(balanceDecodable.result.drop0x, radix: 16) else{
+                            return seal.reject(CookiesStoreError.empty)
+                        }
+                        let balance = Balance(value: value)
                         seal.fulfill(balance.value)
-             
                     } catch {
                         seal.reject(error)
                     }

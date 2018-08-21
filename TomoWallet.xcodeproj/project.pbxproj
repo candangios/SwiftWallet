@@ -82,15 +82,12 @@
 		86591362212A72FC00440972 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86591361212A72FC00440972 /* Balance.swift */; };
 		86591365212A760300440972 /* TokensBalanceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86591364212A760300440972 /* TokensBalanceOperation.swift */; };
 		8659136A212A79B600440972 /* CoinNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86591369212A79B600440972 /* CoinNetworkProvider.swift */; };
-		8659136D212A7BF200440972 /* RPCServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8659136C212A7BF200440972 /* RPCServiceRequest.swift */; };
-		86591370212AA27100440972 /* BalanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8659136F212AA27100440972 /* BalanceRequest.swift */; };
 		86591372212AA8A800440972 /* CastError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86591371212AA8A800440972 /* CastError.swift */; };
 		86591374212AA8C600440972 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86591373212AA8C600440972 /* String.swift */; };
 		86591376212AAA5500440972 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86591375212AAA5500440972 /* BaseOperation.swift */; };
 		86591378212AAB1000440972 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86591377212AAB1000440972 /* Realm.swift */; };
 		8659137B212AAF3E00440972 /* TokenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8659137A212AAF3E00440972 /* TokenViewModel.swift */; };
 		8659137D212AB1DC00440972 /* TokenNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8659137C212AB1DC00440972 /* TokenNetworkProvider.swift */; };
-		8659137F212AB3A100440972 /* CallRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8659137E212AB3A100440972 /* CallRequest.swift */; };
 		86591381212AB3DE00440972 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86591380212AB3DE00440972 /* Data.swift */; };
 		865AD13C21251C8E00E435E8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AD13B21251C8E00E435E8 /* Error.swift */; };
 		867FA6A32121952F0026D183 /* WalletCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867FA6A22121952F0026D183 /* WalletCoordinator.swift */; };
@@ -216,15 +213,12 @@
 		86591361212A72FC00440972 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		86591364212A760300440972 /* TokensBalanceOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensBalanceOperation.swift; sourceTree = "<group>"; };
 		86591369212A79B600440972 /* CoinNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinNetworkProvider.swift; sourceTree = "<group>"; };
-		8659136C212A7BF200440972 /* RPCServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCServiceRequest.swift; sourceTree = "<group>"; };
-		8659136F212AA27100440972 /* BalanceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceRequest.swift; sourceTree = "<group>"; };
 		86591371212AA8A800440972 /* CastError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastError.swift; sourceTree = "<group>"; };
 		86591373212AA8C600440972 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		86591375212AAA5500440972 /* BaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
 		86591377212AAB1000440972 /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		8659137A212AAF3E00440972 /* TokenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewModel.swift; sourceTree = "<group>"; };
 		8659137C212AB1DC00440972 /* TokenNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenNetworkProvider.swift; sourceTree = "<group>"; };
-		8659137E212AB3A100440972 /* CallRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallRequest.swift; sourceTree = "<group>"; };
 		86591380212AB3DE00440972 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		865AD13B21251C8E00E435E8 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		867FA6A22121952F0026D183 /* WalletCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCoordinator.swift; sourceTree = "<group>"; };
@@ -726,8 +720,6 @@
 		86591366212A78E300440972 /* RPCNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				8659136E212A7CCB00440972 /* Request */,
-				8659136B212A7BBC00440972 /* RPCServiceRequest */,
 				86591368212A795900440972 /* Transactions */,
 				86591367212A794900440972 /* Balance */,
 				86591371212AA8A800440972 /* CastError.swift */,
@@ -751,23 +743,6 @@
 			children = (
 			);
 			path = Transactions;
-			sourceTree = "<group>";
-		};
-		8659136B212A7BBC00440972 /* RPCServiceRequest */ = {
-			isa = PBXGroup;
-			children = (
-				8659136C212A7BF200440972 /* RPCServiceRequest.swift */,
-			);
-			path = RPCServiceRequest;
-			sourceTree = "<group>";
-		};
-		8659136E212A7CCB00440972 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				8659136F212AA27100440972 /* BalanceRequest.swift */,
-				8659137E212AB3A100440972 /* CallRequest.swift */,
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		86591379212AAF2C00440972 /* Models */ = {
@@ -1183,7 +1158,6 @@
 				86539536211BE8D800DB2DDE /* WalletCreateViewModel.swift in Sources */,
 				8643B0D42123E17000F46C21 /* Bundel.swift in Sources */,
 				8643B0D62123E28F00F46C21 /* ERC20Contract.swift in Sources */,
-				8659137F212AB3A100440972 /* CallRequest.swift in Sources */,
 				86391B78211442EB0045A610 /* ViewController.swift in Sources */,
 				8643B0C02123D10500F46C21 /* ApiNetwowk.swift in Sources */,
 				86539531211BE6D800DB2DDE /* WalletCreatedVC.swift in Sources */,
@@ -1220,14 +1194,12 @@
 				8649578C2121387A00C98D0B /* Coin.swift in Sources */,
 				86391AD82117EF19002FAC67 /* Keystore.swift in Sources */,
 				86879FE2211803860099A2CC /* WalletObject.swift in Sources */,
-				86591370212AA27100440972 /* BalanceRequest.swift in Sources */,
 				86C0DDB821251E220096CB30 /* ConfirmVC.swift in Sources */,
 				8643B0C92123DE4400F46C21 /* ArrayResponse.swift in Sources */,
 				86879FDD2117FF7D0099A2CC /* WalletInfo.swift in Sources */,
 				8643B0C52123D27F00F46C21 /* CoinTicker.swift in Sources */,
 				861023F32126769300A831BE /* TokensHeaderView.swift in Sources */,
 				8643B0D22123E07900F46C21 /* OperationType.swift in Sources */,
-				8659136D212A7BF200440972 /* RPCServiceRequest.swift in Sources */,
 				861023F921267A5100A831BE /* TokenViewCell.swift in Sources */,
 				8643B0E02124236600F46C21 /* EthereumUnit.swift in Sources */,
 				8653953C211C2A3A00DB2DDE /* PushNotifilecationsRegistrar.swift in Sources */,
