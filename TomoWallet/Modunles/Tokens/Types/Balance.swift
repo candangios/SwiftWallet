@@ -16,12 +16,12 @@ protocol BalanceProtocol {
 }
 struct Balance: BalanceProtocol {
     let value: BigInt
-    let result: String
+    var result: String = ""
 
     
     init(value: BigInt) {
         self.value = value
-        result = ""
+//        result = self.value
     }
     
     var isZero: Bool {
@@ -46,14 +46,10 @@ struct Balance: BalanceProtocol {
 extension Balance: Decodable{
     
     init(from decoder: Decoder) throws {
-
         let values = try decoder.container(keyedBy: keys.self)
-        
-        
         result = try values.decode(String.self, forKey: .result)
-        self.value = try BigInt(from: decoder)
-        
-      
+        value = BigInt(result.drop0x, radix: 16)!
+
     }
 }
 

@@ -104,7 +104,6 @@ final class TokensViewModel: NSObject{
             switch token.type{
             case .coin:
                 return CoinNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, addressUpdate: token.address, provider: ApiProviderFactory.makeBalanceProvider())
-//                return CoinNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, addressUpdate: token.address)
             case.ERC20:
                 return TokenNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, contract: token.address, addressUpdate: token.address)
 

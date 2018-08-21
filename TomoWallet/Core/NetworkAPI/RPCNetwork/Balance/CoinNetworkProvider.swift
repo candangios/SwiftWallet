@@ -44,32 +44,18 @@ final class CoinNetworkProvider: BalanceNetworkProvider {
             provider.request(.getBalanceCoin(server: self.server, address: address.description), completion: { (result) in
                 switch result {
                 case .success(let response):
-                    break
-//                    print(response.statusCode)
-//                    do {
-//
-//                        let responseJSON = try response.mapJSON()
-//                        print(responseJSON)
-////                        if let dic = responseJSON as? NSDictionary{
-////                            BigInt
-//////                            let balance = Balance(value: responseJSON.va)
-////                        }
-//                    } catch {
-//                        seal.reject(error)
-//                    }
+                    do {
+                        let balance = try response.map(Balance.self)
+                        seal.fulfill(balance.value)
+             
+                    } catch {
+                        seal.reject(error)
+                    }
                 case .failure(let error):
                     seal.reject(error)
                 }
             })
-//            let request = RPCServiceRequest(for: server, batch: BatchFactory().create(BalanceRequest(address: address.description)))
-//            Session.send(request) { result in
-//                switch result {
-//                case .success(let balance):
-//                    seal.fulfill(balance.value)
-//                case .failure(let error):
-//                    seal.reject(error)
-//                }
-//            }
+
         }
     }
 }

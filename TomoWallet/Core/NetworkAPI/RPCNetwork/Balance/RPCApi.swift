@@ -19,11 +19,10 @@ extension RPCApi: TargetType{
 
     var baseURL: URL{
         switch self {
-        case .getBalanceCoin(let rpcServer,_):
-            print(rpcServer.rpcURL.absoluteString)
-            return  rpcServer.rpcURL
-        case .getBalanceToken(let rpcServer, let address,let  contract):
-            return  rpcServer.rpcURL
+        case .getBalanceCoin(let server,_):
+            return  server.rpcURL
+        case .getBalanceToken(let server, let address,let  contract):
+            return  server.rpcURL
         }
     
     }
@@ -34,16 +33,15 @@ extension RPCApi: TargetType{
     
     var method: Moya.Method {
         switch self {
-        case .getBalanceCoin: return .get
+        case .getBalanceCoin: return .post
         case .getBalanceToken: return .get
         }
     }
     
     var task: Task {
         switch self {
-        case .getBalanceCoin(_ , let address):
-            let params: [String: Any] = ["jsonrpc": "2.0", "method": "eth_getBalance", "paparams": "[\"\(address)\",\"latest\"]","id":1]
-            return .requestParameters(parameters: params, encoding: URLEncoding())
+        case .getBalanceCoin:
+            return .requestData(sampleData)
         case .getBalanceToken(_, let address,let  contractAddress):
             return .requestJSONEncodable(address)
         }
@@ -52,13 +50,14 @@ extension RPCApi: TargetType{
     
     var sampleData: Data {
         
-//        switch self {
-//        case .getBalanceCoin(_, let address):
-//             let a = "{\"jsonrpc\":\"2.0\",\"method\":\"eth_getBalance\",\"params\": [\"\(address)\", \"latest\"],\"id\":1}"
-//             return a.data(using: .utf8)!
-//        default:
+        switch self {
+        case .getBalanceCoin(let address):
+           
+             let a = "{\"jsonrpc\":\"2.0\",\"method\":\"eth_getBalance\",\"params\": [\"0xc94770007dda54cF92009BFF0dE90c06F603a09f\", \"latest\"],\"id\":1}"
+             return a.data(using: .utf8)!
+        default:
             return Data()
-//        }
+        }
   
     }
     
