@@ -28,9 +28,10 @@ final class WalletSession {
     }()
     
     lazy var currentRPC: RPCServer = {
-        if account.multiWallet {
-            return .main
-        }
+//        if account.multiWallet {
+//            return .main
+//        }account.coin!.server
+        print(account.coin!.server.coin.rawValue)
         return account.coin!.server
     }()
     
@@ -44,6 +45,8 @@ final class WalletSession {
         self.realm = realm
         self.sharedRealm = sharedRealm
         self.config = config
+        
+
     }
 
 }

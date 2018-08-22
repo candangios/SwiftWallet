@@ -22,17 +22,241 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/Core/NetworkAPI/RPCNetwork/Balance/CoinNetworkProvider.swift"
+            timestampString = "556627253.2621419"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "balance()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/Core/NetworkAPI/RPCNetwork/Balance/CoinNetworkProvider.swift"
+            timestampString = "556627253.2622"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "balance()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PromiseKit.Resolver&lt;BigInt.BigInt&gt;) -&gt; () in TomoWallet.CoinNetworkProvider.balance() -&gt; PromiseKit.Promise&lt;BigInt.BigInt&gt;"
+                  moduleName = "TomoWallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomochain/SwiftWallet/TomoWallet/Core/NetworkAPI/RPCNetwork/Balance/CoinNetworkProvider.swift"
+                  timestampString = "556604876.1611789"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "21">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Result.Result&lt;Moya.Response, Moya.MoyaError&gt;) -&gt; () in closure #1 (PromiseKit.Resolver&lt;BigInt.BigInt&gt;) -&gt; () in TomoWallet.CoinNetworkProvider.balance() -&gt; PromiseKit.Promise&lt;BigInt.BigInt&gt;"
+                  moduleName = "TomoWallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomochain/SwiftWallet/TomoWallet/Core/NetworkAPI/RPCNetwork/Balance/CoinNetworkProvider.swift"
+                  timestampString = "556604876.162635"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "114">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/Core/NetworkAPI/RPCNetwork/Balance/CoinNetworkProvider.swift"
+            timestampString = "556627253.262241"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "balance()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/Core/NetworkAPI/RPCNetwork/Balance/CoinNetworkProvider.swift"
+            timestampString = "556627253.262278"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "balance()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/Core/NetworkAPI/RPCNetwork/Balance/CoinNetworkProvider.swift"
+            timestampString = "556627253.262313"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "balance()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/Modunles/Tokens/Storage/TokensDataStore.swift"
+            timestampString = "556627253.2623481"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "nativeCoin()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TomoWallet/Core/NetworkAPI/RPCNetwork/Balance/RPCApi.swift"
-            timestampString = "556541831.178647"
+            filePath = "Pods/TrustKeystore/Sources/KeyStore.swift"
+            timestampString = "556627253.262387"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "baseURL"
-            landmarkType = "24">
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "saveCreatedWallet(for:password:derivationPaths:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of TrustKeystore.KeyStore.generateFileName(identifier: Swift.String, date: Foundation.Date, timeZone: Foundation.TimeZone) -&gt; Swift.String"
+                  moduleName = "TrustKeystore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomochain/SwiftWallet/Pods/TrustKeystore/Sources/KeyStore.swift"
+                  timestampString = "556627253.781471"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "296"
+                  endingLineNumber = "296"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 2 of TrustKeystore.KeyStore.generateFileName(identifier: Swift.String, date: Foundation.Date, timeZone: Foundation.TimeZone) -&gt; Swift.String"
+                  moduleName = "TrustKeystore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomochain/SwiftWallet/Pods/TrustKeystore/Sources/KeyStore.swift"
+                  timestampString = "556627253.786202"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "296"
+                  endingLineNumber = "296"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/TrustKeystore/Sources/Wallet.swift"
+            timestampString = "556627253.262432"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "getAccounts(derivationPaths:password:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/Modunles/Tokens/ViewModels/TokensViewModel.swift"
+            timestampString = "556627253.262477"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "tokensInfo()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/EtherClient/KeyStoreProtocol/EtherKeyStore.swift"
+            timestampString = "556627253.262513"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "createAccout(password:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/Core/NetworkAPI/RPCNetwork/Balance/TokenNetworkProvider.swift"
+            timestampString = "556627253.262548"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "balance()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

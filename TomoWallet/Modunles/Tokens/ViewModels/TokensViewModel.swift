@@ -71,6 +71,7 @@ final class TokensViewModel: NSObject{
         firstly {
             tokensNetwork.tokensList()
         }.done { [weak self] tokens in
+            print(tokens)
             guard let strongSelf = self else { return }
             strongSelf.store.update(tokens: tokens, action: .updateInfo)
         }.catch { error in
@@ -78,6 +79,7 @@ final class TokensViewModel: NSObject{
         }.finally { [weak self] in
             guard let strongSelf = self else { return }
             let tokens = Array(strongSelf.store.tokensBalance)
+            print(tokens)
             strongSelf.prices(for: tokens)
         }
     }
@@ -105,7 +107,7 @@ final class TokensViewModel: NSObject{
             case .coin:
                 return CoinNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, addressUpdate: token.address, provider: ApiProviderFactory.makeBalanceProvider())
             case.ERC20:
-                return TokenNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, contract: token.address, addressUpdate: token.address)
+                return TokenNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, contract: token.address, addressUpdate: token.address, provider: ApiProviderFactory.makeBalanceProvider())
 
             }
 //            return TokenViewModel.balance(for: $0, wallet: session.account)

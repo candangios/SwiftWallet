@@ -44,7 +44,26 @@ public final class KeyStore {
     /// Creates a new wallet. HD default by default
     public func createWallet(password: String, derivationPaths: [DerivationPath]) throws -> Wallet {
         let key = try KeystoreKey(password: password)
-        return try saveCreatedWallet(for: key, password: password, derivationPaths: derivationPaths)
+      
+        let url = makeAccountURL()
+        let wallet = Wallet(keyURL: url, key: key)
+          print(wallet.type)
+        
+        switch wallet.type {
+        case .encryptedKey:
+            let _ = try wallet.getAccount(password: password)
+        case .hierarchicalDeterministicWallet:
+         
+            let _ = try wallet.getAccounts(derivationPaths: derivationPaths, password: password)
+        }
+
+        wallets.append(wallet)
+        
+        try save(wallet: wallet, in: keyDirectory)
+        
+        return wallet
+        
+//        return try saveCreatedWallet(for: key, password: password, derivationPaths: derivationPaths)
     }
 
     /// Creates a new wallet. Private Key default by default
@@ -62,6 +81,8 @@ public final class KeyStore {
         case .hierarchicalDeterministicWallet:
             let _ = try wallet.getAccounts(derivationPaths: derivationPaths, password: password)
         }
+        
+        print(wallet.key.coin)
         wallets.append(wallet)
 
         try save(wallet: wallet, in: keyDirectory)

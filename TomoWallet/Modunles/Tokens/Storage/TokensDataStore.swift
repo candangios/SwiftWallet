@@ -26,6 +26,7 @@ class TokensDataStore {
     
     init(account: WalletInfo, realm: Realm) {
         self.account = account
+        print(account.coin)
         self.realm = realm
         self.addNativeCoins()
     }

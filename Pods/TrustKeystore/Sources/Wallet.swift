@@ -31,6 +31,7 @@ public final class Wallet: Hashable {
         identifier = keyURL.lastPathComponent
         self.keyURL = keyURL
         self.key = key
+    
     }
 
     /// Returns the only account for non HD-wallets.
@@ -84,8 +85,11 @@ public final class Wallet: Hashable {
         var accounts = [Account]()
         let wallet = HDWallet(mnemonic: mnemonic, passphrase: key.passphrase)
         for derivationPath in derivationPaths {
+       
             guard let coin = Coin(rawValue: derivationPath.coinType) else { break }
+           
             let account = getAccount(wallet: wallet, coin: coin, derivationPath: derivationPath)
+            
             accounts.append(account)
         }
 
@@ -93,12 +97,13 @@ public final class Wallet: Hashable {
     }
 
     private func getAccount(wallet: HDWallet, coin: Coin, derivationPath: DerivationPath) -> Account {
+        
         let address = wallet.getKey(at: derivationPath).publicKey(for: coin).address
+        print(address.coin)
 
         if let account = accounts.first(where: { $0.derivationPath == derivationPath }) {
             return account
         }
-
         let account = Account(wallet: self, address: address, derivationPath: derivationPath)
         account.wallet = self
         accounts.append(account)

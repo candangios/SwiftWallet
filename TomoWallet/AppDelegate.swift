@@ -10,6 +10,8 @@ import UIKit
 import RealmSwift
 import MBProgressHUD
 
+import TrustCore
+import TrustKeystore
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,11 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let urlNavigatorCoordinator = URLNavigatorCoordinator()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
+
         // Get the default Realm
         let sharedMigration = SharedMigrationInitializer()
-      
+
         let realm = try! Realm(configuration: sharedMigration.config)
         let walletStore = WalletStorage(realm: realm)
         let keyStore = EtherKeyStore(storage: walletStore)
