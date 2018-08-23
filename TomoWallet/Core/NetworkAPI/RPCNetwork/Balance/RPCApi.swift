@@ -47,22 +47,22 @@ extension RPCApi: TargetType{
     
     var task: Task {
         switch self {
-        case .getBalanceCoin:
+        case .getBalanceCoin(_,let address):
             let parameters = [
                 "jsonrpc": "2.0",
                 "method": "eth_getBalance",
-                "params": ["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],
+                "params": ["\(address)", "latest"],
                 "id": 1
                 ] as [String : Any]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-        case .getBalanceToken:
+        case .getBalanceToken(_, let contrac, let data):
             let parameters = [
                 "jsonrpc": "2.0",
                 "method": "eth_call",
                 "params": [
                     [
-                        "to": "0x2022341Ee7097dB05C0845D4eaF660c77e42A89a",
-                        "data": "0x70a082310000000000000000000000006e7312d1028b70771bb9cdd9837442230a9349ca"
+                        "to": "\(contrac)",
+                        "data": "\(data)"
                     ],
                     "latest"
                 ],

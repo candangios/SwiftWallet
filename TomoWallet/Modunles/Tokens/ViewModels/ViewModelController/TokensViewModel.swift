@@ -1,5 +1,5 @@
 //
-//  TokenViewModel.swift
+//  TokensViewModel.swift
 //  TomoWallet
 //
 //  Created by TomoChain on 8/15/18.
@@ -14,7 +14,7 @@ import RealmSwift
 import TrustCore
 import PromiseKit
 import TrustKeystore
-protocol TokenViewModel_Delegate: class {
+protocol TokensViewModel_Delegate: class {
     func refresh()
 }
 
@@ -23,7 +23,7 @@ final class TokensViewModel: NSObject{
     
     let store: TokensDataStore
     var tokensNetwork: NetworkProtocol
-    let tokens: Results<TokenObject>
+    var tokens: Results<TokenObject>
     var tokensObserver: NotificationToken?
     let transactionStore: TransactionsStorage
     let session: WalletSession
@@ -33,7 +33,7 @@ final class TokensViewModel: NSObject{
     }()
 
     
-    weak var delegate: TokenViewModel_Delegate?
+    weak var delegate: TokensViewModel_Delegate?
     init(
         session: WalletSession,
         config: Config = Config(),
@@ -63,9 +63,17 @@ final class TokensViewModel: NSObject{
         )
     }
     
+    func numberOfItems(for section: Int) -> Int {
+        return tokens.count
+    }
+    
+    func item(for path: IndexPath) -> TokenObject {
+        return tokens[path.row]
+    }
+
+    
     // private func
-    
-    
+
     //refesh tokens from ServerAPI
     private func tokensInfo() {
         firstly {
@@ -79,7 +87,6 @@ final class TokensViewModel: NSObject{
         }.finally { [weak self] in
             guard let strongSelf = self else { return }
             let tokens = Array(strongSelf.store.tokensBalance)
-            print(tokens)
             strongSelf.prices(for: tokens)
         }
     }
@@ -108,9 +115,7 @@ final class TokensViewModel: NSObject{
                 return CoinNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, addressUpdate: token.address, provider: ApiProviderFactory.makeBalanceProvider())
             case.ERC20:
                 return TokenNetworkProvider(server: token.coin.server, address: EthereumAddress(string: account.address.description)!, contract: token.address, addressUpdate: token.address, provider: ApiProviderFactory.makeBalanceProvider())
-
             }
-//            return TokenViewModel.balance(for: $0, wallet: session.account)
         }
         let operationQueue: OperationQueue = OperationQueue()
         operationQueue.qualityOfService = .background

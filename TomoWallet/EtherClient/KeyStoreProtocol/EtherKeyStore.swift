@@ -90,6 +90,7 @@ class EtherKeyStore: Keystore {
             derivationPaths: derivationPaths
         )
         let _ = setPassword(password, for: wallet)
+        print(wallet.accounts[0].coin)
         return wallet
     }
     

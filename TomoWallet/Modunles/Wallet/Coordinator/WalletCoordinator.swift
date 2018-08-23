@@ -54,60 +54,33 @@ class WalletCoordinator: Coordinator{
     func createInstantWallet() {
         self.navigationController.displayLoading(text: "Creating Wallet...", animated: true)
         let password = PasswordGenerator.generateRandom()
-        self.keystore.createAccount(with: password) { (result) in
-                        switch result{
-                        case .success(let wallet):
-                            self.keystore.exportPrivateKey(account: wallet.accounts.first!, completion: { (a) in
-                                switch a{
-                                case .success(let data):
-                                    let privatekey = data.toString()
-                                    let privatekey1 = data.toHexString()
-                                    print(privatekey)
-                                case .failure(let error):
-                                    self.navigationController.displayError(error: error)
-                                }
-                            })
-                            self.keystore.exportMnemonic(wallet: wallet, completion: { (mnemonicResult) in
-                               self.navigationController.hideLoading(animated: true)
-                                switch mnemonicResult{
-                                case .success(let words):
-                                    self.markAsMainWallet(for: wallet)
-                                    self.pushBackup(for: wallet, words: words)
-                                case .failure(let error):
-                                    self.navigationController.displayError(error: error)
-                                }
-                            })
-                        case .failure(let error):
-                            self.navigationController.displayError(error: error)
-                        }
+        self.keystore.createAccount(with: password, coin: .rinkeby) { (result) in
+            switch result{
+            case .success(let wallet):
+                self.keystore.exportPrivateKey(account: wallet.accounts.first!, completion: { (a) in
+                    switch a{
+                    case .success(let data):
+                        let privatekey = data.toString()
+                        let privatekey1 = data.toHexString()
+                        print(privatekey1)
+                    case .failure(let error):
+                        self.navigationController.displayError(error: error)
+                    }
+                })
+                self.keystore.exportMnemonic(wallet: wallet, completion: { (mnemonicResult) in
+                   self.navigationController.hideLoading(animated: true)
+                    switch mnemonicResult{
+                    case .success(let words):
+                        self.markAsMainWallet(for: wallet)
+                        self.pushBackup(for: wallet, words: words)
+                    case .failure(let error):
+                        self.navigationController.displayError(error: error)
+                    }
+                })
+            case .failure(let error):
+                self.navigationController.displayError(error: error)
+            }
         }
-//        self.keystore.createAccount(with: password, coin: .gochain) { (result) in
-//            switch result{
-//            case .success(let wallet):
-//                self.keystore.exportPrivateKey(account: wallet.accounts.first!, completion: { (a) in
-//                    switch a{
-//                    case .success(let data):
-//                        let privatekey = data.toString()
-//                        let privatekey1 = data.toHexString()
-//                        print(privatekey)
-//                    case .failure(let error):
-//                        self.navigationController.displayError(error: error)
-//                    }
-//                })
-//                self.keystore.exportMnemonic(wallet: wallet, completion: { (mnemonicResult) in
-//                   self.navigationController.hideLoading(animated: true)
-//                    switch mnemonicResult{
-//                    case .success(let words):
-//                        self.markAsMainWallet(for: wallet)
-//                        self.pushBackup(for: wallet, words: words)
-//                    case .failure(let error):
-//                        self.navigationController.displayError(error: error)
-//                    }
-//                })
-//            case .failure(let error):
-//                self.navigationController.displayError(error: error)
-//            }
-//        }
     }
     
     func pushBackup(for wallet: Wallet, words: [String]) {

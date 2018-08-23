@@ -37,12 +37,12 @@ final class ApiNetwork: NetworkProtocol{
     private var dict: [String: [String]] {
         var dict: [String: [String]] = [:]
         for account in wallet.accounts {
-            dict["\(account.coin.rawValue)"] = [account.address.description]
+            dict["\(String(describing: account.coin?.rawValue))"] = [account.address.description]
         }
         return dict
     }
     private var networks: [Int] {
-        return wallet.accounts.compactMap { $0.coin.rawValue }
+        return wallet.accounts.compactMap { $0.coin!.rawValue }
     }
     init(
         provider: MoyaProvider<API>,
@@ -105,6 +105,7 @@ final class ApiNetwork: NetworkProtocol{
     }
     
     func transactions(for address: Address, on server: RPCServer, startBlock: Int, page: Int, contract: String?, completion: @escaping (([Transaction]?, Bool)) -> Void) {
+        print(server.id)
         provider.request(.getTransactions(server: server, address: address.description, startBlock: startBlock, page: page, contract: contract)) { result in
             switch result {
             case .success(let response):

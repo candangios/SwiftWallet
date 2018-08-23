@@ -36,11 +36,11 @@ final class CoinNetworkProvider: BalanceNetworkProvider {
     
     func balance() -> Promise<BigInt> {
         return Promise { seal in
+            print(address.description)
             provider.request(.getBalanceCoin(server: self.server, address: address.description), completion: { (result) in
                 switch result {
                 case .success(let response):
                     do {
-                        print(response.statusCode)
                         let balanceDecodable = try response.map(BalanceDecodable.self)
                         guard let value = BigInt(balanceDecodable.result.drop0x, radix: 16) else{
                             return seal.reject(CookiesStoreError.empty)

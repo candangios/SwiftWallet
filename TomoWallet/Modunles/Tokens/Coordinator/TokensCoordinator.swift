@@ -8,18 +8,21 @@
 
 import Foundation
 import UIKit
+protocol TokensCoordinator_Delegate: class {
+    func didPressSend(for token: TokenObject, in coordinator: TokensCoordinator)
+    func didPress(url: URL, in coordinator: TokensCoordinator)
+}
 
 class TokensCoordinator:NSObject, Coordinator {
     
     var childCoordinators: [Coordinator] = []
-    
     var navigationController: NavigationController
-    
     let session: WalletSession
     let keystore: Keystore
     let store: TokensDataStore
     let transactionsStore: TransactionsStorage
     
+    weak var delegate: TokensCoordinator_Delegate?
     lazy var network: NetworkProtocol = {
         return ApiNetwork(provider: ApiProviderFactory.makeProvider(), wallet: session.account)
     }()
@@ -38,7 +41,6 @@ class TokensCoordinator:NSObject, Coordinator {
         self.store = session.tokensStorage
         self.transactionsStore = session.transactionsStorage
         self.navigationController = navigationController
-        
     }
     
     func start() {
@@ -47,10 +49,36 @@ class TokensCoordinator:NSObject, Coordinator {
 }
 
 extension TokensCoordinator: TokensVC_Delegate{
-    
-    func didPressAddToken(in viewController: UIViewController) {
-        print("hehe")
+    func didSelect(token: TokenObject, in viewController: UIViewController) {
+        let tokenViewModel = TokenViewModel(token: token, store: store, transactionsStore: transactionsStore, tokensNetwork: network, session: session)
+        let tokenVC = TokenVC(viewModel: tokenViewModel)
+        tokenVC.delegate = self
+        self.navigationController.pushViewController(tokenVC, animated: true)
     }
     
+    func didRequest(token: TokenObject, in viewController: UIViewController) {
+        
+    }
     
+    func didPressAddToggleEnableToken(in viewController: UIViewController) {
+       // viewController togger token account
+    }
+}
+extension TokensCoordinator: TokenVC_Delegate{
+    func didPressRequest(for token: TokenObject, in controller: UIViewController) {
+        
+    }
+    
+    func didPressSend(for token: TokenObject, in controller: UIViewController) {
+        self.delegate?.didPressSend(for: token, in: self)
+        
+    }
+    
+    func didPressInfo(for token: TokenObject, in controller: UIViewController) {
+        
+    }
+    
+    func didPress(viewModel: TokenViewModel, transaction: Transaction, in controller: UIViewController) {
+        
+    }
 }

@@ -24,7 +24,7 @@ final class WalletSession {
         return TokensDataStore(account: account, realm: realm)
     }()
     lazy var transactionsStorage: TransactionsStorage = {
-        return TransactionsStorage(account: account, realm: realm)
+        return TransactionsStorage(realm: realm, account: account)
     }()
     
     lazy var currentRPC: RPCServer = {
