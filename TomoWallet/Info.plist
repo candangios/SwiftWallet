@@ -46,5 +46,13 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    <key>NSCameraUsageDescription</key>
+    <string>QR Scan</string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>Access your wallet</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Sending QR Code to your contacts</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Sending QR Code to your contacts</string>
 </dict>
 </plist>

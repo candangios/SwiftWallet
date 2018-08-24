@@ -81,18 +81,20 @@ extension InCoordinator: TokensCoordinator_Delegate{
             let first = session.account.accounts.filter { $0.coin == token.coin }.first
             guard let account = first else { return }
 //
-//            let coordinator = SendCoordinator(
-//                transfer: transfer,
-//                navigationController: nav,
-//                session: session,
-//                keystore: keystore,
-//                account: account
-//            )
+            let coordinator = SendCoordinator(
+                transfer: transfer,
+                navigationController: self.navigationController,
+                session: session,
+                keystore: keystore,
+                account: account
+            )
+            coordinator.start()
 //            coordinator.delegate = self
 //            addCoordinator(coordinator)
 //            nav.pushCoordinator(coordinator: coordinator, animated: true)
         case .address:
-            self.navigationController.displayError(error: InCoordinatorError.onlyWatchAccount)
+            break
+//            self.navigationController.displayError(error: InCoordinator.onlyWatchAccount)
           
         }
       

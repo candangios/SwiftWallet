@@ -13,35 +13,43 @@ import Moya
 enum RPCApi{
     case getBalanceCoin(server: RPCServer, address: String)
     case getBalanceToken(server: RPCServer, contract: String, data: String)
-
+    case lastBlock(server: RPCServer)
+    case getGasPrice(server: RPCServer)
 }
 extension RPCApi: TargetType{
 
     var baseURL: URL{
         switch self {
         case .getBalanceCoin(let server,_):
-            print(server.rpcURL)
             return  server.rpcURL
         case .getBalanceToken(let server,_,_):
-            print(server.rpcURL)
+            return  server.rpcURL
+        case .lastBlock(let server):
+            return  server.rpcURL
+        case .getGasPrice(let server):
             return  server.rpcURL
         }
+       
     
     }
 
     var path: String {
-        switch self {
-        case .getBalanceCoin:
-            return ""
-        case .getBalanceToken:
-            return ""
-        }
+        return ""
+//        switch self {
+//        case .getBalanceCoin:
+//            return ""
+//        case .getBalanceToken:
+//            return ""
+//        }
     }
     
     var method: Moya.Method {
         switch self {
         case .getBalanceCoin: return .post
         case .getBalanceToken: return .post
+        case .lastBlock: return .post
+        case .getGasPrice: return.post
+            
         }
     }
     
@@ -70,10 +78,21 @@ extension RPCApi: TargetType{
                 ] as [String : Any]
             
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-    
+        case .lastBlock:
+            let parameters = [
+                "jsonrpc": "2.0",
+                "method": "eth_blockNumber",
+                "id": 1
+                ] as [String : Any]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .getGasPrice:
+            let parameters = [
+                "jsonrpc": "2.0",
+                "method": "eth_gasPrice",
+                "id": 1
+                ] as [String : Any]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         }
- 
-//        return .requestData(sampleData)
     }
     
     var sampleData: Data {
