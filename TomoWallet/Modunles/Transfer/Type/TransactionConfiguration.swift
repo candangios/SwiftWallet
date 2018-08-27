@@ -9,7 +9,7 @@
 import Foundation
 import BigInt
 
-struct TransactionConfiguretion {
+struct TransactionConfiguration {
     let gasPrice: BigInt
     let gasLimit: BigInt
     let data: Data

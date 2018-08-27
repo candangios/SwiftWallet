@@ -202,7 +202,7 @@ final class TokenViewModel{
                     server: token.coin.server,
                     address: EthereumAddress(string: account.address.description)!,
                     addressUpdate: token.address,
-                    provider: ApiProviderFactory.makeBalanceProvider()
+                    provider: ApiProviderFactory.makeRPCNetworkProvider()
                 )
             case .ERC20:
                 return TokenNetworkProvider(
@@ -210,7 +210,7 @@ final class TokenViewModel{
                     address: EthereumAddress(string: account.address.description)!,
                     contract: token.address,
                     addressUpdate: token.address,
-                    provider: ApiProviderFactory.makeBalanceProvider()
+                    provider: ApiProviderFactory.makeRPCNetworkProvider()
                 )
             }
         }()

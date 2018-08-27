@@ -13,6 +13,8 @@ import TrustKeystore
 import TrustCore
 import UIKit
 class EtherKeyStore: Keystore {
+
+    
     struct Keys {
         static let recentlyUsedAddress: String = "recentlyUsedAddress"
         static let recentlyUsedWallet: String = "recentlyUsedWallet"
@@ -388,6 +390,37 @@ class EtherKeyStore: Keystore {
             }
             storage.realm.add(object, update: true)
         }
+    }
+    
+    func signTransaction(_ signTransaction: SignTransaction) -> Result<Data, KeystoreError> {
+//        let account = transaction.account
+//        guard let wallet  = account.wallet, let password = getPassword(for: wallet) else {
+//            return .failure(.failedToSignTransaction)
+//        }
+//        let signer: Signer
+//        if transaction.chainID == 0 {
+//            signer = HomesteadSigner()
+//        } else {
+//            signer = EIP155Signer(chainId: BigInt(transaction.chainID))
+//        }
+//        
+//        do {
+//            let hash = signer.hash(transaction: transaction)
+//            let signature = try account.sign(hash: hash, password: password)
+//            let (r, s, v) = signer.values(transaction: transaction, signature: signature)
+//            let data = RLP.encode([
+//                transaction.nonce,
+//                transaction.gasPrice,
+//                transaction.gasLimit,
+//                transaction.to?.data ?? Data(),
+//                transaction.value,
+//                transaction.data,
+//                v, r, s,
+//                ])!
+//            return .success(data)
+//        } catch {
+//            return .failure(.failedToSignTransaction)
+//        }
     }
  
 }

@@ -34,7 +34,7 @@ final class SendCoordinator: Coordinator {
     }()
 
     lazy var chainState: ChainState = {
-        let state = ChainState(server: transfer.server, provider:ApiProviderFactory.makeBalanceProvider() )
+        let state = ChainState(server: transfer.server, provider:ApiProviderFactory.makeRPCNetworkProvider() )
         state.fetch()
         return state
     }()
@@ -62,20 +62,25 @@ final class SendCoordinator: Coordinator {
 
 extension SendCoordinator: SendViewController_Delegate {
     func didPressConfirm(toAddress: EthereumAddress, data: Data, in viewController: SendViewController) {
-//        print( toAddress)
+        
+        let sendAmountVC = SendAmountVC(session: self.session, storage: self.session.tokensStorage, account: self.account, transfer: self.transfer, chainState: self.chainState, toAddress: toAddress, data: data)
+        sendAmountVC.delegate = self
+        self.navigationController.pushViewController(sendAmountVC, animated: true)
+        
     }
-    
- 
-    
-//    func didPressConfirm(transaction: UnconfirmedTransaction, transfer: Transfer, in viewController: SendViewController) {
-//        let configurator = TransactionConfigurator(
-//            session: session,
-//            account: account,
-//            transaction: transaction,
-//            server: transfer.server,
-//            chainState: ChainState(server: transfer.server)
-//        )
-//
+}
+extension SendCoordinator: SendAmountVC_Delegate{
+    func didPressConfirm(transaction: UnconfirmedTransaction, transfer: Transfer, in viewController: SendAmountVC) {
+        let configurator = TransactionConfigurator(
+            session: session,
+            account: account,
+            transaction: transaction,
+            server: transfer.server,
+            chainState: ChainState(server: transfer.server, provider: ApiProviderFactory.makeRPCNetworkProvider())
+        )
+        
+        
+        
 //        let coordinator = ConfirmCoordinator(
 //            navigationController: navigationController,
 //            session: session,
@@ -91,5 +96,7 @@ extension SendCoordinator: SendViewController_Delegate {
 //        }
 //        addCoordinator(coordinator)
 //        navigationController.pushCoordinator(coordinator: coordinator, animated: true)
-//    }
+    }
+    
+    
 }

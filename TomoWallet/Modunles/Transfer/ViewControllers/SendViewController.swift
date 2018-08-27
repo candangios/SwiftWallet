@@ -47,7 +47,7 @@ class SendViewController: UIViewController {
     
     @IBAction func NextAction(_ sender: Any) {
         guard let address = EthereumAddress(string: self.addressTextField.text!) else {
-            return
+            return (self.navigationController as? NavigationController)!.displayError(error: Errors.invalidAddress)
         }
         self.delegate?.didPressConfirm(toAddress: address, data: self.data, in: self)
     }

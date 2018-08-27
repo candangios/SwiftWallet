@@ -55,6 +55,8 @@ class TokenVC: UIViewController {
     private func updateHeaderView(){
         self.header?.iconImage.kf.setImage(with: viewModel.imageURL, placeholder: viewModel.imagePlaceholder)
         self.header?.balancelable.text = viewModel.token.valueBalance.amountFull
+        self.header?.coinNameLable.text = viewModel.token.name
+        
     }
     
     

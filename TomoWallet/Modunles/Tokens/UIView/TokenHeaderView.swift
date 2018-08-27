@@ -20,6 +20,10 @@ class TokenHeaderView: UIView {
     @IBOutlet weak var balancelable: UILabel!
     @IBOutlet weak var symbolLable: UILabel!
     
+    override func awakeFromNib() {
+        self.coinNameLable.sizeToFit()
+    }
+    
     @IBAction func sendAction(_ sender: Any) {
         self.delegate?.didPressSend()
     }

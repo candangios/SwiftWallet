@@ -40,12 +40,14 @@ protocol Keystore: class {
 //    func signMessage(_ message: Data, for account: Account) -> Result<Data, KeystoreError>
 //    func signTypedMessage(_ datas: [EthTypedData], for account: Account) -> Result<Data, KeystoreError>
 //    func signHash(_ hash: Data, for account: Account) -> Result<Data, KeystoreError>
-//    func signTransaction(_ signTransaction: SignTransaction) -> Result<Data, KeystoreError>
+    func signTransaction(_ signTransaction: SignTransaction) -> Result<Data, KeystoreError>
 //    func getPassword(for account: Wallet) -> String?
 //    func setPassword(_ password: String, for account: Wallet) -> Bool
 //    func addAccount(to wallet: Wallet, derivationPaths: [DerivationPath]) -> Result<Void, KeystoreError>
 //    func store(object: WalletObject, fields: [WalletInfoField])
 //    func update(wallet: Wallet) -> Result<Void, KeystoreError>
+    
+    
  
     func store(object: WalletObject, fields: [WalletInfoField])
     
