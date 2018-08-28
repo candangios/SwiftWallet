@@ -12,6 +12,8 @@ import UIKit
 import Result
 import StatefulViewController
 
+import MBProgressHUD
+
 enum ConfirmType {
     case sign
     case signThenSend
@@ -23,6 +25,9 @@ enum ConfirmResult {
 }
 
 class ConfirmPaymentVC: UIViewController {
+    @IBOutlet weak var toAddressLable: UILabel!
+    @IBOutlet weak var amountValueLable: UILabel!
+    @IBOutlet weak var symbolLable: UILabel!
     
     private let keystore: Keystore
     let session: WalletSession
@@ -53,30 +58,34 @@ class ConfirmPaymentVC: UIViewController {
         self.server = server
         
         super.init(nibName: nil, bundle: nil)
-        
-     
-        navigationItem.title = viewModel.title
-        
         fetch()
     }
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = viewModel.title
 
         // Do any additional setup after loading the view.
     }
     
     func fetch() {
 //        startLoading()
+        
+        let hup = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hup.label.text = "EstimateGas"
         configurator.load { [weak self] result in
             guard let `self` = self else { return }
             switch result {
             case .success:
-//                self.reloadView()
-//                self.endLoading()
+                hup.hide(animated: true)
                 break
             case .failure(let error):
                 print(error)
+                hup.hide(animated: true)
 //                self.endLoading(animated: true, error: error, completion: nil)
             
             }
@@ -95,4 +104,15 @@ class ConfirmPaymentVC: UIViewController {
 
 
 
+    @IBAction func sendAction(_ sender: Any) {
+//        self.displayLoading()
+        
+        let transaction = configurator.signTransaction
+        self.sendTransactionCoordinator.send(transaction: transaction) { [weak self] result in
+            guard let `self` = self else { return }
+            self.didCompleted?(result)
+//            self.hideLoading()
+        }
+        
+    }
 }

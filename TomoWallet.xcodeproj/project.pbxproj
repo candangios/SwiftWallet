@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		49700F7214BAEC1C4F28F382 /* Pods_TomoWalletUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8A64AD2FA92E0D32E49CF5 /* Pods_TomoWalletUITests.framework */; };
-		861023F32126769300A831BE /* TokensHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861023F22126769300A831BE /* TokensHeaderView.swift */; };
-		861023F5212676A200A831BE /* TokensHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 861023F4212676A200A831BE /* TokensHeaderView.xib */; };
 		861023F921267A5100A831BE /* TokenViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861023F721267A5100A831BE /* TokenViewCell.swift */; };
 		861023FA21267A5100A831BE /* TokenViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 861023F821267A5100A831BE /* TokenViewCell.xib */; };
 		861023FF2126822300A831BE /* TokenViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861023FD2126822300A831BE /* TokenViewCellViewModel.swift */; };
@@ -22,6 +20,8 @@
 		8619C162211952B800C90F72 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619C161211952B800C90F72 /* Currency.swift */; };
 		861B6920211A939F002AB55F /* PasswordGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B691F211A939F002AB55F /* PasswordGenerator.swift */; };
 		861B6922211A9583002AB55F /* ImportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B6921211A9583002AB55F /* ImportType.swift */; };
+		862A5DCD21350D9C00334480 /* QRGenerato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862A5DCC21350D9C00334480 /* QRGenerato.swift */; };
+		862A5DD02135367700334480 /* BolderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862A5DCF2135367700334480 /* BolderButton.swift */; };
 		86391AD82117EF19002FAC67 /* Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391AD72117EF19002FAC67 /* Keystore.swift */; };
 		86391B76211442EB0045A610 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391B75211442EB0045A610 /* AppDelegate.swift */; };
 		86391B78211442EB0045A610 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391B77211442EB0045A610 /* ViewController.swift */; };
@@ -127,8 +127,8 @@
 		8698A188212EB9020016C85D /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8698A187212EB9020016C85D /* Transfer.swift */; };
 		86B32965212FA6FD00C7E57F /* SendCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B32964212FA6FD00C7E57F /* SendCoordinator.swift */; };
 		86B32968212FB10F00C7E57F /* ChainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B32967212FB10F00C7E57F /* ChainState.swift */; };
-		86B3296D212FE2E700C7E57F /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3296B212FE2E700C7E57F /* SendViewController.swift */; };
-		86B3296E212FE2E700C7E57F /* SendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B3296C212FE2E700C7E57F /* SendViewController.xib */; };
+		86B3296D212FE2E700C7E57F /* SendAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3296B212FE2E700C7E57F /* SendAddressVC.swift */; };
+		86B3296E212FE2E700C7E57F /* SendAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B3296C212FE2E700C7E57F /* SendAddressVC.xib */; };
 		86B32970212FEB6600C7E57F /* SendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3296F212FEB6600C7E57F /* SendViewModel.swift */; };
 		86B32972212FEC1200C7E57F /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B32971212FEC1200C7E57F /* Pair.swift */; };
 		86B32974212FEC6400C7E57F /* StringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B32973212FEC6400C7E57F /* StringFormatter.swift */; };
@@ -149,6 +149,9 @@
 		86C0DDBD21253A410096CB30 /* PassphraseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0DDBB21253A410096CB30 /* PassphraseVC.xib */; };
 		86C0DDC021253C2C0096CB30 /* VerifyPassphraseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0DDBE21253C2C0096CB30 /* VerifyPassphraseVC.swift */; };
 		86C0DDC121253C2C0096CB30 /* VerifyPassphraseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0DDBF21253C2C0096CB30 /* VerifyPassphraseVC.xib */; };
+		86C336302134EED6001C4C01 /* TransactionSigning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C3362F2134EED6001C4C01 /* TransactionSigning.swift */; };
+		86CC50C62135019F002054D6 /* ReveiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC50C52135019F002054D6 /* ReveiceViewModel.swift */; };
+		86CC50C8213504A4002054D6 /* CoinTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC50C7213504A4002054D6 /* CoinTypeViewModel.swift */; };
 		9F13B2C232B23C6BACBCA1C5 /* Pods_TomoWalletTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3C333584A3328BBEAD4707 /* Pods_TomoWalletTests.framework */; };
 		B8B3192A5CEFFFE37CD81791 /* Pods_TomoWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76282DB80A18BFADD0223FC2 /* Pods_TomoWallet.framework */; };
 /* End PBXBuildFile section */
@@ -176,8 +179,6 @@
 		68F76200A97EAB7C7127A08B /* Pods-TomoWalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomoWalletTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TomoWalletTests/Pods-TomoWalletTests.release.xcconfig"; sourceTree = "<group>"; };
 		76282DB80A18BFADD0223FC2 /* Pods_TomoWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TomoWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7900F1D077997F6DCB28724D /* Pods-TomoWalletUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomoWalletUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TomoWalletUITests/Pods-TomoWalletUITests.release.xcconfig"; sourceTree = "<group>"; };
-		861023F22126769300A831BE /* TokensHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensHeaderView.swift; sourceTree = "<group>"; };
-		861023F4212676A200A831BE /* TokensHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TokensHeaderView.xib; sourceTree = "<group>"; };
 		861023F721267A5100A831BE /* TokenViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewCell.swift; sourceTree = "<group>"; };
 		861023F821267A5100A831BE /* TokenViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TokenViewCell.xib; sourceTree = "<group>"; };
 		861023FD2126822300A831BE /* TokenViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -190,6 +191,8 @@
 		8619C161211952B800C90F72 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		861B691F211A939F002AB55F /* PasswordGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGenerator.swift; sourceTree = "<group>"; };
 		861B6921211A9583002AB55F /* ImportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportType.swift; sourceTree = "<group>"; };
+		862A5DCC21350D9C00334480 /* QRGenerato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerato.swift; sourceTree = "<group>"; };
+		862A5DCF2135367700334480 /* BolderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolderButton.swift; sourceTree = "<group>"; };
 		86391AD72117EF19002FAC67 /* Keystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keystore.swift; sourceTree = "<group>"; };
 		86391B72211442EB0045A610 /* TomoWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomoWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86391B75211442EB0045A610 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -301,8 +304,8 @@
 		8698A187212EB9020016C85D /* Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		86B32964212FA6FD00C7E57F /* SendCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendCoordinator.swift; sourceTree = "<group>"; };
 		86B32967212FB10F00C7E57F /* ChainState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainState.swift; sourceTree = "<group>"; };
-		86B3296B212FE2E700C7E57F /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
-		86B3296C212FE2E700C7E57F /* SendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendViewController.xib; sourceTree = "<group>"; };
+		86B3296B212FE2E700C7E57F /* SendAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAddressVC.swift; sourceTree = "<group>"; };
+		86B3296C212FE2E700C7E57F /* SendAddressVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendAddressVC.xib; sourceTree = "<group>"; };
 		86B3296F212FEB6600C7E57F /* SendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewModel.swift; sourceTree = "<group>"; };
 		86B32971212FEC1200C7E57F /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
 		86B32973212FEC6400C7E57F /* StringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringFormatter.swift; sourceTree = "<group>"; };
@@ -323,6 +326,9 @@
 		86C0DDBB21253A410096CB30 /* PassphraseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassphraseVC.xib; sourceTree = "<group>"; };
 		86C0DDBE21253C2C0096CB30 /* VerifyPassphraseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPassphraseVC.swift; sourceTree = "<group>"; };
 		86C0DDBF21253C2C0096CB30 /* VerifyPassphraseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifyPassphraseVC.xib; sourceTree = "<group>"; };
+		86C3362F2134EED6001C4C01 /* TransactionSigning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSigning.swift; sourceTree = "<group>"; };
+		86CC50C52135019F002054D6 /* ReveiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReveiceViewModel.swift; sourceTree = "<group>"; };
+		86CC50C7213504A4002054D6 /* CoinTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTypeViewModel.swift; sourceTree = "<group>"; };
 		8C69E34F93D204ED8CBDB39C /* Pods-TomoWalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomoWalletTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TomoWalletTests/Pods-TomoWalletTests.debug.xcconfig"; sourceTree = "<group>"; };
 		90C25A80C737DFB936E2E6B0 /* Pods-TomoWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomoWallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TomoWallet/Pods-TomoWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		CC3C333584A3328BBEAD4707 /* Pods_TomoWalletTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TomoWalletTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,8 +367,6 @@
 			isa = PBXGroup;
 			children = (
 				861023F621267A3300A831BE /* TableviewCell */,
-				861023F22126769300A831BE /* TokensHeaderView.swift */,
-				861023F4212676A200A831BE /* TokensHeaderView.xib */,
 				8698A177212E74EA0016C85D /* TokenHeaderView.swift */,
 				8698A175212E74C60016C85D /* TokenHeaderView.xib */,
 			);
@@ -402,6 +406,14 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		862A5DCE2135365C00334480 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				862A5DCF2135367700334480 /* BolderButton.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		86391AD52117EEB6002FAC67 /* EtherClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +438,7 @@
 		86391B69211442EB0045A610 = {
 			isa = PBXGroup;
 			children = (
+				862A5DCE2135365C00334480 /* UI */,
 				86391B74211442EB0045A610 /* TomoWallet */,
 				86391B89211442EC0045A610 /* TomoWalletTests */,
 				86391B94211442EC0045A610 /* TomoWalletUITests */,
@@ -451,7 +464,6 @@
 				8643B0DE2124235A00F46C21 /* Models */,
 				86539537211C263F00DB2DDE /* Core */,
 				8653952D211BE51400DB2DDE /* Modunles */,
-				8653952C211BE1A300DB2DDE /* UI */,
 				86539529211BE02200DB2DDE /* Foundation */,
 				86879FEB211845B70099A2CC /* Extentions */,
 				86391AD52117EEB6002FAC67 /* EtherClient */,
@@ -509,6 +521,7 @@
 				8698A16E212E5ED70016C85D /* ViewModelController */,
 				86102403212682E400A831BE /* TokenObjectViewModel.swift */,
 				861023FD2126822300A831BE /* TokenViewCellViewModel.swift */,
+				86CC50C7213504A4002054D6 /* CoinTypeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -531,6 +544,7 @@
 				8643B0D52123E28F00F46C21 /* ERC20Contract.swift */,
 				8698A173212E618B0016C85D /* Token.swift */,
 				866752082133DEDD00102007 /* SignTransaction.swift */,
+				86C3362F2134EED6001C4C01 /* TransactionSigning.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -666,6 +680,7 @@
 				8652121821227D8100F79E4D /* TokenObject.swift */,
 				8643B0C42123D27F00F46C21 /* CoinTicker.swift */,
 				86591361212A72FC00440972 /* Balance.swift */,
+				862A5DCC21350D9C00334480 /* QRGenerato.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -689,13 +704,6 @@
 				86B32977212FEFFB00C7E57F /* CryptoAddressValidator.swift */,
 			);
 			path = Foundation;
-			sourceTree = "<group>";
-		};
-		8653952C211BE1A300DB2DDE /* UI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		8653952D211BE51400DB2DDE /* Modunles */ = {
@@ -922,6 +930,7 @@
 			children = (
 				8643B0BC2123CFF200F46C21 /* TokensViewModel.swift */,
 				8698A16F212E5EFB0016C85D /* TokenViewModel.swift */,
+				86CC50C52135019F002054D6 /* ReveiceViewModel.swift */,
 			);
 			path = ViewModelController;
 			sourceTree = "<group>";
@@ -953,8 +962,8 @@
 		8698A183212EB3760016C85D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				86B3296B212FE2E700C7E57F /* SendViewController.swift */,
-				86B3296C212FE2E700C7E57F /* SendViewController.xib */,
+				86B3296B212FE2E700C7E57F /* SendAddressVC.swift */,
+				86B3296C212FE2E700C7E57F /* SendAddressVC.xib */,
 				86B32979212FF78F00C7E57F /* SendAmountVC.swift */,
 				86B3297A212FF78F00C7E57F /* SendAmountVC.xib */,
 				86B3297D212FF89300C7E57F /* ConfigureTransactionVC.swift */,
@@ -1141,7 +1150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86B3296E212FE2E700C7E57F /* SendViewController.xib in Resources */,
+				86B3296E212FE2E700C7E57F /* SendAddressVC.xib in Resources */,
 				86C0DDB921251E220096CB30 /* ConfirmVC.xib in Resources */,
 				8698A16D212E5CC70016C85D /* TokenVC.xib in Resources */,
 				86B329892130134700C7E57F /* ConfigGasPriceView.xib in Resources */,
@@ -1159,7 +1168,6 @@
 				8643B0BA2123CF6C00F46C21 /* TokensVC.xib in Resources */,
 				86B3297C212FF78F00C7E57F /* SendAmountVC.xib in Resources */,
 				86539546211C2CC000DB2DDE /* WelcomeVC.xib in Resources */,
-				861023F5212676A200A831BE /* TokensHeaderView.xib in Resources */,
 				86436257212C238A002D7D3E /* TransactionsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1343,8 +1351,9 @@
 				8643B0CE2123DFBF00F46C21 /* TransactionState.swift in Sources */,
 				8652121921227D8100F79E4D /* TokenObject.swift in Sources */,
 				8698A167212E4FDA0016C85D /* WalletAccountViewModel.swift in Sources */,
+				86C336302134EED6001C4C01 /* TransactionSigning.swift in Sources */,
 				8643B0DB212420C900F46C21 /* CoinViewModel.swift in Sources */,
-				86B3296D212FE2E700C7E57F /* SendViewController.swift in Sources */,
+				86B3296D212FE2E700C7E57F /* SendAddressVC.swift in Sources */,
 				8667521A2133FAE200102007 /* BalanceStatus.swift in Sources */,
 				866752152133F82600102007 /* ConfirmPaymentVC.swift in Sources */,
 				8643B0D02123E00100F46C21 /* LocalizedOperationObject.swift in Sources */,
@@ -1390,14 +1399,17 @@
 				86B32974212FEC6400C7E57F /* StringFormatter.swift in Sources */,
 				86879FED211845DD0099A2CC /* Address.swift in Sources */,
 				8643B0C32123D1B700F46C21 /* TokensPrice.swift in Sources */,
+				862A5DCD21350D9C00334480 /* QRGenerato.swift in Sources */,
 				8667521E2133FF7500102007 /* SentTransaction.swift in Sources */,
 				865AD13C21251C8E00E435E8 /* Error.swift in Sources */,
 				86591372212AA8A800440972 /* CastError.swift in Sources */,
+				86CC50C62135019F002054D6 /* ReveiceViewModel.swift in Sources */,
 				86B32982212FF94300C7E57F /* TransactionConfiguration.swift in Sources */,
 				8652125A2122EE2E00F79E4D /* MigrationInitializer.swift in Sources */,
 				8667520E2133F09900102007 /* GetNonceProvider.swift in Sources */,
 				8643B0D921240BA000F46C21 /* ApiProviderFactory.swift in Sources */,
 				8649579221213DA300C98D0B /* WalletEntryPoint.swift in Sources */,
+				862A5DD02135367700334480 /* BolderButton.swift in Sources */,
 				8652121621227C6F00F79E4D /* TokensDataStore.swift in Sources */,
 				86B32986212FFFD300C7E57F /* SendAmountViewModel.swift in Sources */,
 				8659136A212A79B600440972 /* CoinNetworkProvider.swift in Sources */,
@@ -1423,7 +1435,6 @@
 				86879FDD2117FF7D0099A2CC /* WalletInfo.swift in Sources */,
 				8643B0C52123D27F00F46C21 /* CoinTicker.swift in Sources */,
 				866752072133DB5E00102007 /* GasPriceConfiguration.swift in Sources */,
-				861023F32126769300A831BE /* TokensHeaderView.swift in Sources */,
 				8643B0D22123E07900F46C21 /* OperationType.swift in Sources */,
 				861023F921267A5100A831BE /* TokenViewCell.swift in Sources */,
 				8643B0E02124236600F46C21 /* EthereumUnit.swift in Sources */,
@@ -1431,6 +1442,7 @@
 				86591378212AAB1000440972 /* Realm.swift in Sources */,
 				86879FDB2117F4E70099A2CC /* WalletAddress.swift in Sources */,
 				86591362212A72FC00440972 /* Balance.swift in Sources */,
+				86CC50C8213504A4002054D6 /* CoinTypeViewModel.swift in Sources */,
 				86591374212AA8C600440972 /* String.swift in Sources */,
 				86591381212AB3DE00440972 /* Data.swift in Sources */,
 				86879FE42118057C0099A2CC /* WalletInfoType.swift in Sources */,

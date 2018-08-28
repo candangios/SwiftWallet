@@ -90,7 +90,7 @@ extension InCoordinator: TokensCoordinator_Delegate{
             )
             coordinator.start()
 //            coordinator.delegate = self
-//            addCoordinator(coordinator)
+            addCoordinator(coordinator)
 //            nav.pushCoordinator(coordinator: coordinator, animated: true)
         case .address:
             break

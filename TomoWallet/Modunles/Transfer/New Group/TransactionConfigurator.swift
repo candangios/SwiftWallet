@@ -172,6 +172,7 @@ final class TransactionConfigurator{
             chainID: server.chainID,
             localizedObject: localizedObject
         )
+        
         return signTransaction
     }
     
@@ -227,8 +228,7 @@ final class TransactionConfigurator{
         provider.request(.estimateGasLimit(server: self.server, transaction: signTransaction)) { (result) in
             
             switch result {
-            case .success(let response):
-                guard let responseValue:[String: Any] = (try! response.mapJSON() as? [String: Any]),let gasLimitHash = responseValue["result"] as? String, let value = BigInt(gasLimitHash.drop0x, radix: 16) else{
+            case .success(let response):                guard let responseValue:[String: Any] = (try! response.mapJSON() as? [String: Any]),let gasLimitHash = responseValue["result"] as? String, let value = BigInt(gasLimitHash.drop0x, radix: 16) else{
                     completion(.success(BigInt()))
                     return
                 }

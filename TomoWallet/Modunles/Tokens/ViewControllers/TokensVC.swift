@@ -32,6 +32,7 @@ class TokensVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = ""
         viewModel.fetch()
         tableView.delegate = self
         tableView.dataSource = self

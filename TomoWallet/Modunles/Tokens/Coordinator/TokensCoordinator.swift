@@ -23,6 +23,7 @@ class TokensCoordinator:NSObject, Coordinator {
     let transactionsStore: TransactionsStorage
     
     weak var delegate: TokensCoordinator_Delegate?
+    
     lazy var network: NetworkProtocol = {
         return ApiNetwork(provider: ApiProviderFactory.makeProvider(), wallet: session.account)
     }()
@@ -66,7 +67,26 @@ extension TokensCoordinator: TokensVC_Delegate{
 }
 extension TokensCoordinator: TokenVC_Delegate{
     func didPressRequest(for token: TokenObject, in controller: UIViewController) {
+        let first = self.session.account.accounts.filter{$0.coin == token.coin}.first
+        guard let account = first else {
+            return
+        }
+        let coinTypeViewModel = CoinTypeViewModel(type: .coin(account, token))
+        let viewModel = ReveiceVideModel(coinTypeViewModel: coinTypeViewModel)
+        let reveiceVC = ReveiceVC(viewModel: viewModel)
+   
         
+        reveiceVC.view.frame = navigationController.view.bounds
+        reveiceVC.beginAppearanceTransition(true, animated: true)
+        self.navigationController.view.addSubview(reveiceVC.view)
+        self.navigationController.addChildViewController(reveiceVC)
+        reveiceVC.view.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            reveiceVC.view.alpha = 1.0
+        }, completion: { _ in
+            reveiceVC.endAppearanceTransition()
+            reveiceVC.didMove(toParentViewController: self.navigationController.visibleViewController)
+        })
     }
     
     func didPressSend(for token: TokenObject, in controller: UIViewController) {

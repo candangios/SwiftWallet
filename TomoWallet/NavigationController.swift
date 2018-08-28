@@ -16,6 +16,7 @@ class NavigationController: UINavigationController {
         _isHiddenNavigationBar = isHiddenNavigationBar
         super.init(nibName: nil, bundle: nil)
         self.setNavigationBarHidden(_isHiddenNavigationBar, animated: true)
+ 
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,6 +25,17 @@ class NavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationBar.barTintColor = UIColor(hex: "151515")
+        self.navigationBar.tintColor = UIColor.white
+        self.navigationBar.isTranslucent = false
+        self.navigationBar.barStyle = .blackTranslucent
+    
+   
+//        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+
+
 
     }
 

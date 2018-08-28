@@ -15,11 +15,11 @@ protocol SendViewController_Delegate:class {
     func didPressConfirm(
         toAddress: EthereumAddress,
         data: Data,
-        in viewController: SendViewController
+        in viewController: SendAddressVC
     )
 }
 
-class SendViewController: UIViewController {
+class SendAddressVC: UIViewController {
     @IBOutlet weak var addressTextField: UITextField!
     let viewModel: SendViewModel
     weak var delegate: SendViewController_Delegate?
@@ -57,7 +57,7 @@ class SendViewController: UIViewController {
         present(controller, animated: true, completion: nil)
     }
 }
-extension SendViewController: QRCodeReaderDelegate {
+extension SendAddressVC: QRCodeReaderDelegate {
     func readerDidCancel(_ reader: QRCodeReaderViewController!) {
         reader.stopScanning()
         reader.dismiss(animated: true, completion: nil)

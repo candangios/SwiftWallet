@@ -116,7 +116,7 @@ extension RPCApi: TargetType{
         case .sendRawTransaction(_, let signedTransaction):
             let parameters = [
                 "jsonrpc": "2.0",
-                "method": "eth_estimateGas",
+                "method": "eth_sendRawTransaction",
                 "params": ["\(signedTransaction)"],
                 "id": 1
                 ] as [String : Any]

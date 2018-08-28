@@ -27,9 +27,10 @@ final class SendCoordinator: Coordinator {
     weak var delegate: SendCoordinatorDelegate?
 
 
-    private lazy var sendViewController: SendViewController = {
+    private lazy var sendViewController: SendAddressVC = {
         let viewModel = SendViewModel(transfer: self.transfer)
-        let controller = SendViewController(viewModel: viewModel)
+        let controller = SendAddressVC(viewModel: viewModel)
+   
         return controller
     }()
 
@@ -56,12 +57,13 @@ final class SendCoordinator: Coordinator {
     }
     
     func start() {
+        sendViewController.delegate = self
         self.navigationController.show(sendViewController, sender: self)
     }
 }
 
 extension SendCoordinator: SendViewController_Delegate {
-    func didPressConfirm(toAddress: EthereumAddress, data: Data, in viewController: SendViewController) {
+    func didPressConfirm(toAddress: EthereumAddress, data: Data, in viewController: SendAddressVC) {
         
         let sendAmountVC = SendAmountVC(session: self.session, storage: self.session.tokensStorage, account: self.account, transfer: self.transfer, chainState: self.chainState, toAddress: toAddress, data: data)
         sendAmountVC.delegate = self
@@ -78,6 +80,9 @@ extension SendCoordinator: SendAmountVC_Delegate{
             server: transfer.server,
             chainState: ChainState(server: transfer.server, provider: ApiProviderFactory.makeRPCNetworkProvider())
         )
+        let confirmPayment = ConfirmPaymentVC(session: session, keystore: keystore, configurator: configurator, confirmType: .signThenSend, server: transfer.server)
+        self.navigationController.pushViewController(confirmPayment, animated: true)
+        
         
         
         

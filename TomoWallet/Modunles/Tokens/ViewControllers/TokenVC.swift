@@ -38,7 +38,7 @@ class TokenVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = viewModel.title
+//        self.navigationItem.title = viewModel.title
         self.tableView.tableHeaderView = header
         self.tableView.tableHeaderView?.frame.size = CGSize(width: self.view.bounds.width, height: 315)
         self.tableView.delegate = self

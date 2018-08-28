@@ -95,7 +95,6 @@ final class TokensViewModel: NSObject{
         firstly {
             tokensNetwork.tickers(with: prices)
             }.done { [weak self] tickers in
-                print(tickers)
                 guard let strongSelf = self else { return }
                 strongSelf.store.saveTickers(tickers: tickers)
             }.catch { error in
