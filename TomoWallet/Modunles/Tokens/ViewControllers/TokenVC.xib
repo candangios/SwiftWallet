@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TokenVC" customModule="TomoWallet" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="bbL-oJ-bZO" id="o3M-bc-Lsn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,19 +18,8 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bbL-oJ-bZO">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableView>
-            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="bbL-oJ-bZO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kx9-7p-43y"/>
-                <constraint firstItem="bbL-oJ-bZO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Kxz-HO-NfI"/>
-                <constraint firstAttribute="trailing" secondItem="bbL-oJ-bZO" secondAttribute="trailing" id="S4G-9i-2ve"/>
-                <constraint firstAttribute="bottom" secondItem="bbL-oJ-bZO" secondAttribute="bottom" id="jLe-Pb-bpM"/>
-            </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
 </document>

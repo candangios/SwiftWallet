@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 protocol TokensVC_Delegate: class {
     // disable or enable token on main View
     func didPressAddToggleEnableToken( in viewController: UIViewController)
@@ -18,7 +19,11 @@ protocol TokensVC_Delegate: class {
 
 
 class TokensVC: UIViewController {
+    @IBOutlet weak var qrCodeImage: UIImageView!
+    @IBOutlet weak var walletNameLable: UILabel!
+    @IBOutlet weak var walletAddressLable: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
     fileprivate var viewModel: TokensViewModel
     weak var delegate: TokensVC_Delegate?
     init(viewModel: TokensViewModel) {
@@ -32,14 +37,62 @@ class TokensVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = ""
+        
+        createNavigator()
+        setHeaderView()
         viewModel.fetch()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: TokenViewCell.identifier, bundle: nil), forCellReuseIdentifier: TokenViewCell.identifier)
-      
+        
+        
     }
-
+    
+    func createNavigator() {
+        let menuBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: nil)
+        let notifiBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Notification"), style: .plain, target: self, action: nil)
+        let scanBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ScanQR"), style: .plain, target: self, action: nil)
+        
+        self.navigationItem.leftBarButtonItems = [menuBarItem]
+        self.navigationItem.rightBarButtonItems = [scanBarItem, notifiBarItem]
+    }
+    
+    func setHeaderView() {
+        walletNameLable.text = viewModel.title
+        walletAddressLable.text = viewModel.address
+        walletAddressLable.sizeToFit()
+        DispatchQueue.global(qos: .userInteractive).async {
+            let image = QRGenerator.generate(from: self.viewModel.address)
+            DispatchQueue.main.async {
+                self.qrCodeImage.image = image
+            }
+        }
+    }
+    
+    // Action
+    @IBAction func copyAddressAction(_ sender: Any) {
+        UIPasteboard.general.string = viewModel.address
+        let hup = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hup.label.text = "Address copied"
+        hup.hide(animated: true, afterDelay: 1.5)
+    }
+    @IBAction func shareAddressAction(_ sender: Any) {
+        let someText:String = self.viewModel.address
+        let objectsToShare:UIImage = self.qrCodeImage.image!
+        let sharedObjects:[AnyObject] = [objectsToShare,someText as AnyObject]
+        let activityViewController = UIActivityViewController(activityItems : sharedObjects, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, .postToFacebook,.postToTwitter, .message,.saveToCameraRoll]
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func zoomOutQRCodeAction(_ sender: Any) {
+        
+        
+    }
+    
 }
 
 extension TokensVC: UITableViewDelegate{
@@ -48,6 +101,7 @@ extension TokensVC: UITableViewDelegate{
         return 70
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         self.delegate?.didSelect(token: viewModel.item(for: indexPath), in: self)
         
     }

@@ -20,7 +20,6 @@ protocol TokensViewModel_Delegate: class {
 
 final class TokensViewModel: NSObject{
     let config: Config
-    
     let store: TokensDataStore
     var tokensNetwork: NetworkProtocol
     var tokens: Results<TokenObject>
@@ -31,6 +30,14 @@ final class TokensViewModel: NSObject{
     lazy var network: NetworkProtocol = {
         return ApiNetwork(provider: ApiProviderFactory.makeProvider(), wallet: session.account)
     }()
+    
+    var title: String{
+        return session.account.info.name
+    }
+    var address: String{
+        return session.account.address.description
+    }
+    
 
     
     weak var delegate: TokensViewModel_Delegate?
@@ -49,6 +56,9 @@ final class TokensViewModel: NSObject{
         self.transactionStore = transactionStore
         super.init()
     }
+    
+   
+    
     // public Function
     func fetch() {
         self.tokensInfo()
@@ -70,6 +80,7 @@ final class TokensViewModel: NSObject{
     func item(for path: IndexPath) -> TokenObject {
         return tokens[path.row]
     }
+    
 
     
     // private func

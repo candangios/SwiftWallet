@@ -143,6 +143,8 @@
 		86B32986212FFFD300C7E57F /* SendAmountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B32985212FFFD300C7E57F /* SendAmountViewModel.swift */; };
 		86B329892130134700C7E57F /* ConfigGasPriceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B329882130134700C7E57F /* ConfigGasPriceView.xib */; };
 		86B3298D2130141B00C7E57F /* ConfigGasPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3298C2130141B00C7E57F /* ConfigGasPriceView.swift */; };
+		86B9006E213685F100AFE577 /* TransationsPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9006C213685F100AFE577 /* TransationsPageVC.swift */; };
+		86B9006F213685F100AFE577 /* TransationsPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86B9006D213685F100AFE577 /* TransationsPageVC.xib */; };
 		86C0DDB821251E220096CB30 /* ConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0DDB621251E220096CB30 /* ConfirmVC.swift */; };
 		86C0DDB921251E220096CB30 /* ConfirmVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0DDB721251E220096CB30 /* ConfirmVC.xib */; };
 		86C0DDBC21253A410096CB30 /* PassphraseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0DDBA21253A410096CB30 /* PassphraseVC.swift */; };
@@ -320,6 +322,8 @@
 		86B32985212FFFD300C7E57F /* SendAmountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAmountViewModel.swift; sourceTree = "<group>"; };
 		86B329882130134700C7E57F /* ConfigGasPriceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigGasPriceView.xib; sourceTree = "<group>"; };
 		86B3298C2130141B00C7E57F /* ConfigGasPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigGasPriceView.swift; sourceTree = "<group>"; };
+		86B9006C213685F100AFE577 /* TransationsPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransationsPageVC.swift; sourceTree = "<group>"; };
+		86B9006D213685F100AFE577 /* TransationsPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransationsPageVC.xib; sourceTree = "<group>"; };
 		86C0DDB621251E220096CB30 /* ConfirmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmVC.swift; sourceTree = "<group>"; };
 		86C0DDB721251E220096CB30 /* ConfirmVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmVC.xib; sourceTree = "<group>"; };
 		86C0DDBA21253A410096CB30 /* PassphraseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseVC.swift; sourceTree = "<group>"; };
@@ -438,7 +442,6 @@
 		86391B69211442EB0045A610 = {
 			isa = PBXGroup;
 			children = (
-				862A5DCE2135365C00334480 /* UI */,
 				86391B74211442EB0045A610 /* TomoWallet */,
 				86391B89211442EC0045A610 /* TomoWalletTests */,
 				86391B94211442EC0045A610 /* TomoWalletUITests */,
@@ -461,6 +464,7 @@
 		86391B74211442EB0045A610 /* TomoWallet */ = {
 			isa = PBXGroup;
 			children = (
+				862A5DCE2135365C00334480 /* UI */,
 				8643B0DE2124235A00F46C21 /* Models */,
 				86539537211C263F00DB2DDE /* Core */,
 				8653952D211BE51400DB2DDE /* Modunles */,
@@ -647,6 +651,7 @@
 		8652120B21227A9600F79E4D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				86B9006B213685B500AFE577 /* TransactionPage */,
 				8643B0B72123CF6C00F46C21 /* TokensVC.swift */,
 				8643B0B82123CF6C00F46C21 /* TokensVC.xib */,
 				8698A16A212E5CC70016C85D /* TokenVC.swift */,
@@ -1018,6 +1023,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		86B9006B213685B500AFE577 /* TransactionPage */ = {
+			isa = PBXGroup;
+			children = (
+				86B9006C213685F100AFE577 /* TransationsPageVC.swift */,
+				86B9006D213685F100AFE577 /* TransationsPageVC.xib */,
+			);
+			path = TransactionPage;
+			sourceTree = "<group>";
+		};
 		A301C2BC3A97CE92EDA1D474 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1168,6 +1182,7 @@
 				8643B0BA2123CF6C00F46C21 /* TokensVC.xib in Resources */,
 				86B3297C212FF78F00C7E57F /* SendAmountVC.xib in Resources */,
 				86539546211C2CC000DB2DDE /* WelcomeVC.xib in Resources */,
+				86B9006F213685F100AFE577 /* TransationsPageVC.xib in Resources */,
 				86436257212C238A002D7D3E /* TransactionsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1206,6 +1221,7 @@
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReaderViewController/QRCodeReaderViewController.framework",
@@ -1235,6 +1251,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReaderViewController.framework",
@@ -1366,6 +1383,7 @@
 				861024072126DAB400A831BE /* ImageURLFormatter.swift in Sources */,
 				86879FEA2118413D0099A2CC /* RPCServer.swift in Sources */,
 				86391BA521145F700045A610 /* MainCoordinator.swift in Sources */,
+				86B9006E213685F100AFE577 /* TransationsPageVC.swift in Sources */,
 				8698A170212E5EFB0016C85D /* TokenViewModel.swift in Sources */,
 				866752002133A33D00102007 /* UIViewController.swift in Sources */,
 				865212582122EDEC00F79E4D /* Initializer.swift in Sources */,

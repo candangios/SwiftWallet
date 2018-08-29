@@ -8,6 +8,7 @@
 
 import UIKit
 import StatefulViewController
+import MXParallaxHeader
 
 protocol TokenVC_Delegate: class {
     func didPressRequest(for token: TokenObject, in controller: UIViewController)
@@ -22,9 +23,12 @@ class TokenVC: UIViewController {
         guard let view: TokenHeaderView = Bundle.main.loadNibNamed("TokenHeaderView", owner: self, options: nil)?.first as? TokenHeaderView else{
             return .none
         }
-        view.delegate = self as? TokenHeaderView_Delegate
+        view.delegate = self
         return view
     }()
+    var scrollView: MXScrollView!
+    var containerView = UIView()
+
 
     @IBOutlet weak var tableView: UITableView!
     let viewModel: TokenViewModel
@@ -38,12 +42,38 @@ class TokenVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationItem.title = viewModel.title
-        self.tableView.tableHeaderView = header
-        self.tableView.tableHeaderView?.frame.size = CGSize(width: self.view.bounds.width, height: 315)
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        scrollView = MXScrollView()
+        scrollView.parallaxHeader.delegate = self
+        scrollView.parallaxHeader.view = header;
+        scrollView.parallaxHeader.height = 260;
+        scrollView.parallaxHeader.mode = .fill;
+        scrollView.parallaxHeader.minimumHeight = 110;
+        view.addSubview(scrollView)
+        self.createNavigator()     
+        
 
+
+    }
+    func createNavigator() {
+        let menuBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: nil)
+        let notifiBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Notification"), style: .plain, target: self, action: nil)
+        let scanBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ScanQR"), style: .plain, target: self, action: nil)
+        
+        self.navigationItem.leftBarButtonItems = [menuBarItem]
+        self.navigationItem.rightBarButtonItems = [scanBarItem, notifiBarItem]
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+              var frame = view.frame
+        
+        scrollView.frame = frame
+        scrollView.contentSize = frame.size
+        
+        frame.size.height -= scrollView.parallaxHeader.minimumHeight
+        containerView.frame = frame
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -58,10 +88,15 @@ class TokenVC: UIViewController {
         self.header?.coinNameLable.text = viewModel.token.name
         
     }
-    
-    
-    
 }
+// MARK: - MXParallaxHeaderDelegate
+extension TokenVC: MXParallaxHeaderDelegate{
+    func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
+        print(parallaxHeader.progress)
+
+    }
+}
+
 extension TokenVC: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections

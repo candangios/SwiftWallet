@@ -16,6 +16,7 @@ class NavigationController: UINavigationController {
         _isHiddenNavigationBar = isHiddenNavigationBar
         super.init(nibName: nil, bundle: nil)
         self.setNavigationBarHidden(_isHiddenNavigationBar, animated: true)
+       
  
     }
     
@@ -25,18 +26,13 @@ class NavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationBar.barTintColor = UIColor(hex: "151515")
+        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationBar.shadowImage = UIImage()
+        self.navigationBar.isTranslucent = true
+        self.navigationBar.backgroundColor = UIColor.clear
         self.navigationBar.tintColor = UIColor.white
-        self.navigationBar.isTranslucent = false
         self.navigationBar.barStyle = .blackTranslucent
-    
-   
-//        navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationBar.shadowImage = UIImage()
-
-
-
+        self.navigationItem.backBarButtonItem?.title = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +42,7 @@ class NavigationController: UINavigationController {
     
     func displayLoading(text: String, animated: Bool)  {
         let hud = MBProgressHUD.showAdded(to: self.view, animated: animated)
-        hud.label.text = "Creating Wallet..."
+        hud.label.text = text
     }
     func hideLoading(animated: Bool)  {
         MBProgressHUD.hide(for: self.view, animated: animated)

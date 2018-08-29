@@ -11,8 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TokensVC" customModule="TomoWallet" customModuleProvider="target">
             <connections>
+                <outlet property="qrCodeImage" destination="Qgf-78-UgP" id="SKT-Kp-Oss"/>
                 <outlet property="tableView" destination="vum-zo-3V3" id="ngr-LS-2Y3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="walletAddressLable" destination="DiF-8y-0r9" id="G0u-Kw-yFm"/>
+                <outlet property="walletNameLable" destination="UkC-1z-GAU" id="LXd-py-EBW"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -21,44 +24,103 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vum-zo-3V3">
-                    <rect key="frame" x="0.0" y="119" width="375" height="548"/>
+                    <rect key="frame" x="0.0" y="179" width="375" height="488"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBe-ld-wTr">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qgf-78-UgP">
-                            <rect key="frame" x="15" y="7" width="81" height="81"/>
+                            <rect key="frame" x="15" y="67" width="81" height="81"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="81" id="NnO-cQ-v9S"/>
                                 <constraint firstAttribute="height" constant="81" id="wLx-IB-tCe"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkC-1z-GAU">
-                            <rect key="frame" x="104" y="7" width="206" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkC-1z-GAU">
+                            <rect key="frame" x="106" y="63" width="259" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="6x3-Ix-lXW"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiF-8y-0r9">
-                            <rect key="frame" x="104" y="36" width="263" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiF-8y-0r9">
+                            <rect key="frame" x="106" y="95" width="259" height="13.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="250" constant="11" id="kyq-9A-Imw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3TT-hh-JGn">
-                            <rect key="frame" x="104" y="65" width="263" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3TT-hh-JGn">
+                            <rect key="frame" x="106" y="123" width="259" height="25"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0FB-Fh-C2b" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="38" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="38" id="xIA-Fh-Aw0"/>
+                                    </constraints>
+                                    <state key="normal" image="ZoomOut"/>
+                                    <connections>
+                                        <action selector="zoomOutQRCodeAction:" destination="-1" eventType="touchUpInside" id="laL-j4-wbd"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q11-Iw-BYJ" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="48" y="0.0" width="82" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="82" id="srt-c1-g2e"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                    <state key="normal" title="  Copy" image="Copy">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="copyAddressAction:" destination="-1" eventType="touchUpInside" id="tCh-KO-HLh"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aty-AQ-qMy" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="140" y="0.0" width="82" height="25"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                    <state key="normal" title="  Share" image="Share"/>
+                                    <connections>
+                                        <action selector="shareAddressAction:" destination="-1" eventType="touchUpInside" id="qSc-aT-xMf"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="aty-AQ-qMy" firstAttribute="width" secondItem="Q11-Iw-BYJ" secondAttribute="width" id="06S-Rz-AEM"/>
+                                <constraint firstAttribute="height" constant="25" id="69p-f8-yvi"/>
+                                <constraint firstItem="0FB-Fh-C2b" firstAttribute="top" secondItem="3TT-hh-JGn" secondAttribute="top" id="8nB-Ms-Aja"/>
+                                <constraint firstItem="aty-AQ-qMy" firstAttribute="leading" secondItem="Q11-Iw-BYJ" secondAttribute="trailing" constant="10" id="Bvl-9L-h5M"/>
+                                <constraint firstAttribute="trailing" secondItem="aty-AQ-qMy" secondAttribute="trailing" priority="750" constant="37" id="C5j-3j-vUm"/>
+                                <constraint firstItem="Q11-Iw-BYJ" firstAttribute="leading" secondItem="0FB-Fh-C2b" secondAttribute="trailing" constant="10" id="Rym-zr-VJ1"/>
+                                <constraint firstItem="aty-AQ-qMy" firstAttribute="top" secondItem="3TT-hh-JGn" secondAttribute="top" id="Yv0-pu-GN5"/>
+                                <constraint firstAttribute="bottom" secondItem="0FB-Fh-C2b" secondAttribute="bottom" id="d12-jY-3b7"/>
+                                <constraint firstItem="0FB-Fh-C2b" firstAttribute="leading" secondItem="3TT-hh-JGn" secondAttribute="leading" id="get-Qp-4br"/>
+                                <constraint firstItem="Q11-Iw-BYJ" firstAttribute="top" secondItem="3TT-hh-JGn" secondAttribute="top" id="ht6-sX-1no"/>
+                                <constraint firstAttribute="bottom" secondItem="Q11-Iw-BYJ" secondAttribute="bottom" id="thq-FU-kHj"/>
+                                <constraint firstAttribute="bottom" secondItem="aty-AQ-qMy" secondAttribute="bottom" id="z3L-vR-iFP"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="119" id="D5g-ri-KFa"/>
+                        <constraint firstItem="3TT-hh-JGn" firstAttribute="leading" secondItem="Qgf-78-UgP" secondAttribute="trailing" constant="10" id="0Iq-Ay-oEl"/>
+                        <constraint firstItem="DiF-8y-0r9" firstAttribute="top" secondItem="UkC-1z-GAU" secondAttribute="bottom" constant="6" id="2t3-OW-dTq"/>
+                        <constraint firstAttribute="height" constant="179" id="D5g-ri-KFa"/>
+                        <constraint firstItem="UkC-1z-GAU" firstAttribute="top" secondItem="fBe-ld-wTr" secondAttribute="top" constant="63" id="G5R-zx-vSU"/>
                         <constraint firstAttribute="bottom" secondItem="Qgf-78-UgP" secondAttribute="bottom" constant="31" id="Jee-XJ-deK"/>
+                        <constraint firstItem="UkC-1z-GAU" firstAttribute="leading" secondItem="Qgf-78-UgP" secondAttribute="trailing" constant="10" id="SAF-Q9-ewM"/>
                         <constraint firstItem="Qgf-78-UgP" firstAttribute="leading" secondItem="fBe-ld-wTr" secondAttribute="leading" constant="15" id="SUy-Y3-GFW"/>
+                        <constraint firstAttribute="trailing" secondItem="UkC-1z-GAU" secondAttribute="trailing" constant="10" id="UQj-VX-MmE"/>
+                        <constraint firstAttribute="trailing" secondItem="3TT-hh-JGn" secondAttribute="trailing" constant="10" id="Z38-rR-gHq"/>
+                        <constraint firstItem="3TT-hh-JGn" firstAttribute="top" secondItem="DiF-8y-0r9" secondAttribute="bottom" constant="15" id="dKp-xs-wjT"/>
+                        <constraint firstItem="DiF-8y-0r9" firstAttribute="leading" secondItem="Qgf-78-UgP" secondAttribute="trailing" constant="10" id="hmf-om-6jj"/>
+                        <constraint firstAttribute="trailing" secondItem="DiF-8y-0r9" secondAttribute="trailing" constant="10" id="xSu-2O-jqi"/>
                     </constraints>
                 </view>
             </subviews>
@@ -75,4 +137,9 @@
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="Copy" width="19" height="19"/>
+        <image name="Share" width="19" height="19"/>
+        <image name="ZoomOut" width="12" height="12"/>
+    </resources>
 </document>

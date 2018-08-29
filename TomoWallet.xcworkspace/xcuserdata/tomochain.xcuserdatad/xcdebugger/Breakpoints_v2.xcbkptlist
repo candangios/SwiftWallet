@@ -33,38 +33,6 @@
             endingLineNumber = "85"
             landmarkName = "saveCreatedWallet(for:password:derivationPaths:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "default argument 1 of TrustKeystore.KeyStore.generateFileName(identifier: Swift.String, date: Foundation.Date, timeZone: Foundation.TimeZone) -&gt; Swift.String"
-                  moduleName = "TrustKeystore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomochain/SwiftWallet/Pods/TrustKeystore/Sources/KeyStore.swift"
-                  timestampString = "557146137.857507"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "296"
-                  endingLineNumber = "296"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "default argument 2 of TrustKeystore.KeyStore.generateFileName(identifier: Swift.String, date: Foundation.Date, timeZone: Foundation.TimeZone) -&gt; Swift.String"
-                  moduleName = "TrustKeystore"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomochain/SwiftWallet/Pods/TrustKeystore/Sources/KeyStore.swift"
-                  timestampString = "557146137.859134"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "296"
-                  endingLineNumber = "296"
-                  offsetFromSymbolStart = "4">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -176,86 +144,6 @@
             startingLineNumber = "49"
             endingLineNumber = "49"
             landmarkName = "NextAction(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TomoWallet/Modunles/Transfer/Coordinator/SendTransactionCoordinator.swift"
-            timestampString = "557146137.431778"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "send(transaction:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TomoWallet/Modunles/Transfer/Coordinator/SendTransactionCoordinator.swift"
-            timestampString = "557146137.4320821"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "send(transaction:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TomoWallet.SendTransactionCoordinator.send(transaction: TomoWallet.SignTransaction, completion: (Result.Result&lt;TomoWallet.ConfirmResult, Result.AnyError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "TomoWallet"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomochain/SwiftWallet/TomoWallet/Modunles/Transfer/Coordinator/SendTransactionCoordinator.swift"
-                  timestampString = "557146137.602914"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "929">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Result.Result&lt;Moya.Response, Moya.MoyaError&gt;) -&gt; () in TomoWallet.SendTransactionCoordinator.send(transaction: TomoWallet.SignTransaction, completion: (Result.Result&lt;TomoWallet.ConfirmResult, Result.AnyError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "TomoWallet"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomochain/SwiftWallet/TomoWallet/Modunles/Transfer/Coordinator/SendTransactionCoordinator.swift"
-                  timestampString = "557146137.6043659"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "144">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TomoWallet/Modunles/Transfer/Coordinator/SendTransactionCoordinator.swift"
-            timestampString = "557146137.4322979"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "approve(confirmType:transaction:data:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
