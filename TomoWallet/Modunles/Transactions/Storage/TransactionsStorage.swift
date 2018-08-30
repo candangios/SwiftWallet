@@ -17,7 +17,6 @@ struct TransactionSection {
 
 class TransactionsStorage {
     let realm: Realm
-    
     var transactions: Results<Transaction> {
         return realm.objects(Transaction.self).filter(NSPredicate(format: "id!=''")).sorted(byKeyPath: "date", ascending: false)
     }

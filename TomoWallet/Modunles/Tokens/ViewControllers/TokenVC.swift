@@ -26,11 +26,40 @@ class TokenVC: UIViewController {
         view.delegate = self
         return view
     }()
-    var scrollView: MXScrollView!
-    var containerView = UIView()
+    
+    private lazy var segmentedIndicatorView: SegmentedIndicatorView? = {
+        guard let view: SegmentedIndicatorView = Bundle.main.loadNibNamed("SegmentedIndicatorView", owner: self, options: nil)?.first as? SegmentedIndicatorView else{
+            return .none
+        }
+        return view
+    }()
+    private lazy var scrollView: MXScrollView = {
+        let scrollView = MXScrollView()
+        scrollView.parallaxHeader.delegate = self
+        scrollView.parallaxHeader.view = header;
+        scrollView.parallaxHeader.height = 260;
+        scrollView.parallaxHeader.mode = .fill;
+        scrollView.parallaxHeader.minimumHeight = 110;
+        return scrollView
+    }()
+    let containerView = UIView()
+    
+    private lazy var pageViewController : UIPageViewController = {
+        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        pageViewController.dataSource = self
+        for view in pageViewController.view.subviews {
+            if let scrollView = view as? UIScrollView {
+                scrollView.delegate = self
+            }
+        }
+        let startingViewController: InstructionView = viewControllerAtIndex(index: 0)!
+        let viewControllers = [startingViewController]
+        pageViewController.setViewControllers(viewControllers , direction: .forward, animated: false, completion: nil)
+        return pageViewController
+    }()
+    var currentIndex : Int = 0
+    let quantityPage = 3
 
-
-    @IBOutlet weak var tableView: UITableView!
     let viewModel: TokenViewModel
     weak var delegate: TokenVC_Delegate?
     init(viewModel: TokenViewModel) {
@@ -42,38 +71,35 @@ class TokenVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView = MXScrollView()
-        scrollView.parallaxHeader.delegate = self
-        scrollView.parallaxHeader.view = header;
-        scrollView.parallaxHeader.height = 260;
-        scrollView.parallaxHeader.mode = .fill;
-        scrollView.parallaxHeader.minimumHeight = 110;
+    
         view.addSubview(scrollView)
-        self.createNavigator()     
+        self.createNavigator()
+        scrollView.addSubview(containerView)
         
-
-
+        addChildViewController(pageViewController)
+        self.containerView.addSubview(pageViewController.view)
+        pageViewController.didMove(toParentViewController: self)
+        self.containerView.addSubview(self.segmentedIndicatorView!)
+        
     }
     func createNavigator() {
-        let menuBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: nil)
+ 
         let notifiBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Notification"), style: .plain, target: self, action: nil)
         let scanBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ScanQR"), style: .plain, target: self, action: nil)
-        
-        self.navigationItem.leftBarButtonItems = [menuBarItem]
         self.navigationItem.rightBarButtonItems = [scanBarItem, notifiBarItem]
     }
     
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-              var frame = view.frame
-        
+        var frame = view.frame
         scrollView.frame = frame
         scrollView.contentSize = frame.size
-        
         frame.size.height -= scrollView.parallaxHeader.minimumHeight
         containerView.frame = frame
+
+        segmentedIndicatorView?.frame = CGRect(x: 0, y: 0, width: containerView.frame.size.width, height: 40);
+        pageViewController.view.frame = CGRect(x: 0, y: 40, width: containerView.frame.size.width, height: containerView.frame.size.height);
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -86,8 +112,39 @@ class TokenVC: UIViewController {
         self.header?.iconImage.kf.setImage(with: viewModel.imageURL, placeholder: viewModel.imagePlaceholder)
         self.header?.balancelable.text = viewModel.token.valueBalance.amountFull
         self.header?.coinNameLable.text = viewModel.token.name
+    }
+    
+    
+    func viewControllerAtIndex(index: Int) -> InstructionView?
+    {
+        if self.quantityPage == 0
+        {
+            return nil
+        }
+        
+        // Create a new view controller and pass suitable data.
+        let pageContentViewController = InstructionView()
+        pageContentViewController.pageIndex = index
+        currentIndex = index
+        
+        return pageContentViewController
+    }
+
+    
+}
+
+extension TokenVC: UIScrollViewDelegate {
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let distance =  self.view.bounds.width
+        let progress = (scrollView.contentOffset.x  - distance) / distance
+        print(progress)
+//        segmentIndicatorHomeView.pageViewScrollingProgress(progress: progress)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+//        segmentIndicatorHomeView.pageViewScrollingProgress(progress: 0)
         
     }
+    
 }
 // MARK: - MXParallaxHeaderDelegate
 extension TokenVC: MXParallaxHeaderDelegate{
@@ -97,37 +154,47 @@ extension TokenVC: MXParallaxHeaderDelegate{
     }
 }
 
-extension TokenVC: UITableViewDataSource, UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numberOfSections
+extension TokenVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate  {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?
+    {
+        var index = (viewController as! InstructionView).pageIndex
+        
+        if (index == 0) || (index == NSNotFound) {
+            return nil
+        }
+        
+        index -= 1
+        
+        return viewControllerAtIndex(index: index)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: TransactionViewCell.identifier, for: indexPath) as! TransactionViewCell
-//        cell.configure(viewModel: viewModel.cellViewModel(for: indexPath))
-//        return cell
-        return UITableViewCell()
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?
+    {
+        var index = (viewController as! InstructionView).pageIndex
+        
+        if index == NSNotFound {
+            return nil
+        }
+        
+        index += 1
+        
+        if (index == self.quantityPage) {
+            return nil
+        }
+        
+        return viewControllerAtIndex(index: index)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfItems(for: section)
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int
+    {
+        return self.quantityPage
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return SectionHeader(
-//            title: viewModel.titleForHeader(in: section)
-//        )
-        return nil
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int
+    {
+        return 0
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-       return 0.1
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        delegate?.didPress(viewModel: viewModel, transaction: viewModel.item(for: indexPath.row, section: indexPath.section), in: self)
-//        tableView.deselectRow(at: indexPath, animated: true)
-    }
+
 }
 extension TokenVC: TokenHeaderView_Delegate{
     func didPressSend() {

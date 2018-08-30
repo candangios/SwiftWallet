@@ -37,14 +37,12 @@ class TokensVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         createNavigator()
         setHeaderView()
         viewModel.fetch()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: TokenViewCell.identifier, bundle: nil), forCellReuseIdentifier: TokenViewCell.identifier)
-        
         
     }
     
