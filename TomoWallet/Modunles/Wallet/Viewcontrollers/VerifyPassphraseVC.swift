@@ -7,8 +7,28 @@
 //
 
 import UIKit
+import TrustKeystore
+protocol VerifyPassphraseVC_Delegate:class {
+    func didFinish(in controller: VerifyPassphraseVC, with account: Wallet)
+    func didSkip(in controller: VerifyPassphraseVC, with account: Wallet)
+}
 
 class VerifyPassphraseVC: UIViewController {
+    let account: Wallet
+    let words: [String]
+    let mode: PassphraseMode
+    weak var delegate: VerifyPassphraseVC_Delegate?
+    init(account: Wallet, words:[String], mode: PassphraseMode) {
+        self.account = account
+        self.words = words
+        self.mode = mode
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

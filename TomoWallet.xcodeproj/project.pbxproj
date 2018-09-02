@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		49700F7214BAEC1C4F28F382 /* Pods_TomoWalletUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8A64AD2FA92E0D32E49CF5 /* Pods_TomoWalletUITests.framework */; };
+		848CE1EC213B95140080B894 /* WordPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848CE1EB213B95140080B894 /* WordPhraseView.swift */; };
+		848CE1EE213B96690080B894 /* WordPhraseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848CE1ED213B96690080B894 /* WordPhraseView.xib */; };
 		861023F921267A5100A831BE /* TokenViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861023F721267A5100A831BE /* TokenViewCell.swift */; };
 		861023FA21267A5100A831BE /* TokenViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 861023F821267A5100A831BE /* TokenViewCell.xib */; };
 		861023FF2126822300A831BE /* TokenViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861023FD2126822300A831BE /* TokenViewCellViewModel.swift */; };
@@ -182,6 +184,8 @@
 		68F76200A97EAB7C7127A08B /* Pods-TomoWalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomoWalletTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TomoWalletTests/Pods-TomoWalletTests.release.xcconfig"; sourceTree = "<group>"; };
 		76282DB80A18BFADD0223FC2 /* Pods_TomoWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TomoWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7900F1D077997F6DCB28724D /* Pods-TomoWalletUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomoWalletUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TomoWalletUITests/Pods-TomoWalletUITests.release.xcconfig"; sourceTree = "<group>"; };
+		848CE1EB213B95140080B894 /* WordPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPhraseView.swift; sourceTree = "<group>"; };
+		848CE1ED213B96690080B894 /* WordPhraseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordPhraseView.xib; sourceTree = "<group>"; };
 		861023F721267A5100A831BE /* TokenViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewCell.swift; sourceTree = "<group>"; };
 		861023F821267A5100A831BE /* TokenViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TokenViewCell.xib; sourceTree = "<group>"; };
 		861023FD2126822300A831BE /* TokenViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -369,6 +373,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		848CE1E8213B94A70080B894 /* UIview */ = {
+			isa = PBXGroup;
+			children = (
+				848CE1EB213B95140080B894 /* WordPhraseView.swift */,
+				848CE1ED213B96690080B894 /* WordPhraseView.xib */,
+			);
+			path = UIview;
+			sourceTree = "<group>";
+		};
 		861023F12126766100A831BE /* UIView */ = {
 			isa = PBXGroup;
 			children = (
@@ -730,6 +743,7 @@
 		8653952E211BE65600DB2DDE /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				848CE1E8213B94A70080B894 /* UIview */,
 				8619C15C211946DB00C90F72 /* Storage */,
 				8649579021213D8700C98D0B /* Type */,
 				86539534211BE8A200DB2DDE /* Viewcontrollers */,
@@ -1198,6 +1212,7 @@
 				8698A180212EAF930016C85D /* ReveiceVC.xib in Resources */,
 				861023FA21267A5100A831BE /* TokenViewCell.xib in Resources */,
 				8698A176212E74C60016C85D /* TokenHeaderView.xib in Resources */,
+				848CE1EE213B96690080B894 /* WordPhraseView.xib in Resources */,
 				86B32980212FF89300C7E57F /* ConfigureTransactionVC.xib in Resources */,
 				86391B80211442EC0045A610 /* LaunchScreen.storyboard in Resources */,
 				86391B7D211442EC0045A610 /* Assets.xcassets in Resources */,
@@ -1499,6 +1514,7 @@
 				86102404212682E400A831BE /* TokenObjectViewModel.swift in Sources */,
 				8653952B211BE04E00DB2DDE /* BaseCoordinator.swift in Sources */,
 				86436256212C238A002D7D3E /* TransactionsViewController.swift in Sources */,
+				848CE1EC213B95140080B894 /* WordPhraseView.swift in Sources */,
 				8649578E21213C9700C98D0B /* InitialWalletCoordinator.swift in Sources */,
 				867FA6A32121952F0026D183 /* WalletCoordinator.swift in Sources */,
 				8652121321227B4200F79E4D /* TokensCoordinator.swift in Sources */,

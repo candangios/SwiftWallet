@@ -48,15 +48,17 @@ class InitialWalletCoordinator: Coordinator {
     }
 }
 extension InitialWalletCoordinator: WalletCoordinator_Delegate{
+    func didCancel(in coordinator: WalletCoordinator, account: WalletInfo) {
+        self.delegate?.didCancel(in: self)
+        self.removeCoordinator(coordinator)
+    }
+    
     func didFinish(with account: WalletInfo, in coordinator: WalletCoordinator) {
         self.delegate?.didAddAccount(account, in: self)
         self.removeCoordinator(coordinator)
     }
     
-    func didCancel(in coordinator: WalletCoordinator) {
-        self.delegate?.didCancel(in: self)
-        self.removeCoordinator(coordinator)
-    }
+
     
     
 }

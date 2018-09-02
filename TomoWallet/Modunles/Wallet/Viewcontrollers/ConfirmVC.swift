@@ -8,12 +8,10 @@
 
 import UIKit
 import TrustKeystore
-protocol PassphraseVC_Delegate: class{
+protocol ConfrimVC_Delegate: class{
     func didPressVerify(in controller: ConfirmVC, with account: Wallet, words: [String])
     func didSkip(in controller: ConfirmVC, with account: Wallet)
 }
-
-
 
 enum WalletInfoField {
     case name(String)
@@ -32,7 +30,7 @@ class ConfirmVC: UIViewController {
     let account: Wallet
     let words: [String]
     let mode: PassphraseMode
-    weak var delegate: PassphraseVC_Delegate?
+    weak var delegate: ConfrimVC_Delegate?
     init(account: Wallet, words:[String], mode: PassphraseMode) {
         self.account = account
         self.words = words
@@ -46,6 +44,7 @@ class ConfirmVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: false)
 
         // Do any additional setup after loading the view.
     }

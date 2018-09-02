@@ -65,18 +65,6 @@ for you</string>
                         <action selector="backUpMyAccountAction:" destination="-1" eventType="touchUpInside" id="wn6-LM-qIt"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CIf-CK-P5u">
-                    <rect key="frame" x="16" y="245" width="343" height="300"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <string key="text">Storing a recovery phrase will allow you to recover your account if your phone is ever lost or stolen. It’s important to store this recovery phrase securely where nobody else can access it, such as on a piece of paper or in a password manager
-
-
-If you lose your recovery phrase, you will be unable to recover access to your account
-</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qa9-hi-7b7">
                     <rect key="frame" x="120" y="612" width="134" height="48"/>
                     <constraints>
@@ -90,13 +78,28 @@ If you lose your recovery phrase, you will be unable to recover access to your a
                         <action selector="didSkipAction:" destination="-1" eventType="touchUpInside" id="Bc7-9X-ynQ"/>
                     </connections>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CIf-CK-P5u">
+                    <rect key="frame" x="16" y="245" width="343" height="300"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <string key="text">Storing a recovery phrase will allow you to recover your account if your phone is ever lost or stolen. It’s important to store this recovery phrase securely where nobody else can access it, such as on a piece of paper or in a password manager
+
+
+If you lose your recovery phrase, you will be unable to recover access to your account
+</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Qa9-hi-7b7" secondAttribute="bottom" constant="7" id="2Cs-Z3-mjy"/>
+                <constraint firstItem="CIf-CK-P5u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="4DZ-tV-3Xl"/>
                 <constraint firstAttribute="bottom" secondItem="AcF-C5-Bwd" secondAttribute="bottom" constant="56" id="AL0-TB-q6d"/>
                 <constraint firstAttribute="trailing" secondItem="A7V-Rb-Kq1" secondAttribute="trailing" id="AoM-7v-M3P"/>
                 <constraint firstItem="Qa9-hi-7b7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ck7-Oc-VPY"/>
+                <constraint firstItem="AcF-C5-Bwd" firstAttribute="top" secondItem="CIf-CK-P5u" secondAttribute="bottom" constant="16" id="FWj-NL-Jn3"/>
+                <constraint firstAttribute="trailing" secondItem="CIf-CK-P5u" secondAttribute="trailing" constant="16" id="IHV-eV-bWt"/>
+                <constraint firstItem="CIf-CK-P5u" firstAttribute="top" secondItem="gje-p5-IdW" secondAttribute="bottom" constant="8" id="VZx-7Y-cSa"/>
                 <constraint firstItem="AcF-C5-Bwd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="fAp-wi-JwN"/>
                 <constraint firstItem="gje-p5-IdW" firstAttribute="top" secondItem="A7V-Rb-Kq1" secondAttribute="bottom" constant="28" id="hN2-5m-dZd"/>
                 <constraint firstItem="A7V-Rb-Kq1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jsb-nK-aYy"/>
