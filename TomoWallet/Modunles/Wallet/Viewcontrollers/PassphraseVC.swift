@@ -40,7 +40,7 @@ class PassphraseVC: UIViewController {
     
     
     func set12WordsView() {
-        let width = UIScreen.main.bounds.width
+        let width = UIScreen.main.bounds.width/2
         for index in 0..<self.words.count {
             guard let view = Bundle.main.loadNibNamed("WordPhraseView", owner: nil, options: nil)?.first as? WordPhraseView else{
                 return

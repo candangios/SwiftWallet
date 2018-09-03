@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		49700F7214BAEC1C4F28F382 /* Pods_TomoWalletUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8A64AD2FA92E0D32E49CF5 /* Pods_TomoWalletUITests.framework */; };
+		84152441213CD9E90058F31F /* ImportWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415243F213CD9E90058F31F /* ImportWalletVC.swift */; };
+		84152442213CD9E90058F31F /* ImportWalletVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84152440213CD9E90058F31F /* ImportWalletVC.xib */; };
 		848CE1EC213B95140080B894 /* WordPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848CE1EB213B95140080B894 /* WordPhraseView.swift */; };
 		848CE1EE213B96690080B894 /* WordPhraseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848CE1ED213B96690080B894 /* WordPhraseView.xib */; };
 		861023F921267A5100A831BE /* TokenViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861023F721267A5100A831BE /* TokenViewCell.swift */; };
@@ -71,8 +73,8 @@
 		8652125C2122EEAC00F79E4D /* RealmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652125B2122EEAC00F79E4D /* RealmConfiguration.swift */; };
 		8652125E2122F1D100F79E4D /* SharedMigrationInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8652125D2122F1D100F79E4D /* SharedMigrationInitializer.swift */; };
 		8653952B211BE04E00DB2DDE /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653952A211BE04E00DB2DDE /* BaseCoordinator.swift */; };
-		86539531211BE6D800DB2DDE /* WalletCreatedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653952F211BE6D800DB2DDE /* WalletCreatedVC.swift */; };
-		86539532211BE6D800DB2DDE /* WalletCreatedVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86539530211BE6D800DB2DDE /* WalletCreatedVC.xib */; };
+		86539531211BE6D800DB2DDE /* WalletNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653952F211BE6D800DB2DDE /* WalletNameVC.swift */; };
+		86539532211BE6D800DB2DDE /* WalletNameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86539530211BE6D800DB2DDE /* WalletNameVC.xib */; };
 		86539536211BE8D800DB2DDE /* WalletCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86539535211BE8D800DB2DDE /* WalletCreateViewModel.swift */; };
 		8653953A211C268F00DB2DDE /* URLNavigatorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86539539211C268F00DB2DDE /* URLNavigatorCoordinator.swift */; };
 		8653953C211C2A3A00DB2DDE /* PushNotifilecationsRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653953B211C2A3A00DB2DDE /* PushNotifilecationsRegistrar.swift */; };
@@ -184,6 +186,8 @@
 		68F76200A97EAB7C7127A08B /* Pods-TomoWalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomoWalletTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TomoWalletTests/Pods-TomoWalletTests.release.xcconfig"; sourceTree = "<group>"; };
 		76282DB80A18BFADD0223FC2 /* Pods_TomoWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TomoWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7900F1D077997F6DCB28724D /* Pods-TomoWalletUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomoWalletUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TomoWalletUITests/Pods-TomoWalletUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8415243F213CD9E90058F31F /* ImportWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletVC.swift; sourceTree = "<group>"; };
+		84152440213CD9E90058F31F /* ImportWalletVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportWalletVC.xib; sourceTree = "<group>"; };
 		848CE1EB213B95140080B894 /* WordPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPhraseView.swift; sourceTree = "<group>"; };
 		848CE1ED213B96690080B894 /* WordPhraseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordPhraseView.xib; sourceTree = "<group>"; };
 		861023F721267A5100A831BE /* TokenViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewCell.swift; sourceTree = "<group>"; };
@@ -253,8 +257,8 @@
 		8652125B2122EEAC00F79E4D /* RealmConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConfiguration.swift; sourceTree = "<group>"; };
 		8652125D2122F1D100F79E4D /* SharedMigrationInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedMigrationInitializer.swift; sourceTree = "<group>"; };
 		8653952A211BE04E00DB2DDE /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
-		8653952F211BE6D800DB2DDE /* WalletCreatedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreatedVC.swift; sourceTree = "<group>"; };
-		86539530211BE6D800DB2DDE /* WalletCreatedVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletCreatedVC.xib; sourceTree = "<group>"; };
+		8653952F211BE6D800DB2DDE /* WalletNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNameVC.swift; sourceTree = "<group>"; };
+		86539530211BE6D800DB2DDE /* WalletNameVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletNameVC.xib; sourceTree = "<group>"; };
 		86539535211BE8D800DB2DDE /* WalletCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateViewModel.swift; sourceTree = "<group>"; };
 		86539539211C268F00DB2DDE /* URLNavigatorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLNavigatorCoordinator.swift; sourceTree = "<group>"; };
 		8653953B211C2A3A00DB2DDE /* PushNotifilecationsRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotifilecationsRegistrar.swift; sourceTree = "<group>"; };
@@ -765,14 +769,16 @@
 		86539534211BE8A200DB2DDE /* Viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
-				8653952F211BE6D800DB2DDE /* WalletCreatedVC.swift */,
-				86539530211BE6D800DB2DDE /* WalletCreatedVC.xib */,
+				8653952F211BE6D800DB2DDE /* WalletNameVC.swift */,
+				86539530211BE6D800DB2DDE /* WalletNameVC.xib */,
 				86C0DDB621251E220096CB30 /* ConfirmVC.swift */,
 				86C0DDB721251E220096CB30 /* ConfirmVC.xib */,
 				86C0DDBA21253A410096CB30 /* PassphraseVC.swift */,
 				86C0DDBB21253A410096CB30 /* PassphraseVC.xib */,
 				86C0DDBE21253C2C0096CB30 /* VerifyPassphraseVC.swift */,
 				86C0DDBF21253C2C0096CB30 /* VerifyPassphraseVC.xib */,
+				8415243F213CD9E90058F31F /* ImportWalletVC.swift */,
+				84152440213CD9E90058F31F /* ImportWalletVC.xib */,
 			);
 			path = Viewcontrollers;
 			sourceTree = "<group>";
@@ -1209,6 +1215,7 @@
 				86C0DDB921251E220096CB30 /* ConfirmVC.xib in Resources */,
 				8698A16D212E5CC70016C85D /* TokenVC.xib in Resources */,
 				86B329892130134700C7E57F /* ConfigGasPriceView.xib in Resources */,
+				84152442213CD9E90058F31F /* ImportWalletVC.xib in Resources */,
 				8698A180212EAF930016C85D /* ReveiceVC.xib in Resources */,
 				861023FA21267A5100A831BE /* TokenViewCell.xib in Resources */,
 				8698A176212E74C60016C85D /* TokenHeaderView.xib in Resources */,
@@ -1217,7 +1224,7 @@
 				86391B80211442EC0045A610 /* LaunchScreen.storyboard in Resources */,
 				86391B7D211442EC0045A610 /* Assets.xcassets in Resources */,
 				866752162133F82600102007 /* ConfirmPaymentVC.xib in Resources */,
-				86539532211BE6D800DB2DDE /* WalletCreatedVC.xib in Resources */,
+				86539532211BE6D800DB2DDE /* WalletNameVC.xib in Resources */,
 				86C0DDBD21253A410096CB30 /* PassphraseVC.xib in Resources */,
 				86C0DDC121253C2C0096CB30 /* VerifyPassphraseVC.xib in Resources */,
 				86391B7B211442EB0045A610 /* Main.storyboard in Resources */,
@@ -1437,7 +1444,7 @@
 				8698A169212E4FFB0016C85D /* Account.swift in Sources */,
 				86391B78211442EB0045A610 /* ViewController.swift in Sources */,
 				8643B0C02123D10500F46C21 /* ApiNetwowk.swift in Sources */,
-				86539531211BE6D800DB2DDE /* WalletCreatedVC.swift in Sources */,
+				86539531211BE6D800DB2DDE /* WalletNameVC.swift in Sources */,
 				8653953A211C268F00DB2DDE /* URLNavigatorCoordinator.swift in Sources */,
 				86495794212166A800C98D0B /* InCoordinator.swift in Sources */,
 				86C0DDBC21253A410096CB30 /* PassphraseVC.swift in Sources */,
@@ -1484,6 +1491,7 @@
 				8649578C2121387A00C98D0B /* Coin.swift in Sources */,
 				866752182133F84200102007 /* ConfirmPaymentViewModel.swift in Sources */,
 				86391AD82117EF19002FAC67 /* Keystore.swift in Sources */,
+				84152441213CD9E90058F31F /* ImportWalletVC.swift in Sources */,
 				86879FE2211803860099A2CC /* WalletObject.swift in Sources */,
 				8698A172212E60C10016C85D /* TransactionsStorage.swift in Sources */,
 				8698A188212EB9020016C85D /* Transfer.swift in Sources */,

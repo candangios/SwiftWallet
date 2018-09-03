@@ -125,6 +125,7 @@ extension WalletCoordinator: PassphraseVC_Delegate{
     }
     
     func didSkip(in controller: PassphraseVC, with account: Wallet) {
+        self.navigationController.popViewController(animated: true)
 //
     }
 }

@@ -46,7 +46,7 @@
                                     </constraints>
                                     <state key="normal" image="Close"/>
                                     <connections>
-                                        <action selector="didCancellAction:" destination="-1" eventType="touchUpInside" id="BDg-rb-EVQ"/>
+                                        <action selector="didCancellAction:" destination="-1" eventType="touchUpInside" id="bfG-Ce-ds1"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -71,13 +71,13 @@ all the words correctly</string>
                             <color key="textColor" red="0.4823529411764706" green="0.4823529411764706" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JpY-nZ-U8g" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JpY-nZ-U8g" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
                             <rect key="frame" x="35" y="555" width="305" height="50"/>
                             <color key="backgroundColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Ki2-gV-Rb0"/>
                             </constraints>
-                            <state key="normal" title="CHECK IT AGAIN">
+                            <state key="normal" title="    CHECK IT AGAIN" image="Check">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -140,6 +140,7 @@ all the words correctly</string>
         </view>
     </objects>
     <resources>
+        <image name="Check" width="21" height="20"/>
         <image name="Close" width="30" height="30"/>
         <image name="NotTakeScreenshot" width="44" height="44"/>
     </resources>
