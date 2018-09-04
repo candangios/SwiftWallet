@@ -14,7 +14,7 @@ import UIKit
 protocol WalletCoordinator_Delegate: class {
     
     func didFinish(with account: WalletInfo, in coordinator: WalletCoordinator)
-    func didCancel(in coordinator: WalletCoordinator)
+    func didCancel(in coordinator: WalletCoordinator, account: WalletInfo)
 }
 
 class WalletCoordinator: Coordinator{
@@ -54,19 +54,10 @@ class WalletCoordinator: Coordinator{
     func createInstantWallet() {
         self.navigationController.displayLoading(text: "Creating Wallet...", animated: true)
         let password = PasswordGenerator.generateRandom()
+  
         self.keystore.createAccount(with: password, coin: .rinkeby) { (result) in
             switch result{
             case .success(let wallet):
-                self.keystore.exportPrivateKey(account: wallet.accounts.first!, completion: { (a) in
-                    switch a{
-                    case .success(let data):
-                        let privatekey = data.toString()
-                        let privatekey1 = data.toHexString()
-                        print(privatekey1)
-                    case .failure(let error):
-                        self.navigationController.displayError(error: error)
-                    }
-                })
                 self.keystore.exportMnemonic(wallet: wallet, completion: { (mnemonicResult) in
                    self.navigationController.hideLoading(animated: true)
                     switch mnemonicResult{
@@ -86,7 +77,6 @@ class WalletCoordinator: Coordinator{
     func pushBackup(for wallet: Wallet, words: [String]) {
         let controller = ConfirmVC(account: wallet, words: words, mode: .showAndVerify)
         controller.delegate = self
-       
         navigationController.pushViewController(controller, animated: true)
     }
     
@@ -104,17 +94,49 @@ class WalletCoordinator: Coordinator{
             .mainWallet(true),
         ])
     }
+    
+    func createNameWallet(wallet: WalletInfo, type: WalletDoneType) {
+        
+    }
 }
 
-extension WalletCoordinator: PassphraseVC_Delegate{
+extension WalletCoordinator: ConfrimVC_Delegate{
     func didPressVerify(in controller: ConfirmVC, with account: Wallet, words: [String]) {
-       
-//        self.delegate?.didFinish(with: account., in: self)
+        let passPhrase = PassphraseVC(account: account, words: words)
+        passPhrase.delegate = self
+        self.navigationController.pushViewController(passPhrase, animated: true)
     }
     
     func didSkip(in controller: ConfirmVC, with account: Wallet) {
-        self.delegate?.didCancel(in: self)
+        let type = WalletType.hd(account)
+        let walletInfo = WalletInfo(type: type, info: keystore.storage.get(for: type))
+        keystore.store(object: walletInfo.info, fields: [
+            .backup(false),
+            ])
+        createNameWallet(wallet: walletInfo, type: .created)
+    }
+}
+extension WalletCoordinator: PassphraseVC_Delegate{
+    func didPressVerify(in controller: PassphraseVC, with account: Wallet, words: [String]) {
+        let veryfirmVC = VerifyPassphraseVC(account: account, words: words, mode: .showAndVerify)
+        veryfirmVC.delegate = self
+        self.navigationController.pushViewController(veryfirmVC, animated: true)
+        
     }
     
+    func didSkip(in controller: PassphraseVC, with account: Wallet) {
+        self.navigationController.popViewController(animated: true)
+//
+    }
+}
+extension WalletCoordinator: VerifyPassphraseVC_Delegate{
+    func didFinish(in controller: VerifyPassphraseVC, with account: Wallet) {
     
+    }
+    
+    func didSkip(in controller: VerifyPassphraseVC, with account: Wallet) {
+        
+    }
+    
+
 }

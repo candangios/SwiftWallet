@@ -1,13 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerifyPassphraseVC" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerifyPassphraseVC" customModule="TomoWallet" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="RUy-pF-7AQ" id="BdA-C4-JmB"/>
+                <outlet property="doneButton" destination="xZq-su-uog" id="eri-NL-15P"/>
+                <outlet property="exitButton" destination="P78-8H-6B6" id="RAO-Ja-Hw5"/>
+                <outlet property="proposalView" destination="a5l-RH-HxV" id="hqB-5b-GqZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +22,206 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lj-Uw-V0C">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yR-zo-qNF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3L-Pf-Y3U">
+                                    <rect key="frame" x="59" y="60" width="257" height="97"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="97" id="2QQ-Qw-CXi"/>
+                                        <constraint firstAttribute="width" constant="257" id="flG-Xi-DGz"/>
+                                    </constraints>
+                                    <string key="text">Enter all words
+in correct order</string>
+                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P78-8H-6B6">
+                                    <rect key="frame" x="315" y="20" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="VQq-65-87r"/>
+                                        <constraint firstAttribute="width" constant="40" id="dpG-wJ-K3w"/>
+                                    </constraints>
+                                    <state key="normal" image="Close"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="185" id="GpV-1d-tKn"/>
+                                <constraint firstAttribute="trailing" secondItem="P78-8H-6B6" secondAttribute="trailing" constant="20" id="UMF-tX-faC"/>
+                                <constraint firstItem="O3L-Pf-Y3U" firstAttribute="top" secondItem="9yR-zo-qNF" secondAttribute="top" constant="60" id="nnw-cv-N3H"/>
+                                <constraint firstItem="O3L-Pf-Y3U" firstAttribute="centerX" secondItem="9yR-zo-qNF" secondAttribute="centerX" id="oDN-Xt-VXh"/>
+                                <constraint firstItem="P78-8H-6B6" firstAttribute="top" secondItem="9yR-zo-qNF" secondAttribute="top" constant="20" id="rHp-L1-W2T"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZq-su-uog" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                            <rect key="frame" x="35" y="597" width="305" height="50"/>
+                            <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="fyV-UY-wqn"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                            <state key="normal" title="    CHECK IT" image="Check"/>
+                        </button>
+                        <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUy-pF-7AQ">
+                            <rect key="frame" x="0.0" y="205" width="375" height="136"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="136" id="hNt-GW-xFL"/>
+                            </constraints>
+                        </view>
+                        <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5l-RH-HxV">
+                            <rect key="frame" x="26" y="452" width="323" height="130"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkD-zL-WFS" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="101" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3H-qh-Zdn" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="111" y="0.0" width="101" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fa-WJ-nx3" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="222" y="0.0" width="101" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFT-kj-UNN" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="35" width="101" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-Ti-gGe" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="111" y="35" width="101" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7M-Xk-BBF" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="222" y="35" width="101" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVn-kN-p8h" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="70" width="101" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOc-vY-Zwh" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="111" y="70" width="101" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5J-Xk-iyz" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="222" y="70" width="101" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r65-ku-wWd" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="103" width="101" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFB-Em-6qi" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="111" y="103" width="101" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbF-B0-uXi" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                                    <rect key="frame" x="222" y="103" width="101" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="130" id="zQA-0F-beF"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="RUy-pF-7AQ" secondAttribute="trailing" id="0FI-gQ-U45"/>
+                        <constraint firstItem="xZq-su-uog" firstAttribute="top" secondItem="a5l-RH-HxV" secondAttribute="bottom" constant="15" id="2uv-Gc-7zw"/>
+                        <constraint firstItem="9yR-zo-qNF" firstAttribute="leading" secondItem="9lj-Uw-V0C" secondAttribute="leading" id="4mD-Fh-6TU"/>
+                        <constraint firstItem="9yR-zo-qNF" firstAttribute="top" secondItem="9lj-Uw-V0C" secondAttribute="top" id="ABy-qC-tec"/>
+                        <constraint firstAttribute="bottom" secondItem="xZq-su-uog" secondAttribute="bottom" constant="20" id="Bu1-lo-c44"/>
+                        <constraint firstAttribute="trailing" secondItem="a5l-RH-HxV" secondAttribute="trailing" constant="26" id="IDb-pu-iQO"/>
+                        <constraint firstItem="RUy-pF-7AQ" firstAttribute="top" secondItem="9yR-zo-qNF" secondAttribute="bottom" constant="20" id="LOV-rk-nO8"/>
+                        <constraint firstAttribute="trailing" secondItem="xZq-su-uog" secondAttribute="trailing" constant="35" id="Z2E-y6-4tG"/>
+                        <constraint firstItem="xZq-su-uog" firstAttribute="leading" secondItem="9lj-Uw-V0C" secondAttribute="leading" constant="35" id="gvo-XB-czp"/>
+                        <constraint firstItem="RUy-pF-7AQ" firstAttribute="leading" secondItem="9lj-Uw-V0C" secondAttribute="leading" id="hBX-s8-Z3W"/>
+                        <constraint firstItem="a5l-RH-HxV" firstAttribute="leading" secondItem="9lj-Uw-V0C" secondAttribute="leading" constant="26" id="jNa-J0-SUY"/>
+                        <constraint firstAttribute="trailing" secondItem="9yR-zo-qNF" secondAttribute="trailing" id="xQY-Ph-94u"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <constraints>
+                <constraint firstItem="9lj-Uw-V0C" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="657-cL-0oD"/>
+                <constraint firstItem="9lj-Uw-V0C" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="OaU-ju-R1w"/>
+                <constraint firstItem="9lj-Uw-V0C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YZW-Ce-0VN"/>
+                <constraint firstItem="9lj-Uw-V0C" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="adg-Ad-SND"/>
+            </constraints>
+            <point key="canvasLocation" x="-126.5" y="-40.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="Check" width="21" height="20"/>
+        <image name="Close" width="30" height="30"/>
+    </resources>
 </document>

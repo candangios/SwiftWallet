@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WalletCreatedVC: UIViewController {
+class WalletNameVC: UIViewController {
 
     @IBOutlet weak var importWalletButton: UIButton!
     @IBOutlet weak var createWalletButton: UIButton!

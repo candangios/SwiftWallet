@@ -24,11 +24,10 @@ class MainCoordinator:NSObject, Coordinator {
     }()
     
   
-    init(window: UIWindow, keystore: Keystore,navigationController: NavigationController = NavigationController(isHiddenNavigationBar: true), navigator: URLNavigatorCoordinator = URLNavigatorCoordinator()) {
+    init(window: UIWindow, keystore: Keystore,navigationController: NavigationController = NavigationController(isHiddenNavigationBar: false), navigator: URLNavigatorCoordinator = URLNavigatorCoordinator()) {
         self.keystore = keystore
         self.navigator = navigator
         self.navigationController = navigationController
-        self.navigationController.setNavigationBarHidden(true, animated: false)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
@@ -63,6 +62,7 @@ class MainCoordinator:NSObject, Coordinator {
     func showInitialWalletCoordinator (entryPoint: WalletEntryPoint){
         let initialWalletCoordinator = InitialWalletCoordinator(keystore: self.keystore, navigationController: self.navigationController, entryPoint: entryPoint)
         initialWalletCoordinator.start()
+        initialWalletCoordinator.delegate = self
         self.addCoordinator(initialWalletCoordinator)
     }
 }
@@ -70,19 +70,21 @@ class MainCoordinator:NSObject, Coordinator {
 extension MainCoordinator: WelcomeVC_Delegate{
     func didPressCreateWallet(in viewController: WelcomeVC) {
         showInitialWalletCoordinator(entryPoint: .createInstantWallet)
+      
     }
     func didPressImportWallet(in viewController: WelcomeVC) {
       
     }
 }
 
-extension MainCoordinator: WalletCoordinator_Delegate{
-    func didFinish(with account: WalletInfo, in coordinator: WalletCoordinator) {
+extension MainCoordinator: InitialWalletCoordinator_Delegate{
+    func didCancel(in coordinator: InitialWalletCoordinator) {
         self.removeCoordinator(coordinator)
-        
+       
     }
     
-    func didCancel(in coordinator: WalletCoordinator) {
+    func didAddAccount(_ account: WalletInfo, in coordinator: InitialWalletCoordinator) {
+        showTransactions(for: account)
         self.removeCoordinator(coordinator)
     }
     
