@@ -65,4 +65,7 @@ struct ConfirmPaymentViewModel {
             }
         }
     }
+    
+    
+    
 }

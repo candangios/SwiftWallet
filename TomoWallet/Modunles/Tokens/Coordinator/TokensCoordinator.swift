@@ -50,6 +50,13 @@ class TokensCoordinator:NSObject, Coordinator {
 }
 
 extension TokensCoordinator: TokensVC_Delegate{
+    func didPressAddToken(in viewController: UIViewController) {
+        let viewModel = NewTokenViewModel(token: .none, session: self.session, tokensNetwork: self.network)
+        let controller = NewTokenViewController(viewModel: viewModel)
+        controller.delegate = self
+        return controller
+    }
+    
     func didSelect(token: TokenObject, in viewController: UIViewController) {
         let tokenViewModel = TokenViewModel(token: token, store: store, transactionsStore: transactionsStore, tokensNetwork: network, session: session)
         let tokenVC = TokenVC(viewModel: tokenViewModel)
@@ -57,13 +64,6 @@ extension TokensCoordinator: TokensVC_Delegate{
         self.navigationController.pushViewController(tokenVC, animated: true)
     }
     
-    func didRequest(token: TokenObject, in viewController: UIViewController) {
-        
-    }
-    
-    func didPressAddToggleEnableToken(in viewController: UIViewController) {
-       // viewController togger token account
-    }
 }
 extension TokensCoordinator: TokenVC_Delegate{
     func didPressRequest(for token: TokenObject, in controller: UIViewController) {

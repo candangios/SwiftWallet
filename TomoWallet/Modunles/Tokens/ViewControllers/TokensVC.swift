@@ -9,12 +9,11 @@
 import UIKit
 import MBProgressHUD
 protocol TokensVC_Delegate: class {
-    // disable or enable token on main View
-    func didPressAddToggleEnableToken( in viewController: UIViewController)
+    func didPressAddToken( in viewController: UIViewController)
     // select a token
     func didSelect(token: TokenObject, in viewController: UIViewController)
-    // request add more a token
-    func didRequest(token: TokenObject, in viewController: UIViewController)
+    
+
 }
 
 
@@ -35,6 +34,18 @@ class TokensVC: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    lazy var tokensFooterView: UIButton = {
+        let footer = UIButton(type: .custom)
+        footer.frame =  CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 60)
+        footer.setTitle("   Add other token", for: .normal)
+        footer.setTitleColor(UIColor(hex: "006DF0"), for: .normal)
+        footer.setImage(#imageLiteral(resourceName: "Create").imageWithColor(color1: UIColor(hex: "006DF0")), for: .normal)
+        footer.tintColor = UIColor.green
+        footer.addTarget(self, action: #selector(self.addOtherToken), for: .touchUpInside)
+        return footer
+        
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         createNavigator()
@@ -42,6 +53,7 @@ class TokensVC: UIViewController {
         viewModel.fetch()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = tokensFooterView
         tableView.register(UINib(nibName: TokenViewCell.identifier, bundle: nil), forCellReuseIdentifier: TokenViewCell.identifier)
         
     }
@@ -86,6 +98,10 @@ class TokensVC: UIViewController {
         self.present(activityViewController, animated: true, completion: nil)
     }
     
+    @objc func addOtherToken() {
+        delegate?.didPressAddToken(in: self)
+    }
+    
     @IBAction func zoomOutQRCodeAction(_ sender: Any) {
         
         
@@ -116,6 +132,11 @@ extension TokensVC: UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let tokenViewCell = cell as? TokenViewCell else { return }
+        if indexPath.row%2 == 0{
+            tokenViewCell.backgroundColor = UIColor(hex: "F8F8F8")
+        }else{
+            tokenViewCell.backgroundColor = UIColor.white
+        }
         tokenViewCell.configure(viewModel: viewModel.cellViewModel(for: indexPath))
     }
     

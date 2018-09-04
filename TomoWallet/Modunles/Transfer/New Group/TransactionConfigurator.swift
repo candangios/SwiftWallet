@@ -112,11 +112,6 @@ final class TransactionConfigurator{
         loadNonce(completion: completion)
     }
     
-
-
-    
-    
-    
     func previewTransaction() -> PreviewTransaction {
         return PreviewTransaction(
             value: valueToSend(),

@@ -15,6 +15,7 @@ class NavigationController: UINavigationController {
     init(isHiddenNavigationBar: Bool) {
         _isHiddenNavigationBar = isHiddenNavigationBar
         super.init(nibName: nil, bundle: nil)
+        
         self.setNavigationBarHidden(_isHiddenNavigationBar, animated: true)
        
  
@@ -35,9 +36,11 @@ class NavigationController: UINavigationController {
         self.navigationItem.backBarButtonItem?.title = ""
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    
+    class CustomNavigationController: UINavigationController {
+        
+        convenience init() {
+            self.init(navigationBarClass: CustomNavigationBar.self, toolbarClass: nil)
+        }
     }
     
     func displayLoading(text: String, animated: Bool)  {
@@ -54,7 +57,10 @@ class NavigationController: UINavigationController {
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
-    
-
-
+}
+class CustomNavigationBar: UINavigationBar {
+    override func layoutSubviews() {
+        backItem?.title = ""
+        super.layoutSubviews()
+    }
 }

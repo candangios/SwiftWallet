@@ -54,6 +54,7 @@ class SendAmountVC: UIViewController {
     @IBOutlet weak var symbolLable: UILabel!
     
     weak var delegate: SendAmountVC_Delegate?
+    var operation = true
     
     init(
         session: WalletSession,
@@ -74,25 +75,70 @@ class SendAmountVC: UIViewController {
         super.init(nibName: nil, bundle: nil)
     
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = viewModel.title
-        self.amountLable.text = "0.3"
-        self.viewModel.amount = self.amountLable.text ?? "0.0"
-        
-//         title = viewModel.title
+        self.amountLable.text = viewModel.defaultAmount
+     
+        self.setHeaderView()
+    
     }
     func setHeaderView()  {
         self.toAddressLable.text = viewModel.toAddress.description
         
     }
+    
+    //appending number to label
+    func Addnumberfunc(number:String){
+        if (self.amountLable.text?.count)! > 6 {
+            return
+        }
+        if self.amountLable.text == viewModel.defaultAmount{
+            self.amountLable.text = ""
+        }
+        var textnum = String(amountLable.text!)
+        textnum = textnum + number
+        amountLable.text = textnum
+        
+        
+    }
+
+    
+    
+    @IBAction func getValueFromNumber(_ sender: CalculatorButton) {
+        switch sender.tag {
+        case 11:
+            
+            // dot character
+             self.Addnumberfunc(number: ".")
+        case 12:
+            //delete last character
+            if self.amountLable.text == viewModel.defaultAmount{
+                return
+            }
+            if self.amountLable.text?.count == 1{
+                self.amountLable.text = viewModel.defaultAmount
+                return
+            }
+            self.amountLable.text = String((amountLable.text?.dropLast())!)
+        default:
+            // numbers character
+            self.Addnumberfunc(number: "\(sender.tag)")
+        }
+        
+        
+    }
+    
+    
+    
+    
     @IBAction func sendAction(_ sender: Any) {
+        
+        self.viewModel.amount = self.amountLable.text ?? viewModel.defaultAmount
         let amountString = viewModel.amount
-  
         let parsedValue: BigInt? = {
             switch transfer.type {
             case .ether:

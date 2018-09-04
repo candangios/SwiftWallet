@@ -41,6 +41,7 @@ struct SendAmountViewModel {
     var rate = "0.0"
     /// amount of a `SendViewModel` to represent current amount to send.
     var amount = "0.0"
+    var defaultAmount = "0.0"
     /// gasPrice of a `SendViewModel` to represent gas price for send transaction.
     var gasPrice: BigInt? {
         return chainState.gasPrice

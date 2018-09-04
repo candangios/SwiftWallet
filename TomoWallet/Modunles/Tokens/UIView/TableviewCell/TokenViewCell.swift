@@ -29,6 +29,8 @@ class TokenViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configure(viewModel: TokenViewCellViewModel) {
+        
+        
         tokenNameLable.text = viewModel.title
         amountLable.text = viewModel.amount
         marketPriceLable.text = viewModel.marketPrice

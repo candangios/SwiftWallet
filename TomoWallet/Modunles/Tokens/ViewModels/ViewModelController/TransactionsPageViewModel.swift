@@ -61,8 +61,8 @@ final class TransactionsPageViewModel{
              tokenTransactionSections = transactionsStore.mappedSections(for: Array(tokens))
         case .Sent:
           
-            let filterTransactions  = Array(tokens).filter{$0.from != self.currentAccount.address.description || $0.from
-                .lowercased() != self.currentAccount.address.description.lowercased()}
+            let filterTransactions  = Array(tokens).filter{$0.from == self.currentAccount.address.description || $0.from
+                .lowercased() == self.currentAccount.address.description.lowercased()}
 
             tokenTransactionSections = transactionsStore.mappedSections(for: filterTransactions)
         case .Received:

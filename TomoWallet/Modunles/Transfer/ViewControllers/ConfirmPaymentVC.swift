@@ -68,13 +68,19 @@ class ConfirmPaymentVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = viewModel.title
-
-        // Do any additional setup after loading the view.
+        self.setHeaderView()
     }
     
-    func fetch() {
-//        startLoading()
+    func setHeaderView()  {
+        self.toAddressLable.text = configurator.previewTransaction().address?.description
+//        self.amountValueLable.text =  configurator.previewTransaction().value
         
+    }
+    
+    
+    
+    func fetch() {
+       
         let hup = MBProgressHUD.showAdded(to: self.view, animated: true)
         hup.label.text = "EstimateGas"
         configurator.load { [weak self] result in
@@ -82,6 +88,7 @@ class ConfirmPaymentVC: UIViewController {
             switch result {
             case .success:
                 hup.hide(animated: true)
+                
                 break
             case .failure(let error):
                 print(error)
@@ -96,16 +103,9 @@ class ConfirmPaymentVC: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-
 
     @IBAction func sendAction(_ sender: Any) {
-//        self.displayLoading()
+//
         
         let transaction = configurator.signTransaction
         self.sendTransactionCoordinator.send(transaction: transaction) { [weak self] result in
