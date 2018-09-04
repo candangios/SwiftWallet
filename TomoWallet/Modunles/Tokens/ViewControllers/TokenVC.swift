@@ -47,17 +47,18 @@ class TokenVC: UIViewController {
     private lazy var pageViewController : UIPageViewController = {
         let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageViewController.dataSource = self
+        pageViewController.delegate = self
         for view in pageViewController.view.subviews {
             if let scrollView = view as? UIScrollView {
                 scrollView.delegate = self
             }
         }
-        let startingViewController: InstructionView = viewControllerAtIndex(index: 0)!
+        let startingViewController: TransactionsPageView = viewControllerAtIndex(index: 0)!
         let viewControllers = [startingViewController]
         pageViewController.setViewControllers(viewControllers , direction: .forward, animated: false, completion: nil)
         return pageViewController
     }()
-    var currentIndex : Int = 0
+    var currentPageView: TransactionsPageView?
     let quantityPage = 3
 
     let viewModel: TokenViewModel
@@ -81,14 +82,24 @@ class TokenVC: UIViewController {
         pageViewController.didMove(toParentViewController: self)
         self.containerView.addSubview(self.segmentedIndicatorView!)
         
+        // listenning update view token balance
+        self.observToken()
+        
+        viewModel.transactionObservation {
+            print("hehe")
+        }
+
+        
     }
     func createNavigator() {
- 
         let notifiBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Notification"), style: .plain, target: self, action: nil)
         let scanBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ScanQR"), style: .plain, target: self, action: nil)
         self.navigationItem.rightBarButtonItems = [scanBarItem, notifiBarItem]
     }
     
+    deinit {
+        viewModel.invalidateObservers()
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -103,10 +114,17 @@ class TokenVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupInitialViewState()
         self.viewModel.fetch()
         self.updateHeaderView()
     }
+    
+    private func observToken() {
+        viewModel.tokenObservation { [weak self] in
+            self?.updateHeaderView()
+          
+        }
+    }
+
     
     private func updateHeaderView(){
         self.header?.iconImage.kf.setImage(with: viewModel.imageURL, placeholder: viewModel.imagePlaceholder)
@@ -115,7 +133,7 @@ class TokenVC: UIViewController {
     }
     
     
-    func viewControllerAtIndex(index: Int) -> InstructionView?
+    func viewControllerAtIndex(index: Int) -> TransactionsPageView?
     {
         if self.quantityPage == 0
         {
@@ -123,33 +141,31 @@ class TokenVC: UIViewController {
         }
         
         // Create a new view controller and pass suitable data.
-        let pageContentViewController = InstructionView()
-        pageContentViewController.pageIndex = index
-        currentIndex = index
-        
+      
+        let pageContentViewController = viewModel.createTransactionsPageView(type: TransactionsPageViewType(rawValue: index)!)
         return pageContentViewController
     }
 
     
 }
 
+// Update position Indicator Segmented View
 extension TokenVC: UIScrollViewDelegate {
+    
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let distance =  self.view.bounds.width
         let progress = (scrollView.contentOffset.x  - distance) / distance
-        print(progress)
+//        print(progress)
 //        segmentIndicatorHomeView.pageViewScrollingProgress(progress: progress)
     }
-    override func viewDidAppear(_ animated: Bool) {
-//        segmentIndicatorHomeView.pageViewScrollingProgress(progress: 0)
-        
-    }
+
     
 }
+
 // MARK: - MXParallaxHeaderDelegate
 extension TokenVC: MXParallaxHeaderDelegate{
     func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
-        print(parallaxHeader.progress)
+//        print(parallaxHeader.progress)
 
     }
 }
@@ -157,7 +173,7 @@ extension TokenVC: MXParallaxHeaderDelegate{
 extension TokenVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate  {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?
     {
-        var index = (viewController as! InstructionView).pageIndex
+        var index = (viewController as! TransactionsPageView).type.rawValue
         
         if (index == 0) || (index == NSNotFound) {
             return nil
@@ -170,7 +186,7 @@ extension TokenVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate 
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?
     {
-        var index = (viewController as! InstructionView).pageIndex
+        var index = (viewController as! TransactionsPageView).type.rawValue
         
         if index == NSNotFound {
             return nil
@@ -194,6 +210,11 @@ extension TokenVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate 
     {
         return 0
     }
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool)
+    {
+        if (!completed){return}
+        currentPageView = pageViewController.viewControllers?.first as? TransactionsPageView
+    }
 
 }
 extension TokenVC: TokenHeaderView_Delegate{
@@ -207,11 +228,6 @@ extension TokenVC: TokenHeaderView_Delegate{
         
     }
     
-    
 }
-extension TokenVC: StatefulViewController {
-    func hasContent() -> Bool {
-        return viewModel.hasContent()
-    }
-}
+
 

@@ -1,7 +1,15 @@
-// Copyright DApps Platform Inc. All rights reserved.
+//
+//  EtherNumberFormatter.swift
+//  TomoWallet
+//
+//  Created by TomoChain on 8/15/18.
+//  Copyright © 2018 TomoChain. All rights reserved.
+//
+
+import Foundation
 
 import BigInt
-import Foundation
+
 
 final class EtherNumberFormatter {
     /// Formatter that preserves full precision.
@@ -167,12 +175,3 @@ final class EtherNumberFormatter {
         return string
     }
 }
-//
-//  EtherNumberFormatter.swift
-//  TomoWallet
-//
-//  Created by TomoChain on 8/15/18.
-//  Copyright © 2018 TomoChain. All rights reserved.
-//
-
-import Foundation

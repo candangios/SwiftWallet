@@ -11,6 +11,12 @@ import Foundation
 import RealmSwift
 import TrustCore
 
+
+enum TransactionDirection {
+    case incoming
+    case outgoing
+}
+
 final class Transaction: Object, Decodable {
     @objc dynamic var id: String = ""
     @objc dynamic var uniqueID: String = ""
@@ -33,6 +39,8 @@ final class Transaction: Object, Decodable {
     
     var localizedOperations = List<LocalizedOperationObject>()
     
+    var direction: TransactionDirection?
+  
     convenience init(
         id: String,
         blockNumber: Int,
@@ -116,6 +124,8 @@ final class Transaction: Object, Decodable {
             }
             return .completed
         }()
+        
+    
         
         self.init(
             id: id,

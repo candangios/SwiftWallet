@@ -42,7 +42,7 @@
                   moduleName = "TrustKeystore"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tomochain/SwiftWallet/Pods/TrustKeystore/Sources/KeyStore.swift"
-                  timestampString = "557295629.396898"
+                  timestampString = "557406030.568665"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "296"
@@ -57,7 +57,7 @@
                   moduleName = "TrustKeystore"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tomochain/SwiftWallet/Pods/TrustKeystore/Sources/KeyStore.swift"
-                  timestampString = "557295629.398548"
+                  timestampString = "557406030.570313"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "296"
@@ -176,22 +176,6 @@
             startingLineNumber = "49"
             endingLineNumber = "49"
             landmarkName = "NextAction(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TomoWallet/Modunles/Tokens/ViewControllers/TransactionPage/InstructionView.swift"
-            timestampString = "557313098.5870399"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "didReceiveMemoryWarning()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

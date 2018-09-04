@@ -90,7 +90,6 @@ class TransactionsStorage {
     }
     
     func update(state: TransactionState, for transaction: Transaction) {
-        NSLog("transaction \(transaction)")
         try? realm.write {
             let tempObject = transaction
             tempObject.internalState = state.rawValue

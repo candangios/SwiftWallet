@@ -115,7 +115,7 @@ final class ApiNetwork: NetworkProtocol{
                 } catch {
                     completion((nil, false))
                 }
-            case .failure:
+            case .failure(let error):
                 completion((nil, false))
             }
         }

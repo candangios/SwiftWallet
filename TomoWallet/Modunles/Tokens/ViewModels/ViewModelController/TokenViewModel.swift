@@ -26,8 +26,10 @@ final class TokenViewModel{
     private let transactionsStore: TransactionsStorage
     private var tokenTransactions: Results<Transaction>?
     private var tokenTransactionSections: [TransactionSection] = []
-//    private var notificationToken: NotificationToken?
-//    private var transactionToken: NotificationToken?
+    
+    // observe when change object in realm
+    private var notificationToken: NotificationToken?
+    private var transactionToken: NotificationToken?
     
     let token: TokenObject
     private lazy var tokenObjectViewModel: TokenObjectViewModel = {
@@ -54,12 +56,7 @@ final class TokenViewModel{
         return UIFont.systemFont(ofSize: 18, weight: .medium)
     }
     
-    let titleFormmater: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d yyyy"
-        return formatter
-    }()
-    
+
     let backgroundColor: UIColor = {
         return .white
     }()
@@ -114,6 +111,7 @@ final class TokenViewModel{
     var allTransactions: [Transaction] {
         return Array(tokenTransactions!)
     }
+
     
     var pendingTransactions: [Transaction] {
         return Array(tokenTransactions!.filter { $0.state == TransactionState.pending })
@@ -123,64 +121,23 @@ final class TokenViewModel{
     func fetch() {
         updateTokenBalance()
         fetchTransactions()
-        updatePending()
+//        updatePending()
     }
     
     func tokenObservation(with completion: @escaping (() -> Void)) {
-//        notificationToken = token.observe { change in
-//            switch change {
-//            case .change, .deleted, .error:
-//                completion()
-//            }
-//        }
+        notificationToken = token.observe { change in
+            switch change {
+            case .change, .deleted, .error:
+                completion()
+            }
+        }
     }
     
     func transactionObservation(with completion: @escaping (() -> Void)) {
-//        transactionToken = tokenTransactions?.observe { [weak self] _ in
-//            self?.updateSections()
-//            completion()
-//        }
-    }
-    
-    func numberOfItems(for section: Int) -> Int {
-        return tokenTransactionSections[section].items.count
-    }
-    
-    func item(for row: Int, section: Int) -> Transaction {
-        return tokenTransactionSections[section].items[row]
-    }
-    
-    func convert(from title: String) -> Date? {
-        return titleFormmater.date(from: title)
-    }
-    
-    func titleForHeader(in section: Int) -> String {
-        let stringDate = tokenTransactionSections[section].title
-        guard let date = convert(from: stringDate) else {
-            return stringDate
+        transactionToken = tokenTransactions?.observe { _ in
+            // do something when refesh transaction completed
+            completion()
         }
-        if NSCalendar.current.isDateInToday(date) {
-            return "Today"
-        }
-        if NSCalendar.current.isDateInYesterday(date) {
-            return "Yesterday"
-        }
-        return stringDate
-    }
-    
-//    func cellViewModel(for indexPath: IndexPath) -> TransactionCellViewModel {
-//        return TransactionCellViewModel(
-//            transaction: tokenTransactionSections[indexPath.section].items[indexPath.row],
-//            config: config,
-//            chainState: ChainState(server: server),
-//            currentAccount: currentAccount,
-//            server: token.coin.server,
-//            token: token
-//        )
-//    }
-    
-    func hasContent() -> Bool {
-        return !tokenTransactionSections.isEmpty
     }
     
     private func updateTokenBalance() {
@@ -217,7 +174,7 @@ final class TokenViewModel{
         return networkBalance
     }
     
-    func updatePending() {
+//    func updatePending() {
 //        let transactions = pendingTransactions
 //
 //        for transaction in transactions {
@@ -229,7 +186,7 @@ final class TokenViewModel{
 //                }
 //            }
 //        }
-    }
+//    }
     
     private func fetchTransactions() {
         let contract: String? = {
@@ -240,6 +197,7 @@ final class TokenViewModel{
         }()
         tokensNetwork.transactions(for: currentAccount.address, on: server, startBlock: 1, page: 0, contract: contract) { result in
             guard let transactions = result.0 else { return }
+            // add direction for transaction
             self.transactionsStore.add(transactions)
         }
     }
@@ -255,19 +213,19 @@ final class TokenViewModel{
                 .filter(NSPredicate(format: "rawCoin = %d && %K ==[cd] %@", server.coin.rawValue, "to", token.contract))
                 .sorted(byKeyPath: "date", ascending: false)
         }
-        updateSections()
     }
     
-    private func updateSections() {
-        guard let tokens = tokenTransactions else { return }
-        tokenTransactionSections = transactionsStore.mappedSections(for: Array(tokens))
+
+    
+    func createTransactionsPageView(type: TransactionsPageViewType) -> TransactionsPageView {
+        return TransactionsPageView(type: type, config: config, currentAccount: currentAccount, transactionsStore: transactionsStore, token: token, tokenTransactions: tokenTransactions!)
     }
     
     func invalidateObservers() {
-//        notificationToken?.invalidate()
-//        notificationToken = nil
-//        transactionToken?.invalidate()
-//        transactionToken = nil
+        notificationToken?.invalidate()
+        notificationToken = nil
+        transactionToken?.invalidate()
+        transactionToken = nil
     }
     
     

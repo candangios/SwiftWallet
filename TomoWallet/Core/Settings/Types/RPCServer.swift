@@ -19,7 +19,7 @@ enum RPCServer {
         case .classic: return "classic"
         case .callisto: return "callisto"
         case .gochain: return "gochain"
-        case .rinkebyTestnet: return "RinkebyTestnet"
+        case .rinkebyTestnet: return "rinkeby"
         }
     }
     
