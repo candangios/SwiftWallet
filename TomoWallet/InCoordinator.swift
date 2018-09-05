@@ -80,7 +80,6 @@ extension InCoordinator: TokensCoordinator_Delegate{
         case .privateKey, .hd:
             let first = session.account.accounts.filter { $0.coin == token.coin }.first
             guard let account = first else { return }
-//
             let coordinator = SendCoordinator(
                 transfer: transfer,
                 navigationController: self.navigationController,
@@ -89,9 +88,8 @@ extension InCoordinator: TokensCoordinator_Delegate{
                 account: account
             )
             coordinator.start()
-//            coordinator.delegate = self
+            coordinator.delegate = self
             addCoordinator(coordinator)
-//            nav.pushCoordinator(coordinator: coordinator, animated: true)
         case .address:
             break
 //            self.navigationController.displayError(error: InCoordinator.onlyWatchAccount)
@@ -102,6 +100,24 @@ extension InCoordinator: TokensCoordinator_Delegate{
     
     func didPress(url: URL, in coordinator: TokensCoordinator) {
         self.removeCoordinator(coordinator)
+    }
+    
+}
+extension InCoordinator: SendCoordinatorDelegate{
+    func didFinish(_ result: Result<ConfirmResult, AnyError>, in coordinator: SendCoordinator) {
+        switch result {
+        case .success(let confirmResult):
+            switch confirmResult{
+            case .sentTransaction(let sentTransaction):
+                let transaction = SentTransaction.from(transaction: sentTransaction)
+                print(transaction)
+            case .signedTransaction:
+                break
+            }
+            
+        case .failure(let error):
+                break
+        }
     }
     
     

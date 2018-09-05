@@ -67,13 +67,13 @@ extension RPCApi: TargetType{
                 "id": 1
                 ] as [String : Any]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-        case .getBalanceToken(_, let contrac, let data):
+        case .getBalanceToken(_, let contract, let data):
             let parameters = [
                 "jsonrpc": "2.0",
                 "method": "eth_call",
                 "params": [
                     [
-                        "to": "\(contrac)",
+                        "to": "\(contract)",
                         "data": "\(data)"
                     ],
                     "latest"

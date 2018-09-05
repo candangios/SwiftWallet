@@ -50,21 +50,6 @@ final class SendTransactionCoordinator{
                 }
             }
             
-            
-//            let request = EtherServiceRequest(for: server, batch: BatchFactory().create(GetTransactionCountRequest(
-//                address: transaction.account.address.description,
-//                state: "latest"
-//            )))
-//            Session.send(request) { [weak self] result in
-//                guard let `self` = self else { return }
-//                switch result {
-//                case .success(let count):
-//                    let transaction = self.appendNonce(to: transaction, currentNonce: count)
-//                    self.signAndSend(transaction: transaction, completion: completion)
-//                case .failure(let error):
-//                    completion(.failure(AnyError(error)))
-//                }
-//            }
         }
     }
     
@@ -104,27 +89,16 @@ final class SendTransactionCoordinator{
         switch confirmType {
         case .sign:
             completion(.success(.sentTransaction(sentTransaction)))
-        case .signThenSend:
-            
+        case .signThenSend:      
             provider.request(.sendRawTransaction(server: server, signedTransaction: dataHex)) { (result) in
                 switch result {
-                case .success(let respone):
-                    let value = try! respone.mapString()
-                    print(value)
+                case .success:
                     completion(.success(.sentTransaction(sentTransaction)))
                 case .failure(let error):
                     completion(.failure(AnyError(error)))
                 }
             }
-//            let request = EtherServiceRequest(for: server, batch: BatchFactory().create(SendRawTransactionRequest(signedTransaction: dataHex)))
-//            Session.send(request) { result in
-//                switch result {
-//                case .success:
-//                    completion(.success(.sentTransaction(sentTransaction)))
-//                case .failure(let error):
-//                    completion(.failure(AnyError(error)))
-//                }
-//            }
+
         }
     }
 

@@ -9,7 +9,7 @@ import Result
 import Moya
 
 protocol SendCoordinatorDelegate: class {
-//    func didFinish(_ result: Result<ConfirmResult, AnyError>, in coordinator: SendCoordinator)
+    func didFinish(_ result: Result<ConfirmResult, AnyError>, in coordinator: SendCoordinator)
 }
 
 final class SendCoordinator: Coordinator {
@@ -81,26 +81,12 @@ extension SendCoordinator: SendAmountVC_Delegate{
             chainState: ChainState(server: transfer.server, provider: ApiProviderFactory.makeRPCNetworkProvider())
         )
         let confirmPayment = ConfirmPaymentVC(session: session, keystore: keystore, configurator: configurator, confirmType: .signThenSend, server: transfer.server)
+        confirmPayment.didCompleted = { [weak self] result in
+            guard let `self` = self else { return }
+            self.delegate?.didFinish(result, in: self)
+        }
         self.navigationController.pushViewController(confirmPayment, animated: true)
         
-        
-        
-        
-//        let coordinator = ConfirmCoordinator(
-//            navigationController: navigationController,
-//            session: session,
-//            configurator: configurator,
-//            keystore: keystore,
-//            account: account,
-//            type: .signThenSend,
-//            server: transfer.server
-//        )
-//        coordinator.didCompleted = { [weak self] result in
-//            guard let `self` = self else { return }
-//            self.delegate?.didFinish(result, in: self)
-//        }
-//        addCoordinator(coordinator)
-//        navigationController.pushCoordinator(coordinator: coordinator, animated: true)
     }
     
     

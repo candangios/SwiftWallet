@@ -173,6 +173,14 @@ final class TransactionConfigurator{
     
     
     // combine into one function
+    func refreshGasPrice(_ gasPrice: BigInt) {
+        configuration = TransactionConfiguration(
+            gasPrice: gasPrice,
+            gasLimit: configuration.gasPrice,
+            data: configuration.data,
+            nonce: configuration.nonce
+        )
+    }
     
     func refreshGasLimit(_ gasLimit: BigInt) {
         configuration = TransactionConfiguration(

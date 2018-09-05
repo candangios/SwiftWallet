@@ -42,7 +42,7 @@
                   moduleName = "TrustKeystore"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tomochain/SwiftWallet/Pods/TrustKeystore/Sources/KeyStore.swift"
-                  timestampString = "557746981.761201"
+                  timestampString = "557838564.132483"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "296"
@@ -57,7 +57,7 @@
                   moduleName = "TrustKeystore"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tomochain/SwiftWallet/Pods/TrustKeystore/Sources/KeyStore.swift"
-                  timestampString = "557746981.762864"
+                  timestampString = "557838564.134097"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "296"
@@ -176,6 +176,22 @@
             startingLineNumber = "49"
             endingLineNumber = "49"
             landmarkName = "NextAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/InCoordinator.swift"
+            timestampString = "557838563.610574"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "didFinish(_:in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

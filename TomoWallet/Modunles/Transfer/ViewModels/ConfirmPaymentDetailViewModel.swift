@@ -15,6 +15,9 @@ struct ConfrimPaymentDetailViewModel {
     let server: RPCServer
     private let fullFormatter = EtherNumberFormatter.full
     private let balanceFormatter = EtherNumberFormatter.balance
+    private var gasViewModel: GasViewModel {
+        return GasViewModel(fee: totalFee, server: server, store: session.tokensStorage, formatter: fullFormatter)
+    }
     init(
         transaction: PreviewTransaction,
         config: Config = Config(),
@@ -30,6 +33,9 @@ struct ConfrimPaymentDetailViewModel {
     private var totalFee: BigInt {
         return transaction.gasPrice * transaction.gasLimit
     }
+    var toaddress:String{
+        return (self.transaction.address?.description)!
+    }
     
     var amount: String {
         switch transaction.transfer.type {
@@ -39,9 +45,23 @@ struct ConfrimPaymentDetailViewModel {
             return balanceFormatter.string(from: transaction.value, decimals: token.decimals)
         }
     }
-    
-    var amountString: String {
-        return "\(amount)" + " \(transaction.transfer.type.symbol(server: server))"
+    var amountSymbol: String{
+        return transaction.transfer.type.symbol(server: server)
     }
+    
+    var estimatedFee: String{
+        let unit = UnitConfiguration.gasFeeUnit
+        return fullFormatter.string(from: totalFee, units: unit)
+    }
+    var symbolFee: String{
+        return server.symbol
+    
+    }
+
+    
+    
+    
+  
+
 }
 
