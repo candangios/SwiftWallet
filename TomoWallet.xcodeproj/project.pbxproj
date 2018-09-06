@@ -37,9 +37,7 @@
 		86391BA521145F700045A610 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391BA421145F700045A610 /* MainCoordinator.swift */; };
 		8643624F212BBFE6002D7D3E /* CookiesStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643624E212BBFE6002D7D3E /* CookiesStoreError.swift */; };
 		86436251212BC635002D7D3E /* RPCApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86436250212BC635002D7D3E /* RPCApi.swift */; };
-		86436256212C238A002D7D3E /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86436254212C238A002D7D3E /* TransactionsViewController.swift */; };
-		86436257212C238A002D7D3E /* TransactionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86436255212C238A002D7D3E /* TransactionsViewController.xib */; };
-		86436259212C23A9002D7D3E /* TransactionsViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86436258212C23A9002D7D3E /* TransactionsViewmodel.swift */; };
+		86436259212C23A9002D7D3E /* TransactionDetailViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86436258212C23A9002D7D3E /* TransactionDetailViewmodel.swift */; };
 		8643B0B92123CF6C00F46C21 /* TokensVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643B0B72123CF6C00F46C21 /* TokensVC.swift */; };
 		8643B0BA2123CF6C00F46C21 /* TokensVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8643B0B82123CF6C00F46C21 /* TokensVC.xib */; };
 		8643B0BD2123CFF200F46C21 /* TokensViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643B0BC2123CFF200F46C21 /* TokensViewModel.swift */; };
@@ -157,8 +155,8 @@
 		86C0DDC021253C2C0096CB30 /* VerifyPassphraseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0DDBE21253C2C0096CB30 /* VerifyPassphraseVC.swift */; };
 		86C0DDC121253C2C0096CB30 /* VerifyPassphraseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0DDBF21253C2C0096CB30 /* VerifyPassphraseVC.xib */; };
 		86C22BFB213F7D0400020085 /* GasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C22BFA213F7D0400020085 /* GasViewModel.swift */; };
-		86C22C02213FEC2800020085 /* PaymentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C22C00213FEC2800020085 /* PaymentDetailVC.swift */; };
-		86C22C03213FEC2800020085 /* PaymentDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C22C01213FEC2800020085 /* PaymentDetailVC.xib */; };
+		86C22C02213FEC2800020085 /* TransactionDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C22C00213FEC2800020085 /* TransactionDetailVC.swift */; };
+		86C22C03213FEC2800020085 /* TransactionDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C22C01213FEC2800020085 /* TransactionDetailVC.xib */; };
 		86C336302134EED6001C4C01 /* TransactionSigning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C3362F2134EED6001C4C01 /* TransactionSigning.swift */; };
 		86CC50C62135019F002054D6 /* ReveiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC50C52135019F002054D6 /* ReveiceViewModel.swift */; };
 		86CC50C8213504A4002054D6 /* CoinTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC50C7213504A4002054D6 /* CoinTypeViewModel.swift */; };
@@ -234,9 +232,7 @@
 		86391BA421145F700045A610 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		8643624E212BBFE6002D7D3E /* CookiesStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesStoreError.swift; sourceTree = "<group>"; };
 		86436250212BC635002D7D3E /* RPCApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCApi.swift; sourceTree = "<group>"; };
-		86436254212C238A002D7D3E /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
-		86436255212C238A002D7D3E /* TransactionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionsViewController.xib; sourceTree = "<group>"; };
-		86436258212C23A9002D7D3E /* TransactionsViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewmodel.swift; sourceTree = "<group>"; };
+		86436258212C23A9002D7D3E /* TransactionDetailViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewmodel.swift; sourceTree = "<group>"; };
 		8643B0B72123CF6C00F46C21 /* TokensVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensVC.swift; sourceTree = "<group>"; };
 		8643B0B82123CF6C00F46C21 /* TokensVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TokensVC.xib; sourceTree = "<group>"; };
 		8643B0BC2123CFF200F46C21 /* TokensViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensViewModel.swift; sourceTree = "<group>"; };
@@ -354,8 +350,8 @@
 		86C0DDBE21253C2C0096CB30 /* VerifyPassphraseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPassphraseVC.swift; sourceTree = "<group>"; };
 		86C0DDBF21253C2C0096CB30 /* VerifyPassphraseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifyPassphraseVC.xib; sourceTree = "<group>"; };
 		86C22BFA213F7D0400020085 /* GasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasViewModel.swift; sourceTree = "<group>"; };
-		86C22C00213FEC2800020085 /* PaymentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailVC.swift; sourceTree = "<group>"; };
-		86C22C01213FEC2800020085 /* PaymentDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentDetailVC.xib; sourceTree = "<group>"; };
+		86C22C00213FEC2800020085 /* TransactionDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailVC.swift; sourceTree = "<group>"; };
+		86C22C01213FEC2800020085 /* TransactionDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailVC.xib; sourceTree = "<group>"; };
 		86C3362F2134EED6001C4C01 /* TransactionSigning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSigning.swift; sourceTree = "<group>"; };
 		86CC50C52135019F002054D6 /* ReveiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReveiceViewModel.swift; sourceTree = "<group>"; };
 		86CC50C7213504A4002054D6 /* CoinTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTypeViewModel.swift; sourceTree = "<group>"; };
@@ -554,8 +550,8 @@
 		86436252212C2327002D7D3E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				86436254212C238A002D7D3E /* TransactionsViewController.swift */,
-				86436255212C238A002D7D3E /* TransactionsViewController.xib */,
+				86C22C00213FEC2800020085 /* TransactionDetailVC.swift */,
+				86C22C01213FEC2800020085 /* TransactionDetailVC.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -563,7 +559,7 @@
 		86436253212C2347002D7D3E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				86436258212C23A9002D7D3E /* TransactionsViewmodel.swift */,
+				86436258212C23A9002D7D3E /* TransactionDetailViewmodel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -588,6 +584,7 @@
 				8643B0BF2123D10500F46C21 /* ApiNetwowk.swift */,
 				8643B0C62123D4CF00F46C21 /* API.swift */,
 				8643B0C82123DE4400F46C21 /* ArrayResponse.swift */,
+				8643B0D821240BA000F46C21 /* ApiProviderFactory.swift */,
 			);
 			path = NetworkAPI;
 			sourceTree = "<group>";
@@ -612,14 +609,6 @@
 				8643B0D12123E07900F46C21 /* OperationType.swift */,
 			);
 			path = Types;
-			sourceTree = "<group>";
-		};
-		8643B0D721240B6000F46C21 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				8643B0D821240BA000F46C21 /* ApiProviderFactory.swift */,
-			);
-			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		8643B0DE2124235A00F46C21 /* Models */ = {
@@ -666,7 +655,6 @@
 			children = (
 				86436253212C2347002D7D3E /* ViewModels */,
 				86436252212C2327002D7D3E /* ViewControllers */,
-				8643B0D721240B6000F46C21 /* Coordinators */,
 				8643B0CC2123DFB400F46C21 /* Types */,
 				86521206212275E500F79E4D /* Storage */,
 			);
@@ -1024,8 +1012,6 @@
 				86B3297A212FF78F00C7E57F /* SendAmountVC.xib */,
 				866752132133F82600102007 /* ConfirmPaymentVC.swift */,
 				866752142133F82600102007 /* ConfirmPaymentVC.xib */,
-				86C22C00213FEC2800020085 /* PaymentDetailVC.swift */,
-				86C22C01213FEC2800020085 /* PaymentDetailVC.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1248,7 +1234,7 @@
 				86B329892130134700C7E57F /* ConfigGasPriceView.xib in Resources */,
 				86D55413213E93D7003CF2B6 /* NewTokenERC20VC.xib in Resources */,
 				84152442213CD9E90058F31F /* ImportWalletVC.xib in Resources */,
-				86C22C03213FEC2800020085 /* PaymentDetailVC.xib in Resources */,
+				86C22C03213FEC2800020085 /* TransactionDetailVC.xib in Resources */,
 				8698A180212EAF930016C85D /* ReveiceVC.xib in Resources */,
 				861023FA21267A5100A831BE /* TokenViewCell.xib in Resources */,
 				8698A176212E74C60016C85D /* TokenHeaderView.xib in Resources */,
@@ -1265,7 +1251,6 @@
 				8643B0BA2123CF6C00F46C21 /* TokensVC.xib in Resources */,
 				86B3297C212FF78F00C7E57F /* SendAmountVC.xib in Resources */,
 				86539546211C2CC000DB2DDE /* WelcomeVC.xib in Resources */,
-				86436257212C238A002D7D3E /* TransactionsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1448,7 +1433,7 @@
 				861023FF2126822300A831BE /* TokenViewCellViewModel.swift in Sources */,
 				86B3298D2130141B00C7E57F /* ConfigGasPriceView.swift in Sources */,
 				86C22BFB213F7D0400020085 /* GasViewModel.swift in Sources */,
-				86436259212C23A9002D7D3E /* TransactionsViewmodel.swift in Sources */,
+				86436259212C23A9002D7D3E /* TransactionDetailViewmodel.swift in Sources */,
 				86D55412213E93D7003CF2B6 /* NewTokenERC20VC.swift in Sources */,
 				8643624F212BBFE6002D7D3E /* CookiesStoreError.swift in Sources */,
 				8643B0CE2123DFBF00F46C21 /* TransactionState.swift in Sources */,
@@ -1527,7 +1512,7 @@
 				866752052133DAAC00102007 /* GasLimitConfiguration.swift in Sources */,
 				8667521C2133FE0800102007 /* SendTransactionCoordinator.swift in Sources */,
 				866752182133F84200102007 /* ConfirmPaymentViewModel.swift in Sources */,
-				86C22C02213FEC2800020085 /* PaymentDetailVC.swift in Sources */,
+				86C22C02213FEC2800020085 /* TransactionDetailVC.swift in Sources */,
 				86391AD82117EF19002FAC67 /* Keystore.swift in Sources */,
 				84152441213CD9E90058F31F /* ImportWalletVC.swift in Sources */,
 				86D553FB213E271C003CF2B6 /* CalculatorButton.swift in Sources */,
@@ -1564,7 +1549,6 @@
 				86B32976212FEFC900C7E57F /* QRURLParser.swift in Sources */,
 				86102404212682E400A831BE /* TokenObjectViewModel.swift in Sources */,
 				8653952B211BE04E00DB2DDE /* BaseCoordinator.swift in Sources */,
-				86436256212C238A002D7D3E /* TransactionsViewController.swift in Sources */,
 				848CE1EC213B95140080B894 /* WordPhraseView.swift in Sources */,
 				8649578E21213C9700C98D0B /* InitialWalletCoordinator.swift in Sources */,
 				867FA6A32121952F0026D183 /* WalletCoordinator.swift in Sources */,

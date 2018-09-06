@@ -47,6 +47,13 @@ class TokensCoordinator:NSObject, Coordinator {
     func start() {
         self.navigationController.pushViewController(tokensViewController, animated: true)
     }
+    
+    
+    func showTransactionDetail(transaction: Transaction, token:TokenObject) {
+        let tokenViewModel = TokenViewModel(token: token, store: store, transactionsStore: transactionsStore, tokensNetwork: network, session: session)
+        let transactionDetail = TransactionDetailVC(session: self.session, transaction: transaction, tokenViewModel: tokenViewModel)
+        self.navigationController.pushViewController(transactionDetail, animated: true)
+    }
 }
 
 extension TokensCoordinator: TokensVC_Delegate{
@@ -99,6 +106,7 @@ extension TokensCoordinator: TokenVC_Delegate{
     }
     
     func didPress(viewModel: TokenViewModel, transaction: Transaction, in controller: UIViewController) {
-        
+        let transactionDetail = TransactionDetailVC(session: self.session, transaction: transaction, tokenViewModel: viewModel)
+        self.navigationController.pushViewController(transactionDetail, animated: true)
     }
 }

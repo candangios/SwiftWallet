@@ -23,6 +23,8 @@ final class TransactionsPageView: UITableViewController {
     private let tokenTransactions: Results<Transaction>
     private let currentAccount: Account
     
+    var didselectedItem:((_ transaction:Transaction) -> Void)?
+    
     let type: TransactionsPageViewType
     private lazy var viewModel: TransactionsPageViewModel = {
         return .init(type: type, config: config, currentAccount: currentAccount, transactionsStore: transactionsStore, token: token, tokenTransactions: tokenTransactions)
@@ -83,6 +85,10 @@ final class TransactionsPageView: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let transaction = viewModel.item(for: indexPath.row, section: indexPath.section)
+        self.didselectedItem?(transaction)
     }
 
 

@@ -105,7 +105,6 @@ final class ApiNetwork: NetworkProtocol{
     }
     
     func transactions(for address: Address, on server: RPCServer, startBlock: Int, page: Int, contract: String?, completion: @escaping (([Transaction]?, Bool)) -> Void) {
-        print(server.id)
         provider.request(.getTransactions(server: server, address: address.description, startBlock: startBlock, page: page, contract: contract)) { result in
             switch result {
             case .success(let response):

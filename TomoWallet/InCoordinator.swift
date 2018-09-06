@@ -32,6 +32,14 @@ class InCoordinator: Coordinator {
     let navigator: Navigator
     weak var delegate: InCoordinator_Delegate?
     private var pendingTransactionsObserver: NotificationToken?
+    
+    var tokensCoordinator: TokensCoordinator? {
+        return self.childCoordinators.compactMap { $0 as? TokensCoordinator }.first
+    }
+    var tokenVC: TokensVC? {
+        return self.navigationController.viewControllers.compactMap { $0 as? TokensVC }.first
+    }
+    
     init( keystore: Keystore, navigationController: NavigationController = NavigationController(isHiddenNavigationBar: true), wallet: WalletInfo, config: Config = .current, navigator: Navigator = Navigator()){
         self.navigationController = navigationController
         self.initialWallet = wallet
@@ -66,7 +74,6 @@ class InCoordinator: Coordinator {
 extension InCoordinator: TokensCoordinator_Delegate{
     func didPressSend(for token: TokenObject, in coordinator: TokensCoordinator) {
         let session = coordinator.session
-        
         let transfer: Transfer = {
             let server = token.coin.server
             switch token.type {
@@ -88,11 +95,38 @@ extension InCoordinator: TokensCoordinator_Delegate{
                 account: account
             )
             coordinator.start()
-            coordinator.delegate = self
+            
+            coordinator.didFinish = {[weak self](result, coordinator) in
+                guard let `self` = self else { return }
+                print(self.navigationController.viewControllers.count)
+                self.removeCoordinator(coordinator)
+                switch result {
+                
+                case .success(let confirmResult):
+                    switch confirmResult{
+                    case .sentTransaction(let sentTransaction):
+                       
+                        let transaction = SentTransaction.from(transaction: sentTransaction)
+                        guard let tokensCoordinator = self.tokensCoordinator else {return}
+                        tokensCoordinator.showTransactionDetail(transaction: transaction, token: token)
+                
+                    case .signedTransaction:
+                        break
+                    }
+                    
+                case .failure(let error):
+               
+                    (self.navigationController as NavigationController).displayError(error: error)
+                }
+                if let tokenVC = self.tokenVC {
+                    self.navigationController.popToViewController(tokenVC, animated: true)
+                }
+            }
             addCoordinator(coordinator)
         case .address:
+            // online Account not transaction
             break
-//            self.navigationController.displayError(error: InCoordinator.onlyWatchAccount)
+
           
         }
       
@@ -103,23 +137,5 @@ extension InCoordinator: TokensCoordinator_Delegate{
     }
     
 }
-extension InCoordinator: SendCoordinatorDelegate{
-    func didFinish(_ result: Result<ConfirmResult, AnyError>, in coordinator: SendCoordinator) {
-        switch result {
-        case .success(let confirmResult):
-            switch confirmResult{
-            case .sentTransaction(let sentTransaction):
-                let transaction = SentTransaction.from(transaction: sentTransaction)
-                print(transaction)
-            case .signedTransaction:
-                break
-            }
-            
-        case .failure(let error):
-                break
-        }
-    }
-    
-    
-}
+
 

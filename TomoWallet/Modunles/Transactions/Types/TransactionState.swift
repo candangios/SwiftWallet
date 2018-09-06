@@ -19,4 +19,22 @@ enum TransactionState: Int {
         self = TransactionState(rawValue: int) ?? .unknown
     }
 }
+extension TransactionState{
+    var description: String{
+        switch self {
+        case .completed:
+            return "Completed"
+        case .pending:
+            return "Pending"
+        case .error:
+            return "Error"
+        case .failed:
+            return "Failed"
+        case .unknown:
+            return "Unknown"
+        case .deleted:
+            return "Deleted"
+        }
+    }
+}
 

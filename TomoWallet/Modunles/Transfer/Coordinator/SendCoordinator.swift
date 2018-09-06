@@ -8,25 +8,21 @@ import TrustKeystore
 import Result
 import Moya
 
-protocol SendCoordinatorDelegate: class {
-    func didFinish(_ result: Result<ConfirmResult, AnyError>, in coordinator: SendCoordinator)
-}
+
 
 final class SendCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     
     var navigationController: NavigationController
     
- 
-    
     let transfer: Transfer
     let session: WalletSession
     let account: Account
     let keystore: Keystore
     var coordinators: [Coordinator] = []
-    weak var delegate: SendCoordinatorDelegate?
-
-
+    
+    var didFinish:((_ result: Result<ConfirmResult, AnyError>, _ coordinator: SendCoordinator)->Void)?
+  
     private lazy var sendViewController: SendAddressVC = {
         let viewModel = SendViewModel(transfer: self.transfer)
         let controller = SendAddressVC(viewModel: viewModel)
@@ -83,7 +79,7 @@ extension SendCoordinator: SendAmountVC_Delegate{
         let confirmPayment = ConfirmPaymentVC(session: session, keystore: keystore, configurator: configurator, confirmType: .signThenSend, server: transfer.server)
         confirmPayment.didCompleted = { [weak self] result in
             guard let `self` = self else { return }
-            self.delegate?.didFinish(result, in: self)
+            self.didFinish?(result, self)
         }
         self.navigationController.pushViewController(confirmPayment, animated: true)
         

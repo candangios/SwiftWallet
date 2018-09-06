@@ -12,7 +12,6 @@ import Alamofire
 struct ApiProviderFactory {
     static let policies: [String: ServerTrustPolicy] = [
         :
-      
     ]
     
     static func makeProvider() -> MoyaProvider<API> {

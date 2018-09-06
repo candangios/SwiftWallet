@@ -18,6 +18,7 @@ enum RPCApi{
     case estimateGasLimit(server: RPCServer, transaction: SignTransaction)
     case sendRawTransaction(server: RPCServer, signedTransaction: String )
     case getTransactionCount(server: RPCServer, address: String)
+    
 }
 extension RPCApi: TargetType{
 

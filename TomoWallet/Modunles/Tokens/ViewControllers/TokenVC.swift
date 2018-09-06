@@ -54,11 +54,20 @@ class TokenVC: UIViewController {
             }
         }
         let startingViewController: TransactionsPageView = viewControllerAtIndex(index: 0)!
+        self.currentPageView = startingViewController
         let viewControllers = [startingViewController]
         pageViewController.setViewControllers(viewControllers , direction: .forward, animated: false, completion: nil)
         return pageViewController
     }()
-    var currentPageView: TransactionsPageView?
+    var currentPageView: TransactionsPageView?{
+        didSet{
+            self.currentPageView?.didselectedItem = { [weak self] transaction in
+                
+                self?.delegate?.didPress(viewModel: (self?.viewModel)!, transaction: transaction, in: self!)
+                
+            }
+        }
+    }
     let quantityPage = 3
 
     let viewModel: TokenViewModel
@@ -81,6 +90,7 @@ class TokenVC: UIViewController {
         self.containerView.addSubview(pageViewController.view)
         pageViewController.didMove(toParentViewController: self)
         self.containerView.addSubview(self.segmentedIndicatorView!)
+   
         
         // listenning update view token balance
         self.observToken()

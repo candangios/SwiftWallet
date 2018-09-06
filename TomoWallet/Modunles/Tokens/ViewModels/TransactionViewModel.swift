@@ -131,6 +131,11 @@ struct TransactionViewModel {
             return #imageLiteral(resourceName: "Transaction_Pending")
         }
     }
+    var amountNomalText: String{
+        let value = shortValue
+        return "\(value.amount) \(value.symbol)"
+    }
+    
     
     var amountText: String {
         let value = shortValue
