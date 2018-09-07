@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Foundation
 import TrustCore
 import PromiseKit
 import BigInt
@@ -38,7 +37,7 @@ final class TokenNetworkProvider: BalanceNetworkProvider {
         self.addressUpdate = addressUpdate
         self.provider = provider
     }
-    
+        
     func balance() -> Promise<BigInt> {
         return Promise { seal in
             let encoded = ERC20Encoder.encodeBalanceOf(address: address)

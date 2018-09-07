@@ -40,16 +40,7 @@ class MainCoordinator:NSObject, Coordinator {
     func start() {
         if keystore.hasWallets {
             let wallet = keystore.recentlyUsedWallet ?? keystore.wallets.first!
-//            keystore.exportPrivateKey(account: wallet.currentAccount) { (result) in
-//                switch result{
-//                case .success(let respone):
-//                    print(respone.toHexString())
-//                
-//                case .failure(let error):
-//                    break
-//                }
-//            }
-            showTransactions(for: wallet)
+            self.showTransactions(for: wallet)
         } else {
             self.showWelcomScreen()
         }

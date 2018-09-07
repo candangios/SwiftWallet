@@ -12,11 +12,7 @@ import TrustKeystore
 
 import QRCodeReaderViewController
 protocol SendViewController_Delegate:class {
-    func didPressConfirm(
-        toAddress: EthereumAddress,
-        data: Data,
-        in viewController: SendAddressVC
-    )
+    func didPressConfirm(toAddress: EthereumAddress, data: Data, in viewController: SendAddressVC)
 }
 
 class SendAddressVC: UIViewController {
@@ -72,7 +68,5 @@ extension SendAddressVC: QRCodeReaderDelegate {
         } else {
             data = Data()
         }
-
-
     }
 }

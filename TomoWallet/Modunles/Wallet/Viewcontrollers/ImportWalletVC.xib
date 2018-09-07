@@ -53,12 +53,23 @@
                                 <constraint firstAttribute="height" constant="185" id="pIm-Cl-lIj"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMU-FS-TPh" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                            <rect key="frame" x="35" y="597" width="305" height="50"/>
+                            <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="z9w-aX-Sne"/>
+                            </constraints>
+                            <state key="normal" title="    IMPORT" image="Import"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="cMU-FS-TPh" firstAttribute="leading" secondItem="70R-oY-d6m" secondAttribute="leading" constant="35" id="2Fg-S1-z0f"/>
                         <constraint firstItem="uUj-bf-u70" firstAttribute="top" secondItem="70R-oY-d6m" secondAttribute="top" id="RBN-NM-94F"/>
                         <constraint firstItem="uUj-bf-u70" firstAttribute="leading" secondItem="70R-oY-d6m" secondAttribute="leading" id="WvH-G4-X0x"/>
+                        <constraint firstAttribute="trailing" secondItem="cMU-FS-TPh" secondAttribute="trailing" constant="35" id="cva-R4-bx6"/>
                         <constraint firstAttribute="trailing" secondItem="uUj-bf-u70" secondAttribute="trailing" id="j5y-0M-w0H"/>
+                        <constraint firstAttribute="bottom" secondItem="cMU-FS-TPh" secondAttribute="bottom" constant="20" id="oLN-mo-QYh"/>
                     </constraints>
                 </view>
             </subviews>
@@ -74,5 +85,6 @@
     </objects>
     <resources>
         <image name="Close" width="30" height="30"/>
+        <image name="Import" width="20" height="20"/>
     </resources>
 </document>

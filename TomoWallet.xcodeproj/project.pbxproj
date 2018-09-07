@@ -113,6 +113,10 @@
 		86879FED211845DD0099A2CC /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86879FEC211845DD0099A2CC /* Address.swift */; };
 		86879FEF211847320099A2CC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86879FEE211847320099A2CC /* Constants.swift */; };
 		86879FF221184BD10099A2CC /* KeystoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86879FF121184BD10099A2CC /* KeystoreError.swift */; };
+		869339BB2142372500D48936 /* ContractNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869339BA2142372500D48936 /* ContractNetworkProvider.swift */; };
+		869339BD21427EDA00D48936 /* RadiusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869339BC21427EDA00D48936 /* RadiusButton.swift */; };
+		869339BF21428BD200D48936 /* VeryfyWordPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869339BE21428BD200D48936 /* VeryfyWordPhraseView.swift */; };
+		869339C121428BDC00D48936 /* VeryfyWordPhraseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 869339C021428BDC00D48936 /* VeryfyWordPhraseView.xib */; };
 		8698A167212E4FDA0016C85D /* WalletAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8698A166212E4FDA0016C85D /* WalletAccountViewModel.swift */; };
 		8698A169212E4FFB0016C85D /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8698A168212E4FFB0016C85D /* Account.swift */; };
 		8698A16C212E5CC70016C85D /* TokenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8698A16A212E5CC70016C85D /* TokenVC.swift */; };
@@ -308,6 +312,10 @@
 		86879FEC211845DD0099A2CC /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		86879FEE211847320099A2CC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		86879FF121184BD10099A2CC /* KeystoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreError.swift; sourceTree = "<group>"; };
+		869339BA2142372500D48936 /* ContractNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractNetworkProvider.swift; sourceTree = "<group>"; };
+		869339BC21427EDA00D48936 /* RadiusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusButton.swift; sourceTree = "<group>"; };
+		869339BE21428BD200D48936 /* VeryfyWordPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeryfyWordPhraseView.swift; sourceTree = "<group>"; };
+		869339C021428BDC00D48936 /* VeryfyWordPhraseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VeryfyWordPhraseView.xib; sourceTree = "<group>"; };
 		8698A166212E4FDA0016C85D /* WalletAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAccountViewModel.swift; sourceTree = "<group>"; };
 		8698A168212E4FFB0016C85D /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8698A16A212E5CC70016C85D /* TokenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVC.swift; sourceTree = "<group>"; };
@@ -404,6 +412,8 @@
 			children = (
 				848CE1EB213B95140080B894 /* WordPhraseView.swift */,
 				848CE1ED213B96690080B894 /* WordPhraseView.xib */,
+				869339BE21428BD200D48936 /* VeryfyWordPhraseView.swift */,
+				869339C021428BDC00D48936 /* VeryfyWordPhraseView.xib */,
 			);
 			path = UIview;
 			sourceTree = "<group>";
@@ -459,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				862A5DCF2135367700334480 /* BolderButton.swift */,
+				869339BC21427EDA00D48936 /* RadiusButton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -871,7 +882,7 @@
 		86591366212A78E300440972 /* RPCNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				86591368212A795900440972 /* Transactions */,
+				86591368212A795900440972 /* Contract */,
 				86591367212A794900440972 /* Balance */,
 				86591371212AA8A800440972 /* CastError.swift */,
 				8643624E212BBFE6002D7D3E /* CookiesStoreError.swift */,
@@ -889,11 +900,12 @@
 			path = Balance;
 			sourceTree = "<group>";
 		};
-		86591368212A795900440972 /* Transactions */ = {
+		86591368212A795900440972 /* Contract */ = {
 			isa = PBXGroup;
 			children = (
+				869339BA2142372500D48936 /* ContractNetworkProvider.swift */,
 			);
-			path = Transactions;
+			path = Contract;
 			sourceTree = "<group>";
 		};
 		866752012133B43D00102007 /* Controllers */ = {
@@ -1236,6 +1248,7 @@
 				84152442213CD9E90058F31F /* ImportWalletVC.xib in Resources */,
 				86C22C03213FEC2800020085 /* TransactionDetailVC.xib in Resources */,
 				8698A180212EAF930016C85D /* ReveiceVC.xib in Resources */,
+				869339C121428BDC00D48936 /* VeryfyWordPhraseView.xib in Resources */,
 				861023FA21267A5100A831BE /* TokenViewCell.xib in Resources */,
 				8698A176212E74C60016C85D /* TokenHeaderView.xib in Resources */,
 				848CE1EE213B96690080B894 /* WordPhraseView.xib in Resources */,
@@ -1468,6 +1481,7 @@
 				86391B78211442EB0045A610 /* ViewController.swift in Sources */,
 				8643B0C02123D10500F46C21 /* ApiNetwowk.swift in Sources */,
 				86539531211BE6D800DB2DDE /* WalletNameVC.swift in Sources */,
+				869339BF21428BD200D48936 /* VeryfyWordPhraseView.swift in Sources */,
 				8653953A211C268F00DB2DDE /* URLNavigatorCoordinator.swift in Sources */,
 				86495794212166A800C98D0B /* InCoordinator.swift in Sources */,
 				86C0DDBC21253A410096CB30 /* PassphraseVC.swift in Sources */,
@@ -1509,6 +1523,7 @@
 				8643B0E2212423F500F46C21 /* Decimal.swift in Sources */,
 				8643B0BD2123CFF200F46C21 /* TokensViewModel.swift in Sources */,
 				8649579921217A8700C98D0B /* NavigationController.swift in Sources */,
+				869339BD21427EDA00D48936 /* RadiusButton.swift in Sources */,
 				866752052133DAAC00102007 /* GasLimitConfiguration.swift in Sources */,
 				8667521C2133FE0800102007 /* SendTransactionCoordinator.swift in Sources */,
 				866752182133F84200102007 /* ConfirmPaymentViewModel.swift in Sources */,
@@ -1527,6 +1542,7 @@
 				8643B0C52123D27F00F46C21 /* CoinTicker.swift in Sources */,
 				866752072133DB5E00102007 /* GasPriceConfiguration.swift in Sources */,
 				8643B0D22123E07900F46C21 /* OperationType.swift in Sources */,
+				869339BB2142372500D48936 /* ContractNetworkProvider.swift in Sources */,
 				86D55401213E69EF003CF2B6 /* MonetaryAmountViewModel.swift in Sources */,
 				861023F921267A5100A831BE /* TokenViewCell.swift in Sources */,
 				8643B0E02124236600F46C21 /* EthereumUnit.swift in Sources */,

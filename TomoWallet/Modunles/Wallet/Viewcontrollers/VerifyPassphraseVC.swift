@@ -55,7 +55,7 @@ class VerifyPassphraseVC: UIViewController {
     func setContenView() {
         let width = UIScreen.main.bounds.width/3
         for index in 0..<self.words.count {
-            guard let view = Bundle.main.loadNibNamed("WordPhraseView", owner: nil, options: nil)?.first as? WordPhraseView else{
+            guard let view = Bundle.main.loadNibNamed("VeryfyWordPhraseView", owner: nil, options: nil)?.first as? VeryfyWordPhraseView else{
                 return
             }
             view.ordinalNumberLable.font = UIFont.systemFont(ofSize: 16)
@@ -79,14 +79,13 @@ class VerifyPassphraseVC: UIViewController {
     
     func refeshContentView() {
         
-      
         for index in 0..<self.proccesWords.count {
-            if let view = self.contentView.viewWithTag(index) as? WordPhraseView {
+            if let view = self.contentView.viewWithTag(index) as? VeryfyWordPhraseView {
                 view.wordPhraseLable.text = proccesWords[index]
             }
         }
         for index in self.proccesWords.count...12 {
-            if let view = self.contentView.viewWithTag(index) as? WordPhraseView {
+            if let view = self.contentView.viewWithTag(index) as? VeryfyWordPhraseView {
                 view.wordPhraseLable.text = ""
             }
         }

@@ -37,7 +37,7 @@ struct Balance: BalanceProtocol {
   
 
 }
-struct BalanceDecodable: Decodable {
+struct RPCResultsDecodable: Decodable {
     let result: String
     let jsonrpc: String
     let id :Int64

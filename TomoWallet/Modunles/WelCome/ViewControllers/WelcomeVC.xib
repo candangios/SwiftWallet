@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,54 +20,106 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV4-bb-h8z">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV4-bb-h8z" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="35" y="545" width="305" height="60"/>
+                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="lV4-bb-h8z" secondAttribute="height" multiplier="51:10" id="r2o-3C-i0b"/>
+                        <constraint firstAttribute="height" constant="60" id="0Ui-Z3-U1U"/>
                     </constraints>
-                    <state key="normal" title="Import Wallet"/>
+                    <state key="normal" title="   IMPORT WALLET" image="Import"/>
                     <connections>
                         <action selector="importWalletAction:" destination="-1" eventType="touchUpInside" id="o1m-8L-FyN"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="XyU-kg-e0R">
-                    <rect key="frame" x="87" y="156" width="201" height="154"/>
+                    <rect key="frame" x="139" y="70" width="96" height="96"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="XyU-kg-e0R" secondAttribute="height" multiplier="201:154" id="aS1-4C-spf"/>
-                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="201" id="oYi-el-08N"/>
+                        <constraint firstAttribute="height" constant="96" id="3Ar-zN-awe"/>
+                        <constraint firstAttribute="width" constant="96" id="clY-7R-xqT"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNe-0R-7xB">
-                    <rect key="frame" x="35" y="434.5" width="305" height="59.5"/>
-                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNe-0R-7xB" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                    <rect key="frame" x="35" y="434" width="305" height="60"/>
+                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="eNe-0R-7xB" secondAttribute="height" multiplier="51:10" id="7Fi-ty-Tv7"/>
+                        <constraint firstAttribute="height" constant="59.5" id="4de-XQ-MYw"/>
                     </constraints>
-                    <state key="normal" title="Cretae Wallet">
+                    <state key="normal" title="   CREATE NEW WALLET" image="Create">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="createWalletAction:" destination="-1" eventType="touchUpInside" id="6Yh-dn-frU"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Wallet for Easy Life" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krb-FN-BBu">
+                    <rect key="frame" x="173" y="224" width="186" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="186" id="Bn2-e4-YZB"/>
+                        <constraint firstAttribute="height" constant="21" id="FUq-G8-yN2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhy-uQ-ShL">
+                    <rect key="frame" x="179" y="509" width="16" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="dfb-Qv-yFJ"/>
+                        <constraint firstAttribute="width" constant="16" id="tc0-f5-Mpa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FN9-rc-d2s">
+                    <rect key="frame" x="72.5" y="174" width="230" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TOMO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnf-rd-PPL">
+                            <rect key="frame" x="0.0" y="1" width="105" height="42"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                            <color key="textColor" red="1" green="0.52549019607843139" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BLACK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fa-b7-TWj">
+                            <rect key="frame" x="115" y="1" width="115" height="42"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="6XR-h2-KfU"/>
+                        <constraint firstAttribute="width" constant="230" id="O65-wX-7oY"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lV4-bb-h8z" secondAttribute="bottom" constant="62" id="8N1-1t-uBw"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lV4-bb-h8z" secondAttribute="trailing" constant="35" id="GZ8-w4-sd3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XyU-kg-e0R" secondAttribute="trailing" constant="87" id="IQE-7E-izy"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eNe-0R-7xB" secondAttribute="trailing" constant="35" id="JcN-4x-z83"/>
-                <constraint firstItem="XyU-kg-e0R" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="87" id="eH4-ra-TxA"/>
-                <constraint firstItem="lV4-bb-h8z" firstAttribute="top" secondItem="eNe-0R-7xB" secondAttribute="bottom" constant="51" id="iY6-2p-Jax"/>
-                <constraint firstItem="XyU-kg-e0R" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="136" id="mv5-Ll-TIW"/>
-                <constraint firstItem="lV4-bb-h8z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="uG9-HA-OwR"/>
-                <constraint firstItem="eNe-0R-7xB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="vF0-OY-8Uw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lV4-bb-h8z" secondAttribute="bottom" constant="62" id="0lU-xK-dMA"/>
+                <constraint firstItem="lV4-bb-h8z" firstAttribute="top" secondItem="Mhy-uQ-ShL" secondAttribute="bottom" constant="15" id="Qyi-le-DVH"/>
+                <constraint firstItem="FN9-rc-d2s" firstAttribute="top" secondItem="XyU-kg-e0R" secondAttribute="bottom" constant="8" id="W8H-G4-jWu"/>
+                <constraint firstItem="Mhy-uQ-ShL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WOz-sa-yvL"/>
+                <constraint firstItem="FN9-rc-d2s" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZPL-de-bBx"/>
+                <constraint firstItem="XyU-kg-e0R" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="cdw-hS-Rex"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lV4-bb-h8z" secondAttribute="trailing" constant="35" id="eec-WK-NAZ"/>
+                <constraint firstItem="XyU-kg-e0R" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hiM-N5-1tf"/>
+                <constraint firstItem="lV4-bb-h8z" firstAttribute="top" secondItem="eNe-0R-7xB" secondAttribute="bottom" constant="51" id="jBD-bt-o8J"/>
+                <constraint firstItem="lV4-bb-h8z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="jYB-G9-raC"/>
+                <constraint firstItem="Krb-FN-BBu" firstAttribute="top" secondItem="FN9-rc-d2s" secondAttribute="bottom" constant="6" id="mdm-2r-wFH"/>
+                <constraint firstItem="eNe-0R-7xB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="n2n-8L-Y0d"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eNe-0R-7xB" secondAttribute="trailing" constant="35" id="x57-CP-u0K"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Krb-FN-BBu" secondAttribute="trailing" constant="16" id="xDm-nN-NWX"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="-112.5" y="14.5"/>
         </view>
     </objects>
     <resources>
-        <image name="Logo" width="100" height="77"/>
+        <image name="Create" width="23" height="20"/>
+        <image name="Import" width="20" height="20"/>
+        <image name="Logo" width="97" height="97"/>
     </resources>
 </document>

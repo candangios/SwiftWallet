@@ -12,31 +12,44 @@ import TrustCore
 import Moya
 enum RPCApi{
     case getBalanceCoin(server: RPCServer, address: String)
-    case getBalanceToken(server: RPCServer, contract: String, data: String)
     case lastBlock(server: RPCServer)
     case getGasPrice(server: RPCServer)
     case estimateGasLimit(server: RPCServer, transaction: SignTransaction)
     case sendRawTransaction(server: RPCServer, signedTransaction: String )
     case getTransactionCount(server: RPCServer, address: String)
+    // contracs
+    case getBalanceToken(server: RPCServer, contract: String, data: String)
+    case getTokenName(server: RPCServer, contract: String, data: String)
+    case getTokenSymbol(server: RPCServer, contract: String, data: String)
+    case getTokenDecimals(server: RPCServer, contract: String, data: String)
     
 }
 extension RPCApi: TargetType{
 
+    
+
+
     var baseURL: URL{
         switch self {
-        case .getBalanceCoin(let server,_):
+        case .getBalanceCoin(let server, _):
             return  server.rpcURL
-        case .getBalanceToken(let server,_,_):
+        case .getBalanceToken(let server, _, _):
             return  server.rpcURL
         case .lastBlock(let server):
             return  server.rpcURL
         case .getGasPrice(let server):
             return  server.rpcURL
-        case .estimateGasLimit(let server,_):
+        case .estimateGasLimit(let server, _):
             return server.rpcURL
-        case .sendRawTransaction(let server,_):
+        case .sendRawTransaction(let server, _):
             return server.rpcURL
-        case .getTransactionCount(let server,_):
+        case .getTransactionCount(let server, _):
+            return server.rpcURL
+        case .getTokenName(let server, _, _):
+            return server.rpcURL
+        case .getTokenSymbol(let server, _, _):
+            return server.rpcURL
+        case .getTokenDecimals(let server, _, _):
             return server.rpcURL
         }
        
@@ -49,13 +62,14 @@ extension RPCApi: TargetType{
     var method: Moya.Method {
         switch self {
         case .getBalanceCoin: return .post
-        case .getBalanceToken: return .post
+        case .getBalanceToken, .getTokenName, .getTokenSymbol, .getTokenDecimals: return .post
         case .lastBlock: return .post
         case .getGasPrice: return.post
         case .estimateGasLimit: return .post
         case .sendRawTransaction: return .post
         case .getTransactionCount: return .post
         }
+      
     }
     
     var task: Task {
@@ -127,6 +141,48 @@ extension RPCApi: TargetType{
                 "jsonrpc": "2.0",
                 "method": "eth_getTransactionCount",
                 "params": ["\(address)", "latest"],
+                "id": 1
+                ] as [String : Any]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .getTokenName(_, let contract, let data):
+            let parameters = [
+                "jsonrpc": "2.0",
+                "method": "eth_call",
+                "params": [
+                    [
+                        "to": "\(contract)",
+                        "data": "\(data)"
+                    ],
+                    "latest"
+                ],
+                "id": 1
+                ] as [String : Any]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .getTokenSymbol(_, let contract, let data):
+            let parameters = [
+                "jsonrpc": "2.0",
+                "method": "eth_call",
+                "params": [
+                    [
+                        "to": "\(contract)",
+                        "data": "\(data)"
+                    ],
+                    "latest"
+                ],
+                "id": 1
+                ] as [String : Any]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .getTokenDecimals(_, let contract, let data):
+            let parameters = [
+                "jsonrpc": "2.0",
+                "method": "eth_call",
+                "params": [
+                    [
+                        "to": "\(contract)",
+                        "data": "\(data)"
+                    ],
+                    "latest"
+                ],
                 "id": 1
                 ] as [String : Any]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

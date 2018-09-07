@@ -31,7 +31,7 @@ class PassphraseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.setHidesBackButton(true, animated: false)
+//        self.navigationItem.setHidesBackButton(true, animated: false)
         set12WordsView()
 
         // Do any additional setup after loading the view.

@@ -41,7 +41,7 @@ final class CoinNetworkProvider: BalanceNetworkProvider {
                 switch result {
                 case .success(let response):
                     do {
-                        let balanceDecodable = try response.map(BalanceDecodable.self)
+                        let balanceDecodable = try response.map(RPCResultsDecodable.self)
                         guard let value = BigInt(balanceDecodable.result.drop0x, radix: 16) else{
                             return seal.reject(CookiesStoreError.empty)
                         }

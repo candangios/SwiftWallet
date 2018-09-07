@@ -52,7 +52,7 @@ for you</string>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcF-C5-Bwd">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcF-C5-Bwd" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="35" y="561" width="305" height="50"/>
                     <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -78,7 +78,7 @@ for you</string>
                         <action selector="didSkipAction:" destination="-1" eventType="touchUpInside" id="Bc7-9X-ynQ"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CIf-CK-P5u">
+                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CIf-CK-P5u">
                     <rect key="frame" x="16" y="245" width="343" height="300"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <string key="text">Storing a recovery phrase will allow you to recover your account if your phone is ever lost or stolen. It’s important to store this recovery phrase securely where nobody else can access it, such as on a piece of paper or in a password manager

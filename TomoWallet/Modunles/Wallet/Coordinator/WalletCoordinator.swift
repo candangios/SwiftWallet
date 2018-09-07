@@ -55,7 +55,7 @@ class WalletCoordinator: Coordinator{
         self.navigationController.displayLoading(text: "Creating Wallet...", animated: true)
         let password = PasswordGenerator.generateRandom()
   
-        self.keystore.createAccount(with: password, coin: .rinkeby) { (result) in
+        self.keystore.createAccount(with: password, coin: .ethereum) { (result) in
             switch result{
             case .success(let wallet):
                 self.keystore.exportMnemonic(wallet: wallet, completion: { (mnemonicResult) in

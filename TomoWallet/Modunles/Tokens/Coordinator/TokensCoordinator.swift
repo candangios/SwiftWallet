@@ -58,10 +58,11 @@ class TokensCoordinator:NSObject, Coordinator {
 
 extension TokensCoordinator: TokensVC_Delegate{
     func didPressAddToken(in viewController: UIViewController) {
-//        let viewModel = NewTokenViewModel(token: .none, session: self.session, tokensNetwork: self.network)
-//        let controller = NewTokenViewController(viewModel: viewModel)
+        let viewModel = NewTokenViewModel(token: .none, session: self.session, tokenNetwork: self.network)
+        let newTokenVC = NewTokenERC20VC(viewModel: viewModel)
 //        controller.delegate = self
-//        return controller
+        self.navigationController.pushViewController(newTokenVC, animated: true)
+    
     }
     
     func didSelect(token: TokenObject, in viewController: UIViewController) {

@@ -8,11 +8,18 @@
 
 import Foundation
 import PromiseKit
+import TrustCore
+import TrustKeystore
 
 struct NewTokenViewModel {
     let token: ERC20Token?
     let session: WalletSession
     let tokenNetWork: NetworkProtocol
+    
+    private var rpcNetwork: ContractNetworkProvider{
+        let RPCServer = self.session.currentRPC
+        return ContractNetworkProvider(server:RPCServer, provider: ApiProviderFactory.makeRPCNetworkProvider())
+    }
     init(token: ERC20Token?, session: WalletSession, tokenNetwork: NetworkProtocol) {
         self.token = token
         self.session = session
@@ -40,35 +47,49 @@ struct NewTokenViewModel {
         return "\(decimals)"
     }
     
-    var networkSelectorAvailable: Bool {
-        return networks.count > 1
-    }
-    
-    var network: RPCServer {
-        guard let server = token?.coin.server else {
-            if networkSelectorAvailable {
-                return .main
-            }
-            return session.account.currentAccount.coin?.server ?? .main
+    func info(for contract: EthereumAddress)  {
+        
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        dispatchGroup.notify(queue: .main) {
+            print("Both functions complete 👍")
         }
-        return server
-    }
+        print(rpcNetwork)
+        let a =  rpcNetwork.name(contracsAddress: contract)
+        let b = rpcNetwork.decimals(contracsAddress: contract)
+        let c = rpcNetwork.symbol(contracsAddress: contract)
+
+       
+       
     
-    var networks: [RPCServer] {
-        return session.account.accounts.compactMap { $0.coin?.server }
-    }
-    
-    func info(for contract: String) -> Promise<TokenObject> {
-        return Promise { seal in
-            firstly {
-                tokenNetWork.search(query: contract).firstValue
-                }.done { token in
-                    seal.fulfill(token)
-                }.catch { error in
-                    seal.reject(error)
-            }
-        }
     }
     
     
+//    
+//    func info(for contract: String) -> Promise<TokenObject> {
+//        return Promise { seal in
+//            firstly {
+//                let dispatchGroup = DispatchGroup()
+//                
+//                dispatchGroup.enter()
+//                longRunningFunction { dispatchGroup.leave() }
+//                
+//                dispatchGroup.enter()
+//                longRunningFunctionTwo { dispatchGroup.leave() }
+//                
+//                dispatchGroup.notify(queue: .main) {
+//                    print("Both functions complete 👍")
+//                }
+//                DispatchGroup(
+////                tokensNetwork.search(query: contract).firstValue
+//                }.done { token in
+//                    seal.fulfill(token)
+//                }.catch { error in
+//                    seal.reject(error)
+//            }
+//        }
+//    }
+    
+    
+
 }
