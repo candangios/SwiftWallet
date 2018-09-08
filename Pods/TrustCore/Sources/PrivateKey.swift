@@ -71,7 +71,8 @@ public final class PrivateKey: Hashable, CustomStringConvertible {
              .ethereumClassic,
              .callisto,
              .gochain,
-             .rinkeby:
+             .rinkeby,
+             .tomo:
             return EthereumPublicKey(data: Crypto.getPublicKey(from: data))!
         }
       

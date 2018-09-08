@@ -62,7 +62,8 @@ extension Coin {
              .poa,
              .callisto,
              .gochain,
-             .rinkeby:
+             .rinkeby,
+             .tomo:
             return DerivationPath(purpose: 44, coinType: self.rawValue, account: 0, change: 0, address: index)
         }
       

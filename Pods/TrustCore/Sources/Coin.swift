@@ -16,4 +16,6 @@ public enum Coin: Int {
     case callisto = 820
     case gochain = 6060
     case rinkeby = 1
+    case tomo = 88
+    
 }

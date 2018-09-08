@@ -33,9 +33,9 @@ class InitialWalletCoordinator: Coordinator {
     func start() {
         switch entryPoint {
         case .createInstantWallet:
-            createInstanWallet()
+            self.createInstanWallet()
         case .importWallet:
-            break
+           self.importWallet()
         case .welcome:
             break
         }
@@ -46,6 +46,14 @@ class InitialWalletCoordinator: Coordinator {
         walletCoordinator.start()
         self.addCoordinator(walletCoordinator)
     }
+    func importWallet(){
+        let walletCoordinator = WalletCoordinator(keystore: self.keystore, navigationController: self.navigationController, entryPoint: entryPoint)
+        walletCoordinator.delegate = self
+        walletCoordinator.start()
+        self.addCoordinator(walletCoordinator)
+        
+    }
+    
 }
 extension InitialWalletCoordinator: WalletCoordinator_Delegate{
     func didCancel(in coordinator: WalletCoordinator, account: WalletInfo) {

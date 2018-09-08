@@ -11,6 +11,7 @@ enum RPCServer {
     case callisto
     case gochain
     case rinkebyTestnet
+    case tomo
     
     var id: String {
         switch self {
@@ -20,6 +21,7 @@ enum RPCServer {
         case .callisto: return "callisto"
         case .gochain: return "gochain"
         case .rinkebyTestnet: return "rinkeby"
+        case .tomo: return "tomo"
         }
     }
     
@@ -31,6 +33,7 @@ enum RPCServer {
         case .callisto: return 820
         case .gochain: return 60
         case .rinkebyTestnet: return 4
+        case .tomo:return 40686
         }
     }
     
@@ -42,12 +45,14 @@ enum RPCServer {
         case .callisto: return EthereumAddress(string: "0x0000000000000000000000000000000000000334")!
         case .gochain: return EthereumAddress(string: "0x00000000000000000000000000000000000017aC")!
         case .rinkebyTestnet: return EthereumAddress(string: "0x000000000000000000000000000000000000003c")!
+        case .tomo:
+            return EthereumAddress(string: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")!
         }
     }
     
     var isDisabledByDefault: Bool {
         switch self {
-        case .main, .rinkebyTestnet: return false
+        case .main, .rinkebyTestnet, .tomo: return false
         case .poa, .classic, .callisto, .gochain: return true
         }
     }
@@ -60,6 +65,8 @@ enum RPCServer {
         case .callisto: return "Callisto"
         case .gochain: return "GoChain"
         case .rinkebyTestnet: return "RinkebyTestnet"
+        case .tomo:
+            return "Tomo"
         }
     }
     
@@ -75,6 +82,8 @@ enum RPCServer {
         case .poa: return "POA"
         case .gochain: return "GO"
         case .rinkebyTestnet: return "ETH"
+        case .tomo:
+            return "TOMO"
         }
     }
     
@@ -91,6 +100,8 @@ enum RPCServer {
             case .poa: return "https://poa.infura.io"
             case .gochain: return "https://rpc.gochain.io"
             case .rinkebyTestnet: return "https://rinkeby.infura.io/v3/a78f819911994678934d1c811f3c4b47"
+            case .tomo:
+                return "https://core.tomocoin.io"
             }
         }()
         return URL(string: urlString)!
@@ -105,6 +116,8 @@ enum RPCServer {
                 
             case .rinkebyTestnet:
                 return "wss://rinkeby.infura.io/v3/a78f819911994678934d1c811f3c4b47"
+            case .tomo:
+                return "wss://localhost"
             }
         }()
         return URL(string: urlString)!
@@ -120,6 +133,8 @@ enum RPCServer {
             case .gochain: return "https://gochain.trustwalletapp.com"
             case .rinkebyTestnet:
                 return "https://api.trustwalletapp.com"
+            case .tomo:
+                return "https://tomo-trust-wallet.herokuapp.com"
             }
         }()
         return URL(string: urlString)!
@@ -130,14 +145,14 @@ enum RPCServer {
         switch self {
         case .main, .rinkebyTestnet:
             return EthereumAddress(string: "0x314159265dd8dbb310642f98f50c066173c1259b")!
-        case .classic, .poa, .callisto, .gochain:
+        case .classic, .poa, .callisto, .gochain,.tomo:
             return EthereumAddress.zeroAddress
         }
     }
     
     var openseaPath: String {
         switch self {
-        case .main, .classic, .poa, .callisto, .gochain, .rinkebyTestnet : return Constants.dappsOpenSea
+        case .main, .classic, .poa, .callisto, .gochain, .rinkebyTestnet,. tomo : return Constants.dappsOpenSea
         }
     }
     
@@ -151,7 +166,7 @@ enum RPCServer {
     
     var coin: Coin {
         switch self {
-        case .main: return Coin.ethereum
+        case .main, .tomo: return Coin.ethereum
         case .classic: return Coin.ethereumClassic
         case .callisto: return Coin.callisto
         case .poa: return Coin.poa
@@ -159,6 +174,7 @@ enum RPCServer {
         case .rinkebyTestnet:
             return Coin.rinkeby
         }
+      
     }
 }
 

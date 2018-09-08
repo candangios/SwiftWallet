@@ -36,17 +36,13 @@ class WalletCoordinator: Coordinator{
         switch entryPoint {
         case .welcome:
                 break
+        case .importWallet:
+            self.setImportMainWallet()
 //            if let _ = keystore.mainWallet {
 //                setSelectCoin()
 //            } else {
-//                setWelcomeView()
-//            }
-        case .importWallet:
-            if let _ = keystore.mainWallet {
-//                setSelectCoin()
-            } else {
 //                setImportMainWallet()
-            }
+//            }
         case .createInstantWallet:
             createInstantWallet()
         }
@@ -95,11 +91,17 @@ class WalletCoordinator: Coordinator{
         ])
     }
     
+    func setImportMainWallet(){
+        let controller = ConfirmVC(account: wallet, words: words, mode: .showAndVerify)
+        controller.delegate = self
+        navigationController.pushViewController(controller, animated: true)
+    }
+    
     func createNameWallet(wallet: WalletInfo, type: WalletDoneType) {
         
     }
 }
-
+//MARK: -  Coordinator create new wallet delegate
 extension WalletCoordinator: ConfrimVC_Delegate{
     func didPressVerify(in controller: ConfirmVC, with account: Wallet, words: [String]) {
         let passPhrase = PassphraseVC(account: account, words: words)
@@ -137,6 +139,5 @@ extension WalletCoordinator: VerifyPassphraseVC_Delegate{
     func didSkip(in controller: VerifyPassphraseVC, with account: Wallet) {
         
     }
-    
-
 }
+//MARK: -  Coordinator import wallet delegate

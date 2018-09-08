@@ -170,8 +170,8 @@ extension Coin {
         case .gochain: return RPCServer.gochain
         case .callisto: return RPCServer.callisto
         case .poa: return RPCServer.poa
-        case .rinkeby:
-            return RPCServer.rinkebyTestnet
+        case .rinkeby:return RPCServer.rinkebyTestnet
+        case .tomo: return RPCServer.tomo
         }
     }
 }

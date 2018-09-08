@@ -118,7 +118,8 @@ public final class Account: Codable, Hashable {
              .ethereumClassic,
              .callisto,
              .gochain,
-             .rinkeby:
+             .rinkeby,
+             .tomo:
             maybeAddress = EthereumAddress(data: addressData, coin: coin)
         }
 
@@ -139,17 +140,17 @@ public final class Account: Codable, Hashable {
 }
 
 extension Coin: Codable {
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        let coinID = try container.decode(Int.self)
-        guard let coin = Coin(rawValue: coinID) else {
-            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Invalid coin \(coinID)")
-        }
-        self = coin
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encode(self.rawValue)
-    }
+//    public init(from decoder: Decoder) throws {
+//        let container = try decoder.singleValueContainer()
+//        let coinID = try container.decode(Int.self)
+//        guard let coin = Coin(rawValue: coinID) else {
+//            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Invalid coin \(coinID)")
+//        }
+//        self = coin
+//    }
+//
+//    public func encode(to encoder: Encoder) throws {
+//        var container = encoder.singleValueContainer()
+//        try container.encode(self.rawValue)
+//    }
 }

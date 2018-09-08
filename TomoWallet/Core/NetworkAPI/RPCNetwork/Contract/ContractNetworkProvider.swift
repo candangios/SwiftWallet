@@ -44,6 +44,7 @@ final class ContractNetworkProvider: ContractInfoNetworkProvider {
                         }
                         let data = Data(hexString: balanceDecodable.result)
                         let decoder = String.init(data: data!, encoding: .utf8)
+              
                    
                         seal.fulfill(decoder!)
                     } catch {

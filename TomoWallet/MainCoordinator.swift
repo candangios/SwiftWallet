@@ -60,6 +60,7 @@ class MainCoordinator:NSObject, Coordinator {
     }
     
     func showInitialWalletCoordinator (entryPoint: WalletEntryPoint){
+        
         let initialWalletCoordinator = InitialWalletCoordinator(keystore: self.keystore, navigationController: self.navigationController, entryPoint: entryPoint)
         initialWalletCoordinator.start()
         initialWalletCoordinator.delegate = self
@@ -73,7 +74,7 @@ extension MainCoordinator: WelcomeVC_Delegate{
       
     }
     func didPressImportWallet(in viewController: WelcomeVC) {
-      
+        showInitialWalletCoordinator(entryPoint: .importWallet)
     }
 }
 
@@ -87,6 +88,4 @@ extension MainCoordinator: InitialWalletCoordinator_Delegate{
         showTransactions(for: account)
         self.removeCoordinator(coordinator)
     }
-    
-    
 }

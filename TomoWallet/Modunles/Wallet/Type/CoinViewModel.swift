@@ -26,6 +26,7 @@ struct CoinViewModel {
         case .callisto: return "Callisto"
         case .gochain: return "GoChain"
         case .rinkeby: return "RinkebyTestnet"
+        case .tomo: return "Tomo"
         }
     }
     
@@ -38,6 +39,7 @@ struct CoinViewModel {
         case .gochain: return "GO"
         case .bitcoin: return "Bitcoin"
         case .rinkeby: return "ETH"
+        case .tomo: return "TOMO"
         }
     }
     
@@ -49,8 +51,8 @@ struct CoinViewModel {
         case .poa: return .none
         case .callisto: return .none
         case .gochain: return .none
-        case .rinkeby:
-            return .none
+        case .rinkeby: return .none
+        case .tomo: return .none
         }
     }
     
