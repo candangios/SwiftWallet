@@ -36,6 +36,9 @@ extension Error {
                 return error.errorDescription ?? error.description
             }
         case let error as LocalizedError:
+            if let keystoreError = error as? KeystoreError{
+                return keystoreError.errorDescription
+            }
             return error.errorDescription ?? "An unknown error occurred."
         case let error as NSError:
             return error.localizedDescription

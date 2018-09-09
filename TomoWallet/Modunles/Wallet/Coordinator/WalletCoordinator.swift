@@ -38,11 +38,6 @@ class WalletCoordinator: Coordinator{
                 break
         case .importWallet:
             self.setImportMainWallet()
-//            if let _ = keystore.mainWallet {
-//                setSelectCoin()
-//            } else {
-//                setImportMainWallet()
-//            }
         case .createInstantWallet:
             createInstantWallet()
         }
@@ -92,12 +87,17 @@ class WalletCoordinator: Coordinator{
     }
     
     func setImportMainWallet(){
-        let controller = ConfirmVC(account: wallet, words: words, mode: .showAndVerify)
+        let controller = ImportWalletVC(keystore: self.keystore, for: .ethereum)
         controller.delegate = self
-        navigationController.pushViewController(controller, animated: true)
+        self.navigationController.pushViewController(controller, animated: true)
+        
+//        let controller = ConfirmVC(account: wallet, words: words, mode: .showAndVerify)
+//        controller.delegate = self
+//        navigationController.pushViewController(controller, animated: true)
     }
     
     func createNameWallet(wallet: WalletInfo, type: WalletDoneType) {
+        self.delegate?.didFinish(with: wallet, in: self)
         
     }
 }
@@ -141,3 +141,10 @@ extension WalletCoordinator: VerifyPassphraseVC_Delegate{
     }
 }
 //MARK: -  Coordinator import wallet delegate
+extension WalletCoordinator: ImportWalletVC_Delegate{
+    func didImportAccount(account: WalletInfo, fields: [WalletInfoField], in viewController: ImportWalletVC) {
+        keystore.store(object: account.info, fields: fields)
+        createNameWallet(wallet: account, type: .imported)
+
+    }
+}

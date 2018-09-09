@@ -11,6 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImportWalletVC" customModule="TomoWallet" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundView" destination="70R-oY-d6m" id="HNC-zy-c7d"/>
+                <outlet property="importButton" destination="cMU-FS-TPh" id="ecc-mA-lti"/>
+                <outlet property="inputTextView" destination="8nE-US-LAg" id="ti7-Vs-fcS"/>
+                <outlet property="qrcodeScanButton" destination="Bkf-aY-R1a" id="ZLr-2a-th8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -60,16 +64,78 @@
                                 <constraint firstAttribute="height" constant="50" id="z9w-aX-Sne"/>
                             </constraints>
                             <state key="normal" title="    IMPORT" image="Import"/>
+                            <connections>
+                                <action selector="importWalletAction:" destination="-1" eventType="touchUpInside" id="Iez-mI-vSA"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your private key or recovery phrase" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8nE-US-LAg">
+                            <rect key="frame" x="21" y="211" width="333" height="143"/>
+                            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="143" id="wE4-11-mYn"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="0fe-mQ-M0x"/>
+                            </connections>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bkf-aY-R1a" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
+                            <rect key="frame" x="122" y="408" width="130" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="130" id="8X4-ya-dsb"/>
+                                <constraint firstAttribute="height" constant="43" id="UFf-KN-bDv"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Scan QR   " image="ScanQR">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="qrCodeReaderAction:" destination="-1" eventType="touchUpInside" id="X5B-J8-9MW"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpM-ip-jBQ">
+                            <rect key="frame" x="179" y="374" width="18" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="14" id="FfX-LL-vbU"/>
+                                <constraint firstAttribute="width" constant="18" id="TKe-OQ-yHx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwJ-aR-ffN">
+                            <rect key="frame" x="291" y="324" width="54" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="54" id="Q45-2p-g6A"/>
+                                <constraint firstAttribute="height" constant="30" id="zY9-To-RbI"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="  Page" image="Page">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="pasteboardAction:" destination="-1" eventType="touchUpInside" id="xSv-Dq-3aU"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="cMU-FS-TPh" firstAttribute="leading" secondItem="70R-oY-d6m" secondAttribute="leading" constant="35" id="2Fg-S1-z0f"/>
+                        <constraint firstItem="8nE-US-LAg" firstAttribute="top" secondItem="uUj-bf-u70" secondAttribute="bottom" constant="26" id="7gF-hk-rkD"/>
+                        <constraint firstAttribute="trailing" secondItem="CwJ-aR-ffN" secondAttribute="trailing" constant="30" id="GUo-kJ-D4x"/>
+                        <constraint firstItem="vpM-ip-jBQ" firstAttribute="top" secondItem="8nE-US-LAg" secondAttribute="bottom" constant="20" id="OAf-Z1-fLB"/>
+                        <constraint firstItem="8nE-US-LAg" firstAttribute="leading" secondItem="70R-oY-d6m" secondAttribute="leading" constant="21" id="QuE-3o-BlK"/>
                         <constraint firstItem="uUj-bf-u70" firstAttribute="top" secondItem="70R-oY-d6m" secondAttribute="top" id="RBN-NM-94F"/>
+                        <constraint firstItem="Bkf-aY-R1a" firstAttribute="top" secondItem="vpM-ip-jBQ" secondAttribute="bottom" constant="20" id="T8F-CU-nfu"/>
                         <constraint firstItem="uUj-bf-u70" firstAttribute="leading" secondItem="70R-oY-d6m" secondAttribute="leading" id="WvH-G4-X0x"/>
                         <constraint firstAttribute="trailing" secondItem="cMU-FS-TPh" secondAttribute="trailing" constant="35" id="cva-R4-bx6"/>
+                        <constraint firstItem="vpM-ip-jBQ" firstAttribute="centerX" secondItem="70R-oY-d6m" secondAttribute="centerX" id="deT-GF-Yho"/>
+                        <constraint firstAttribute="trailing" secondItem="8nE-US-LAg" secondAttribute="trailing" constant="21" id="hJn-2h-1Dv"/>
                         <constraint firstAttribute="trailing" secondItem="uUj-bf-u70" secondAttribute="trailing" id="j5y-0M-w0H"/>
                         <constraint firstAttribute="bottom" secondItem="cMU-FS-TPh" secondAttribute="bottom" constant="20" id="oLN-mo-QYh"/>
+                        <constraint firstItem="Bkf-aY-R1a" firstAttribute="centerX" secondItem="70R-oY-d6m" secondAttribute="centerX" id="tIJ-v9-FNa"/>
+                        <constraint firstItem="CwJ-aR-ffN" firstAttribute="top" secondItem="uUj-bf-u70" secondAttribute="bottom" constant="139" id="y11-KS-cEo"/>
                     </constraints>
                 </view>
             </subviews>
@@ -86,5 +152,7 @@
     <resources>
         <image name="Close" width="30" height="30"/>
         <image name="Import" width="20" height="20"/>
+        <image name="Page" width="14" height="14"/>
+        <image name="ScanQR" width="20" height="20"/>
     </resources>
 </document>

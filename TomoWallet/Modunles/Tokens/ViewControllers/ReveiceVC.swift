@@ -59,7 +59,7 @@ class ReveiceVC: UIViewController {
         UIPasteboard.general.string = viewModel.address
         let hup = MBProgressHUD.showAdded(to: self.view, animated: true)
         hup.label.text = "Address copied"
-        hup.hide(animated: true, afterDelay: 1.5)
+        hup.hide(animated: true, afterDelay: 0.5)
     }
     
     @IBAction func shareAddressAction(_ sender: Any) {

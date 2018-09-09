@@ -23,6 +23,9 @@ enum KeystoreError: LocalizedError {
     case failedToExportPrivateKey
     case invalidMnemonicPhrase
     case failedToAddAccounts
+    // tomoAdd
+    case invalidMnemonicPhraseorPrivatekey
+    
     var errorDescription: String{
         switch self {
         case .failedToDeleteAccount:
@@ -55,6 +58,8 @@ enum KeystoreError: LocalizedError {
             return "Invalid mnemonic phrase"
         case .failedToAddAccounts:
             return "Faield to add accounts"
+        case .invalidMnemonicPhraseorPrivatekey:
+            return "Invalid mnemonic phrase or privatekey"
         }
     }
     
