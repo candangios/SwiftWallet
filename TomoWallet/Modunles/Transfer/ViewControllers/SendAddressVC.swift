@@ -15,7 +15,7 @@ protocol SendViewController_Delegate:class {
     func didPressConfirm(toAddress: EthereumAddress, data: Data, in viewController: SendAddressVC)
 }
 
-class SendAddressVC: UIViewController {
+class SendAddressVC: BaseViewController {
     @IBOutlet weak var addressTextField: UITextField!
     let viewModel: SendViewModel
     weak var delegate: SendViewController_Delegate?

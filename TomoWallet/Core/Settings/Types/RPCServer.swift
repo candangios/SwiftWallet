@@ -106,64 +106,7 @@ enum RPCServer {
         }()
         return URL(string: urlString)!
     }
-    
-    var wssURL: URL {
-        let urlString: String = {
-            switch self {
-            case .main: return "wss://mainnet.infura.io/ws/llyrtzQ3YhkdESt2Fzrk"
-            case .poa: return "wss://poa.infura.io"
-            case .classic, .callisto, .gochain: return "wss://localhost"
-                
-            case .rinkebyTestnet:
-                return "wss://rinkeby.infura.io/v3/a78f819911994678934d1c811f3c4b47"
-            case .tomo:
-                return "wss://localhost"
-            }
-        }()
-        return URL(string: urlString)!
-    }
-    
-    var remoteURL: URL {
-        let urlString: String = {
-            switch self {
-            case .main: return "https://api.trustwalletapp.com"
-            case .classic: return "https://classic.trustwalletapp.com"
-            case .callisto: return "https://callisto.trustwalletapp.com"
-            case .poa: return "https://poa.trustwalletapp.com"
-            case .gochain: return "https://gochain.trustwalletapp.com"
-            case .rinkebyTestnet:
-                return "https://api.trustwalletapp.com"
-            case .tomo:
-                return "https://tomo-trust-wallet.herokuapp.com"
-            }
-        }()
-        return URL(string: urlString)!
-    }
-    
-    var ensContract: EthereumAddress {
-        // https://docs.ens.domains/en/latest/introduction.html#ens-on-ethereum
-        switch self {
-        case .main, .rinkebyTestnet:
-            return EthereumAddress(string: "0x314159265dd8dbb310642f98f50c066173c1259b")!
-        case .classic, .poa, .callisto, .gochain,.tomo:
-            return EthereumAddress.zeroAddress
-        }
-    }
-    
-    var openseaPath: String {
-        switch self {
-        case .main, .classic, .poa, .callisto, .gochain, .rinkebyTestnet,. tomo : return Constants.dappsOpenSea
-        }
-    }
-    
-    var openseaURL: URL? {
-        return URL(string: openseaPath)
-    }
-    
-    func opensea(with contract: String, and id: String) -> URL? {
-        return URL(string: (openseaPath + "/assets/\(contract)/\(id)"))
-    }
-    
+ 
     var coin: Coin {
         switch self {
         case .main, .tomo: return Coin.ethereum

@@ -76,16 +76,16 @@
                     <rect key="frame" x="10" y="149" width="355" height="72"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="130.51" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANn-AX-67f">
-                            <rect key="frame" x="87" y="0.0" width="181" height="72"/>
+                            <rect key="frame" x="109.5" y="0.0" width="137" height="72"/>
                             <constraints>
                                 <constraint firstAttribute="width" priority="250" constant="176.5" id="Enz-ya-jWB"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="60"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="45"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iR9-Sr-ZG0">
-                            <rect key="frame" x="278" y="42" width="29" height="18"/>
+                            <rect key="frame" x="256.5" y="42" width="29" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="18" id="1zn-sN-pN4"/>
                                 <constraint firstAttribute="width" priority="250" constant="29" id="Nsf-iA-psf"/>

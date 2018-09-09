@@ -24,7 +24,7 @@ enum ConfirmResult {
     case sentTransaction(SentTransaction)
 }
 
-class ConfirmPaymentVC: UIViewController {
+class ConfirmPaymentVC: BaseViewController {
     @IBOutlet weak var toAddressLable: UILabel!
     @IBOutlet weak var amountValueLable: UILabel!
     @IBOutlet weak var symbolLable: UILabel!

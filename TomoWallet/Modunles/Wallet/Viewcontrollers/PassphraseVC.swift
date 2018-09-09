@@ -14,7 +14,7 @@ protocol PassphraseVC_Delegate:class {
     func didSkip(in controller: PassphraseVC, with account: Wallet)
 }
 
-class PassphraseVC: UIViewController {
+class PassphraseVC: BaseViewController {
     @IBOutlet weak var containerView: UIView!
     let account: Wallet
     let words: [String]

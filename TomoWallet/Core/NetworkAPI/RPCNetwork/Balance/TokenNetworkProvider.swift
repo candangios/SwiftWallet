@@ -41,18 +41,16 @@ final class TokenNetworkProvider: BalanceNetworkProvider {
     func balance() -> Promise<BigInt> {
         return Promise { seal in
             let encoded = ERC20Encoder.encodeBalanceOf(address: address)
-            print(encoded.hexEncoded)
             provider.request(.getBalanceToken(server: self.server, contract: self.contract.description, data: encoded.hexEncoded), completion: { (result) in
                 switch result {
                 case .success(let response):
                     do {
-                        let balanceDecodable = try response.mapString()
-                        print(balanceDecodable)
-//                        guard let value = BigInt(balanceDecodable.result.drop0x, radix: 16) else{
-//                            return seal.reject(CookiesStoreError.empty)
-//                        }
-//                        let balance = Balance(value: value)
-//                        seal.fulfill(balance.value)
+                        let balanceDecodable = try response.map(RPCResultsDecodable.self)
+                        guard let value = BigInt(balanceDecodable.result.drop0x, radix: 16) else{
+                            return seal.reject(CookiesStoreError.empty)
+                        }
+                        let balance = Balance(value: value)
+                        seal.fulfill(balance.value)
                     } catch {
                         seal.reject(error)
                     }
@@ -60,24 +58,6 @@ final class TokenNetworkProvider: BalanceNetworkProvider {
                     seal.reject(error)
                 }
             })
-            
-   
-//            let encoded = ERC20Encoder.encodeBalanceOf(address: address)
-//            let request = RPCServiceRequest(
-//                for: server,
-//                batch: BatchFactory().create(CallRequest(to: contract.description, data: encoded.hexEncoded))
-//            )
-//            Session.send(request) { result in
-//                switch result {
-//                case .success(let balance):
-//                    guard let value = BigInt(balance.drop0x, radix: 16) else {
-//                        return seal.reject(CookiesStoreError.empty)
-//                    }
-//                    seal.fulfill(value)
-//                case .failure(let error):
-//                    seal.reject(error)
-//                }
-//            }
         }
     }
 }

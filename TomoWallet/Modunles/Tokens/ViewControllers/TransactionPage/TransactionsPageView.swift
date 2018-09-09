@@ -90,6 +90,18 @@ final class TransactionsPageView: UITableViewController {
         let transaction = viewModel.item(for: indexPath.row, section: indexPath.section)
         self.didselectedItem?(transaction)
     }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = Bundle.main.loadNibNamed("SectionHeader", owner: self, options: nil)?.first as? SectionHeader  else {
+            return .none
+        }
+        headerView.groupTitleLable.text = viewModel.titleForHeader(in: section)
+        return headerView
+    
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
 
 
 }

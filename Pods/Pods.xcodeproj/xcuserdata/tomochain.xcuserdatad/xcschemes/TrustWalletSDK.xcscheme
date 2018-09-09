@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E666156E41D0A0E686C51DCDF615D1CA"
+               BlueprintIdentifier = "7872A2ECF01D72ECED73C3A2755B4BD0"
                BlueprintName = "TrustWalletSDK"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "TrustWalletSDK.framework">

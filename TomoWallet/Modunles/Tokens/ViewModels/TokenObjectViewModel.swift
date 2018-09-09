@@ -12,9 +12,12 @@ struct TokenObjectViewModel {
         return URL(string: imagePath)
     }
 
-    var title: String {
+    var name: String {
         
-        return token.name.isEmpty ? token.symbol : (token.name + " (" + token.symbol + ")")
+        return token.name.isEmpty ? token.symbol : token.name
+    }
+    var symbol: String{
+        return token.symbol
     }
 
     var placeholder: UIImage? {

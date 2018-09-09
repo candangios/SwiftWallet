@@ -14,7 +14,7 @@ class TokenViewCell: UITableViewCell {
 
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var tokenNameLable: UILabel!
-    @IBOutlet weak var marketPriceLable: UILabel!
+    @IBOutlet weak var tokenSymbolLable: UILabel!
     @IBOutlet weak var amountLable: UILabel!
     @IBOutlet weak var currencyAmountLabel: UILabel!
     @IBOutlet weak var marketPercentageChangeLable: UILabel!
@@ -33,8 +33,9 @@ class TokenViewCell: UITableViewCell {
         
         tokenNameLable.text = viewModel.title
         amountLable.text = viewModel.amount
-        marketPriceLable.text = viewModel.marketPrice
-        marketPercentageChangeLable.text = viewModel.percentChange
+        tokenSymbolLable.text = viewModel.symbol
+//        marketPriceLable.text = viewModel.marketPrice
+//        marketPercentageChangeLable.text = viewModel.percentChange
         currencyAmountLabel.text = viewModel.currencyAmount
         logoImage.kf.setImage(
             with: viewModel.imageURL,

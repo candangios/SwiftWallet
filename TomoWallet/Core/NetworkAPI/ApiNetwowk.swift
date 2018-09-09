@@ -37,7 +37,7 @@ final class ApiNetwork: NetworkProtocol{
     private var dict: [String: [String]] {
         var dict: [String: [String]] = [:]
         for account in wallet.accounts {
-            dict["\(String(describing: account.coin?.rawValue))"] = [account.address.description]
+            dict["\(String(describing: account.coin!.rawValue))"] = [account.address.description]
         }
         return dict
     }
@@ -85,7 +85,6 @@ final class ApiNetwork: NetworkProtocol{
         }    }
     
     func tokensList() -> Promise<[TokenObject]> {
-    
         return Promise { seal in
             provider.request(.getTokens(dict)) { result in
                 switch result {

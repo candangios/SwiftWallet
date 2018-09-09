@@ -139,7 +139,7 @@ struct TransactionViewModel {
     
     var amountText: String {
         let value = shortValue
-        return amountWithSign(for: value.amount) + " " + value.symbol
+        return amountWithSign(for: value.amount)
     }
     
     var amountFullText: String {

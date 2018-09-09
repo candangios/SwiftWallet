@@ -111,7 +111,8 @@ final class TransactionsPageViewModel{
             config: config,
             currentAccount: currentAccount,
             server: token.coin.server,
-            token: token
+            token: token,
+            indexPatch: indexPath
         )
     }
     

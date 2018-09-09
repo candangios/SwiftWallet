@@ -17,7 +17,7 @@ protocol TokenVC_Delegate: class {
     func didPress(viewModel: TokenViewModel, transaction: Transaction, in controller: UIViewController)
 }
 
-class TokenVC: UIViewController {
+class TokenVC: BaseViewController {
     
     private lazy var header: TokenHeaderView? = {
         guard let view: TokenHeaderView = Bundle.main.loadNibNamed("TokenHeaderView", owner: self, options: nil)?.first as? TokenHeaderView else{
@@ -61,26 +61,27 @@ class TokenVC: UIViewController {
     }()
     var currentPageView: TransactionsPageView?{
         didSet{
+            print(currentPageView?.type.rawValue)
             self.currentPageView?.didselectedItem = { [weak self] transaction in
-                
                 self?.delegate?.didPress(viewModel: (self?.viewModel)!, transaction: transaction, in: self!)
-                
             }
         }
     }
     let quantityPage = 3
 
     let viewModel: TokenViewModel
-    weak var delegate: TokenVC_Delegate?
+    weak var delegate: TokenVC_Delegate?       
     init(viewModel: TokenViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+       
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     
         view.addSubview(scrollView)
         self.createNavigator()
@@ -138,8 +139,9 @@ class TokenVC: UIViewController {
     
     private func updateHeaderView(){
         self.header?.iconImage.kf.setImage(with: viewModel.imageURL, placeholder: viewModel.imagePlaceholder)
-        self.header?.balancelable.text = viewModel.token.valueBalance.amountFull
-        self.header?.coinNameLable.text = viewModel.token.name
+        self.header?.balancelable.text = viewModel.amount
+        self.header?.coinNameLable.text = viewModel.name
+        self.header?.symbolLable.text = viewModel.symbol
     }
     
     

@@ -58,6 +58,9 @@
 		8643B0E02124236600F46C21 /* EthereumUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643B0DF2124236600F46C21 /* EthereumUnit.swift */; };
 		8643B0E2212423F500F46C21 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643B0E1212423F500F46C21 /* Decimal.swift */; };
 		8648C8402144C1F1002667FA /* ImportWalletVewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8648C83F2144C1F1002667FA /* ImportWalletVewModel.swift */; };
+		8648C844214528FC002667FA /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8648C843214528FC002667FA /* SectionHeader.xib */; };
+		8648C846214529C6002667FA /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8648C845214529C6002667FA /* SectionHeader.swift */; };
+		8648C84821453661002667FA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8648C84721453661002667FA /* BaseViewController.swift */; };
 		8649578E21213C9700C98D0B /* InitialWalletCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8649578D21213C9700C98D0B /* InitialWalletCoordinator.swift */; };
 		8649579221213DA300C98D0B /* WalletEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8649579121213DA300C98D0B /* WalletEntryPoint.swift */; };
 		86495794212166A800C98D0B /* InCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86495793212166A800C98D0B /* InCoordinator.swift */; };
@@ -258,6 +261,9 @@
 		8643B0DF2124236600F46C21 /* EthereumUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumUnit.swift; sourceTree = "<group>"; };
 		8643B0E1212423F500F46C21 /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
 		8648C83F2144C1F1002667FA /* ImportWalletVewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletVewModel.swift; sourceTree = "<group>"; };
+		8648C843214528FC002667FA /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
+		8648C845214529C6002667FA /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		8648C84721453661002667FA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8649578D21213C9700C98D0B /* InitialWalletCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialWalletCoordinator.swift; sourceTree = "<group>"; };
 		8649579121213DA300C98D0B /* WalletEntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEntryPoint.swift; sourceTree = "<group>"; };
 		86495793212166A800C98D0B /* InCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InCoordinator.swift; sourceTree = "<group>"; };
@@ -428,6 +434,8 @@
 				8698A175212E74C60016C85D /* TokenHeaderView.xib */,
 				869A69412137AA7F00642B8B /* SegmentedIndicatorView.swift */,
 				869A693F2137A3A300642B8B /* SegmentedIndicatorView.xib */,
+				8648C845214529C6002667FA /* SectionHeader.swift */,
+				8648C843214528FC002667FA /* SectionHeader.xib */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -533,6 +541,7 @@
 				86391BA421145F700045A610 /* MainCoordinator.swift */,
 				86495793212166A800C98D0B /* InCoordinator.swift */,
 				86391B77211442EB0045A610 /* ViewController.swift */,
+				8648C84721453661002667FA /* BaseViewController.swift */,
 				86391B79211442EB0045A610 /* Main.storyboard */,
 				86391B7C211442EC0045A610 /* Assets.xcassets */,
 				86391B7E211442EC0045A610 /* LaunchScreen.storyboard */,
@@ -1265,6 +1274,7 @@
 				86391B7B211442EB0045A610 /* Main.storyboard in Resources */,
 				869A69402137A3A300642B8B /* SegmentedIndicatorView.xib in Resources */,
 				8643B0BA2123CF6C00F46C21 /* TokensVC.xib in Resources */,
+				8648C844214528FC002667FA /* SectionHeader.xib in Resources */,
 				86B3297C212FF78F00C7E57F /* SendAmountVC.xib in Resources */,
 				86539546211C2CC000DB2DDE /* WelcomeVC.xib in Resources */,
 			);
@@ -1296,6 +1306,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TomoWallet/Pods-TomoWallet-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
@@ -1326,6 +1337,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Branch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
@@ -1449,6 +1461,7 @@
 				861023FF2126822300A831BE /* TokenViewCellViewModel.swift in Sources */,
 				86B3298D2130141B00C7E57F /* ConfigGasPriceView.swift in Sources */,
 				86C22BFB213F7D0400020085 /* GasViewModel.swift in Sources */,
+				8648C84821453661002667FA /* BaseViewController.swift in Sources */,
 				86436259212C23A9002D7D3E /* TransactionDetailViewmodel.swift in Sources */,
 				86D55412213E93D7003CF2B6 /* NewTokenERC20VC.swift in Sources */,
 				8643624F212BBFE6002D7D3E /* CookiesStoreError.swift in Sources */,
@@ -1516,6 +1529,7 @@
 				8643B0D921240BA000F46C21 /* ApiProviderFactory.swift in Sources */,
 				8649579221213DA300C98D0B /* WalletEntryPoint.swift in Sources */,
 				862A5DD02135367700334480 /* BolderButton.swift in Sources */,
+				8648C846214529C6002667FA /* SectionHeader.swift in Sources */,
 				8652121621227C6F00F79E4D /* TokensDataStore.swift in Sources */,
 				86B32986212FFFD300C7E57F /* SendAmountViewModel.swift in Sources */,
 				8659136A212A79B600440972 /* CoinNetworkProvider.swift in Sources */,

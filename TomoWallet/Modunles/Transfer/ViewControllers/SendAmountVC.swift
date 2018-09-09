@@ -36,7 +36,7 @@ enum SendInputErrors: LocalizedError {
 }
 
 
-class SendAmountVC: UIViewController {
+class SendAmountVC: BaseViewController {
     
     private lazy var viewModel: SendAmountViewModel = {
         let balance = Balance(value: transfer.type.token.valueBigInt)

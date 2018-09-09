@@ -9,14 +9,13 @@
 import UIKit
 import Kingfisher
 
-class TransactionDetailVC: UIViewController {
+class TransactionDetailVC: BaseViewController {
 
     @IBOutlet weak var transactionToAddressLable: UILabel!
     @IBOutlet weak var transactionFromAddressLable: UILabel!
     @IBOutlet weak var transactionFeeLable: UILabel!
     @IBOutlet weak var transactionAmountLable: UILabel!
     @IBOutlet weak var transactionTimeLable: UILabel!
-    @IBOutlet weak var transactionsStateLable: UILabel!
     @IBOutlet weak var transactionStatusLable: UILabel!
     @IBOutlet weak var headerTitleLable: UILabel!
     @IBOutlet weak var transactionStateImageView: UIImageView!
@@ -65,6 +64,7 @@ class TransactionDetailVC: UIViewController {
         transactionFeeLable.text = viewModel.gasFee
         transactionFromAddressLable.text = viewModel.fromAddress
         transactionToAddressLable.text = viewModel.toAddress
+        transactionStatusLable.text = viewModel.stateString
     }
 
     @IBAction func closeAction(_ sender: Any) {

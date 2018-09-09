@@ -36,8 +36,11 @@ final class TokenViewModel{
         return TokenObjectViewModel(token: token)
     }()
     
-    var title: String {
-        return tokenObjectViewModel.title
+    var name: String {
+        return tokenObjectViewModel.name
+    }
+    var symbol: String {
+        return tokenObjectViewModel.symbol
     }
     
     var imageURL: URL? {
@@ -48,9 +51,6 @@ final class TokenViewModel{
         return tokenObjectViewModel.placeholder
     }
     
-    private var symbol: String {
-        return token.symbol
-    }
     
     var amountFont: UIFont {
         return UIFont.systemFont(ofSize: 18, weight: .medium)
@@ -67,9 +67,8 @@ final class TokenViewModel{
     
     var amount: String {
         return String(
-            format: "%@ %@",
-            shortFormatter.string(from: BigInt(token.value) ?? BigInt(), decimals: token.decimals),
-            symbol
+            format: "%@",
+            shortFormatter.string(from: BigInt(token.value) ?? BigInt(), decimals: token.decimals)
         )
     }
     

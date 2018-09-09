@@ -19,7 +19,6 @@
                 <outlet property="transactionStatusLable" destination="GEw-q0-H8l" id="KXt-Ni-yuk"/>
                 <outlet property="transactionTimeLable" destination="r3v-r1-xxI" id="lmT-Uo-GyP"/>
                 <outlet property="transactionToAddressLable" destination="JF1-tS-Op0" id="Mh7-eO-mmp"/>
-                <outlet property="transactionsStateLable" destination="GEw-q0-H8l" id="zqY-Ab-qZn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

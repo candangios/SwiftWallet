@@ -140,6 +140,7 @@ final class TokensViewModel: NSObject{
             }
         }
         operationQueue.addOperations(balancesOperations, waitUntilFinished: false)
+  
     }
 }
 extension Array where Element: Operation {

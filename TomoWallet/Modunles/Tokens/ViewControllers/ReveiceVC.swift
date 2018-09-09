@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class ReveiceVC: UIViewController {
+class ReveiceVC: BaseViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var accountnameLable: UILabel!
     @IBOutlet weak var qrCodeImage: UIImageView!

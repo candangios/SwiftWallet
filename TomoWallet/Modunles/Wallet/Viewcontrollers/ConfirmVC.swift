@@ -26,7 +26,7 @@ enum PassphraseMode {
 }
 
 
-class ConfirmVC: UIViewController {
+class ConfirmVC: BaseViewController {
     let account: Wallet
     let words: [String]
     let mode: PassphraseMode

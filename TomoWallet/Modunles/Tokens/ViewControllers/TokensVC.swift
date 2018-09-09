@@ -17,7 +17,7 @@ protocol TokensVC_Delegate: class {
 }
 
 
-class TokensVC: UIViewController {
+class TokensVC: BaseViewController {
     @IBOutlet weak var qrCodeImage: UIImageView!
     @IBOutlet weak var walletNameLable: UILabel!
     @IBOutlet weak var walletAddressLable: UILabel!

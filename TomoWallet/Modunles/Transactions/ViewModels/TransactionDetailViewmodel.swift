@@ -75,7 +75,7 @@ struct TransactionDetailViewModel {
         return transactionViewModel.amountTextColor
     
     }
-    var stateString: String{
+    var          stateString: String{
         return transaction.state.description
     }
     var gasFee: String{

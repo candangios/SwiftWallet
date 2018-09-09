@@ -16,6 +16,18 @@ import TrustWalletSDK
 import Result
 import UIKit
 
+enum InCoordinatorError: LocalizedError {
+    case onlyWatchAccount
+    
+    var errorDescription: String? {
+        return NSLocalizedString(
+            "InCoordinatorError.onlyWatchAccount",
+            value: "This wallet can be only used for watching. Import Private Key/Keystore to sign transactions/messages",
+            comment: ""
+        )
+    }
+}
+
 protocol InCoordinator_Delegate: class {
     func didCancel(in coordinator: InCoordinator)
     func didUpdateAccounts(in coordinator: InCoordinator)
@@ -124,7 +136,9 @@ extension InCoordinator: TokensCoordinator_Delegate{
             }
             addCoordinator(coordinator)
         case .address:
-            // online Account not transaction
+               // online Account not transaction
+            self.navigationController.displayError(error: InCoordinatorError.onlyWatchAccount)
+         
             break
 
           

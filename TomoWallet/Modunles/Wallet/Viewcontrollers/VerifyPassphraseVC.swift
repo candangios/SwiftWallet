@@ -17,7 +17,7 @@ class MyTapGesture: UITapGestureRecognizer {
     var tag = Int()
 }
 
-class VerifyPassphraseVC: UIViewController {
+class VerifyPassphraseVC: BaseViewController {
     let account: Wallet
     let words: [String]
     let shuffledWords: [String]

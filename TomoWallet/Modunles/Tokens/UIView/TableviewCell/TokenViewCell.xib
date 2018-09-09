@@ -47,26 +47,26 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaz-UO-2Xx">
-                        <rect key="frame" x="281" y="43" width="24" height="14"/>
+                        <rect key="frame" x="274" y="43" width="31" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="dcq-8O-tPq"/>
                             <constraint firstAttribute="width" priority="250" constant="65" id="iV7-WF-Rvh"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.4823529411764706" green="0.4823529411764706" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="me7-bz-ChS">
-                        <rect key="frame" x="75" y="42" width="47" height="14"/>
+                        <rect key="frame" x="75" y="42" width="35.5" height="14"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="47" id="Ay6-LT-ek6"/>
+                            <constraint firstAttribute="width" priority="250" constant="47" id="Ay6-LT-ek6"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.4823529412" green="0.4823529412" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbr-5q-Fu5">
-                        <rect key="frame" x="130" y="42" width="35.5" height="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbr-5q-Fu5">
+                        <rect key="frame" x="118.5" y="42" width="0.0" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="54M-KD-Jrn"/>
                             <constraint firstAttribute="width" priority="250" constant="42" id="Jiw-Vs-NSu"/>
@@ -99,8 +99,8 @@
                 <outlet property="currencyAmountLabel" destination="xaz-UO-2Xx" id="Ruz-aM-Vzs"/>
                 <outlet property="logoImage" destination="Top-6C-cBq" id="VHd-go-5BY"/>
                 <outlet property="marketPercentageChangeLable" destination="cbr-5q-Fu5" id="HUf-9R-Uo6"/>
-                <outlet property="marketPriceLable" destination="me7-bz-ChS" id="TIw-1k-hfM"/>
                 <outlet property="tokenNameLable" destination="uko-6g-kM9" id="0mZ-g7-hWO"/>
+                <outlet property="tokenSymbolLable" destination="me7-bz-ChS" id="TIw-1k-hfM"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -31,7 +31,7 @@ extension WalletInfo {
     }
 }
 
-class ImportWalletVC: UIViewController {
+class ImportWalletVC: BaseViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var importButton: RadiusButton!
     @IBOutlet weak var qrcodeScanButton: BolderButton!
@@ -70,6 +70,18 @@ class ImportWalletVC: UIViewController {
         self.inputTextView.textColor = textViewPlaceholderColor
         self.inputTextView.layer.cornerRadius = 5
         self.setDoneOnKeyboard()
+        
+        
+        let type = ImportType.address(address: EthereumAddress(string: "0xe6350e88Bb5396b7B6109c405576756b3a909107")!)
+        keystore.importWallet(type: type, coin: .ethereum) { (result) in
+            switch result {
+            case .success(let account):
+                self.didImport(account: account, name: self.initialName)
+            case .failure(let error):
+                (self.navigationController as? NavigationController)?.displayError(error: error)
+            }
+        }
+        
     }
     
     @IBAction func pasteboardAction(_ sender: Any) {

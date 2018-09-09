@@ -15,30 +15,28 @@ class SegmentedIndicatorView: UIView {
     @IBOutlet weak var allTransactionsButton: UIButton!
     @IBOutlet weak var ReceiveTransactionsButton: UIButton!
     @IBOutlet weak var sendTransactionsButton: UIButton!
-    
-    
-    @IBAction func seletedPageTypeAction(_ sender: Any) {
+    @IBAction func seletedPageTypeAction(_ sender: UIButton) {
         
         
     }
     
     func pageViewScrollingProgress(progress: CGFloat)  {
-//        switch progress {
-// 
-//        case 0:
-//            switch currentPage{
-//            case 0:
-//                viewIndicator.center.x = allTransactionsButton.center.x
-//            case 1:
-//                viewIndicator.center.x = ReceiveTransactionsButton.center.x
-//            case 2:
-//                viewIndicator.center.x = sendTransactionsButton.center.x
-//            default:
-//                break
-//            }
-//        default:
-//            indicator.center.x = (self.currentPage == 0 ? feedCenterPoint : questionsCenterPoint) + (distance * progress)
-//            indicator.bounds.size.width = (self.currentPage == 0 ? feedIndicatorWidth : questionIndicatorWidth) + (scaleWidth * progress)
-//        }
+        switch progress {
+        case 0:
+            switch currentPage{
+            case 0:
+                viewIndicator.center.x = allTransactionsButton.center.x
+            case 1:
+                viewIndicator.center.x = ReceiveTransactionsButton.center.x
+            case 2:
+                viewIndicator.center.x = sendTransactionsButton.center.x
+            default:
+                break
+            }
+        default:
+            break
+//            viewIndicator.center.x = (self.currentPage == 0 ? feedCenterPoint : questionsCenterPoint) + (distance * progress)
+//            viewIndicator.bounds.size.width = (self.currentPage == 0 ? feedIndicatorWidth : questionIndicatorWidth) + (scaleWidth * progress)
+        }
     }
 }

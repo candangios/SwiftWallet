@@ -17,15 +17,16 @@ struct TransactionCellViewModel {
     private let currentAccount: Account
     private let token: TokenObject
     private let shortFormatter = EtherNumberFormatter.short
-    
     private let transactionViewModel: TransactionViewModel
+    private let indexPatch: IndexPath
     
     init(
         transaction: Transaction,
         config: Config,
         currentAccount: Account,
         server: RPCServer,
-        token: TokenObject
+        token: TokenObject,
+        indexPatch: IndexPath
         ) {
         self.transaction = transaction
         self.config = config
@@ -38,6 +39,7 @@ struct TransactionCellViewModel {
             token: token
         )
         self.token = token
+        self.indexPatch = indexPatch
     }
     
     private var operationTitle: String? {
@@ -108,20 +110,12 @@ struct TransactionCellViewModel {
         }
     }
     
-    var subTitleTextColor: UIColor {
-        return .gray
-    }
-
-//    var subTitleFont: UIFont {
-//        return UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.thin)
-//    }
-
     var backgroundColor: UIColor {
-        switch transaction.state {
-        case .completed, .error, .unknown, .failed, .deleted:
+        switch (indexPatch.row % 2) {
+        case 1:
             return .white
-        case .pending:
-            return .red
+        default:
+            return UIColor(hex: "F8F8F8")
         }
     }
 
@@ -129,9 +123,6 @@ struct TransactionCellViewModel {
         return transactionViewModel.amountText
     }
 
-    var amountFont: UIFont {
-        return UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
-    }
 
     var amountTextColor: UIColor {
         return transactionViewModel.amountTextColor

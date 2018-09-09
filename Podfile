@@ -31,6 +31,8 @@ target 'TomoWallet' do
   pod 'URLNavigator'
   pod 'TrustWalletSDK', :git=>'https://github.com/TrustWallet/TrustSDK-iOS', :branch=>'master'
   
+  pod "Apollo"
+  
   
   pod 'MXParallaxHeader'
 

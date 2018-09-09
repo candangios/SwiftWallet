@@ -27,13 +27,11 @@ class TransactionViewCell: UITableViewCell {
         titleLable.text = viewModel.title
         
         descriptionLable.text = viewModel.subTitle
-        descriptionLable.textColor = viewModel.subTitleTextColor
-      
         
         amountLabel.text = viewModel.amountText
  
         amountLabel.textColor = viewModel.amountTextColor
         
-//        backgroundColor = viewModel.backgroundColor
+        backgroundColor = viewModel.backgroundColor
     }
 }

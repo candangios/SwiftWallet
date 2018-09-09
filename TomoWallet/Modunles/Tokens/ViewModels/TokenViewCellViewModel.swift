@@ -9,6 +9,8 @@ struct TokenViewCellViewModel {
     let viewModel: TokenObjectViewModel
     private let ticker: CoinTicker?
     let store: TransactionsStorage
+    let config: Config = Config()
+    
 
     init(
         viewModel: TokenObjectViewModel,
@@ -21,7 +23,10 @@ struct TokenViewCellViewModel {
     }
 
     var title: String {
-        return viewModel.title
+        return viewModel.name
+    }
+    var symbol: String {
+        return viewModel.symbol
     }
 
 
@@ -32,20 +37,10 @@ struct TokenViewCellViewModel {
     var currencyAmount: String? {
         let amount = viewModel.token.balance
         guard amount > 0 else { return nil }
-        return String(amount)
+        return CurrencyFormatter.formatter.string(from: NSNumber(value: amount))! + " \(config.currency.rawValue)"
     }
 
-    var amountFont: UIFont {
-        return UIFont.systemFont(ofSize: 17, weight: .medium)
-    }
 
-    var currencyAmountFont: UIFont {
-        return UIFont.systemFont(ofSize: 13, weight: .regular)
-    }
-
-    var backgroundColor: UIColor {
-        return .white
-    }
 
 
     // Percent change
