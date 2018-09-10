@@ -17,10 +17,7 @@ enum API{
     case getTokens([String: [String]])
 }
 extension API: TargetType{
-
-    
     var baseURL: URL { return Constants.TomoAPI }
-    
     var path: String {
         switch self {
         case .prices:
@@ -49,7 +46,6 @@ extension API: TargetType{
         case .search: return .get
         }
     }
-    
     var task: Task {
         switch self {
         case .prices(let tokensPrice):

@@ -100,8 +100,7 @@ enum RPCServer {
             case .poa: return "https://poa.infura.io"
             case .gochain: return "https://rpc.gochain.io"
             case .rinkebyTestnet: return "https://rinkeby.infura.io/v3/a78f819911994678934d1c811f3c4b47"
-            case .tomo:
-                return "https://core.tomocoin.io"
+            case .tomo:return "https://core.tomocoin.io"
             }
         }()
         return URL(string: urlString)!

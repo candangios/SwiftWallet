@@ -49,10 +49,21 @@ class TokensCoordinator:NSObject, Coordinator {
     }
     
     
-    func showTransactionDetail(transaction: Transaction, token:TokenObject) {
+    func showTransactionExecute(transaction: Transaction, token:TokenObject,onDissmiss:@escaping ()->()) {
         let tokenViewModel = TokenViewModel(token: token, store: store, transactionsStore: transactionsStore, tokensNetwork: network, session: session)
-        let transactionDetail = TransactionDetailVC(session: self.session, transaction: transaction, tokenViewModel: tokenViewModel)
-        self.navigationController.pushViewController(transactionDetail, animated: true)
+        let transactionExecuteVC = TransactionDetailVC(session: self.session, transaction: transaction, tokenViewModel: tokenViewModel, type: .execute)
+        transactionExecuteVC.didFinishExecute = {
+            onDissmiss()
+        }
+//        transactionExecuteVC.view.frame = navigationController.view.bounds
+//        self.navigationController.view.addSubview(transactionExecuteVC.view)
+//        self.navigationController.addChildViewController(transactionExecuteVC)
+//        transactionExecuteVC.didMove(toParentViewController: self.navigationController)
+        self.navigationController.pushViewController(transactionExecuteVC, animated: true)
+        
+     
+        
+
     }
 }
 
@@ -60,7 +71,7 @@ extension TokensCoordinator: TokensVC_Delegate{
     func didPressAddToken(in viewController: UIViewController) {
         let viewModel = NewTokenViewModel(token: .none, session: self.session, tokenNetwork: self.network)
         let newTokenVC = NewTokenERC20VC(viewModel: viewModel)
-//        controller.delegate = self
+        newTokenVC.delegate = self
         self.navigationController.pushViewController(newTokenVC, animated: true)
     
     }
@@ -107,7 +118,16 @@ extension TokensCoordinator: TokenVC_Delegate{
     }
     
     func didPress(viewModel: TokenViewModel, transaction: Transaction, in controller: UIViewController) {
-        let transactionDetail = TransactionDetailVC(session: self.session, transaction: transaction, tokenViewModel: viewModel)
+        let transactionDetail = TransactionDetailVC(session: self.session, transaction: transaction, tokenViewModel: viewModel, type:.detail)
         self.navigationController.pushViewController(transactionDetail, animated: true)
     }
+}
+
+extension TokensCoordinator: NewTokenERC20VC_Delegate{
+    func didAddToken(token: ERC20Token, in viewController: NewTokenERC20VC) {
+        store.addCustom(token: token)
+        tokensViewController.fetch()
+    }
+    
+    
 }

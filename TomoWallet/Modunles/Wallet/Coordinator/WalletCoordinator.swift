@@ -87,13 +87,10 @@ class WalletCoordinator: Coordinator{
     }
     
     func setImportMainWallet(){
-        let controller = ImportWalletVC(keystore: self.keystore, for: .ethereum)
+        let controller = ImportWalletVC(keystore: self.keystore, for: .tomo)
         controller.delegate = self
         self.navigationController.pushViewController(controller, animated: true)
-        
-//        let controller = ConfirmVC(account: wallet, words: words, mode: .showAndVerify)
-//        controller.delegate = self
-//        navigationController.pushViewController(controller, animated: true)
+
     }
     
     func createNameWallet(wallet: WalletInfo, type: WalletDoneType) {

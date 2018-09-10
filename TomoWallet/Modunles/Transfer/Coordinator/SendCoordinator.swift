@@ -76,6 +76,9 @@ extension SendCoordinator: SendAmountVC_Delegate{
             server: transfer.server,
             chainState: ChainState(server: transfer.server, provider: ApiProviderFactory.makeRPCNetworkProvider())
         )
+        
+        
+        
         let confirmPayment = ConfirmPaymentVC(session: session, keystore: keystore, configurator: configurator, confirmType: .signThenSend, server: transfer.server)
         confirmPayment.didCompleted = { [weak self] result in
             guard let `self` = self else { return }

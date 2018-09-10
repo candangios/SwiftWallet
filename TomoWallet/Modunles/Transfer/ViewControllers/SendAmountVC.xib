@@ -92,14 +92,13 @@
                         <constraint firstItem="SuL-fB-WPt" firstAttribute="centerX" secondItem="OlT-Yf-UTY" secondAttribute="centerX" id="nPA-zc-vsj"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B3-uX-1NN">
+                <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B3-uX-1NN">
                     <rect key="frame" x="0.0" y="612" width="375" height="55"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="aM3-v4-MBx"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                    <state key="normal" title="Next">
+                    <state key="normal" title="Next   " image="ArrowLeft">
                         <color key="titleColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -322,6 +321,7 @@
         </view>
     </objects>
     <resources>
+        <image name="ArrowLeft" width="20" height="20"/>
         <image name="DeleteCalculatorButton" width="25" height="18"/>
     </resources>
 </document>

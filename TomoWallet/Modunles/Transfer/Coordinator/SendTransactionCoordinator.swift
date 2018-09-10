@@ -93,10 +93,6 @@ final class SendTransactionCoordinator{
             provider.request(.sendRawTransaction(server: server, signedTransaction: dataHex)) { (result) in
                 switch result {
                 case .success(let result):
-        
-//                        let a = try? result.mapString()
-//                        print(a)
-                    
                     completion(.success(.sentTransaction(sentTransaction)))
                   
                 case .failure(let error):

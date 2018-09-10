@@ -71,16 +71,16 @@ class ImportWalletVC: BaseViewController {
         self.inputTextView.layer.cornerRadius = 5
         self.setDoneOnKeyboard()
         
-        
-        let type = ImportType.address(address: EthereumAddress(string: "0xe6350e88Bb5396b7B6109c405576756b3a909107")!)
-        keystore.importWallet(type: type, coin: .ethereum) { (result) in
-            switch result {
-            case .success(let account):
-                self.didImport(account: account, name: self.initialName)
-            case .failure(let error):
-                (self.navigationController as? NavigationController)?.displayError(error: error)
-            }
-        }
+//        
+//        let type = ImportType.address(address: EthereumAddress(string: "0xe6350e88Bb5396b7B6109c405576756b3a909107")!)
+//        keystore.importWallet(type: type, coin: .ethereum) { (result) in
+//            switch result {
+//            case .success(let account):
+//                self.didImport(account: account, name: self.initialName)
+//            case .failure(let error):
+//                (self.navigationController as? NavigationController)?.displayError(error: error)
+//            }
+//        }
         
     }
     
@@ -180,13 +180,6 @@ extension ImportWalletVC: QRCodeReaderDelegate{
     }
 }
 extension ImportWalletVC: UITextViewDelegate{
-//    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-//        if(text == "\n") {
-//            textView.resignFirstResponder()
-//            return false
-//        }
-//        return true
-//    }
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == textViewPlaceholderColor {
             textView.text = nil

@@ -56,20 +56,22 @@ class ConfigGasPriceView: UIView {
     }
     func reloaView(gasPrice: BigInt)  {
        self.gasPrice = gasPrice
+       
         
     }
 
     @IBAction func selectedTypeAction(_ sender: UIButton) {
+        print(self.gasPrice)
         switch sender.tag {
         case 1:
             self.type = .Slow
             self.didSeleted?(self.gasPrice)
         case 2:
             self.type = .Medium
-            self.didSeleted?(self.gasPrice + EtherNumberFormatter.full.number(from: "2", units: UnitConfiguration.gasPriceUnit)!)
+            self.didSeleted?(EtherNumberFormatter.full.number(from: "10", units: UnitConfiguration.gasPriceUnit)!)
         case 3:
             self.type = .Fast
-            self.didSeleted?(self.gasPrice + EtherNumberFormatter.full.number(from: "4", units: UnitConfiguration.gasPriceUnit)!)
+            self.didSeleted?(EtherNumberFormatter.full.number(from: "20", units: UnitConfiguration.gasPriceUnit)!)
         default:
             return
         }

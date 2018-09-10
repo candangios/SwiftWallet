@@ -29,6 +29,7 @@ class ConfirmPaymentVC: BaseViewController {
     @IBOutlet weak var amountValueLable: UILabel!
     @IBOutlet weak var symbolLable: UILabel!
     @IBOutlet weak var configView: UIView!
+    @IBOutlet weak var sendButton: UIButton!
     
     @IBOutlet weak var estimateFeeLable: UILabel!
     @IBOutlet weak var symbolFeeLable: UILabel!
@@ -55,9 +56,6 @@ class ConfirmPaymentVC: BaseViewController {
         return view
         
     }()
-    
-    
-
     init(
         session: WalletSession,
         keystore: Keystore,
@@ -70,7 +68,6 @@ class ConfirmPaymentVC: BaseViewController {
         self.configurator = configurator
         self.confirmType = confirmType
         self.server = server
-        
         super.init(nibName: nil, bundle: nil)
         fetch()
     }
@@ -78,20 +75,21 @@ class ConfirmPaymentVC: BaseViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = viewModel.title
+        self.title = viewModel.title
         self.reloadView()
         self.configView.addSubview(self.configGasPriceView!)
+        self.configGasPriceView?.reloaView(gasPrice: configurator.previewTransaction().gasPrice)
         self.configGasPriceView?.didSeleted = { newGasPrice in
-           print(UInt(newGasPrice))
+            print(EtherNumberFormatter.full.string(from: newGasPrice, units: .gwei))
+            self.configurator.refreshGasPrice(newGasPrice)
+            self.reloadView()
         }
     
     }
-
-    
-
     func reloadView()  {
         let viewDetailModel = ConfrimPaymentDetailViewModel(transaction: configurator.previewTransaction(), session: self.session, server: self.server)
         self.toAddressLable.text = viewDetailModel.toaddress
@@ -99,7 +97,7 @@ class ConfirmPaymentVC: BaseViewController {
         self.symbolLable.text = viewDetailModel.amountSymbol
         self.estimateFeeLable.text = viewDetailModel.estimatedFee
         self.symbolFeeLable.text = viewDetailModel.symbolFee
-        self.configGasPriceView?.reloaView(gasPrice: viewDetailModel.transaction.gasPrice)
+
     }
     
     
@@ -126,6 +124,8 @@ class ConfirmPaymentVC: BaseViewController {
    
 
     }
+    
+  
 
 
     @IBAction func sendAction(_ sender: Any) {
@@ -135,6 +135,7 @@ class ConfirmPaymentVC: BaseViewController {
         self.sendTransactionCoordinator.send(transaction: transaction) { [weak self] result in
             guard let `self` = self else { return }
             hup.hide(animated: true)
+           
             self.didCompleted?(result)
            
         }

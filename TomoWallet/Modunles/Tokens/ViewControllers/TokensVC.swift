@@ -79,6 +79,14 @@ class TokensVC: BaseViewController {
         }
     }
     
+    func fetch(force: Bool = false) {
+//        if force {
+            viewModel.fetch()
+//        } else {
+//            fetchClosure()
+//        }
+    }
+    
     // Action
     @IBAction func copyAddressAction(_ sender: Any) {
         UIPasteboard.general.string = viewModel.address

@@ -78,17 +78,15 @@ class SendAmountVC: BaseViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = viewModel.title
+        self.title = viewModel.title
         self.amountLable.text = viewModel.defaultAmount
-     
         self.setHeaderView()
-    
     }
     func setHeaderView()  {
         self.toAddressLable.text = viewModel.toAddress.description
-        
     }
     
     //appending number to label

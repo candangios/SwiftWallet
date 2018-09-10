@@ -174,9 +174,10 @@ final class TransactionConfigurator{
     
     // combine into one function
     func refreshGasPrice(_ gasPrice: BigInt) {
+        
         configuration = TransactionConfiguration(
             gasPrice: gasPrice,
-            gasLimit: configuration.gasPrice,
+            gasLimit: configuration.gasLimit,
             data: configuration.data,
             nonce: configuration.nonce
         )
@@ -245,6 +246,46 @@ final class TransactionConfigurator{
             case .failure(let error):
                 completion(.failure(AnyError(error)))
             }
+        }
+    }
+    
+    
+    func balanceValidStatus() -> BalanceStatus {
+        var etherSufficient = true
+        var gasSufficient = true
+        var tokenSufficient = true
+        
+        // fetching price of the coin, not the erc20 token.
+        let coin = session.tokensStorage.getToken(for: self.transaction.transfer.type.token.coin.server.priceID)
+        let currentBalance = coin?.valueBalance
+        
+        guard let balance = currentBalance else {
+            return .ether(etherSufficient: etherSufficient, gasSufficient: gasSufficient)
+        }
+        let transaction = previewTransaction()
+        let totalGasValue = transaction.gasPrice * transaction.gasLimit
+        
+        //We check if it is ETH or token operation.
+        switch transaction.transfer.type {
+        case .ether:
+            if transaction.value > balance.value {
+                etherSufficient = false
+                gasSufficient = false
+            } else {
+                if totalGasValue + transaction.value > balance.value {
+                    gasSufficient = false
+                }
+            }
+            return .ether(etherSufficient: etherSufficient, gasSufficient: gasSufficient)
+        case .token(let token):
+            if totalGasValue > balance.value {
+                etherSufficient = false
+                gasSufficient = false
+            }
+            if transaction.value > token.valueBigInt {
+                tokenSufficient = false
+            }
+            return .token(tokenSufficient: tokenSufficient, gasSufficient: gasSufficient)
         }
     }
   

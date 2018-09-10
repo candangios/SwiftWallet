@@ -11,10 +11,6 @@ struct Constants {
     
     // used KeyEtherStore
     public static let keychainKeyPrefix = "tomowallet"
-    
-    
- 
-
     public static let images = "https://trustwalletapp.com/images"
     
     public static let TomoAPI  = URL(string: "http://45.117.82.104:8003")!

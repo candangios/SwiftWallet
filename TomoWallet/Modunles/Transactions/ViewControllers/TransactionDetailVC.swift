@@ -1,4 +1,4 @@
-//
+ //
 //  PaymentDetailVC.swift
 //  TomoWallet
 //
@@ -8,6 +8,10 @@
 
 import UIKit
 import Kingfisher
+enum TransactionDetailVCType {
+    case execute
+    case detail
+}
 
 class TransactionDetailVC: BaseViewController {
 
@@ -35,12 +39,14 @@ class TransactionDetailVC: BaseViewController {
     let transaction: Transaction
     let config = Config()
     let tokenViewModel: TokenViewModel
+    let type: TransactionDetailVCType
+    var didFinishExecute:(()->Void)?
 
-    
-    init(session: WalletSession, transaction: Transaction, tokenViewModel: TokenViewModel) {
+    init(session: WalletSession, transaction: Transaction, tokenViewModel: TokenViewModel, type: TransactionDetailVCType) {
         self.session = session
         self.transaction = transaction
         self.tokenViewModel = tokenViewModel
+        self.type = type
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -51,6 +57,14 @@ class TransactionDetailVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        switch type {
+        case .detail:
+            self.title = viewModel.createdAt
+        case .execute:
+            let closeButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Close"), style: .plain, target: self, action: #selector(self.closeAction))
+            self.navigationItem.rightBarButtonItem = closeButton
+            self.navigationItem.setHidesBackButton(true, animated: false)
+        }
         
         headerTitleLable.text = viewModel.titleHeader
         transactionStateImageView.kf.setImage(
@@ -58,7 +72,6 @@ class TransactionDetailVC: BaseViewController {
             placeholder: tokenViewModel.imagePlaceholder
         )
         
-  
         transactionTimeLable.text = viewModel.createdAt
         transactionAmountLable.text = viewModel.amountString
         transactionFeeLable.text = viewModel.gasFee
@@ -67,7 +80,8 @@ class TransactionDetailVC: BaseViewController {
         transactionStatusLable.text = viewModel.stateString
     }
 
-    @IBAction func closeAction(_ sender: Any) {
+    @objc func closeAction() {
+        self.didFinishExecute?()
     }
     
     @IBAction func pressURLAction(_ sender: Any) {

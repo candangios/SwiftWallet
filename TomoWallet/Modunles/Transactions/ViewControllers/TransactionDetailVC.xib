@@ -33,17 +33,6 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DET-e6-I98">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAJ-l0-Acs">
-                                    <rect key="frame" x="315" y="20" width="40" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="kJN-SJ-L9x"/>
-                                        <constraint firstAttribute="width" constant="40" id="lVT-SC-2sr"/>
-                                    </constraints>
-                                    <state key="normal" image="Close"/>
-                                    <connections>
-                                        <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="wVH-lV-jvs"/>
-                                    </connections>
-                                </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUb-7c-rRn">
                                     <rect key="frame" x="20" y="185" width="335" height="82"/>
                                     <constraints>
@@ -65,8 +54,6 @@
                             <constraints>
                                 <constraint firstItem="kXn-sS-089" firstAttribute="top" secondItem="DET-e6-I98" secondAttribute="top" constant="68" id="2Sn-Gh-2Wt"/>
                                 <constraint firstAttribute="height" constant="300" id="BKI-Nq-eCo"/>
-                                <constraint firstItem="vAJ-l0-Acs" firstAttribute="top" secondItem="DET-e6-I98" secondAttribute="top" constant="20" id="BRd-Xd-ekS"/>
-                                <constraint firstAttribute="trailing" secondItem="vAJ-l0-Acs" secondAttribute="trailing" constant="20" id="Nnn-yl-uRJ"/>
                                 <constraint firstAttribute="trailing" secondItem="YUb-7c-rRn" secondAttribute="trailing" constant="20" id="S2i-W1-d8K"/>
                                 <constraint firstAttribute="bottom" secondItem="YUb-7c-rRn" secondAttribute="bottom" constant="33" id="f43-BO-upW"/>
                                 <constraint firstItem="kXn-sS-089" firstAttribute="centerX" secondItem="DET-e6-I98" secondAttribute="centerX" id="ruJ-3g-HeC"/>
@@ -286,7 +273,7 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <state key="normal" title="See more"/>
                             <connections>
-                                <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="ZzR-Ig-y8m"/>
+                                <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="sxW-au-miZ"/>
                                 <action selector="pressURLAction:" destination="-1" eventType="touchUpInside" id="B1F-x1-sIz"/>
                             </connections>
                         </button>
@@ -307,7 +294,4 @@
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="Close" width="30" height="30"/>
-    </resources>
 </document>

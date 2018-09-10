@@ -50,7 +50,21 @@ class TokensDataStore {
             }
         }
     }
-    
+    //add token ERC20
+    func addCustom(token: ERC20Token) {
+        let newToken = TokenObject(
+            contract: token.contract.description,
+            name: token.name,
+            coin: token.coin,
+            type: .ERC20,
+            symbol: token.symbol,
+            decimals: token.decimals,
+            value: "0",
+            isCustom: true
+        )
+        add(tokens: [newToken])
+    }
+
     func add(tokens: [Object]) {
         try? realm.write {
             if let tokenObjects = tokens as? [TokenObject] {

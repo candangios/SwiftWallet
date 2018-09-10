@@ -32,15 +32,20 @@ class SendAddressVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = viewModel.titile
-
-        // Do any additional setup after loading the view.
+        self.setDoneOnKeyboard()
+    }
+    func setDoneOnKeyboard() {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissKeyboard))
+        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        self.addressTextField.inputAccessoryView = keyboardToolbar
+    }
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func NextAction(_ sender: Any) {
         guard let address = EthereumAddress(string: self.addressTextField.text!) else {
             return (self.navigationController as? NavigationController)!.displayError(error: Errors.invalidAddress)
@@ -61,7 +66,9 @@ extension SendAddressVC: QRCodeReaderDelegate {
     func reader(_ reader: QRCodeReaderViewController!, didScanResult result: String!) {
         reader.stopScanning()
         reader.dismiss(animated: true, completion: nil)
-        guard let result = QRURLParser.from(string: result) else { return }
+        guard let result = QRURLParser.from(string: result) else {
+            return (self.navigationController as? NavigationController)!.displayError(error: Errors.invalidAddress)
+        }
         self.addressTextField.text = result.address
         if let dataString = result.params["data"] {
             data = Data(hex: dataString.drop0x)

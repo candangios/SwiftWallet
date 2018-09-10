@@ -183,4 +183,36 @@ struct SendAmountViewModel {
     mutating func isMaxButtonHidden() -> Bool {
         return currentPair.left != symbol
     }
+    
+    func getActionButtonText(_ status: BalanceStatus, config: Config, transfer: Transfer) -> String {
+        if status.sufficient {
+            return "NEXT"
+        }
+        
+        let format = status.insufficientText
+        let networkSymbol = transfer.server.symbol
+        
+        switch transfer.type {
+        case .ether:
+            return String(format: format, networkSymbol)
+        case .token(let token):
+            switch status {
+            case .token(let tokenSufficient, let gasSufficient):
+                if !tokenSufficient {
+                    return String(format: format, token.symbol)
+                }
+                if !gasSufficient {
+                    return String(format: format, networkSymbol)
+                }
+                // should not be here
+                return ""
+            case .ether:
+                // should not be here
+                return ""
+            }
+        }
+    }
+    
+    
+    
 }

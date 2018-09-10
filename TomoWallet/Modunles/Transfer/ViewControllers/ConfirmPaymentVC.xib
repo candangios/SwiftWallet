@@ -14,6 +14,7 @@
                 <outlet property="amountValueLable" destination="KtH-7X-IP2" id="t3o-0u-PhD"/>
                 <outlet property="configView" destination="Wzv-x6-YIt" id="IOG-WC-TQ3"/>
                 <outlet property="estimateFeeLable" destination="Nr6-oc-nYJ" id="Xp6-YV-H6A"/>
+                <outlet property="sendButton" destination="8th-ST-7SL" id="Jcj-qH-aP7"/>
                 <outlet property="symbolFeeLable" destination="LHH-Qx-RGp" id="Qdt-3h-egR"/>
                 <outlet property="symbolLable" destination="fPk-Mh-20z" id="RwI-UX-jbg"/>
                 <outlet property="toAddressLable" destination="LDs-cH-OO6" id="GTt-we-xj4"/>
@@ -25,14 +26,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8th-ST-7SL">
+                <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8th-ST-7SL">
                     <rect key="frame" x="0.0" y="612" width="375" height="55"/>
                     <color key="backgroundColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="GMb-Cx-whT"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Send">
+                    <state key="normal" title="Send   " image="ArrowLeft">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -177,4 +177,7 @@
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="ArrowLeft" width="20" height="20"/>
+    </resources>
 </document>

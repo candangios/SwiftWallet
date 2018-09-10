@@ -31,7 +31,7 @@ final class WalletSession {
 //        if account.multiWallet {
 //            return .main
 //        }account.coin!.server
-        print(account.coin!.server.coin.rawValue)
+       
         return account.coin!.server
     }()
     
