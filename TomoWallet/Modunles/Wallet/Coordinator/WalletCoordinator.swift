@@ -46,7 +46,7 @@ class WalletCoordinator: Coordinator{
         self.navigationController.displayLoading(text: "Creating Wallet...", animated: true)
         let password = PasswordGenerator.generateRandom()
   
-        self.keystore.createAccount(with: password, coin: .ethereum) { (result) in
+        self.keystore.createAccount(with: password, coin: .rinkeby) { (result) in
             switch result{
             case .success(let wallet):
                 self.keystore.exportMnemonic(wallet: wallet, completion: { (mnemonicResult) in
@@ -87,7 +87,7 @@ class WalletCoordinator: Coordinator{
     }
     
     func setImportMainWallet(){
-        let controller = ImportWalletVC(keystore: self.keystore, for: .tomo)
+        let controller = ImportWalletVC(keystore: self.keystore, for: .rinkeby)
         controller.delegate = self
         self.navigationController.pushViewController(controller, animated: true)
 
