@@ -39,14 +39,14 @@ class WalletCoordinator: Coordinator{
         case .importWallet:
             self.setImportMainWallet()
         case .createInstantWallet:
-            createInstantWallet()
+            self.createInstantWallet()
         }
     }
     func createInstantWallet() {
         self.navigationController.displayLoading(text: "Creating Wallet...", animated: true)
         let password = PasswordGenerator.generateRandom()
   
-        self.keystore.createAccount(with: password, coin: .rinkeby) { (result) in
+        self.keystore.createAccount(with: password, coin: .tomo) { (result) in
             switch result{
             case .success(let wallet):
                 self.keystore.exportMnemonic(wallet: wallet, completion: { (mnemonicResult) in
@@ -87,7 +87,7 @@ class WalletCoordinator: Coordinator{
     }
     
     func setImportMainWallet(){
-        let controller = ImportWalletVC(keystore: self.keystore, for: .rinkeby)
+        let controller = ImportWalletVC(keystore: self.keystore, for: .tomo)
         controller.delegate = self
         self.navigationController.pushViewController(controller, animated: true)
 

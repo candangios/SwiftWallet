@@ -11,7 +11,7 @@ import Moya
 enum API{
     case getTransactions(server: RPCServer, address: String, startBlock: Int, page: Int, contract: String?)
     case prices(TokensPrice)
-    case getAllTransactions(addresses: [String: String])
+    case getAllTransactions(addresse: String)
     case search(query: String, networks: [Int])
     case collectibles([String: [String]])
     case getTokens([String: [String]])
@@ -41,7 +41,7 @@ extension API: TargetType{
         case .prices: return .post
         case .getTransactions: return .get
         case .getTokens: return .post
-        case .getAllTransactions: return .post
+        case .getAllTransactions: return .get
         case .collectibles: return .post
         case .search: return .get
         }

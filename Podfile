@@ -6,11 +6,7 @@ target 'TomoWallet' do
   use_frameworks!
 
   pod 'BigInt', '~> 3.0'
-  pod 'R.swift'
-  pod 'JSONRPCKit', :git=> 'https://github.com/bricklife/JSONRPCKit.git'
   pod 'PromiseKit', '~> 6.0'
-  pod 'APIKit'
-  pod 'Eureka'
   pod 'MBProgressHUD'
   pod 'StatefulViewController'
   pod 'QRCodeReaderViewController', :git=>'https://github.com/yannickl/QRCodeReaderViewController.git', :branch=>'master'
@@ -30,11 +26,10 @@ target 'TomoWallet' do
   pod 'TrustWeb3Provider', :git=>'https://github.com/TrustWallet/trust-web3-provider', :commit=>'f4e0ebb1b8fa4812637babe85ef975d116543dfd'
   pod 'URLNavigator'
   pod 'TrustWalletSDK', :git=>'https://github.com/TrustWallet/TrustSDK-iOS', :branch=>'master'
-  
-  pod "Apollo"
-  
-  
+
+
   pod 'MXParallaxHeader'
+  pod 'lottie-ios'
 
   target 'TomoWalletTests' do
     inherit! :search_paths

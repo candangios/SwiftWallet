@@ -24,7 +24,7 @@ struct TokenObjectViewModel {
        
         switch token.type {
         case .coin:
-            return #imageLiteral(resourceName: "EtherLogo")
+            return #imageLiteral(resourceName: "Logo")
         case .ERC20:
             let imageCache = ImageCaching.shared
             let key = token.coin.tokenTitle
@@ -42,7 +42,12 @@ struct TokenObjectViewModel {
         let formatter = ImageURLFormatter()
         switch token.type {
         case .coin:
-            return formatter.image(for: token.coin)
+            switch token.coin{
+            case .tomo:
+                return ""
+            default:
+                return formatter.image(for: token.coin)
+            }
         case .ERC20:
             return formatter.image(for: token.contract)
         }

@@ -11,8 +11,6 @@ import PromiseKit
 import Moya
 import TrustCore
 import TrustKeystore
-import JSONRPCKit
-import APIKit
 import Result
 import BigInt
 
@@ -28,6 +26,7 @@ protocol NetworkProtocol {
     func tokensList() -> Promise<[TokenObject]>
     func transactions(for address: Address, on server: RPCServer, startBlock: Int, page: Int, contract: String?, completion: @escaping (_ result: ([Transaction]?, Bool)) -> Void)
     func search(query: String) -> Promise<[TokenObject]>
+    func allTransaction(for address: Address) -> Promise<[Transaction]>
 }
 
 final class ApiNetwork: NetworkProtocol{
@@ -82,7 +81,9 @@ final class ApiNetwork: NetworkProtocol{
                     seal.reject(error)
                 }
             }
-        }    }
+        }
+        
+    }
     
     func tokensList() -> Promise<[TokenObject]> {
         return Promise { seal in
@@ -136,7 +137,26 @@ final class ApiNetwork: NetworkProtocol{
             }
         }
     }
-    
+    func allTransaction(for address: Address) -> Promise<[Transaction]> {
+        return Promise { seal in
+            provider.request(.getAllTransactions(addresse: address.description), completion: { (result) in
+                switch result {
+                case .success(let response):
+                    do {
+                 
+                        let tokens =  try JSONDecoder().decode([TransactionObject].self, from: response.data)
+                        print(tokens)
+//                        seal.fulfill(tokens)
+                    } catch {
+                        seal.reject(error)
+                    }
+                case .failure(let error):
+                    seal.reject(error)
+                }
+            })
+        }
+
+    }
     
 }
 

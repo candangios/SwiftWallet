@@ -26,7 +26,7 @@ struct CoinViewModel {
         case .callisto: return "Callisto"
         case .gochain: return "GoChain"
         case .rinkeby: return "RinkebyTestnet"
-        case .tomo: return "Tomo"
+        case .tomo: return "TomoChain"
         }
     }
     

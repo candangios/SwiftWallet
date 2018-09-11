@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import BigInt
 import TrustKeystore
+import Lottie
 
 
 
@@ -116,19 +117,33 @@ struct TransactionViewModel {
         )
     }
     
-    var statusImage: UIImage? {
+    var statusView: UIView? {
         switch transaction.state {
         case .error, .unknown, .failed, .deleted:
-            return #imageLiteral(resourceName: "Transaction_Error")
+            let outgoingImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+            outgoingImageView.contentMode = .scaleAspectFit
+            outgoingImageView.image = #imageLiteral(resourceName: "Transaction_Error")
+            return outgoingImageView
         case .completed:
             switch direction {
             case .incoming:
-                return #imageLiteral(resourceName: "Transaction_Received")
+                let outgoingImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+                outgoingImageView.contentMode = .scaleAspectFit
+                outgoingImageView.image = #imageLiteral(resourceName: "Transaction_Received")
+                return outgoingImageView
             case .outgoing:
-                return #imageLiteral(resourceName: "Transaction_Sent")
+                let outgoingImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+                outgoingImageView.contentMode = .scaleAspectFit
+                outgoingImageView.image = #imageLiteral(resourceName: "Transaction_Sent")
+                return outgoingImageView
             }
         case .pending:
-            return #imageLiteral(resourceName: "Transaction_Pending")
+            let pendingAnimation = LOTAnimationView(name: "snap_loader_black")
+            pendingAnimation.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
+            pendingAnimation.contentMode = .scaleAspectFill
+            pendingAnimation.loopAnimation = true
+            pendingAnimation.play()
+            return pendingAnimation
         }
     }
     var amountNomalText: String{

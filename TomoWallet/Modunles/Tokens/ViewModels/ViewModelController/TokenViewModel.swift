@@ -188,17 +188,18 @@ final class TokenViewModel{
 //    }
     
     private func fetchTransactions() {
-        let contract: String? = {
-            switch token.type {
-            case .coin: return .none
-            case .ERC20: return token.contract
-            }
-        }()
-        tokensNetwork.transactions(for: currentAccount.address, on: server, startBlock: 1, page: 0, contract: contract) { result in
-            guard let transactions = result.0 else { return }
-            // add direction for transaction
-            self.transactionsStore.add(transactions)
-        }
+//        let contract: String? = {
+//            switch token.type {
+//            case .coin: return .none
+//            case .ERC20: return token.contract
+//            }
+//        }()
+//        tokensNetwork.transactions(for: currentAccount.address, on: server, startBlock: 1, page: 0, contract: contract) { result in
+//            guard let transactions = result.0 else { return }
+//            // add direction for transaction
+//            self.transactionsStore.add(transactions)
+//        }
+        tokensNetwork.allTransaction(for: currentAccount.address)
     }
     
     private func prepareDataSource(for token: TokenObject) {

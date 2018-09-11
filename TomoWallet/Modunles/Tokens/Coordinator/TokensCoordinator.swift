@@ -36,6 +36,18 @@ class TokensCoordinator:NSObject, Coordinator {
         return controller
     }()
     
+    lazy var tokenViewcontroller: TokenVC? = {
+        guard let token  = store.tokens.first else {return . none}
+        let tokenViewModel = TokenViewModel(token: token, store: store, transactionsStore: transactionsStore, tokensNetwork: network, session: session)
+        let tokenVC = TokenVC(viewModel: tokenViewModel)
+        tokenVC.delegate = self
+        return tokenVC
+
+    }()
+    
+    
+    
+    
     init(keystore: Keystore, walletSesstion: WalletSession, navigationController: NavigationController = NavigationController(isHiddenNavigationBar: true)) {
         self.session = walletSesstion
         self.keystore = keystore
@@ -45,7 +57,14 @@ class TokensCoordinator:NSObject, Coordinator {
     }
     
     func start() {
-        self.navigationController.pushViewController(tokensViewController, animated: true)
+        
+        // push tokenVC
+        if tokenViewcontroller == nil  {
+            self.navigationController.pushViewController(tokensViewController, animated: true)
+        }else{
+            self.navigationController.pushViewController(tokenViewcontroller!, animated: true)
+        }
+        
     }
     
     
@@ -55,15 +74,7 @@ class TokensCoordinator:NSObject, Coordinator {
         transactionExecuteVC.didFinishExecute = {
             onDissmiss()
         }
-//        transactionExecuteVC.view.frame = navigationController.view.bounds
-//        self.navigationController.view.addSubview(transactionExecuteVC.view)
-//        self.navigationController.addChildViewController(transactionExecuteVC)
-//        transactionExecuteVC.didMove(toParentViewController: self.navigationController)
         self.navigationController.pushViewController(transactionExecuteVC, animated: true)
-        
-     
-        
-
     }
 }
 

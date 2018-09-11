@@ -12,8 +12,6 @@ import PromiseKit
 import BigInt
 import Moya
 
-import APIKit
-import JSONRPCKit
 
 final class TokenNetworkProvider: BalanceNetworkProvider {
     

@@ -136,6 +136,11 @@
 		869A693C2137A0AE00642B8B /* TransactionsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A693B2137A0AE00642B8B /* TransactionsPageView.swift */; };
 		869A69402137A3A300642B8B /* SegmentedIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 869A693F2137A3A300642B8B /* SegmentedIndicatorView.xib */; };
 		869A69422137AA7F00642B8B /* SegmentedIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A69412137AA7F00642B8B /* SegmentedIndicatorView.swift */; };
+		86A4449C2147B0A4002F9DBC /* servishero_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A4449B2147B0A4002F9DBC /* servishero_loading.json */; };
+		86A4449E2147B22E002F9DBC /* glow_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A4449D2147B22E002F9DBC /* glow_loading.json */; };
+		86A444A22147B2F4002F9DBC /* snap_loader_black.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A444A12147B2F4002F9DBC /* snap_loader_black.json */; };
+		86A444A42147B3D5002F9DBC /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A444A32147B3D5002F9DBC /* loading.json */; };
+		86A444A62147CA31002F9DBC /* TransactionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A444A52147CA31002F9DBC /* TransactionObject.swift */; };
 		86ABE64B2138E8D2007F3796 /* TransactionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABE64A2138E8D2007F3796 /* TransactionViewCellViewModel.swift */; };
 		86ABE64E2138EA17007F3796 /* TransactionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABE64C2138EA17007F3796 /* TransactionViewCell.swift */; };
 		86ABE64F2138EA17007F3796 /* TransactionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86ABE64D2138EA17007F3796 /* TransactionViewCell.xib */; };
@@ -339,6 +344,11 @@
 		869A693B2137A0AE00642B8B /* TransactionsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsPageView.swift; sourceTree = "<group>"; };
 		869A693F2137A3A300642B8B /* SegmentedIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmentedIndicatorView.xib; sourceTree = "<group>"; };
 		869A69412137AA7F00642B8B /* SegmentedIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedIndicatorView.swift; sourceTree = "<group>"; };
+		86A4449B2147B0A4002F9DBC /* servishero_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = servishero_loading.json; sourceTree = "<group>"; };
+		86A4449D2147B22E002F9DBC /* glow_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = glow_loading.json; sourceTree = "<group>"; };
+		86A444A12147B2F4002F9DBC /* snap_loader_black.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snap_loader_black.json; sourceTree = "<group>"; };
+		86A444A32147B3D5002F9DBC /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		86A444A52147CA31002F9DBC /* TransactionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionObject.swift; sourceTree = "<group>"; };
 		86ABE64A2138E8D2007F3796 /* TransactionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewCellViewModel.swift; sourceTree = "<group>"; };
 		86ABE64C2138EA17007F3796 /* TransactionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewCell.swift; sourceTree = "<group>"; };
 		86ABE64D2138EA17007F3796 /* TransactionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionViewCell.xib; sourceTree = "<group>"; };
@@ -530,6 +540,7 @@
 		86391B74211442EB0045A610 /* TomoWallet */ = {
 			isa = PBXGroup;
 			children = (
+				86A444982147A788002F9DBC /* LottieFiles */,
 				862A5DCE2135365C00334480 /* UI */,
 				8643B0DE2124235A00F46C21 /* Models */,
 				86539537211C263F00DB2DDE /* Core */,
@@ -689,6 +700,7 @@
 				865212072122761500F79E4D /* WalletSession.swift */,
 				8643B0CA2123DF6500F46C21 /* Transaction.swift */,
 				8698A171212E60C10016C85D /* TransactionsStorage.swift */,
+				86A444A52147CA31002F9DBC /* TransactionObject.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -1112,6 +1124,17 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		86A444982147A788002F9DBC /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				86A444A32147B3D5002F9DBC /* loading.json */,
+				86A444A12147B2F4002F9DBC /* snap_loader_black.json */,
+				86A4449D2147B22E002F9DBC /* glow_loading.json */,
+				86A4449B2147B0A4002F9DBC /* servishero_loading.json */,
+			);
+			path = LottieFiles;
+			sourceTree = "<group>";
+		};
 		86B9006B213685B500AFE577 /* TransactionPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1255,8 +1278,10 @@
 				86B3296E212FE2E700C7E57F /* SendAddressVC.xib in Resources */,
 				86C0DDB921251E220096CB30 /* ConfirmVC.xib in Resources */,
 				8698A16D212E5CC70016C85D /* TokenVC.xib in Resources */,
+				86A4449E2147B22E002F9DBC /* glow_loading.json in Resources */,
 				86B329892130134700C7E57F /* ConfigGasPriceView.xib in Resources */,
 				86D55413213E93D7003CF2B6 /* NewTokenERC20VC.xib in Resources */,
+				86A444A42147B3D5002F9DBC /* loading.json in Resources */,
 				84152442213CD9E90058F31F /* ImportWalletVC.xib in Resources */,
 				86C22C03213FEC2800020085 /* TransactionDetailVC.xib in Resources */,
 				8698A180212EAF930016C85D /* ReveiceVC.xib in Resources */,
@@ -1275,7 +1300,9 @@
 				869A69402137A3A300642B8B /* SegmentedIndicatorView.xib in Resources */,
 				8643B0BA2123CF6C00F46C21 /* TokensVC.xib in Resources */,
 				8648C844214528FC002667FA /* SectionHeader.xib in Resources */,
+				86A444A22147B2F4002F9DBC /* snap_loader_black.json in Resources */,
 				86B3297C212FF78F00C7E57F /* SendAmountVC.xib in Resources */,
+				86A4449C2147B0A4002F9DBC /* servishero_loading.json in Resources */,
 				86539546211C2CC000DB2DDE /* WelcomeVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1304,14 +1331,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TomoWallet/Pods-TomoWallet-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/APIKit/APIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
-				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -1319,7 +1342,6 @@
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReaderViewController/QRCodeReaderViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -1332,17 +1354,14 @@
 				"${BUILT_PRODUCTS_DIR}/TrustKeystore/TrustKeystore.framework",
 				"${BUILT_PRODUCTS_DIR}/TrustWalletSDK/TrustWalletSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Branch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -1350,7 +1369,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReaderViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -1363,6 +1381,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrustKeystore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrustWalletSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1575,6 +1594,7 @@
 				86591374212AA8C600440972 /* String.swift in Sources */,
 				86591381212AB3DE00440972 /* Data.swift in Sources */,
 				86ABE64E2138EA17007F3796 /* TransactionViewCell.swift in Sources */,
+				86A444A62147CA31002F9DBC /* TransactionObject.swift in Sources */,
 				86879FE42118057C0099A2CC /* WalletInfoType.swift in Sources */,
 				865212082122761500F79E4D /* WalletSession.swift in Sources */,
 				8698A174212E618B0016C85D /* Token.swift in Sources */,

@@ -87,6 +87,7 @@ class SendAmountVC: BaseViewController {
     }
     func setHeaderView()  {
         self.toAddressLable.text = viewModel.toAddress.description
+        self.symbolLable.text = viewModel.symbol
     }
     
     //appending number to label

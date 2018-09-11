@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "100C0D77F3EDBC005BC0D5EDB2C16961"
+               BlueprintIdentifier = "37EA13BADF72A16FFC33B5FDE1C5F22D"
                BlueprintName = "TrustCore"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "TrustCore.framework">

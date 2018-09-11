@@ -21,7 +21,7 @@ enum RPCServer {
         case .callisto: return "callisto"
         case .gochain: return "gochain"
         case .rinkebyTestnet: return "rinkeby"
-        case .tomo: return "tomo"
+        case .tomo: return "tomochain"
         }
     }
     
@@ -33,7 +33,7 @@ enum RPCServer {
         case .callisto: return 820
         case .gochain: return 60
         case .rinkebyTestnet: return 4
-        case .tomo:return 40686
+        case .tomo:return 89
         }
     }
     
@@ -66,7 +66,7 @@ enum RPCServer {
         case .gochain: return "GoChain"
         case .rinkebyTestnet: return "RinkebyTestnet"
         case .tomo:
-            return "Tomo"
+            return "TomoChain"
         }
     }
     
@@ -82,8 +82,7 @@ enum RPCServer {
         case .poa: return "POA"
         case .gochain: return "GO"
         case .rinkebyTestnet: return "ETH"
-        case .tomo:
-            return "TOMO"
+        case .tomo:return "TOMO"
         }
     }
     
@@ -108,13 +107,13 @@ enum RPCServer {
  
     var coin: Coin {
         switch self {
-        case .main, .tomo: return Coin.ethereum
+        case .main: return Coin.ethereum
         case .classic: return Coin.ethereumClassic
         case .callisto: return Coin.callisto
         case .poa: return Coin.poa
         case .gochain: return Coin.gochain
-        case .rinkebyTestnet:
-            return Coin.rinkeby
+        case .rinkebyTestnet:return Coin.rinkeby
+        case .tomo: return Coin.tomo
         }
       
     }

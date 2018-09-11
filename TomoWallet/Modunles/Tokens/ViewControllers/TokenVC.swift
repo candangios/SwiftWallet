@@ -61,7 +61,6 @@ class TokenVC: BaseViewController {
     }()
     var currentPageView: TransactionsPageView?{
         didSet{
-            print(currentPageView?.type.rawValue)
             self.currentPageView?.didselectedItem = { [weak self] transaction in
                 self?.delegate?.didPress(viewModel: (self?.viewModel)!, transaction: transaction, in: self!)
             }

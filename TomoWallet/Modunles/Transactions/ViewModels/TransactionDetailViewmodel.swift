@@ -86,8 +86,8 @@ struct TransactionDetailViewModel {
     var titleHeader: String{
         return "You are sending \(transactionViewModel.amountNomalText) to \(toAddress)"
     }
-    var statusImage: UIImage? {
-        return transactionViewModel.statusImage
+    var statusImage: UIView? {
+        return transactionViewModel.statusView
     }
     
     var fromAddress: String{

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4DE06BBB6F377F3DC4AD7A5179AB44D"
+               BlueprintIdentifier = "4A398261A38D8D2EA1032AECB234C31C"
                BuildableName = "TrustWeb3Provider.bundle"
                BlueprintName = "TrustWeb3Provider-TrustWeb3Provider"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D4DE06BBB6F377F3DC4AD7A5179AB44D"
+            BlueprintIdentifier = "4A398261A38D8D2EA1032AECB234C31C"
             BuildableName = "TrustWeb3Provider.bundle"
             BlueprintName = "TrustWeb3Provider-TrustWeb3Provider"
             ReferencedContainer = "container:Pods.xcodeproj">

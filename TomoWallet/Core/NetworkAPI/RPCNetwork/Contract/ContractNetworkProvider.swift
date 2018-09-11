@@ -12,9 +12,6 @@ import BigInt
 import Moya
 import CryptoSwift
 
-import APIKit
-import JSONRPCKit
-
 protocol ContractInfoNetworkProvider {
     func name(contracsAddress: EthereumAddress) -> Promise<String>
     func symbol(contracsAddress: EthereumAddress) -> Promise<String>

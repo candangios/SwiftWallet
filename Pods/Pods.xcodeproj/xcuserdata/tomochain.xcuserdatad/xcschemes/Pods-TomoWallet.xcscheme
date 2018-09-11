@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "57491A6F13BA761B63DEB17B0EF6628E"
+               BlueprintIdentifier = "83853F8BE5B93E8D48410728071462B6"
                BuildableName = "Pods_TomoWallet.framework"
                BlueprintName = "Pods-TomoWallet"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "57491A6F13BA761B63DEB17B0EF6628E"
+            BlueprintIdentifier = "83853F8BE5B93E8D48410728071462B6"
             BuildableName = "Pods_TomoWallet.framework"
             BlueprintName = "Pods-TomoWallet"
             ReferencedContainer = "container:Pods.xcodeproj">
