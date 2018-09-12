@@ -23,7 +23,7 @@ extension TransactionState{
     var description: String{
         switch self {
         case .completed:
-            return "Completed"
+            return "Success"
         case .pending:
             return "Pending"
         case .error:

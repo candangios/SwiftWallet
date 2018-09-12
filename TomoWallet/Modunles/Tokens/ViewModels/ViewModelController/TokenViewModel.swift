@@ -26,6 +26,7 @@ final class TokenViewModel{
     private let transactionsStore: TransactionsStorage
     private var tokenTransactions: Results<Transaction>?
     private var tokenTransactionSections: [TransactionSection] = []
+    private var transactionpageVC:[TransactionsPageView] = []
     
     // observe when change object in realm
     private var notificationToken: NotificationToken?
@@ -188,18 +189,18 @@ final class TokenViewModel{
 //    }
     
     private func fetchTransactions() {
-//        let contract: String? = {
-//            switch token.type {
-//            case .coin: return .none
-//            case .ERC20: return token.contract
-//            }
-//        }()
-//        tokensNetwork.transactions(for: currentAccount.address, on: server, startBlock: 1, page: 0, contract: contract) { result in
-//            guard let transactions = result.0 else { return }
-//            // add direction for transaction
-//            self.transactionsStore.add(transactions)
-//        }
-        tokensNetwork.allTransaction(for: currentAccount.address)
+        let contract: String? = {
+            switch token.type {
+            case .coin: return .none
+            case .ERC20: return token.contract
+            }
+        }()
+        tokensNetwork.transactions(for: currentAccount.address, on: server, startBlock: 1, page: 0, contract: contract) { result in
+            guard let transactions = result.0 else { return }
+            // add direction for transaction
+            self.transactionsStore.add(transactions)
+        }
+
     }
     
     private func prepareDataSource(for token: TokenObject) {
@@ -219,6 +220,7 @@ final class TokenViewModel{
     
     func createTransactionsPageView(type: TransactionsPageViewType) -> TransactionsPageView {
         return TransactionsPageView(type: type, config: config, currentAccount: currentAccount, transactionsStore: transactionsStore, token: token, tokenTransactions: tokenTransactions!)
+//        transactionpageVC.append(pageVC)
     }
     
     func invalidateObservers() {

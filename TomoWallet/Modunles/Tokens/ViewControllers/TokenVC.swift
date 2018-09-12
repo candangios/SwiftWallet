@@ -9,6 +9,7 @@
 import UIKit
 import StatefulViewController
 import MXParallaxHeader
+import Lottie
 
 protocol TokenVC_Delegate: class {
     func didPressRequest(for token: TokenObject, in controller: UIViewController)
@@ -31,6 +32,7 @@ class TokenVC: BaseViewController {
         guard let view: SegmentedIndicatorView = Bundle.main.loadNibNamed("SegmentedIndicatorView", owner: self, options: nil)?.first as? SegmentedIndicatorView else{
             return .none
         }
+        
         return view
     }()
     private lazy var scrollView: MXScrollView = {
@@ -59,6 +61,7 @@ class TokenVC: BaseViewController {
         pageViewController.setViewControllers(viewControllers , direction: .forward, animated: false, completion: nil)
         return pageViewController
     }()
+    
     var currentPageView: TransactionsPageView?{
         didSet{
             self.currentPageView?.didselectedItem = { [weak self] transaction in
@@ -66,10 +69,18 @@ class TokenVC: BaseViewController {
             }
         }
     }
+    
     let quantityPage = 3
-
     let viewModel: TokenViewModel
-    weak var delegate: TokenVC_Delegate?       
+    weak var delegate: TokenVC_Delegate?
+    
+    private lazy var loadingAnimationView: LOTAnimationView = {
+        let animationView = LOTAnimationView(name: "animation-w800-h600")
+        animationView.contentMode = .scaleAspectFill
+        animationView.loopAnimation = true
+        return animationView
+    }()
+    
     init(viewModel: TokenViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -78,32 +89,50 @@ class TokenVC: BaseViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    
         view.addSubview(scrollView)
         self.createNavigator()
         scrollView.addSubview(containerView)
-        
         addChildViewController(pageViewController)
         self.containerView.addSubview(pageViewController.view)
+      
         pageViewController.didMove(toParentViewController: self)
         self.containerView.addSubview(self.segmentedIndicatorView!)
-   
+        self.segmentedIndicatorView?.didSelectedPage = { type in
+//            if type == self.currentPageView?.type {return}
+//            switch type {
+//            case .All:
+//                self.pageViewController.setViewControllers([self.viewControllerAtIndex(index: type.rawValue)!], direction: .reverse, animated: true, completion: nil)
+//            case .Received:
+//                self.pageViewController.setViewControllers([self.viewControllerAtIndex(index: type.rawValue)!], direction: type.rawValue > 1 ? .reverse : .forward, animated: true, completion: nil)
+//            case .Sent:
+//                self.pageViewController.setViewControllers([self.viewControllerAtIndex(index: type.rawValue)!], direction: .forward, animated: true, completion:nil)
+//            }
+            
+        }
         
         // listenning update view token balance
         self.observToken()
         
+//        loadingAnimationView.play()
+//        let animationView = LOTAnimationView(name: "progress_bar")
+       
+        self.header?.addSubview(loadingAnimationView)
+        loadingAnimationView.loopAnimation = true
+        loadingAnimationView.play()
         viewModel.transactionObservation {
-            print("hehe")
+           // self.loadingAnimationView.stop()
         }
 
         
     }
     func createNavigator() {
+        let menuBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: nil)
         let notifiBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Notification"), style: .plain, target: self, action: nil)
         let scanBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ScanQR"), style: .plain, target: self, action: nil)
+        self.navigationItem.leftBarButtonItem = menuBarItem
         self.navigationItem.rightBarButtonItems = [scanBarItem, notifiBarItem]
     }
     
@@ -118,29 +147,37 @@ class TokenVC: BaseViewController {
         scrollView.contentSize = frame.size
         frame.size.height -= scrollView.parallaxHeader.minimumHeight
         containerView.frame = frame
+        loadingAnimationView.frame = CGRect(x: 0, y: (self.header?.bounds.height)! - 10, width: containerView.frame.size.width, height: 10)
 
         segmentedIndicatorView?.frame = CGRect(x: 0, y: 0, width: containerView.frame.size.width, height: 40);
+        segmentedIndicatorView?.pageViewScrollingProgress(progress: 0, currentPage: currentPageView?.type ?? .All)
+        loadingAnimationView.frame = CGRect(x: 0, y:30, width:375, height: 10);
         pageViewController.view.frame = CGRect(x: 0, y: 40, width: containerView.frame.size.width, height: containerView.frame.size.height);
+    
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewModel.fetch()
+        loadingAnimationView.play()
         self.updateHeaderView()
     }
     
     private func observToken() {
         viewModel.tokenObservation { [weak self] in
             self?.updateHeaderView()
-          
         }
     }
 
-    
     private func updateHeaderView(){
         self.header?.iconImage.kf.setImage(with: viewModel.imageURL, placeholder: viewModel.imagePlaceholder)
+        self.header?.iconSmallImage.kf.setImage(with: viewModel.imageURL, placeholder: viewModel.imagePlaceholder)
         self.header?.balancelable.text = viewModel.amount
         self.header?.coinNameLable.text = viewModel.name
+        self.header?.coinNameSmallLable.text = viewModel.name
         self.header?.symbolLable.text = viewModel.symbol
+        self.header?.balanceSmallLable.text = viewModel.amount
+        self.header?.symbolSmallLable.text = viewModel.symbol
+    
     }
     
     
@@ -166,17 +203,16 @@ extension TokenVC: UIScrollViewDelegate {
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let distance =  self.view.bounds.width
         let progress = (scrollView.contentOffset.x  - distance) / distance
-//        print(progress)
-//        segmentIndicatorHomeView.pageViewScrollingProgress(progress: progress)
+        self.segmentedIndicatorView?.pageViewScrollingProgress(progress: progress, currentPage: currentPageView?.type ?? .All)
     }
 
-    
 }
 
 // MARK: - MXParallaxHeaderDelegate
 extension TokenVC: MXParallaxHeaderDelegate{
     func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
-//        print(parallaxHeader.progress)
+        self.header?.bigParentView.alpha = parallaxHeader.progress
+        self.header?.smallParentView.alpha = 1 - parallaxHeader.progress
 
     }
 }

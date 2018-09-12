@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import JSQWebViewController
 enum TransactionDetailVCType {
     case execute
     case detail
@@ -85,5 +86,9 @@ class TransactionDetailVC: BaseViewController {
     }
     
     @IBAction func pressURLAction(_ sender: Any) {
+        
+        let controller = WebViewController(url: URL(string: "https://scan.testnet.tomochain.com/txs/\(transaction.id)")!)
+        let nav = UINavigationController(rootViewController: controller)
+        present(nav, animated: true, completion: nil)
     }
 }

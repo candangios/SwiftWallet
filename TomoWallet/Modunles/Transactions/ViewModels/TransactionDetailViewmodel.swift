@@ -75,7 +75,7 @@ struct TransactionDetailViewModel {
         return transactionViewModel.amountTextColor
     
     }
-    var          stateString: String{
+    var stateString: String{
         return transaction.state.description
     }
     var gasFee: String{
@@ -84,18 +84,45 @@ struct TransactionDetailViewModel {
 
     
     var titleHeader: String{
-        return "You are sending \(transactionViewModel.amountNomalText) to \(toAddress)"
+        return transactionState
     }
-    var statusImage: UIView? {
-        return transactionViewModel.statusView
+    var statusImage: UIImage? {
+
+        return transactionViewModel.statusImage
     }
     
+
     var fromAddress: String{
         return transactionViewModel.transactionFrom
     }
     var toAddress: String{
         return transactionViewModel.transactionTo
     }
+    
+    private var transactionState : String {
+        switch transaction.state {
+        case .completed:
+            switch transactionViewModel.direction {
+            case .incoming:
+                return "You are Received \(transactionViewModel.amountNomalText) from \(toAddress)"
+            case .outgoing:
+                return "You are sending \(transactionViewModel.amountNomalText) to \(toAddress)"
+            case .sendToYourself:
+                return "You are sending \(transactionViewModel.amountNomalText) to yourself"
+            }
+        case .error:
+            return "Transaction Error"
+        case .failed:
+            return "Transaction Failed"
+        case .unknown:
+            return "Transaction Unknown"
+        case .pending:
+            return "Transaction Pending"
+        case .deleted:
+            return ""
+        }
+    }
+    
 
     
     

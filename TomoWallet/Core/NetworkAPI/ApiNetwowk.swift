@@ -24,9 +24,8 @@ protocol NetworkProtocol {
     func tickers(with tokenPrices: [TokenPrice]) -> Promise<[CoinTicker]>
 
     func tokensList() -> Promise<[TokenObject]>
-    func transactions(for address: Address, on server: RPCServer, startBlock: Int, page: Int, contract: String?, completion: @escaping (_ result: ([Transaction]?, Bool)) -> Void)
+    func transactions(for address: Address, on server: RPCServer, startBlock: Int, page: Int, contract: String?, completion: @escaping (_ result: ([Transaction]?, Error?)) -> Void)
     func search(query: String) -> Promise<[TokenObject]>
-    func allTransaction(for address: Address) -> Promise<[Transaction]>
 }
 
 final class ApiNetwork: NetworkProtocol{
@@ -104,18 +103,19 @@ final class ApiNetwork: NetworkProtocol{
         }
     }
     
-    func transactions(for address: Address, on server: RPCServer, startBlock: Int, page: Int, contract: String?, completion: @escaping (([Transaction]?, Bool)) -> Void) {
+    func transactions(for address: Address, on server: RPCServer, startBlock: Int, page: Int, contract: String?, completion: @escaping (([Transaction]?, Error?)) -> Void) {
+ 
         provider.request(.getTransactions(server: server, address: address.description, startBlock: startBlock, page: page, contract: contract)) { result in
             switch result {
             case .success(let response):
                 do {
-                    let transactions = try response.map(ArrayResponse<Transaction>.self).docs
-                    completion((transactions, true))
+                    let transactions = try JSONDecoder().decode([Transaction].self, from: response.data)
+                    completion((transactions, nil))
                 } catch {
-                    completion((nil, false))
+                    completion((nil, error))
                 }
             case .failure(let error):
-                completion((nil, false))
+                completion((nil, error))
             }
         }
     }
@@ -137,27 +137,7 @@ final class ApiNetwork: NetworkProtocol{
             }
         }
     }
-    func allTransaction(for address: Address) -> Promise<[Transaction]> {
-        return Promise { seal in
-            provider.request(.getAllTransactions(addresse: address.description), completion: { (result) in
-                switch result {
-                case .success(let response):
-                    do {
-                 
-                        let tokens =  try JSONDecoder().decode([TransactionObject].self, from: response.data)
-                        print(tokens)
-//                        seal.fulfill(tokens)
-                    } catch {
-                        seal.reject(error)
-                    }
-                case .failure(let error):
-                    seal.reject(error)
-                }
-            })
-        }
 
-    }
-    
 }
 
 

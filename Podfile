@@ -30,6 +30,7 @@ target 'TomoWallet' do
 
   pod 'MXParallaxHeader'
   pod 'lottie-ios'
+  pod 'JSQWebViewController'
 
   target 'TomoWalletTests' do
     inherit! :search_paths

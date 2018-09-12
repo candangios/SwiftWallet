@@ -14,6 +14,7 @@ import TrustCore
 enum TransactionDirection {
     case incoming
     case outgoing
+    case sendToYourself
 }
 
 final class Transaction: Object, Decodable {
@@ -79,7 +80,7 @@ final class Transaction: Object, Decodable {
     }
     
     private enum TransactionCodingKeys: String, CodingKey {
-        case id = "_id"
+        case id = "hash"
         case blockNumber
         case from
         case to
@@ -97,18 +98,17 @@ final class Transaction: Object, Decodable {
     convenience required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: TransactionCodingKeys.self)
         let id = try container.decode(String.self, forKey: .id)
-        let blockNumber = try container.decode(Int.self, forKey: .blockNumber)
-        let from = try container.decode(String.self, forKey: .from)
-        let to = try container.decode(String.self, forKey: .to)
-        let value = try container.decode(String.self, forKey: .value)
-        let gas = try container.decode(String.self, forKey: .gas)
-        let coin = try container.decode(Coin.self, forKey: .coin)
-        let gasPrice = try container.decode(String.self, forKey: .gasPrice)
-        let gasUsed = try container.decode(String.self, forKey: .gasUsed)
-        let rawNonce = try container.decode(Int.self, forKey: .nonce)
-        let timeStamp = try container.decode(String.self, forKey: .timeStamp)
-        let error = try container.decodeIfPresent(String.self, forKey: .error)
-        let operations = try container.decode([LocalizedOperationObject].self, forKey: .operations)
+        let blockNumber = try container.decodeIfPresent(Int.self, forKey: .blockNumber) ?? 0
+        let from = try container.decodeIfPresent(String.self, forKey: .from) ?? ""
+        let to = try container.decodeIfPresent(String.self, forKey: .to) ?? ""
+        let value = try container.decodeIfPresent(String.self, forKey: .value) ?? ""
+        let gas = try container.decodeIfPresent(Int.self, forKey: .gas) ?? 0
+        let gasPrice = try container.decodeIfPresent(String.self, forKey: .gasPrice) ?? ""
+        let gasUsed = try container.decodeIfPresent(Int.self, forKey: .gasUsed) ?? 0
+        let rawNonce = try container.decodeIfPresent(Int.self, forKey: .nonce) ?? 0
+        let timeStamp = try container.decodeIfPresent(Int.self, forKey: .timeStamp) ?? 0
+        let error = try container.decodeIfPresent(Bool.self, forKey: .error) ?? false
+        let operations = [LocalizedOperationObject]()
         
         guard
             let fromAddress = EthereumAddress(string: from) else {
@@ -118,10 +118,10 @@ final class Transaction: Object, Decodable {
         }
         
         let state: TransactionState = {
-            if error?.isEmpty == false {
-                return .error
+            if error == false {
+                return .completed
             }
-            return .completed
+            return .error
         }()
         
     
@@ -132,12 +132,12 @@ final class Transaction: Object, Decodable {
             from: fromAddress.description,
             to: to,
             value: value,
-            gas: gas,
+            gas: String(gas),
             gasPrice: gasPrice,
-            gasUsed: gasUsed,
+            gasUsed: String(gasUsed),
             nonce: rawNonce,
-            date: Date(timeIntervalSince1970: TimeInterval(timeStamp) ?? 0),
-            coin: coin,
+            date: Date(timeIntervalSince1970: TimeInterval(timeStamp)),
+            coin: Coin.tomo,
             localizedOperations: operations,
             state: state
         )

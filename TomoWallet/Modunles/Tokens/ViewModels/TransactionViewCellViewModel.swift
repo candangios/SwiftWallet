@@ -76,6 +76,8 @@ struct TransactionCellViewModel {
                 return "Received"
             case .outgoing:
                 return "Sent"
+            case .sendToYourself:
+               return "Sent to yourself"
             }
         case .error:
             return "Error"
@@ -97,16 +99,16 @@ struct TransactionCellViewModel {
         switch transactionViewModel.direction {
         case .incoming:
             return String(
-                format: "%@: %@",
-                NSLocalizedString("transaction.from.label.title", value: "From", comment: ""),
+                format: "From: %@",
                 transactionViewModel.transactionFrom
             )
         case .outgoing:
             return String(
-                format: "%@: %@",
-                NSLocalizedString("transaction.to.label.title", value: "To", comment: ""),
+                format: "To: %@",
                 transactionViewModel.transactionTo
             )
+        case .sendToYourself:
+            return "Sent to yourself"
         }
     }
     
@@ -128,7 +130,7 @@ struct TransactionCellViewModel {
         return transactionViewModel.amountTextColor
     }
 
-    var statusView: UIView? {
-        return transactionViewModel.statusView
+    var statusImage: UIImage? {
+        return transactionViewModel.statusImage
     }
 }

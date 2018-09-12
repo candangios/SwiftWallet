@@ -66,16 +66,21 @@ struct TransactionViewModel {
     }
     
     var direction: TransactionDirection {
-        if currentAccount.address.description == transactionTo || currentAccount.address.description.lowercased() == transactionTo.lowercased() {
+        if (currentAccount.address.description == transactionTo || currentAccount.address.description.lowercased() == transactionTo.lowercased()) && (currentAccount.address.description == transactionFrom || currentAccount.address.description.lowercased() == transactionFrom.lowercased()){
+            return .sendToYourself
+        }else if currentAccount.address.description == transactionTo || currentAccount.address.description.lowercased() == transactionTo.lowercased() {
             return .incoming
+        }else{
+            return .outgoing
         }
-        return .outgoing
+        
     }
     
     var amountTextColor: UIColor {
         switch direction {
         case .incoming: return UIColor(hex: "4CD964")
         case .outgoing: return UIColor(hex: "FF3B30")
+        case .sendToYourself: return .black
         }
     }
     
@@ -92,6 +97,7 @@ struct TransactionViewModel {
         switch direction {
         case .incoming: return "+\(amount)"
         case .outgoing: return "-\(amount)"
+        case .sendToYourself:return "\(amount)"
         }
     }
     
@@ -117,33 +123,21 @@ struct TransactionViewModel {
         )
     }
     
-    var statusView: UIView? {
+    var statusImage: UIImage? {
         switch transaction.state {
         case .error, .unknown, .failed, .deleted:
-            let outgoingImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-            outgoingImageView.contentMode = .scaleAspectFit
-            outgoingImageView.image = #imageLiteral(resourceName: "Transaction_Error")
-            return outgoingImageView
+            return #imageLiteral(resourceName: "Transaction_Error")
         case .completed:
             switch direction {
             case .incoming:
-                let outgoingImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-                outgoingImageView.contentMode = .scaleAspectFit
-                outgoingImageView.image = #imageLiteral(resourceName: "Transaction_Received")
-                return outgoingImageView
+                return#imageLiteral(resourceName: "Transaction_Received")
             case .outgoing:
-                let outgoingImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-                outgoingImageView.contentMode = .scaleAspectFit
-                outgoingImageView.image = #imageLiteral(resourceName: "Transaction_Sent")
-                return outgoingImageView
+                return#imageLiteral(resourceName: "Transaction_Sent")
+            case .sendToYourself:
+                return#imageLiteral(resourceName: "Transaction_SendYourself")
             }
         case .pending:
-            let pendingAnimation = LOTAnimationView(name: "snap_loader_black")
-            pendingAnimation.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
-            pendingAnimation.contentMode = .scaleAspectFill
-            pendingAnimation.loopAnimation = true
-            pendingAnimation.play()
-            return pendingAnimation
+            return .none
         }
     }
     var amountNomalText: String{

@@ -27,7 +27,7 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJb-pf-VM2">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJb-pf-VM2">
                         <rect key="frame" x="98.5" y="19" width="206.5" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" priority="250" constant="48" id="Yi6-ef-Mw4"/>
@@ -48,10 +48,19 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feu-fQ-KGX">
                         <rect key="frame" x="6" y="15" width="35" height="35"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zwb-6e-JC7">
+                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Zwb-6e-JC7" secondAttribute="bottom" id="2Ru-Mf-S4I"/>
+                            <constraint firstItem="Zwb-6e-JC7" firstAttribute="leading" secondItem="feu-fQ-KGX" secondAttribute="leading" id="5wZ-oP-310"/>
+                            <constraint firstAttribute="trailing" secondItem="Zwb-6e-JC7" secondAttribute="trailing" id="8Yk-xk-TND"/>
                             <constraint firstAttribute="height" constant="35" id="EWb-E4-72y"/>
                             <constraint firstAttribute="width" constant="35" id="i3S-Rx-qfX"/>
+                            <constraint firstItem="Zwb-6e-JC7" firstAttribute="top" secondItem="feu-fQ-KGX" secondAttribute="top" id="icl-h2-dcS"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -71,6 +80,7 @@
             <connections>
                 <outlet property="amountLabel" destination="NJb-pf-VM2" id="1kz-OL-ywD"/>
                 <outlet property="descriptionLable" destination="Vnl-df-N08" id="kek-Ai-6tz"/>
+                <outlet property="statusImageView" destination="Zwb-6e-JC7" id="2p0-VX-rsq"/>
                 <outlet property="statusView" destination="feu-fQ-KGX" id="nyn-qp-f4I"/>
                 <outlet property="titleLable" destination="gHf-g0-I8v" id="Tta-UD-MMw"/>
             </connections>

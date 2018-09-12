@@ -98,8 +98,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="ReceiveTransactionsButton" destination="ev4-Fi-9G9" id="Ydd-ps-di3"/>
                 <outlet property="allTransactionsButton" destination="2HS-zG-tLh" id="Xp0-Cm-dmw"/>
+                <outlet property="receiveTransactionsButton" destination="ev4-Fi-9G9" id="Ydd-ps-di3"/>
                 <outlet property="sendTransactionsButton" destination="fqv-dl-51W" id="P2s-os-5zB"/>
                 <outlet property="viewIndicator" destination="7hO-1e-djr" id="XIu-xm-BzO"/>
             </connections>

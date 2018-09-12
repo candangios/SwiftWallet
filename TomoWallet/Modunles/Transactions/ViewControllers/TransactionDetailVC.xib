@@ -273,7 +273,6 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <state key="normal" title="See more"/>
                             <connections>
-                                <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="sxW-au-miZ"/>
                                 <action selector="pressURLAction:" destination="-1" eventType="touchUpInside" id="B1F-x1-sIz"/>
                             </connections>
                         </button>

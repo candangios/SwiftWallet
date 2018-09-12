@@ -22,8 +22,8 @@ extension API: TargetType{
         switch self {
         case .prices:
             return "/prices"
-        case .getTransactions(let value):
-            return "/\(value.server.id)/transactions"
+        case .getTransactions:
+            return "/transactions"
         case .getTokens:
             return "/tokens"
         case .getAllTransactions:
@@ -51,7 +51,7 @@ extension API: TargetType{
         case .prices(let tokensPrice):
             return .requestJSONEncodable(tokensPrice)
         case .getTransactions(_, let address, let startBlock, let page, let contract):
-            var params: [String: Any] = ["address": address, "startBlock": startBlock, "page": page]
+            var params: [String: Any] = ["address": address, "startBlock": startBlock, "page": page, "limit": 100]
             if let transactionContract = contract {
                 params["contract"] = transactionContract
             }

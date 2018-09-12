@@ -16,10 +16,16 @@ protocol TokenHeaderView_Delegate: class {
 class TokenHeaderView: UIView {
     weak var delegate: TokenHeaderView_Delegate?
     @IBOutlet weak var iconImage: UIImageView!
+    @IBOutlet weak var iconSmallImage: UIImageView!
     @IBOutlet weak var coinNameLable: UILabel!
+    @IBOutlet weak var coinNameSmallLable: UILabel!
     @IBOutlet weak var balancelable: UILabel!
+    @IBOutlet weak var balanceSmallLable: UILabel!
     @IBOutlet weak var symbolLable: UILabel!
+    @IBOutlet weak var symbolSmallLable: UILabel!
+    @IBOutlet weak var bigParentView: UIView!
     
+    @IBOutlet weak var smallParentView: UIView!
     override func awakeFromNib() {
         self.coinNameLable.sizeToFit()
     }
