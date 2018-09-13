@@ -41,15 +41,17 @@ class TransactionDetailVC: BaseViewController {
     let config = Config()
     let tokenViewModel: TokenViewModel
     let type: TransactionDetailVCType
+    private let transactionsStore: TransactionsStorage
     
 
     var didFinishExecute:(()->Void)?
 
-    init(session: WalletSession, transaction: Transaction, tokenViewModel: TokenViewModel, type: TransactionDetailVCType) {
+    init(session: WalletSession, transaction: Transaction, tokenViewModel: TokenViewModel, type: TransactionDetailVCType,transactionsStore: TransactionsStorage) {
         self.session = session
         self.transaction = transaction
         self.tokenViewModel = tokenViewModel
         self.type = type
+        self.transactionsStore = transactionsStore
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -81,6 +83,20 @@ class TransactionDetailVC: BaseViewController {
         transactionFromAddressLable.text = viewModel.fromAddress
         transactionToAddressLable.text = viewModel.toAddress
         transactionStatusLable.text = viewModel.stateString
+        
+      
+        
+        
+        viewModel.didUpdateTransaction = {(transation, state, error) in
+            if error != nil{
+                (self.navigationController as? NavigationController)?.displayError(error: error!)
+            }else{
+                self.transactionsStore.update(state: state, for: transation)
+                self.transactionStatusLable.text = self.viewModel.stateString
+                self.headerTitleLable.text = self.viewModel.titleHeader
+                
+            }
+        }
     }
 
     @objc func closeAction() {

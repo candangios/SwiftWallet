@@ -12,6 +12,20 @@ import MBProgressHUD
 
 import TrustCore
 import TrustKeystore
+
+
+import Foundation
+
+struct Swifter: Decodable {
+    let fullName: String
+    let id: Int
+    let twitter: URL
+}
+
+struct MoreComplexStruct: Decodable {
+    let swifter: Swifter
+    let lovesSwift: Bool
+}
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -22,6 +36,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
       
+        
+        
+        
+        let json = """
+{
+    "swifter": {
+        "fullName": "Federico Zanetello",
+        "id": 123456,
+        "twitter": "http://twitter.com/zntfdr"
+    },
+    "lovesSwift": true
+}
+""".data(using: .utf8)! // our data in native format
+        let myMoreComplexStruct = try! JSONDecoder().decode(MoreComplexStruct.self, from: json)
+        
+        print(myMoreComplexStruct.swifter) // decoded!!!!!
         
         // Get the default Realm
         let sharedMigration = SharedMigrationInitializer()

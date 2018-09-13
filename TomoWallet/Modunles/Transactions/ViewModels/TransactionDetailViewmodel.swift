@@ -27,9 +27,11 @@ final class TransactionDetailViewModel {
     private let session: WalletSession
     private let server: RPCServer
     private let token: TokenObject
-    
     private var transactionsProvider:TransactionsProvider?
     private var blockTimer: Timer?
+    private var isUpdating = false
+    
+    var didUpdateTransaction:((Transaction,TransactionState,Error?)->Void)?
     
     private var gasViewModel: GasViewModel {
         let gasUsed = BigInt(transaction.gasUsed) ?? BigInt()
@@ -70,8 +72,7 @@ final class TransactionDetailViewModel {
             self.transactionsProvider = TransactionsProvider(server: server, provider: ApiProviderFactory.makeRPCNetworkProvider())
             self.blockTimer = Timer.scheduledTimer(timeInterval: TimeInterval(server.blockTime), target: self, selector:#selector(self.runTimedCode), userInfo: nil, repeats: true)
         default:
-            self.transactionsProvider = TransactionsProvider(server: server, provider: ApiProviderFactory.makeRPCNetworkProvider())
-            self.blockTimer = Timer.scheduledTimer(timeInterval: TimeInterval(server.blockTime), target: self, selector:#selector(self.runTimedCode), userInfo: nil, repeats: true)
+   
             break
         }
         
@@ -80,15 +81,22 @@ final class TransactionDetailViewModel {
     }
 
     @objc func runTimedCode() {
+        if isUpdating == true { return}
+        isUpdating = true
         transactionsProvider?.update(for: self.transaction) { (result) in
+            self.isUpdating = false
             switch result{
             case .success(let transaction, let state):
-                self.blockTimer?.invalidate()
-                
-
-            //                self.transactionsStore.update(state: state, for: transaction)
+                switch state{
+                case .pending:
+                     break
+                default:
+                    self.didUpdateTransaction?(transaction,state, nil)
+                    self.blockTimer?.invalidate()
+                }
             case .failure(let error):
-                break
+                self.didUpdateTransaction?(self.transaction,.unknown, error)
+                self.blockTimer?.invalidate()
             }
         }
     }

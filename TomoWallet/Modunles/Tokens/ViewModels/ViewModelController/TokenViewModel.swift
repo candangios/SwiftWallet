@@ -203,7 +203,7 @@ final class TokenViewModel{
               
                 return
             }
-            print(transactions)
+//            print(transactions)
             
             // add direction for transaction
             self.transactionsStore.add(transactions)

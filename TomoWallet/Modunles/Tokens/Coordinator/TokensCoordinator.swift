@@ -70,7 +70,7 @@ class TokensCoordinator:NSObject, Coordinator {
     
     func showTransactionExecute(transaction: Transaction, token:TokenObject,onDissmiss:@escaping ()->()) {
         let tokenViewModel = TokenViewModel(token: token, store: store, transactionsStore: transactionsStore, tokensNetwork: network, session: session)
-        let transactionExecuteVC = TransactionDetailVC(session: self.session, transaction: transaction, tokenViewModel: tokenViewModel, type: .execute)
+        let transactionExecuteVC = TransactionDetailVC(session: self.session, transaction: transaction, tokenViewModel: tokenViewModel, type: .execute, transactionsStore: self.transactionsStore)
         transactionExecuteVC.didFinishExecute = {
             onDissmiss()
         }
@@ -129,7 +129,7 @@ extension TokensCoordinator: TokenVC_Delegate{
     }
     
     func didPress(viewModel: TokenViewModel, transaction: Transaction, in controller: UIViewController) {
-        let transactionDetail = TransactionDetailVC(session: self.session, transaction: transaction, tokenViewModel: viewModel, type:.detail)
+        let transactionDetail = TransactionDetailVC(session: self.session, transaction: transaction, tokenViewModel: viewModel, type:.detail, transactionsStore: self.transactionsStore)
         self.navigationController.pushViewController(transactionDetail, animated: true)
     }
 }
