@@ -70,6 +70,8 @@ final class TransactionDetailViewModel {
             self.transactionsProvider = TransactionsProvider(server: server, provider: ApiProviderFactory.makeRPCNetworkProvider())
             self.blockTimer = Timer.scheduledTimer(timeInterval: TimeInterval(server.blockTime), target: self, selector:#selector(self.runTimedCode), userInfo: nil, repeats: true)
         default:
+            self.transactionsProvider = TransactionsProvider(server: server, provider: ApiProviderFactory.makeRPCNetworkProvider())
+            self.blockTimer = Timer.scheduledTimer(timeInterval: TimeInterval(server.blockTime), target: self, selector:#selector(self.runTimedCode), userInfo: nil, repeats: true)
             break
         }
         
@@ -93,8 +95,6 @@ final class TransactionDetailViewModel {
     func invalidate()  {
         self.blockTimer?.invalidate()
     }
-    
-    
     
     var createdAt: String{
         return TransactionDetailViewModel.dateFormatter.string(from: transaction.date)
@@ -153,8 +153,6 @@ final class TransactionDetailViewModel {
             return ""
         }
     }
-    deinit {
-        self.invalidate()
-    }
+  
     
 }

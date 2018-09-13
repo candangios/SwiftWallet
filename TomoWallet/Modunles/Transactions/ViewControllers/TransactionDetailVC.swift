@@ -93,4 +93,8 @@ class TransactionDetailVC: BaseViewController {
         let nav = UINavigationController(rootViewController: controller)
         present(nav, animated: true, completion: nil)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+           self.viewModel.invalidate()
+    }
 }

@@ -16,8 +16,15 @@ protocol TransactionNetworkProvider {
 
 
 struct TransactionResponse: Decodable {
-    
     var blockNumber: String = ""
+    init(blockNumber: String) {
+        self.blockNumber = blockNumber
+
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case blockNumber
+    }
   
 }
 
@@ -25,6 +32,17 @@ struct TransactionByHashResponse: Decodable {
     var jsonrpc: String = ""
     var id:String = ""
     var result: TransactionResponse
+    init(jsonrpc: String, id: String, transactionResponse: TransactionResponse) {
+        self.jsonrpc = jsonrpc
+        self.id = id
+        self.result = transactionResponse
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case jsonrpc
+        case id
+        case result
+    }
 }
 
 final class TransactionsProvider: TransactionNetworkProvider {
