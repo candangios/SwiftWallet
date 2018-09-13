@@ -27,6 +27,7 @@ final class TokenViewModel{
     private var tokenTransactions: Results<Transaction>?
     private var tokenTransactionSections: [TransactionSection] = []
     private var transactionpageVC:[TransactionsPageView] = []
+    private let transactionProvider: TransactionsProvider
     
     // observe when change object in realm
     private var notificationToken: NotificationToken?
@@ -101,8 +102,11 @@ final class TokenViewModel{
         self.store = store
         self.tokensNetwork = tokensNetwork
         self.session = session
+        self.transactionProvider = TransactionsProvider(server: self.token.coin.server, provider: ApiProviderFactory.makeRPCNetworkProvider())
+    
         prepareDataSource(for: token)
     }
+       
     
     var ticker: CoinTicker? {
         return store.coinTicker(by: token.address)
@@ -121,7 +125,7 @@ final class TokenViewModel{
     func fetch() {
         updateTokenBalance()
         fetchTransactions()
-//        updatePending()
+        updatePending()
     }
     
     func tokenObservation(with completion: @escaping (() -> Void)) {
@@ -174,11 +178,10 @@ final class TokenViewModel{
         return networkBalance
     }
     
-//    func updatePending() {
+    func updatePending() {
 //        let transactions = pendingTransactions
-//
 //        for transaction in transactions {
-//            transactionsProvider.update(for: transaction) { result in
+//            transactionProvider.update(for: transaction) { result in
 //                switch result {
 //                case .success(let transaction, let state):
 //                    self.transactionsStore.update(state: state, for: transaction)
@@ -186,7 +189,7 @@ final class TokenViewModel{
 //                }
 //            }
 //        }
-//    }
+    }
     
     private func fetchTransactions() {
         let contract: String? = {
@@ -196,7 +199,12 @@ final class TokenViewModel{
             }
         }()
         tokensNetwork.transactions(for: currentAccount.address, on: server, startBlock: 1, page: 0, contract: contract) { result in
-            guard let transactions = result.0 else { return }
+            guard let transactions = result.0 else {
+              
+                return
+            }
+            print(transactions)
+            
             // add direction for transaction
             self.transactionsStore.add(transactions)
         }

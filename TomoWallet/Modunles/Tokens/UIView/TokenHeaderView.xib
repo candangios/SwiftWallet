@@ -22,7 +22,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tomo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9h1-xa-HRe">
                             <rect key="frame" x="15" y="273" width="46" height="24"/>
                             <constraints>
-                                <constraint firstAttribute="width" priority="250" constant="46" id="w5D-YL-sLn"/>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="w5D-YL-sLn"/>
                                 <constraint firstAttribute="height" constant="24" id="x2Q-cK-i73"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
@@ -124,7 +124,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lip-7O-zsj" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
                                     <rect key="frame" x="149.5" y="0.0" width="129.5" height="43"/>
-                                    <state key="normal" title="Receive  " image="Receive">
+                                    <state key="normal" title="Address.   " image="Receive">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <connections>
@@ -149,17 +149,17 @@
                             <rect key="frame" x="10" y="145" width="355" height="72"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="130.51" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANn-AX-67f">
-                                    <rect key="frame" x="109.5" y="0.0" width="137" height="72"/>
+                                    <rect key="frame" x="87" y="0.0" width="181" height="72"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="72" id="Hnf-Io-iqs"/>
-                                        <constraint firstAttribute="width" priority="250" constant="137" id="sb0-wd-vhx"/>
+                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="sb0-wd-vhx"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="45"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="60"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iR9-Sr-ZG0">
-                                    <rect key="frame" x="256.5" y="42" width="29" height="18"/>
+                                    <rect key="frame" x="278" y="42" width="29" height="18"/>
                                     <constraints>
                                         <constraint firstAttribute="width" priority="250" constant="29" id="G00-Os-0rL"/>
                                         <constraint firstAttribute="height" constant="18" id="Ijx-Qg-lD7"/>

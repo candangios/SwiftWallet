@@ -83,6 +83,7 @@ class SendAmountVC: BaseViewController {
         super.viewDidLoad()
         self.title = viewModel.title
         self.amountLable.text = viewModel.defaultAmount
+        self.amountLable.adjustsFontSizeToFitWidth = true
         self.setHeaderView()
     }
     func setHeaderView()  {
@@ -92,9 +93,9 @@ class SendAmountVC: BaseViewController {
     
     //appending number to label
     func Addnumberfunc(number:String){
-        if (self.amountLable.text?.count)! > 6 {
-            return
-        }
+//        if (self.amountLable.text?.count)! > 6 {
+//            return
+//        }
         if self.amountLable.text == viewModel.defaultAmount{
             self.amountLable.text = ""
         }

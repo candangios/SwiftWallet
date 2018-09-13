@@ -45,7 +45,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtH-7X-IP2">
                             <rect key="frame" x="123.5" y="117" width="127.5" height="72"/>
                             <constraints>
-                                <constraint firstAttribute="width" priority="250" constant="127.5" id="8yK-Si-5Ru"/>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="8yK-Si-5Ru"/>
                                 <constraint firstAttribute="height" constant="72" id="Jgd-r2-QBs"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="60"/>

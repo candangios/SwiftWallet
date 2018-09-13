@@ -41,6 +41,8 @@ class TransactionDetailVC: BaseViewController {
     let config = Config()
     let tokenViewModel: TokenViewModel
     let type: TransactionDetailVCType
+    
+
     var didFinishExecute:(()->Void)?
 
     init(session: WalletSession, transaction: Transaction, tokenViewModel: TokenViewModel, type: TransactionDetailVCType) {

@@ -9,7 +9,7 @@
 import Foundation
 import TrustKeystore
 import BigInt
-struct TransactionDetailViewModel {
+final class TransactionDetailViewModel {
     private static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -19,7 +19,6 @@ struct TransactionDetailViewModel {
     }()
     
     private let transactionViewModel: TransactionViewModel
-    
     private let transaction: Transaction
     private let config: Config
     private let chainState: ChainState
@@ -28,7 +27,10 @@ struct TransactionDetailViewModel {
     private let session: WalletSession
     private let server: RPCServer
     private let token: TokenObject
-
+    
+    private var transactionsProvider:TransactionsProvider?
+    private var blockTimer: Timer?
+    
     private var gasViewModel: GasViewModel {
         let gasUsed = BigInt(transaction.gasUsed) ?? BigInt()
         let gasPrice = BigInt(transaction.gasPrice) ?? BigInt()
@@ -39,7 +41,6 @@ struct TransactionDetailViewModel {
             case .pending, .unknown, .failed, .deleted: return gasPrice * gasLimit
             }
         }()
-
         return GasViewModel(fee: gasFee, server: server, store: session.tokensStorage, formatter: fullFormatter)
     }
     init(
@@ -64,7 +65,37 @@ struct TransactionDetailViewModel {
         )
         self.server = server
         self.token = token
+        switch transaction.state {
+        case .pending:
+            self.transactionsProvider = TransactionsProvider(server: server, provider: ApiProviderFactory.makeRPCNetworkProvider())
+            self.blockTimer = Timer.scheduledTimer(timeInterval: TimeInterval(server.blockTime), target: self, selector:#selector(self.runTimedCode), userInfo: nil, repeats: true)
+        default:
+            break
+        }
+        
+       
+
     }
+
+    @objc func runTimedCode() {
+        transactionsProvider?.update(for: self.transaction) { (result) in
+            switch result{
+            case .success(let transaction, let state):
+                self.blockTimer?.invalidate()
+                
+
+            //                self.transactionsStore.update(state: state, for: transaction)
+            case .failure(let error):
+                break
+            }
+        }
+    }
+    func invalidate()  {
+        self.blockTimer?.invalidate()
+    }
+    
+    
+    
     var createdAt: String{
         return TransactionDetailViewModel.dateFormatter.string(from: transaction.date)
     }
@@ -122,8 +153,8 @@ struct TransactionDetailViewModel {
             return ""
         }
     }
-    
-
-    
+    deinit {
+        self.invalidate()
+    }
     
 }

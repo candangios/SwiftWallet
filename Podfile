@@ -31,6 +31,7 @@ target 'TomoWallet' do
   pod 'MXParallaxHeader'
   pod 'lottie-ios'
   pod 'JSQWebViewController'
+  pod 'GradientLoadingBar', '~> 1.0'
 
   target 'TomoWalletTests' do
     inherit! :search_paths

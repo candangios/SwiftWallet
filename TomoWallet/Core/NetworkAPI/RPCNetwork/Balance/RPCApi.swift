@@ -23,6 +23,10 @@ enum RPCApi{
     case getTokenSymbol(server: RPCServer, contract: String, data: String)
     case getTokenDecimals(server: RPCServer, contract: String, data: String)
     
+    // transactions
+    case getTransactionByHash(server: RPCServer, transaction: Transaction)
+    case getTransactionReceipt(server: RPCServer, transaction: Transaction)
+    
 }
 extension RPCApi: TargetType{
 
@@ -51,6 +55,10 @@ extension RPCApi: TargetType{
             return server.rpcURL
         case .getTokenDecimals(let server, _, _):
             return server.rpcURL
+        case .getTransactionByHash(let server,_):
+            return server.rpcURL
+        case .getTransactionReceipt(let server,_):
+            return server.rpcURL
         }
        
     }
@@ -68,6 +76,8 @@ extension RPCApi: TargetType{
         case .estimateGasLimit: return .post
         case .sendRawTransaction: return .post
         case .getTransactionCount: return .post
+        case .getTransactionByHash: return .post
+        case .getTransactionReceipt: return .post
         }
       
     }
@@ -123,7 +133,6 @@ extension RPCApi: TargetType{
                         "value": transaction.value.hexEncoded,
                         "data": transaction.data.hexEncoded,
                     ]
-                   
                 ],
                 "id": 1
                 ] as [String : Any]
@@ -183,6 +192,22 @@ extension RPCApi: TargetType{
                     ],
                     "latest"
                 ],
+                "id": 1
+                ] as [String : Any]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .getTransactionByHash(_, let transaction):
+            let parameters = [
+                "jsonrpc": "2.0",
+                "method": "eth_getTransactionByHash",
+                "params": ["\(transaction.id)"],
+                "id": 1
+                ] as [String : Any]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .getTransactionReceipt(_, let transaction):
+            let parameters = [
+                "jsonrpc": "2.0",
+                "method": "eth_getTransactionReceipt",
+                "params": ["\(transaction.id)"],
                 "id": 1
                 ] as [String : Any]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

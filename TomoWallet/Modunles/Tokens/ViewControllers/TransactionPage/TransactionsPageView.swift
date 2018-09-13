@@ -87,6 +87,7 @@ final class TransactionsPageView: UITableViewController {
         return 65
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let transaction = viewModel.item(for: indexPath.row, section: indexPath.section)
         self.didselectedItem?(transaction)
     }

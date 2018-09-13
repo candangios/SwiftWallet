@@ -9,6 +9,7 @@ PODS:
     - Fabric (~> 1.7.5)
   - CryptoSwift (0.10.0)
   - Fabric (1.7.6)
+  - GradientLoadingBar (1.1.11)
   - JSQWebViewController (6.0.0)
   - KeychainSwift (10.0.0)
   - Kingfisher (4.6.1)
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - Crashlytics (~> 3.10)
   - CryptoSwift (~> 0.10.0)
   - Fabric
+  - GradientLoadingBar (~> 1.0)
   - JSQWebViewController
   - KeychainSwift
   - Kingfisher (~> 4.0)
@@ -90,6 +92,7 @@ SPEC REPOS:
     - Crashlytics
     - CryptoSwift
     - Fabric
+    - GradientLoadingBar
     - JSQWebViewController
     - KeychainSwift
     - Kingfisher
@@ -150,6 +153,7 @@ SPEC CHECKSUMS:
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
   Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
+  GradientLoadingBar: d06c05c4732c6a1404d47f33342de8fb3062d5e2
   JSQWebViewController: 51041569b75d19dbb6b7fe0b7ae053c32409a9be
   KeychainSwift: f9f7910449a0c0fd2cabc889121530dd2c477c33
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
@@ -174,6 +178,6 @@ SPEC CHECKSUMS:
   TrustWeb3Provider: 50fa391bdf170feb43dd4419992931510a5751d8
   URLNavigator: af5582fbbb3586c958be16835d799bfdb23a4793
 
-PODFILE CHECKSUM: dc068e7692887049867579d686f2b9ad867bba1e
+PODFILE CHECKSUM: b1c805ee37ed8e6521cd71574c8cba2d58f31668
 
 COCOAPODS: 1.5.2

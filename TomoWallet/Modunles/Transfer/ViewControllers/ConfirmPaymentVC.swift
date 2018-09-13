@@ -69,7 +69,7 @@ class ConfirmPaymentVC: BaseViewController {
         self.confirmType = confirmType
         self.server = server
         super.init(nibName: nil, bundle: nil)
-        fetch()
+//        fetch()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -82,18 +82,19 @@ class ConfirmPaymentVC: BaseViewController {
         self.title = viewModel.title
         self.reloadView()
         self.configView.addSubview(self.configGasPriceView!)
-        self.configGasPriceView?.reloaView(gasPrice: configurator.previewTransaction().gasPrice)
-        self.configGasPriceView?.didSeleted = { newGasPrice in
-            print(EtherNumberFormatter.full.string(from: newGasPrice, units: .gwei))
-            self.configurator.refreshGasPrice(newGasPrice)
-            self.reloadView()
-        }
+//        self.configGasPriceView?.reloaView(gasPrice: configurator.previewTransaction().gasPrice)
+//        self.configGasPriceView?.didSeleted = { newGasPrice in
+//            print(EtherNumberFormatter.full.string(from: newGasPrice, units: .gwei))
+//            self.configurator.refreshGasPrice(newGasPrice)
+//            self.reloadView()
+//        }
     
     }
     func reloadView()  {
         let viewDetailModel = ConfrimPaymentDetailViewModel(transaction: configurator.previewTransaction(), session: self.session, server: self.server)
         self.toAddressLable.text = viewDetailModel.toaddress
         self.amountValueLable.text = viewDetailModel.amount
+        self.amountValueLable.adjustsFontSizeToFitWidth = true
         self.symbolLable.text = viewDetailModel.amountSymbol
         self.estimateFeeLable.text = viewDetailModel.estimatedFee
         self.symbolFeeLable.text = viewDetailModel.symbolFee
@@ -111,6 +112,7 @@ class ConfirmPaymentVC: BaseViewController {
             case .success:
                 hup.hide(animated: true)
                 self.reloadView()
+                hup.hide(animated: true)
                 
             case .failure(let error):
                 (self.navigationController as! NavigationController).displayError(error: error)
@@ -123,6 +125,16 @@ class ConfirmPaymentVC: BaseViewController {
         }
    
 
+    }
+    
+    private func updateSubmitButton() {
+        let status = configurator.balanceValidStatus()
+        let buttonTitle = viewModel.getActionButtonText(
+            status, config: configurator.session.config,
+            transfer: configurator.transaction.transfer
+        )
+        sendButton.isEnabled = status.sufficient
+        sendButton.setTitle(buttonTitle, for: .normal)
     }
     
   

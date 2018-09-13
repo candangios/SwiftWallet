@@ -49,6 +49,17 @@ enum RPCServer {
             return EthereumAddress(string: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")!
         }
     }
+    // block frequency for chain
+    var blockTime: Int{
+        switch self {
+        case .tomo:
+            return 2
+        case .rinkebyTestnet, .main:
+            return 15
+        default:
+            return 5
+        }
+    }
     
     var isDisabledByDefault: Bool {
         switch self {

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "30796254A1EF003A1140C4315DF6DD0E"
+               BlueprintIdentifier = "0EFF67B7D01F12C27A23C4BB6EE683B9"
                BlueprintName = "StatefulViewController"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "StatefulViewController.framework">

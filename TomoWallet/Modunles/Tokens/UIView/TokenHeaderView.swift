@@ -28,6 +28,8 @@ class TokenHeaderView: UIView {
     @IBOutlet weak var smallParentView: UIView!
     override func awakeFromNib() {
         self.coinNameLable.sizeToFit()
+        self.balanceSmallLable.adjustsFontSizeToFitWidth = true
+        self.symbolSmallLable.adjustsFontSizeToFitWidth = true
     }
     
     @IBAction func sendAction(_ sender: Any) {

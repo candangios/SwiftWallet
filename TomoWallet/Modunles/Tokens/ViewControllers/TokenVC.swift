@@ -75,8 +75,8 @@ class TokenVC: BaseViewController {
     weak var delegate: TokenVC_Delegate?
     
     private lazy var loadingAnimationView: LOTAnimationView = {
-        let animationView = LOTAnimationView(name: "animation-w800-h600")
-        animationView.contentMode = .scaleAspectFill
+        let animationView = LOTAnimationView(name: "ball_stretch")
+        animationView.contentMode = .scaleAspectFit
         animationView.loopAnimation = true
         return animationView
     }()
@@ -116,24 +116,18 @@ class TokenVC: BaseViewController {
         // listenning update view token balance
         self.observToken()
         
-//        loadingAnimationView.play()
-//        let animationView = LOTAnimationView(name: "progress_bar")
-       
-        self.header?.addSubview(loadingAnimationView)
+        self.segmentedIndicatorView?.addSubview(loadingAnimationView)
         loadingAnimationView.loopAnimation = true
         loadingAnimationView.play()
         viewModel.transactionObservation {
-           // self.loadingAnimationView.stop()
+            self.loadingAnimationView.stop()
         }
 
         
     }
     func createNavigator() {
         let menuBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: nil)
-        let notifiBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Notification"), style: .plain, target: self, action: nil)
-        let scanBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ScanQR"), style: .plain, target: self, action: nil)
         self.navigationItem.leftBarButtonItem = menuBarItem
-        self.navigationItem.rightBarButtonItems = [scanBarItem, notifiBarItem]
     }
     
     deinit {
@@ -151,7 +145,7 @@ class TokenVC: BaseViewController {
 
         segmentedIndicatorView?.frame = CGRect(x: 0, y: 0, width: containerView.frame.size.width, height: 40);
         segmentedIndicatorView?.pageViewScrollingProgress(progress: 0, currentPage: currentPageView?.type ?? .All)
-        loadingAnimationView.frame = CGRect(x: 0, y:30, width:375, height: 10);
+        loadingAnimationView.frame = CGRect(x:containerView.frame.size.width - 260 , y:-20, width:100, height:80);
         pageViewController.view.frame = CGRect(x: 0, y: 40, width: containerView.frame.size.width, height: containerView.frame.size.height);
     
     }
