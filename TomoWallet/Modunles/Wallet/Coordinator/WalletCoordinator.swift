@@ -105,7 +105,7 @@ class WalletCoordinator: Coordinator{
            
         }
         
-        let skipAction = UIAlertAction(title: "Skip", style: .destructive) { (action:UIAlertAction) in
+        let skipAction = UIAlertAction(title: "Agree", style: .destructive) { (action:UIAlertAction) in
             let type = WalletType.hd(account)
             let walletInfo = WalletInfo(type: type, info: self.keystore.storage.get(for: type))
             self.keystore.store(object: walletInfo.info, fields: [

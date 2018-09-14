@@ -156,7 +156,7 @@ class TokenVC: BaseViewController {
 
         segmentedIndicatorView?.frame = CGRect(x: 0, y: 0, width: containerView.frame.size.width, height: 40);
         segmentedIndicatorView?.pageViewScrollingProgress(progress: 0, currentPage: currentPageView?.type ?? .All)
-        pageViewController.view.frame = CGRect(x: 0, y: 40, width: containerView.frame.size.width, height: containerView.frame.size.height);
+        pageViewController.view.frame = CGRect(x: 0, y: 40, width: containerView.frame.size.width, height: containerView.frame.size.height - 40);
     
     }
     override func viewWillAppear(_ animated: Bool) {

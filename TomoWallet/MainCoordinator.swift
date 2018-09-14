@@ -60,7 +60,6 @@ class MainCoordinator:NSObject, Coordinator {
     }
     
     func showInitialWalletCoordinator (entryPoint: WalletEntryPoint){
-        
         let initialWalletCoordinator = InitialWalletCoordinator(keystore: self.keystore, navigationController: self.navigationController, entryPoint: entryPoint)
         initialWalletCoordinator.start()
         initialWalletCoordinator.delegate = self

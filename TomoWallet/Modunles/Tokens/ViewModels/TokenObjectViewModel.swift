@@ -24,7 +24,7 @@ struct TokenObjectViewModel {
        
         switch token.type {
         case .coin:
-            return #imageLiteral(resourceName: "Logo")
+            return #imageLiteral(resourceName: "TomoCoin")
         case .ERC20:
             let imageCache = ImageCaching.shared
             let key = token.coin.tokenTitle

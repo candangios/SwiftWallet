@@ -44,15 +44,24 @@ class SendAddressVC: BaseViewController {
         keyboardToolbar.tintColor = .white
         keyboardToolbar.barTintColor = UIColor(hex: "151515")
         let nextButton = UIButton()
-        nextButton.setImage(#imageLiteral(resourceName: "ArrowLeft"), for: .normal)
-        nextButton.setTitle("NEXT  ", for: .normal)
+        nextButton.setImage(#imageLiteral(resourceName: "Page").imageWithColor(color1: UIColor.white), for: .normal)
+        nextButton.setTitle("Paste  ", for: .normal)
         nextButton.semanticContentAttribute = .forceRightToLeft
-        nextButton.addTarget(self, action: #selector(self.NextAction(_:)), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(self.pageAction), for: .touchUpInside)
 //        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let nextBarButton = UIBarButtonItem(customView: nextButton)
         keyboardToolbar.items = [ nextBarButton]
         self.addressTextField.inputAccessoryView = keyboardToolbar
     }
+    
+    @objc func pageAction()  {
+        guard let address = UIPasteboard.general.string else {
+            return
+        }
+        self.addressTextField.text = address
+        self.dismissKeyboard()
+    }
+    
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
     }
