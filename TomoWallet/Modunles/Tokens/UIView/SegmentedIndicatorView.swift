@@ -62,8 +62,7 @@ class SegmentedIndicatorView: UIView {
                 let scaleWidth = sendTransactionsButton.bounds.size.width - receiveTransactionsButton.bounds.size.width
                 viewIndicator.bounds.size.width = sendTransactionsButton.bounds.size.width + (scaleWidth * progress)
             }
-        default:
-            break
+
         }
 
     }

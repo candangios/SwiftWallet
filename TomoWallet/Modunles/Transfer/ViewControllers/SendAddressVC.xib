@@ -67,7 +67,7 @@
                                 <constraint firstAttribute="height" constant="1" id="ZBK-mM-AEf"/>
                             </constraints>
                         </view>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a wallet address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9OY-aR-MQG">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter recipient address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9OY-aR-MQG">
                             <rect key="frame" x="20" y="103" width="335" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="tVB-Ey-dDO"/>

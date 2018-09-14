@@ -71,21 +71,11 @@ class TokenVC: BaseViewController {
     }
     
     let quantityPage = 3
+    var isFetch = false
     let viewModel: TokenViewModel
     weak var delegate: TokenVC_Delegate?
     
-    private lazy var loadingAnimationView: GradientLoadingBar = {
-        let gradientLoadingBar = GradientLoadingBar(
-            height: 1.0,
-            durations: Durations(fadeIn: 1.0, fadeOut: 2.0, progress: 3.0),
-            gradientColorList: [
-                UIColor(hex: "#4cd964"),
-                UIColor(hex: "#ff2d55")
-            ],
-            onView: self.view
-        )
-        return gradientLoadingBar
-    }()
+
     
     init(viewModel: TokenViewModel) {
         self.viewModel = viewModel
@@ -107,22 +97,29 @@ class TokenVC: BaseViewController {
         pageViewController.didMove(toParentViewController: self)
         self.containerView.addSubview(self.segmentedIndicatorView!)
         self.segmentedIndicatorView?.didSelectedPage = { type in
-//            if type == self.currentPageView?.type {return}
-//            switch type {
-//            case .All:
-//                self.pageViewController.setViewControllers([self.viewControllerAtIndex(index: type.rawValue)!], direction: .reverse, animated: true, completion: nil)
-//            case .Received:
-//                self.pageViewController.setViewControllers([self.viewControllerAtIndex(index: type.rawValue)!], direction: type.rawValue > 1 ? .reverse : .forward, animated: true, completion: nil)
-//            case .Sent:
-//                self.pageViewController.setViewControllers([self.viewControllerAtIndex(index: type.rawValue)!], direction: .forward, animated: true, completion:nil)
-//            }
+            if type == self.currentPageView?.type {return}
+            let viewcontroller = self.viewControllerAtIndex(index: type.rawValue)!
+            self.currentPageView = viewcontroller
+            switch type {
+            case .All:
+                self.pageViewController.setViewControllers([viewcontroller], direction: .reverse, animated: true, completion: nil)
+            case .Received:
+                self.pageViewController.setViewControllers([viewcontroller], direction: type.rawValue > 1 ? .reverse : .forward, animated: true, completion: nil)
+            case .Sent:
+                self.pageViewController.setViewControllers([viewcontroller], direction: .forward, animated: true, completion:nil)
+            }
             
         }
         
+        // Add gradient loading bar to button.
+//        customSuperviewLoadingBar = GradientLoadingBar(onView: self.containerView)
+//        GradientLoadingBar.shared.show()
+        
         // listenning update view token balance
         self.observToken()
-//        self.loadingAnimationView.show()
+
         viewModel.transactionObservation {
+            self.isFetch = false
 //            self.loadingAnimationView.hide()
         }
 
@@ -164,12 +161,18 @@ class TokenVC: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.fetch()
+//        self.updateHeaderView()
+    }
+    
+    func fetch()  {
+        self.isFetch = true
         self.viewModel.fetch()
-        self.updateHeaderView()
     }
     
     private func observToken() {
         viewModel.tokenObservation { [weak self] in
+            
             self?.updateHeaderView()
         }
     }
@@ -219,7 +222,13 @@ extension TokenVC: MXParallaxHeaderDelegate{
     func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
         self.header?.bigParentView.alpha = parallaxHeader.progress
         self.header?.smallParentView.alpha = 1 - parallaxHeader.progress
-
+        print(parallaxHeader.progress)
+        if parallaxHeader.progress > 2.5{
+            if isFetch == false{
+                print(isFetch)
+                self.fetch()
+            }
+        }
     }
 }
 

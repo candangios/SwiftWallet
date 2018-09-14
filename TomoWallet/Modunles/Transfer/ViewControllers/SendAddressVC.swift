@@ -39,6 +39,7 @@ class SendAddressVC: BaseViewController {
     }
     func setDoneOnKeyboard() {
         let keyboardToolbar = UIToolbar()
+        keyboardToolbar.barStyle = .blackOpaque
         keyboardToolbar.sizeToFit()
         keyboardToolbar.tintColor = .white
         keyboardToolbar.barTintColor = UIColor(hex: "151515")
@@ -47,9 +48,9 @@ class SendAddressVC: BaseViewController {
         nextButton.setTitle("NEXT  ", for: .normal)
         nextButton.semanticContentAttribute = .forceRightToLeft
         nextButton.addTarget(self, action: #selector(self.NextAction(_:)), for: .touchUpInside)
-        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+//        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let nextBarButton = UIBarButtonItem(customView: nextButton)
-        keyboardToolbar.items = [ flexBarButton, nextBarButton]
+        keyboardToolbar.items = [ nextBarButton]
         self.addressTextField.inputAccessoryView = keyboardToolbar
     }
     @objc func dismissKeyboard() {

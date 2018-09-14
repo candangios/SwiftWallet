@@ -18,7 +18,7 @@ final class EtherNumberFormatter {
     // Formatter that caps the number of decimal digits to 4.
     static let short: EtherNumberFormatter = {
         let formatter = EtherNumberFormatter()
-        formatter.maximumFractionDigits = 4
+        formatter.maximumFractionDigits = 2
         return formatter
     }()
     

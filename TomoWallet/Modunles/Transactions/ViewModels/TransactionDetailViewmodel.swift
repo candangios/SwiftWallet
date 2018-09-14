@@ -12,9 +12,10 @@ import BigInt
 final class TransactionDetailViewModel {
     private static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .long
+        formatter.dateStyle = .medium
         formatter.timeStyle = .medium
         formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "MMM dd, yyyy HH:mm aa"
         return formatter
     }()
     
@@ -143,11 +144,11 @@ final class TransactionDetailViewModel {
         case .completed:
             switch transactionViewModel.direction {
             case .incoming:
-                return "You are Received \(transactionViewModel.amountNomalText) from \(toAddress)"
+                return "You received \(transactionViewModel.amountNomalText) from \(toAddress)"
             case .outgoing:
-                return "You are sending \(transactionViewModel.amountNomalText) to \(toAddress)"
+                return "You sent \(transactionViewModel.amountNomalText) to \(toAddress)"
             case .sendToYourself:
-                return "You are sending \(transactionViewModel.amountNomalText) to yourself"
+                return "You sent \(transactionViewModel.amountNomalText) to yourself"
             }
         case .error:
             return "Transaction Error"
@@ -156,7 +157,15 @@ final class TransactionDetailViewModel {
         case .unknown:
             return "Transaction Unknown"
         case .pending:
-            return "Transaction Pending"
+            switch transactionViewModel.direction {
+            case .incoming:
+                return "You are receiving \(transactionViewModel.amountNomalText) from \(toAddress)"
+            case .outgoing:
+                return "You are sending \(transactionViewModel.amountNomalText) to \(toAddress)"
+            case .sendToYourself:
+                return "You are sending \(transactionViewModel.amountNomalText) to yourself"
+            }
+//            return "Transaction Pending"
         case .deleted:
             return ""
         }

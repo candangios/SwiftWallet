@@ -97,6 +97,27 @@ class WalletCoordinator: Coordinator{
         self.delegate?.didFinish(with: wallet, in: self)
         
     }
+    private func showPopupDidSkip(account: Wallet){
+        let alertController = UIAlertController(title: "Are you sure want to skip this step?", message: "Loss of backup phrase can put your wallet at risk.", preferredStyle: .alert)
+        
+ 
+        let canselAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
+           
+        }
+        
+        let skipAction = UIAlertAction(title: "Skip", style: .destructive) { (action:UIAlertAction) in
+            let type = WalletType.hd(account)
+            let walletInfo = WalletInfo(type: type, info: self.keystore.storage.get(for: type))
+            self.keystore.store(object: walletInfo.info, fields: [
+                .backup(false),
+                ])
+            self.createNameWallet(wallet: walletInfo, type: .created)
+        }
+        
+        alertController.addAction(canselAction)
+        alertController.addAction(skipAction)
+       self.navigationController.present(alertController, animated: true, completion: nil)
+    }
 }
 //MARK: -  Coordinator create new wallet delegate
 extension WalletCoordinator: ConfrimVC_Delegate{
@@ -107,12 +128,7 @@ extension WalletCoordinator: ConfrimVC_Delegate{
     }
     
     func didSkip(in controller: ConfirmVC, with account: Wallet) {
-        let type = WalletType.hd(account)
-        let walletInfo = WalletInfo(type: type, info: keystore.storage.get(for: type))
-        keystore.store(object: walletInfo.info, fields: [
-            .backup(false),
-            ])
-        createNameWallet(wallet: walletInfo, type: .created)
+        showPopupDidSkip(account: account)
     }
 }
 extension WalletCoordinator: PassphraseVC_Delegate{
@@ -124,17 +140,21 @@ extension WalletCoordinator: PassphraseVC_Delegate{
     }
     
     func didSkip(in controller: PassphraseVC, with account: Wallet) {
-        self.navigationController.popViewController(animated: true)
-//
+        showPopupDidSkip(account: account)
     }
 }
 extension WalletCoordinator: VerifyPassphraseVC_Delegate{
     func didFinish(in controller: VerifyPassphraseVC, with account: Wallet) {
-    
+        let type = WalletType.hd(account)
+        let walletInfo = WalletInfo(type: type, info: keystore.storage.get(for: type))
+        keystore.store(object: walletInfo.info, fields: [
+            .backup(false),
+            ])
+        createNameWallet(wallet: walletInfo, type: .created)
     }
     
     func didSkip(in controller: VerifyPassphraseVC, with account: Wallet) {
-        
+        showPopupDidSkip(account: account)
     }
 }
 //MARK: -  Coordinator import wallet delegate

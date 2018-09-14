@@ -16,6 +16,36 @@ protocol VerifyPassphraseVC_Delegate:class {
 class MyTapGesture: UITapGestureRecognizer {
     var tag = Int()
 }
+enum VerifyStatus {
+    case empty
+    case progress
+    case invalid
+    case correct
+    
+    var text: String {
+        switch self {
+        case .empty, .progress: return ""
+        case .invalid: return NSLocalizedString("verify.passphrase.invalidOrder.title", value: "Invalid order. Try again!", comment: "")
+        case .correct:
+            return String(format: NSLocalizedString("verify.passphrase.welldone.title", value: "Well done! %@", comment: ""), "✅")
+        }
+    }
+
+    
+    static func from(initialWords: [String], progressWords: [String]) -> VerifyStatus {
+        guard !progressWords.isEmpty else { return .empty }
+        
+        if initialWords == progressWords && initialWords.count == progressWords.count {
+            return .correct
+        }
+        
+        if progressWords == Array(initialWords.prefix(progressWords.count)) {
+            return .progress
+        }
+        
+        return .invalid
+    }
+}
 
 class VerifyPassphraseVC: BaseViewController {
     let account: Wallet
@@ -49,8 +79,11 @@ class VerifyPassphraseVC: BaseViewController {
         super.viewDidLoad()
         setProposalView()
         setContenView()
-
-        // Do any additional setup after loading the view.
+        let closeButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Close"), style: .plain, target: self, action: #selector(self.didSKipAction))
+        self.navigationItem.rightBarButtonItem = closeButton
+    }
+    @objc func didSKipAction() {
+        self.delegate?.didSkip(in: self, with: self.account)
     }
     func setContenView() {
         let width = UIScreen.main.bounds.width/3
@@ -121,7 +154,20 @@ class VerifyPassphraseVC: BaseViewController {
         }
     }
 
-
+    @IBAction func checkAction(_ sender: Any) {
+        let status = VerifyStatus.from(initialWords: words, progressWords: proccesWords)
+        switch status {
+        case .correct:
+            self.delegate?.didFinish(in: self, with: self.account)
+        default:
+            let alert = UIAlertController(title:status.text, message: nil, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+     
+    }
+    
 }
 extension MutableCollection where Indices.Iterator.Element == Index {
     /// Shuffles the contents of this collection.

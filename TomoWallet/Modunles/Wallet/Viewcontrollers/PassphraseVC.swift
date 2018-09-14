@@ -31,10 +31,10 @@ class PassphraseVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationItem.setHidesBackButton(true, animated: false)
         set12WordsView()
+        let closeButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Close"), style: .plain, target: self, action: #selector(self.didSKipAction))
+        self.navigationItem.rightBarButtonItem = closeButton
 
-        // Do any additional setup after loading the view.
     }
    
     
@@ -62,7 +62,7 @@ class PassphraseVC: BaseViewController {
   
 
 
-    @IBAction func didCancellAction(_ sender: Any) {
+    @objc func didSKipAction() {
         self.delegate?.didSkip(in: self, with: self.account)
     }
     @IBAction func veryfyAction(_ sender: Any) {

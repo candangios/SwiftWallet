@@ -14,7 +14,6 @@
             <connections>
                 <outlet property="contentView" destination="RUy-pF-7AQ" id="BdA-C4-JmB"/>
                 <outlet property="doneButton" destination="xZq-su-uog" id="eri-NL-15P"/>
-                <outlet property="exitButton" destination="P78-8H-6B6" id="RAO-Ja-Hw5"/>
                 <outlet property="proposalView" destination="a5l-RH-HxV" id="hqB-5b-GqZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -42,21 +41,11 @@ in correct order</string>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P78-8H-6B6">
-                                    <rect key="frame" x="315" y="20" width="40" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="PhG-Jk-EvX"/>
-                                        <constraint firstAttribute="width" constant="40" id="QS2-sP-kNx"/>
-                                    </constraints>
-                                    <state key="normal" image="Close"/>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstItem="P78-8H-6B6" firstAttribute="top" secondItem="9yR-zo-qNF" secondAttribute="top" constant="20" id="Azb-5T-1ns"/>
                                 <constraint firstItem="O3L-Pf-Y3U" firstAttribute="top" secondItem="9yR-zo-qNF" secondAttribute="top" constant="60" id="GK2-j1-P6X"/>
                                 <constraint firstAttribute="height" constant="185" id="OKO-5E-QtS"/>
-                                <constraint firstAttribute="trailing" secondItem="P78-8H-6B6" secondAttribute="trailing" constant="20" id="Sqw-r6-02a"/>
                                 <constraint firstItem="O3L-Pf-Y3U" firstAttribute="centerX" secondItem="9yR-zo-qNF" secondAttribute="centerX" id="rzC-Hz-Ugv"/>
                             </constraints>
                         </view>
@@ -68,6 +57,9 @@ in correct order</string>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                             <state key="normal" title="    CHECK IT" image="Check"/>
+                            <connections>
+                                <action selector="checkAction:" destination="-1" eventType="touchUpInside" id="tFn-3p-zew"/>
+                            </connections>
                         </button>
                         <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUy-pF-7AQ">
                             <rect key="frame" x="0.0" y="205" width="375" height="136"/>
@@ -270,6 +262,5 @@ in correct order</string>
     </objects>
     <resources>
         <image name="Check" width="21" height="20"/>
-        <image name="Close" width="30" height="30"/>
     </resources>
 </document>

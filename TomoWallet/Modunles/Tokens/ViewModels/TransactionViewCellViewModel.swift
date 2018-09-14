@@ -60,12 +60,25 @@ struct TransactionCellViewModel {
     }
     
     var subTitle: String {
-        switch token.type {
-        case .coin:
-            return stateString
-        case .ERC20:
-            return operationTitle ?? stateString
+        
+        if transaction.toAddress == nil {
+            return NSLocalizedString("transaction.deployContract.label.title", value: "Deploy smart contract", comment: "")
         }
+        switch transactionViewModel.direction {
+        case .incoming:
+            return String(
+                format: "From %@",
+                transactionViewModel.transactionFrom
+            )
+        case .outgoing:
+            return String(
+                format: "To %@",
+                transactionViewModel.transactionTo
+            )
+        case .sendToYourself:
+            return "Sent to yourself"
+        }
+     
     }
     
     private var stateString: String {
@@ -93,23 +106,13 @@ struct TransactionCellViewModel {
     }
     
     var title: String {
-        if transaction.toAddress == nil {
-            return NSLocalizedString("transaction.deployContract.label.title", value: "Deploy smart contract", comment: "")
+        switch token.type {
+        case .coin:
+            return stateString + " \(amountNomalText)"
+        case .ERC20:
+            return operationTitle ?? stateString
         }
-        switch transactionViewModel.direction {
-        case .incoming:
-            return String(
-                format: "From: %@",
-                transactionViewModel.transactionFrom
-            )
-        case .outgoing:
-            return String(
-                format: "To: %@",
-                transactionViewModel.transactionTo
-            )
-        case .sendToYourself:
-            return "Sent to yourself"
-        }
+
     }
     
     var backgroundColor: UIColor {
@@ -123,6 +126,9 @@ struct TransactionCellViewModel {
 
     var amountText: String {
         return transactionViewModel.amountText
+    }
+    var amountNomalText: String{
+        return transactionViewModel.amountNomalText
     }
 
 

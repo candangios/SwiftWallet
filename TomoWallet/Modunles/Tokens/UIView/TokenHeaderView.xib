@@ -98,7 +98,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="315"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkB-zF-4Zs">
-                            <rect key="frame" x="141.5" y="116" width="92" height="26"/>
+                            <rect key="frame" x="141.5" y="109" width="92" height="26"/>
                             <constraints>
                                 <constraint firstAttribute="width" priority="250" constant="92" id="Bbx-1T-HQz"/>
                                 <constraint firstAttribute="height" constant="26" id="GE2-Yp-f7A"/>
@@ -124,7 +124,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lip-7O-zsj" customClass="BolderButton" customModule="TomoWallet" customModuleProvider="target">
                                     <rect key="frame" x="149.5" y="0.0" width="129.5" height="43"/>
-                                    <state key="normal" title="Address.   " image="Receive">
+                                    <state key="normal" title="Address   " image="Receive">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <connections>
@@ -146,10 +146,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFV-n6-Uzm">
-                            <rect key="frame" x="10" y="145" width="355" height="72"/>
+                            <rect key="frame" x="10" y="155" width="355" height="72"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="130.51" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANn-AX-67f">
-                                    <rect key="frame" x="87" y="0.0" width="181" height="72"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANn-AX-67f">
+                                    <rect key="frame" x="114" y="0.0" width="127.5" height="72"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="72" id="Hnf-Io-iqs"/>
                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="sb0-wd-vhx"/>
@@ -159,7 +159,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iR9-Sr-ZG0">
-                                    <rect key="frame" x="278" y="42" width="29" height="18"/>
+                                    <rect key="frame" x="251.5" y="42" width="29" height="18"/>
                                     <constraints>
                                         <constraint firstAttribute="width" priority="250" constant="29" id="G00-Os-0rL"/>
                                         <constraint firstAttribute="height" constant="18" id="Ijx-Qg-lD7"/>
@@ -179,7 +179,7 @@
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EtherLogo" translatesAutoresizingMaskIntoConstraints="NO" id="btk-ny-0xm">
-                            <rect key="frame" x="157" y="51" width="60" height="60"/>
+                            <rect key="frame" x="157" y="39" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="7uc-2y-52Z"/>
                                 <constraint firstAttribute="width" constant="60" id="cXq-I8-prN"/>
@@ -189,11 +189,11 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Vok-dC-DL1" firstAttribute="leading" secondItem="vPl-93-QLr" secondAttribute="leading" constant="48" id="0Xr-Uu-UtT"/>
-                        <constraint firstItem="hkB-zF-4Zs" firstAttribute="top" secondItem="btk-ny-0xm" secondAttribute="bottom" constant="5" id="Lfc-yM-yNr"/>
+                        <constraint firstItem="hkB-zF-4Zs" firstAttribute="top" secondItem="btk-ny-0xm" secondAttribute="bottom" constant="10" id="Lfc-yM-yNr"/>
                         <constraint firstAttribute="trailing" secondItem="fFV-n6-Uzm" secondAttribute="trailing" constant="10" id="S4D-M8-orH"/>
                         <constraint firstItem="btk-ny-0xm" firstAttribute="centerX" secondItem="vPl-93-QLr" secondAttribute="centerX" id="TbF-HR-G1t"/>
-                        <constraint firstItem="fFV-n6-Uzm" firstAttribute="top" secondItem="hkB-zF-4Zs" secondAttribute="bottom" constant="3" id="VAQ-FX-OfE"/>
-                        <constraint firstItem="Vok-dC-DL1" firstAttribute="top" secondItem="fFV-n6-Uzm" secondAttribute="bottom" constant="35" id="WYa-XU-1Rg"/>
+                        <constraint firstItem="fFV-n6-Uzm" firstAttribute="top" secondItem="hkB-zF-4Zs" secondAttribute="bottom" constant="20" id="VAQ-FX-OfE"/>
+                        <constraint firstItem="Vok-dC-DL1" firstAttribute="top" secondItem="fFV-n6-Uzm" secondAttribute="bottom" constant="25" id="WYa-XU-1Rg"/>
                         <constraint firstAttribute="bottom" secondItem="Vok-dC-DL1" secondAttribute="bottom" constant="20" id="byK-pZ-19d"/>
                         <constraint firstAttribute="trailing" secondItem="Vok-dC-DL1" secondAttribute="trailing" constant="48" id="d1A-Ht-zdl"/>
                         <constraint firstItem="fFV-n6-Uzm" firstAttribute="leading" secondItem="vPl-93-QLr" secondAttribute="leading" constant="10" id="hsw-DY-hmJ"/>
@@ -201,7 +201,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="vPl-93-QLr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="B50-Ww-oka"/>
                 <constraint firstItem="qqp-ce-z5g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gsN-wZ-2P8"/>
