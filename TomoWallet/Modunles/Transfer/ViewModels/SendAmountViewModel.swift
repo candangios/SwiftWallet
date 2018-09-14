@@ -184,9 +184,57 @@ struct SendAmountViewModel {
         return currentPair.left != symbol
     }
     
+    
+    
+    func balanceValidStatus() -> BalanceStatus {
+        var etherSufficient = true
+        var gasSufficient = true
+        var tokenSufficient = true
+        
+        // fetching price of the coin, not the erc20 token.
+//        let coin = session.tokensStorage.getToken(for: self.transaction.transfer.type.token.coin.server.priceID)
+        let currentBalance = self.balance
+        
+        guard let balance = currentBalance else {
+            return .ether(etherSufficient: etherSufficient, gasSufficient: gasSufficient)
+        }
+      
+        let totalGasValue = GasLimitConfiguration.min * GasPriceConfiguration.min
+        
+        //We check if it is ETH or token operation.
+        
+        switch transfer.type{
+        case .ether:
+            let transationvalue = EtherNumberFormatter.full.number(from: amount, units: .ether)
+            if transationvalue! > balance.value {
+                etherSufficient = false
+                gasSufficient = false
+            } else {
+                if totalGasValue + transationvalue! > balance.value {
+                    gasSufficient = false
+                }
+            }
+            return .ether(etherSufficient: etherSufficient, gasSufficient: gasSufficient)
+        case .token(let token):
+            let transationvalue = EtherNumberFormatter.full.number(from: amount, decimals: token.decimals)
+            if totalGasValue > balance.value {
+                etherSufficient = false
+                gasSufficient = false
+            }
+            if transationvalue! > token.valueBigInt {
+                tokenSufficient = false
+            }
+            return .token(tokenSufficient: tokenSufficient, gasSufficient: gasSufficient)
+        }
+    }
+    var actionButtonText: String {
+            return "NEXT"
+    }
+    
+    
     func getActionButtonText(_ status: BalanceStatus, config: Config, transfer: Transfer) -> String {
         if status.sufficient {
-            return "NEXT"
+            return actionButtonText
         }
         
         let format = status.insufficientText

@@ -179,16 +179,16 @@ final class TokenViewModel{
     }
     
     func updatePending() {
-//        let transactions = pendingTransactions
-//        for transaction in transactions {
-//            transactionProvider.update(for: transaction) { result in
-//                switch result {
-//                case .success(let transaction, let state):
-//                    self.transactionsStore.update(state: state, for: transaction)
-//                case .failure: break
-//                }
-//            }
-//        }
+        let transactions = pendingTransactions
+        for transaction in transactions {
+            transactionProvider.update(for: transaction) { result in
+                switch result {
+                case .success(let transaction, let state):
+                    self.transactionsStore.update(state: state, for: transaction)
+                case .failure: break
+                }
+            }
+        }
     }
     
     private func fetchTransactions() {

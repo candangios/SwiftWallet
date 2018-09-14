@@ -48,14 +48,14 @@ class ConfirmPaymentVC: BaseViewController {
     let server: RPCServer
     var didCompleted: ((Result<ConfirmResult, AnyError>) -> Void)?
     
-    lazy var configGasPriceView: ConfigGasPriceView? = {
-        guard let view = Bundle.main.loadNibNamed("ConfigGasPriceView", owner: self, options: nil)?.first as? ConfigGasPriceView else{
-            return .none
-        }
-        view.type = .Slow
-        return view
-        
-    }()
+//    lazy var configGasPriceView: ConfigGasPriceView? = {
+//        guard let view = Bundle.main.loadNibNamed("ConfigGasPriceView", owner: self, options: nil)?.first as? ConfigGasPriceView else{
+//            return .none
+//        }
+//        view.type = .Slow
+//        return view
+//
+//    }()
     init(
         session: WalletSession,
         keystore: Keystore,
@@ -69,7 +69,7 @@ class ConfirmPaymentVC: BaseViewController {
         self.confirmType = confirmType
         self.server = server
         super.init(nibName: nil, bundle: nil)
-//        fetch()
+        fetch()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -81,7 +81,7 @@ class ConfirmPaymentVC: BaseViewController {
         super.viewDidLoad()
         self.title = viewModel.title
         self.reloadView()
-        self.configView.addSubview(self.configGasPriceView!)
+//        self.configView.addSubview(self.configGasPriceView!)
 //        self.configGasPriceView?.reloaView(gasPrice: configurator.previewTransaction().gasPrice)
 //        self.configGasPriceView?.didSeleted = { newGasPrice in
 //            print(EtherNumberFormatter.full.string(from: newGasPrice, units: .gwei))
@@ -98,6 +98,7 @@ class ConfirmPaymentVC: BaseViewController {
         self.symbolLable.text = viewDetailModel.amountSymbol
         self.estimateFeeLable.text = viewDetailModel.estimatedFee
         self.symbolFeeLable.text = viewDetailModel.symbolFee
+        updateSubmitButton()
 
     }
     
@@ -110,7 +111,6 @@ class ConfirmPaymentVC: BaseViewController {
             guard let `self` = self else { return }
             switch result {
             case .success:
-                hup.hide(animated: true)
                 self.reloadView()
                 hup.hide(animated: true)
                 
@@ -134,7 +134,7 @@ class ConfirmPaymentVC: BaseViewController {
             transfer: configurator.transaction.transfer
         )
         sendButton.isEnabled = status.sufficient
-        sendButton.setTitle(buttonTitle, for: .normal)
+        sendButton.setTitle("\(buttonTitle)  ", for: .normal)
     }
     
   

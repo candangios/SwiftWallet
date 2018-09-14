@@ -85,17 +85,17 @@ final class ChainState{
     }
     
     private func getGasPrice() {
-        provider.request(.getGasPrice(server: self.server)) { (result) in
-            switch result {
-            case .success(let response):
-                guard let responseValue:[String: Any] = (try! response.mapJSON() as? [String: Any]),let blockNumerHash = responseValue["result"] as? String, let value = BigInt(blockNumerHash.drop0x, radix: 16) else{
-                    return
-                }
-                self.gasPrice = value
-            case .failure(_):
-                break
-            }
-        }
+//        provider.request(.getGasPrice(server: self.server)) { (result) in
+//            switch result {
+//            case .success(let response):
+//                guard let responseValue:[String: Any] = (try! response.mapJSON() as? [String: Any]),let blockNumerHash = responseValue["result"] as? String, let value = BigInt(blockNumerHash.drop0x, radix: 16) else{
+//                    return
+//                }
+//                self.gasPrice = value
+//            case .failure(_):
+//                break
+//            }
+//        }
     }
     
     func confirmations(fromBlock: Int) -> Int? {

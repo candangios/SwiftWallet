@@ -13,6 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendAmountVC" customModule="TomoWallet" customModuleProvider="target">
             <connections>
                 <outlet property="amountLable" destination="q7Q-bn-qjl" id="hVB-hK-ZXD"/>
+                <outlet property="descriptionLable" destination="SuL-fB-WPt" id="ZMz-P3-yue"/>
+                <outlet property="nextButton" destination="1B3-uX-1NN" id="Xu3-ex-66l"/>
                 <outlet property="symbolLable" destination="G2H-tn-066" id="0Og-8H-iHA"/>
                 <outlet property="toAddressLable" destination="5XJ-KP-oQY" id="CUG-LC-N5e"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,7 +31,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SuL-fB-WPt">
                             <rect key="frame" x="117" y="186" width="141" height="18"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="141" id="T2S-pq-Dwj"/>
+                                <constraint firstAttribute="width" priority="250" constant="141" id="T2S-pq-Dwj"/>
                                 <constraint firstAttribute="height" constant="18" id="g29-xh-rq7"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>

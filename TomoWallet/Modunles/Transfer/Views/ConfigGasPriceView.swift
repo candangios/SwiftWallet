@@ -61,7 +61,7 @@ class ConfigGasPriceView: UIView {
     }
 
     @IBAction func selectedTypeAction(_ sender: UIButton) {
-        print(self.gasPrice)
+   
         switch sender.tag {
         case 1:
             self.type = .Slow

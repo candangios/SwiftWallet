@@ -52,6 +52,8 @@ class SendAmountVC: BaseViewController {
     @IBOutlet weak var toAddressLable: UILabel!
     @IBOutlet weak var amountLable: UILabel!
     @IBOutlet weak var symbolLable: UILabel!
+    @IBOutlet weak var descriptionLable: UILabel!
+    @IBOutlet weak var nextButton: UIButton!
     
     weak var delegate: SendAmountVC_Delegate?
     var operation = true
@@ -93,18 +95,44 @@ class SendAmountVC: BaseViewController {
     
     //appending number to label
     func Addnumberfunc(number:String){
-//        if (self.amountLable.text?.count)! > 6 {
-//            return
-//        }
+        if (self.amountLable.text?.count)! > 10 {
+            return
+        }
         if self.amountLable.text == viewModel.defaultAmount{
             self.amountLable.text = ""
+        }else{
+            if number == "."{
+                guard let text = amountLable.text else {return}
+                if text.contains("."){
+                    return
+                }
+            }
         }
         var textnum = String(amountLable.text!)
         textnum = textnum + number
         amountLable.text = textnum
+    
         
         
     }
+    
+    private func updateSubmitButton() -> Bool {
+        let status = viewModel.balanceValidStatus()
+        let buttonTitle = viewModel.getActionButtonText(
+            status, config: session.config,
+            transfer: transfer
+        )
+        if !status.sufficient{
+            self.descriptionLable.text = buttonTitle
+            self.descriptionLable.textColor = .red
+        }else{
+            self.descriptionLable.text = "Enter your amount"
+            self.descriptionLable.textColor = UIColor(hex: "7B7B7B")
+        }
+        return status.sufficient
+
+    }
+    
 
     
     
@@ -113,6 +141,7 @@ class SendAmountVC: BaseViewController {
         case 11:
             
             // dot character
+         
              self.Addnumberfunc(number: ".")
         case 12:
             //delete last character
@@ -128,7 +157,8 @@ class SendAmountVC: BaseViewController {
             // numbers character
             self.Addnumberfunc(number: "\(sender.tag)")
         }
-        
+        self.viewModel.amount = self.amountLable.text ?? viewModel.defaultAmount
+        self.updateSubmitButton()
         
     }
     
@@ -138,6 +168,7 @@ class SendAmountVC: BaseViewController {
     @IBAction func sendAction(_ sender: Any) {
         
         self.viewModel.amount = self.amountLable.text ?? viewModel.defaultAmount
+        if !self.updateSubmitButton(){return}
         let amountString = viewModel.amount
         let parsedValue: BigInt? = {
             switch transfer.type {

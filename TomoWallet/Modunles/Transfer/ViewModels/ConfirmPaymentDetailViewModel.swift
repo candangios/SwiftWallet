@@ -31,9 +31,6 @@ struct ConfrimPaymentDetailViewModel {
     }
     
     private var totalFee: BigInt {
-        print(transaction.gasPrice)
-        print(transaction.gasLimit)
-        
         return transaction.gasPrice * transaction.gasLimit
     }
     var toaddress:String{

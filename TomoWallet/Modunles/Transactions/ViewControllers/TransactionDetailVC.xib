@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionDetailVC" customModule="TomoWallet" customModuleProvider="target">
             <connections>
                 <outlet property="headerTitleLable" destination="YUb-7c-rRn" id="gmd-GI-Vwc"/>
+                <outlet property="statusView" destination="PiE-hC-mHq" id="8jM-7o-miF"/>
                 <outlet property="transactionAmountLable" destination="rms-Qw-cG1" id="xjA-p9-jbw"/>
                 <outlet property="transactionFeeLable" destination="Eo8-pT-L10" id="t6J-bO-Eqd"/>
                 <outlet property="transactionFromAddressLable" destination="3BC-kY-jai" id="hl1-HT-F2Q"/>
@@ -90,13 +91,24 @@
                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PiE-hC-mHq">
+                                    <rect key="frame" x="245" y="5" width="40" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="3l4-xo-4yB"/>
+                                        <constraint firstAttribute="width" constant="40" id="Ohe-mJ-iNc"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="0xD-eu-9Rv"/>
                                 <constraint firstAttribute="trailing" secondItem="GEw-q0-H8l" secondAttribute="trailing" constant="19" id="5ZH-Wd-ZFL"/>
+                                <constraint firstItem="GEw-q0-H8l" firstAttribute="leading" secondItem="PiE-hC-mHq" secondAttribute="trailing" constant="8.5" id="QIO-BJ-qc6"/>
                                 <constraint firstItem="nDz-ms-Fjg" firstAttribute="top" secondItem="jqD-wR-veI" secondAttribute="top" constant="15" id="T5u-FU-ufk"/>
+                                <constraint firstAttribute="bottom" secondItem="PiE-hC-mHq" secondAttribute="bottom" constant="-5" id="TxK-vq-dYz"/>
                                 <constraint firstItem="nDz-ms-Fjg" firstAttribute="leading" secondItem="jqD-wR-veI" secondAttribute="leading" constant="15" id="VPY-kK-STR"/>
+                                <constraint firstItem="PiE-hC-mHq" firstAttribute="top" secondItem="jqD-wR-veI" secondAttribute="top" constant="5" id="Vsw-EH-WTd"/>
                                 <constraint firstItem="GEw-q0-H8l" firstAttribute="top" secondItem="jqD-wR-veI" secondAttribute="top" constant="15" id="mpG-Je-R3f"/>
                             </constraints>
                         </view>

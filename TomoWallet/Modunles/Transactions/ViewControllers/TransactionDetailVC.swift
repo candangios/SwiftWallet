@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import JSQWebViewController
+import Lottie
 enum TransactionDetailVCType {
     case execute
     case detail
@@ -16,6 +17,7 @@ enum TransactionDetailVCType {
 
 class TransactionDetailVC: BaseViewController {
 
+    @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var transactionToAddressLable: UILabel!
     @IBOutlet weak var transactionFromAddressLable: UILabel!
     @IBOutlet weak var transactionFeeLable: UILabel!
@@ -42,6 +44,15 @@ class TransactionDetailVC: BaseViewController {
     let tokenViewModel: TokenViewModel
     let type: TransactionDetailVCType
     private let transactionsStore: TransactionsStorage
+    
+    let pendingAnimationView :LOTAnimationView = {
+        let pendingView = LOTAnimationView(name: "animation-w400-h400")
+        pendingView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        pendingView.contentMode = .scaleAspectFill
+        pendingView.loopAnimation = true
+        pendingView.play()
+        return pendingView
+    }()
     
 
     var didFinishExecute:(()->Void)?
@@ -83,11 +94,18 @@ class TransactionDetailVC: BaseViewController {
         transactionFromAddressLable.text = viewModel.fromAddress
         transactionToAddressLable.text = viewModel.toAddress
         transactionStatusLable.text = viewModel.stateString
+        switch transaction.state {
+        case .pending:
+            statusView.addSubview(pendingAnimationView)
+        default:
+            break
+        }
         
       
         
         
         viewModel.didUpdateTransaction = {(transation, state, error) in
+            self.pendingAnimationView.removeFromSuperview()
             if error != nil{
                 (self.navigationController as? NavigationController)?.displayError(error: error!)
             }else{
@@ -104,7 +122,7 @@ class TransactionDetailVC: BaseViewController {
     }
     
     @IBAction func pressURLAction(_ sender: Any) {
-        
+     
         let controller = WebViewController(url: URL(string: "https://scan.testnet.tomochain.com/txs/\(transaction.id)")!)
         let nav = UINavigationController(rootViewController: controller)
         present(nav, animated: true, completion: nil)

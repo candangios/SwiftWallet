@@ -24,6 +24,7 @@
 		8619C162211952B800C90F72 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8619C161211952B800C90F72 /* Currency.swift */; };
 		861B6920211A939F002AB55F /* PasswordGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B691F211A939F002AB55F /* PasswordGenerator.swift */; };
 		861B6922211A9583002AB55F /* ImportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B6921211A9583002AB55F /* ImportType.swift */; };
+		862780A0214B7238002DA3DD /* animation-w400-h400.json in Resources */ = {isa = PBXBuildFile; fileRef = 8627809F214B7237002DA3DD /* animation-w400-h400.json */; };
 		862A5DCD21350D9C00334480 /* QRGenerato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862A5DCC21350D9C00334480 /* QRGenerato.swift */; };
 		862A5DD02135367700334480 /* BolderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862A5DCF2135367700334480 /* BolderButton.swift */; };
 		86391AD82117EF19002FAC67 /* Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86391AD72117EF19002FAC67 /* Keystore.swift */; };
@@ -223,6 +224,7 @@
 		8619C161211952B800C90F72 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		861B691F211A939F002AB55F /* PasswordGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGenerator.swift; sourceTree = "<group>"; };
 		861B6921211A9583002AB55F /* ImportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportType.swift; sourceTree = "<group>"; };
+		8627809F214B7237002DA3DD /* animation-w400-h400.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "animation-w400-h400.json"; sourceTree = "<group>"; };
 		862A5DCC21350D9C00334480 /* QRGenerato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerato.swift; sourceTree = "<group>"; };
 		862A5DCF2135367700334480 /* BolderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolderButton.swift; sourceTree = "<group>"; };
 		86391AD72117EF19002FAC67 /* Keystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keystore.swift; sourceTree = "<group>"; };
@@ -1121,6 +1123,7 @@
 		86A444982147A788002F9DBC /* LottieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				8627809F214B7237002DA3DD /* animation-w400-h400.json */,
 				86BFEEB72149FDBD0011D6C2 /* ball_stretch.json */,
 			);
 			path = LottieFiles;
@@ -1276,6 +1279,7 @@
 				8698A180212EAF930016C85D /* ReveiceVC.xib in Resources */,
 				869339C121428BDC00D48936 /* VeryfyWordPhraseView.xib in Resources */,
 				861023FA21267A5100A831BE /* TokenViewCell.xib in Resources */,
+				862780A0214B7238002DA3DD /* animation-w400-h400.json in Resources */,
 				8698A176212E74C60016C85D /* TokenHeaderView.xib in Resources */,
 				848CE1EE213B96690080B894 /* WordPhraseView.xib in Resources */,
 				86391B80211442EC0045A610 /* LaunchScreen.storyboard in Resources */,

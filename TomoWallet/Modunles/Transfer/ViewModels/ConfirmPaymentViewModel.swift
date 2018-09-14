@@ -27,9 +27,9 @@ struct ConfirmPaymentViewModel {
     var actionButtonText: String {
         switch type {
         case .sign:
-            return "approve"
+            return "APPROVE"
         case .signThenSend:
-            return "Send"
+            return "SEND"
         }
     }
     

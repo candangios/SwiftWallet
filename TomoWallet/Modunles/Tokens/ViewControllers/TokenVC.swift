@@ -9,7 +9,7 @@
 import UIKit
 import StatefulViewController
 import MXParallaxHeader
-import Lottie
+import GradientLoadingBar
 
 protocol TokenVC_Delegate: class {
     func didPressRequest(for token: TokenObject, in controller: UIViewController)
@@ -74,11 +74,17 @@ class TokenVC: BaseViewController {
     let viewModel: TokenViewModel
     weak var delegate: TokenVC_Delegate?
     
-    private lazy var loadingAnimationView: LOTAnimationView = {
-        let animationView = LOTAnimationView(name: "ball_stretch")
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopAnimation = true
-        return animationView
+    private lazy var loadingAnimationView: GradientLoadingBar = {
+        let gradientLoadingBar = GradientLoadingBar(
+            height: 1.0,
+            durations: Durations(fadeIn: 1.0, fadeOut: 2.0, progress: 3.0),
+            gradientColorList: [
+                UIColor(hex: "#4cd964"),
+                UIColor(hex: "#ff2d55")
+            ],
+            onView: self.view
+        )
+        return gradientLoadingBar
     }()
     
     init(viewModel: TokenViewModel) {
@@ -115,13 +121,22 @@ class TokenVC: BaseViewController {
         
         // listenning update view token balance
         self.observToken()
-        
-        self.segmentedIndicatorView?.addSubview(loadingAnimationView)
-        loadingAnimationView.loopAnimation = true
-        loadingAnimationView.play()
+//        self.loadingAnimationView.show()
         viewModel.transactionObservation {
-            self.loadingAnimationView.stop()
+//            self.loadingAnimationView.hide()
         }
+
+        let gradientLoadingBar = GradientLoadingBar(
+            height: 3.0,
+            durations: Durations(fadeIn: 1.0, fadeOut: 2.0, progress: 3.0),
+            gradientColorList: [
+                UIColor(hex: "4cd964"),
+                UIColor(hex: "ff2d55")
+            ],
+            onView: self.view
+        )
+        gradientLoadingBar.show()
+
 
         
     }
@@ -141,18 +156,15 @@ class TokenVC: BaseViewController {
         scrollView.contentSize = frame.size
         frame.size.height -= scrollView.parallaxHeader.minimumHeight
         containerView.frame = frame
-        loadingAnimationView.frame = CGRect(x: 0, y: (self.header?.bounds.height)! - 10, width: containerView.frame.size.width, height: 10)
 
         segmentedIndicatorView?.frame = CGRect(x: 0, y: 0, width: containerView.frame.size.width, height: 40);
         segmentedIndicatorView?.pageViewScrollingProgress(progress: 0, currentPage: currentPageView?.type ?? .All)
-        loadingAnimationView.frame = CGRect(x:containerView.frame.size.width - 260 , y:-20, width:100, height:80);
         pageViewController.view.frame = CGRect(x: 0, y: 40, width: containerView.frame.size.width, height: containerView.frame.size.height);
     
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewModel.fetch()
-        loadingAnimationView.play()
         self.updateHeaderView()
     }
     

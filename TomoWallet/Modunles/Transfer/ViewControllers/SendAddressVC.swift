@@ -16,6 +16,7 @@ protocol SendViewController_Delegate:class {
 }
 
 class SendAddressVC: BaseViewController {
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var addressTextField: UITextField!
     let viewModel: SendViewModel
     weak var delegate: SendViewController_Delegate?
@@ -33,13 +34,22 @@ class SendAddressVC: BaseViewController {
         super.viewDidLoad()
         self.title = viewModel.titile
         self.setDoneOnKeyboard()
+        let tapAction = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        self.view.addGestureRecognizer(tapAction)
     }
     func setDoneOnKeyboard() {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.sizeToFit()
+        keyboardToolbar.tintColor = .white
+        keyboardToolbar.barTintColor = UIColor(hex: "151515")
+        let nextButton = UIButton()
+        nextButton.setImage(#imageLiteral(resourceName: "ArrowLeft"), for: .normal)
+        nextButton.setTitle("NEXT  ", for: .normal)
+        nextButton.semanticContentAttribute = .forceRightToLeft
+        nextButton.addTarget(self, action: #selector(self.NextAction(_:)), for: .touchUpInside)
         let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissKeyboard))
-        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        let nextBarButton = UIBarButtonItem(customView: nextButton)
+        keyboardToolbar.items = [ flexBarButton, nextBarButton]
         self.addressTextField.inputAccessoryView = keyboardToolbar
     }
     @objc func dismissKeyboard() {
