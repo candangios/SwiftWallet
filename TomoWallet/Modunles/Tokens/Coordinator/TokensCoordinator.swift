@@ -38,6 +38,7 @@ class TokensCoordinator:NSObject, Coordinator {
     
     lazy var tokenViewcontroller: TokenVC? = {
         guard let token  = store.tokens.first else {return . none}
+//        print(token.value)
         let tokenViewModel = TokenViewModel(token: token, store: store, transactionsStore: transactionsStore, tokensNetwork: network, session: session)
         let tokenVC = TokenVC(viewModel: tokenViewModel)
         tokenVC.delegate = self

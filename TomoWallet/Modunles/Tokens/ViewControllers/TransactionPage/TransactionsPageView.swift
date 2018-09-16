@@ -22,7 +22,13 @@ final class TransactionsPageView: UITableViewController {
     private let transactionsStore: TransactionsStorage
     private let tokenTransactions: Results<Transaction>
     private let currentAccount: Account
-    
+    private let emptyLable:UILabel? = {
+        let lable = UILabel(frame: CGRect(x: 0, y: 30, width: 320, height: 40))
+        lable.text = "No transactions yet"
+        lable.textAlignment = .center
+        lable.textColor = UIColor(hex: "838383")
+       return  lable
+    }()
     var didselectedItem:((_ transaction:Transaction) -> Void)?
     
     let type: TransactionsPageViewType
@@ -59,7 +65,15 @@ final class TransactionsPageView: UITableViewController {
     
     private func observTransactions() {
         viewModel.transactionObservation { [weak self] in
-            self?.tableView.reloadData()
+            guard let `self` = self else {return}
+            if self.viewModel.numberOfSections == 0 {
+                self.emptyLable?.center.x = self.tableView.center.x
+                self.tableView.addSubview(self.emptyLable!)
+                
+            }else{
+                self.emptyLable?.removeFromSuperview()
+            }
+            self.tableView.reloadData()
         }
 
     }
@@ -71,6 +85,7 @@ final class TransactionsPageView: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+     
         return viewModel.numberOfSections
     }
 
@@ -103,6 +118,5 @@ final class TransactionsPageView: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
-
 
 }

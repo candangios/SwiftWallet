@@ -79,10 +79,8 @@ final class TokenViewModel{
     }
     
     var server: RPCServer {
-        
-        // can Rem
+
         return token.coin.server
-//        return TokensDataStore.getServer(for: token)
     }
     
     lazy var currentAccount: Account = {

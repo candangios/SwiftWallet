@@ -133,12 +133,14 @@ class TokenVC: BaseViewController {
             onView: self.view
         )
         gradientLoadingBar.show()
+    
 
 
         
     }
     func createNavigator() {
-        let menuBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: nil)
+//        let menuBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: nil)
+        let menuBarItem  = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.leftBarButtonItem = menuBarItem
     }
     
@@ -162,7 +164,7 @@ class TokenVC: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.fetch()
-//        self.updateHeaderView()
+        self.updateHeaderView()
     }
     
     func fetch()  {
@@ -225,7 +227,6 @@ extension TokenVC: MXParallaxHeaderDelegate{
         print(parallaxHeader.progress)
         if parallaxHeader.progress > 2.5{
             if isFetch == false{
-                print(isFetch)
                 self.fetch()
             }
         }
