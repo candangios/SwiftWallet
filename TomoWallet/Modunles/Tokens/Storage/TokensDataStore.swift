@@ -95,27 +95,27 @@ class TokensDataStore {
     
     private func nativeCoin() -> [TokenObject] {
         return account.accounts.compactMap { ac in
-            let coin = ac.coin
+            let coin = ac.coin ?? Coin.tomo
            
-            let viewModel = CoinViewModel(coin: coin!)
+            let viewModel = CoinViewModel(coin: coin)
             let isDisabled: Bool = {
                 if !account.mainWallet {
                     return false
                 }
-                return coin!.server.isDisabledByDefault
+                return coin.server.isDisabledByDefault
             }()
             
             return TokenObject(
-                contract: (coin?.server.priceID.description)!,
+                contract: coin.server.priceID.description,
                 name: viewModel.name,
-                coin: coin!,
+                coin: coin,
                 type: .coin,
                 symbol: viewModel.symbol,
-                decimals: (coin?.server.decimals)!,
+                decimals: coin.server.decimals,
                 value: "0",
                 isCustom: false,
                 isDisabled: isDisabled,
-                order: (coin?.rawValue)!
+                order: coin.rawValue
             )
         }
     }

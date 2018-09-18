@@ -16,8 +16,9 @@ final class SharedMigrationInitializer: Initializer{
     init() { }
     
     func perform() {
-        config.schemaVersion = Config.dbMigrationSchemaVersion
+        self.config.schemaVersion = Config.dbMigrationSchemaVersion
         config.migrationBlock = { migration, oldSchemaVersion in
+            print("hêh")
             // do somethings here
         }
     }

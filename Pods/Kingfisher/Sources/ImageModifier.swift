@@ -133,8 +133,8 @@ public struct RenderingModeImageModifier: ImageModifier {
     /// - returns: The modified image.
     ///
     /// - Note: See documentation of `ImageModifier` protocol for more.
-    public func modify(_ image: Image) -> Image {
-        return image.withRenderingMode(renderingMode)
+    public func modify(_ imageView: Image) -> Image {
+        return imageView.withRenderingMode(renderingMode)
     }
 }
 
@@ -155,11 +155,11 @@ public struct FlipsForRightToLeftLayoutDirectionImageModifier: ImageModifier {
     /// - returns: The modified image.
     ///
     /// - Note: See documentation of `ImageModifier` protocol for more.
-    public func modify(_ image: Image) -> Image {
+    public func modify(_ imageView: Image) -> Image {
         if #available(iOS 9.0, *) {
-            return image.imageFlippedForRightToLeftLayoutDirection()
+            return imageView.imageFlippedForRightToLeftLayoutDirection()
         } else {
-            return image
+            return imageView
         }
     }
 }
@@ -184,8 +184,8 @@ public struct AlignmentRectInsetsImageModifier: ImageModifier {
     /// - returns: The modified image.
     ///
     /// - Note: See documentation of `ImageModifier` protocol for more.
-    public func modify(_ image: Image) -> Image {
-        return image.withAlignmentRectInsets(alignmentInsets)
+    public func modify(_ imageView: Image) -> Image {
+        return imageView.withAlignmentRectInsets(alignmentInsets)
     }
 }
 #endif

@@ -24,7 +24,10 @@ final class TokenObject: Object, Decodable {
     
     @objc private dynamic var rawCoin = -1
     public var coin: Coin {
-        get { return Coin(rawValue: rawCoin)! }
+    
+        get {
+            return Coin(rawValue: rawCoin)!
+        }
         set { rawCoin = newValue.rawValue }
     }
     

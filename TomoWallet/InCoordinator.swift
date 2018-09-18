@@ -43,13 +43,21 @@ class InCoordinator: Coordinator {
     let config: Config
     let navigator: Navigator
     weak var delegate: InCoordinator_Delegate?
-    private var pendingTransactionsObserver: NotificationToken?
+//    private var pendingTransactionsObserver: NotificationToken?
+    
+    var settingsCoordinator: SettingsCoordinator? {
+        return self.childCoordinators.compactMap { $0 as? SettingsCoordinator }.first
+    }
     
     var tokensCoordinator: TokensCoordinator? {
         return self.childCoordinators.compactMap { $0 as? TokensCoordinator }.first
     }
     var tokenVC: TokenVC? {
         return self.navigationController.viewControllers.compactMap { $0 as? TokenVC }.first
+    }
+    
+    private func realm(for config: Realm.Configuration) -> Realm {
+        return try! Realm(configuration: config)
     }
     
     init( keystore: Keystore, navigationController: NavigationController = NavigationController(isHiddenNavigationBar: true), wallet: WalletInfo, config: Config = .current, navigator: Navigator = Navigator()){
@@ -64,16 +72,22 @@ class InCoordinator: Coordinator {
     }
     
     func showMainController(account: WalletInfo){
+   
+        
+        
+        let sharedMigration = SharedMigrationInitializer()
+        sharedMigration.perform()
         
         let migration = MigrationInitializer(account: account)
-        let sharedMigration = SharedMigrationInitializer()
-        let realm = try? Realm(configuration: migration.config)
-        let sharedRealm = try? Realm(configuration: sharedMigration.config)
+        migration.perform()
+        
+        let realm =  self.realm(for: migration.config)
+        let sharedRealm =  self.realm(for: sharedMigration.config)
         
         let session = WalletSession(
             account: account,
-            realm: realm!,
-            sharedRealm: sharedRealm!,
+            realm: realm,
+            sharedRealm: sharedRealm,
             config: config
         )
         
@@ -84,6 +98,16 @@ class InCoordinator: Coordinator {
     }
 }
 extension InCoordinator: TokensCoordinator_Delegate{
+    func didPressSettings(coordinator: TokensCoordinator) {
+        if let settingsCoordinator = self.settingsCoordinator{
+            settingsCoordinator.start()
+        }else{
+            let settingsCoordinator = SettingsCoordinator(navigationController: self.navigationController, session: coordinator.session)
+            settingsCoordinator.start()
+            self.addCoordinator(settingsCoordinator)
+        }
+    }
+    
     func didPressSend(for token: TokenObject, in coordinator: TokensCoordinator) {
         let session = coordinator.session
         let transfer: Transfer = {

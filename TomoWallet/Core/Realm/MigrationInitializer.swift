@@ -24,6 +24,7 @@ final class MigrationInitializer: Initializer{
         // mirgaration when changed Object at realm schema
         self.config.schemaVersion = Config.dbMigrationSchemaVersion
         config.migrationBlock = { migration, oldSchemaVersion in
+        
            // do somethings
         }
         

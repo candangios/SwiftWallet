@@ -16,6 +16,9 @@ protocol TokenVC_Delegate: class {
     func didPressSend(for token: TokenObject, in controller: UIViewController)
     func didPressInfo(for token: TokenObject, in controller: UIViewController)
     func didPress(viewModel: TokenViewModel, transaction: Transaction, in controller: UIViewController)
+    
+    // Show settings View
+    func didPressSettingsView (in controller: UIViewController)
 }
 
 class TokenVC: BaseViewController {
@@ -75,8 +78,6 @@ class TokenVC: BaseViewController {
     let viewModel: TokenViewModel
     weak var delegate: TokenVC_Delegate?
     
-
-    
     init(viewModel: TokenViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -111,41 +112,18 @@ class TokenVC: BaseViewController {
             
         }
         
-        // Add gradient loading bar to button.
-//        customSuperviewLoadingBar = GradientLoadingBar(onView: self.containerView)
-//        GradientLoadingBar.shared.show()
-        
-        // listenning update view token balance
         self.observToken()
-
         viewModel.transactionObservation {
             self.isFetch = false
-//            self.loadingAnimationView.hide()
         }
 
-        let gradientLoadingBar = GradientLoadingBar(
-            height: 3.0,
-            durations: Durations(fadeIn: 1.0, fadeOut: 2.0, progress: 3.0),
-            gradientColorList: [
-                UIColor(hex: "4cd964"),
-                UIColor(hex: "ff2d55")
-            ],
-            onView: self.view
-        )
-        gradientLoadingBar.show()
-    
-
-
-        
     }
     func createNavigator() {
-//        let menuBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: nil)
-        let menuBarItem  = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        let menuBarItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: #selector(self.didPressSetings))
         self.navigationItem.leftBarButtonItem = menuBarItem
     }
-    
-    deinit {
-        viewModel.invalidateObservers()
+    @objc func didPressSetings() {
+        self.delegate?.didPressSettingsView(in: self)
     }
     
     override func viewDidLayoutSubviews() {
@@ -155,12 +133,11 @@ class TokenVC: BaseViewController {
         scrollView.contentSize = frame.size
         frame.size.height -= scrollView.parallaxHeader.minimumHeight
         containerView.frame = frame
-
         segmentedIndicatorView?.frame = CGRect(x: 0, y: 0, width: containerView.frame.size.width, height: 40);
         segmentedIndicatorView?.pageViewScrollingProgress(progress: 0, currentPage: currentPageView?.type ?? .All)
         pageViewController.view.frame = CGRect(x: 0, y: 40, width: containerView.frame.size.width, height: containerView.frame.size.height - 40);
-    
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.fetch()
@@ -172,9 +149,9 @@ class TokenVC: BaseViewController {
         self.viewModel.fetch()
     }
     
+    
     private func observToken() {
         viewModel.tokenObservation { [weak self] in
-            
             self?.updateHeaderView()
         }
     }
@@ -194,17 +171,17 @@ class TokenVC: BaseViewController {
     
     func viewControllerAtIndex(index: Int) -> TransactionsPageView?
     {
-        if self.quantityPage == 0
-        {
+        if self.quantityPage == 0{
             return nil
         }
-        
         // Create a new view controller and pass suitable data.
-      
         let pageContentViewController = viewModel.createTransactionsPageView(type: TransactionsPageViewType(rawValue: index)!)
         return pageContentViewController
     }
 
+    deinit {
+        viewModel.invalidateObservers()
+    }
     
 }
 
@@ -234,47 +211,35 @@ extension TokenVC: MXParallaxHeaderDelegate{
 }
 
 extension TokenVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate  {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?
-    {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?{
         var index = (viewController as! TransactionsPageView).type.rawValue
-        
         if (index == 0) || (index == NSNotFound) {
             return nil
         }
-        
         index -= 1
-        
         return viewControllerAtIndex(index: index)
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?
-    {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?{
         var index = (viewController as! TransactionsPageView).type.rawValue
-        
         if index == NSNotFound {
             return nil
         }
-        
         index += 1
-        
         if (index == self.quantityPage) {
             return nil
         }
-        
         return viewControllerAtIndex(index: index)
     }
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int
-    {
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int{
         return self.quantityPage
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int
-    {
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int{
         return 0
     }
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool)
-    {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool){
         if (!completed){return}
         currentPageView = pageViewController.viewControllers?.first as? TransactionsPageView
     }

@@ -32,6 +32,7 @@ target 'TomoWallet' do
   pod 'lottie-ios'
   pod 'JSQWebViewController'
   pod 'GradientLoadingBar', '~> 1.0'
+  pod 'Eureka'
 
   target 'TomoWalletTests' do
     inherit! :search_paths

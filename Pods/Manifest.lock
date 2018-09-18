@@ -8,6 +8,7 @@ PODS:
   - Crashlytics (3.10.1):
     - Fabric (~> 1.7.5)
   - CryptoSwift (0.10.0)
+  - Eureka (4.2.0)
   - Fabric (1.7.6)
   - GradientLoadingBar (1.1.11)
   - JSQWebViewController (6.0.0)
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - Branch
   - Crashlytics (~> 3.10)
   - CryptoSwift (~> 0.10.0)
+  - Eureka
   - Fabric
   - GradientLoadingBar (~> 1.0)
   - JSQWebViewController
@@ -91,6 +93,7 @@ SPEC REPOS:
     - Branch
     - Crashlytics
     - CryptoSwift
+    - Eureka
     - Fabric
     - GradientLoadingBar
     - JSQWebViewController
@@ -152,6 +155,7 @@ SPEC CHECKSUMS:
   Branch: 8b59411a12867bde4fe8c9d3c0f107c5811e303e
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
+  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
   GradientLoadingBar: d06c05c4732c6a1404d47f33342de8fb3062d5e2
   JSQWebViewController: 51041569b75d19dbb6b7fe0b7ae053c32409a9be
@@ -178,6 +182,6 @@ SPEC CHECKSUMS:
   TrustWeb3Provider: 50fa391bdf170feb43dd4419992931510a5751d8
   URLNavigator: af5582fbbb3586c958be16835d799bfdb23a4793
 
-PODFILE CHECKSUM: b1c805ee37ed8e6521cd71574c8cba2d58f31668
+PODFILE CHECKSUM: 2121c3c0b4fa1f703fe6cc167b0a69b212ec4f8d
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.2

@@ -33,6 +33,38 @@
             endingLineNumber = "85"
             landmarkName = "saveCreatedWallet(for:password:derivationPaths:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of TrustKeystore.KeyStore.generateFileName(identifier: Swift.String, date: Foundation.Date, timeZone: Foundation.TimeZone) -&gt; Swift.String"
+                  moduleName = "TrustKeystore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomochain/SwiftWallet/Pods/TrustKeystore/Sources/KeyStore.swift"
+                  timestampString = "558960206.6004829"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "296"
+                  endingLineNumber = "296"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 2 of TrustKeystore.KeyStore.generateFileName(identifier: Swift.String, date: Foundation.Date, timeZone: Foundation.TimeZone) -&gt; Swift.String"
+                  moduleName = "TrustKeystore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomochain/SwiftWallet/Pods/TrustKeystore/Sources/KeyStore.swift"
+                  timestampString = "558960206.602198"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "296"
+                  endingLineNumber = "296"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -192,6 +224,22 @@
             startingLineNumber = "17"
             endingLineNumber = "17"
             landmarkName = "image(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TomoWallet/Core/Realm/MigrationInitializer.swift"
+            timestampString = "558872714.355442"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "perform()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

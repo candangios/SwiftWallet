@@ -11,6 +11,9 @@ import UIKit
 protocol TokensCoordinator_Delegate: class {
     func didPressSend(for token: TokenObject, in coordinator: TokensCoordinator)
     func didPress(url: URL, in coordinator: TokensCoordinator)
+     // show settingsView
+    func didPressSettings(coordinator: TokensCoordinator)
+
 }
 
 class TokensCoordinator:NSObject, Coordinator {
@@ -38,15 +41,12 @@ class TokensCoordinator:NSObject, Coordinator {
     
     lazy var tokenViewcontroller: TokenVC? = {
         guard let token  = store.tokens.first else {return . none}
-//        print(token.value)
         let tokenViewModel = TokenViewModel(token: token, store: store, transactionsStore: transactionsStore, tokensNetwork: network, session: session)
         let tokenVC = TokenVC(viewModel: tokenViewModel)
         tokenVC.delegate = self
         return tokenVC
 
     }()
-    
-    
     
     
     init(keystore: Keystore, walletSesstion: WalletSession, navigationController: NavigationController = NavigationController(isHiddenNavigationBar: true)) {
@@ -58,7 +58,6 @@ class TokensCoordinator:NSObject, Coordinator {
     }
     
     func start() {
-        
         // push tokenVC
         if tokenViewcontroller == nil  {
             self.navigationController.pushViewController(tokensViewController, animated: true)
@@ -68,7 +67,7 @@ class TokensCoordinator:NSObject, Coordinator {
         
     }
     
-    
+    // show transaction Execute detail (pending transaction)//
     func showTransactionExecute(transaction: Transaction, token:TokenObject,onDissmiss:@escaping ()->()) {
         let tokenViewModel = TokenViewModel(token: token, store: store, transactionsStore: transactionsStore, tokensNetwork: network, session: session)
         let transactionExecuteVC = TransactionDetailVC(session: self.session, transaction: transaction, tokenViewModel: tokenViewModel, type: .execute, transactionsStore: self.transactionsStore)
@@ -97,6 +96,10 @@ extension TokensCoordinator: TokensVC_Delegate{
     
 }
 extension TokensCoordinator: TokenVC_Delegate{
+    func didPressSettingsView(in controller: UIViewController) {
+        self.delegate?.didPressSettings(coordinator: self)
+    }
+    
     func didPressRequest(for token: TokenObject, in controller: UIViewController) {
         let first = self.session.account.accounts.filter{$0.coin == token.coin}.first
         guard let account = first else {
