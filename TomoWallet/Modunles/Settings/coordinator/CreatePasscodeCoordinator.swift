@@ -17,28 +17,21 @@ protocol CreatePasscodeCoordinator_Delegate: class {
 
 final class CreatePasscodeCoordinator: Coordinator{
     var childCoordinators = [Coordinator]()
-    
-    var lock = Lock()
-    
+    var lock: Lock
     var navigationController: NavigationController
     weak var delegate: CreatePasscodeCoordinator_Delegate?
-   
-    init(navigationController: NavigationController = NavigationController(isHiddenNavigationBar: false)) {
+    var willFinishWithResult: ((_ success: Bool) -> Void)?
+    init(navigationController: NavigationController = NavigationController(isHiddenNavigationBar: false), lock: Lock) {
+        self.lock = lock
         self.navigationController = navigationController
     }
     func start() {
-        if lock.isPasscodeSet(){
-            let createPasscodeVC = CreatePasscodeVC()
-            self.navigationController.viewControllers = [createPasscodeVC]
-        }else{
-            let createPasscodeVC = CreatePasscodeVC()
-            createPasscodeVC.delegate = self
-            self.navigationController.viewControllers = [createPasscodeVC]
-            
-        }
-        
+        let viewModel = CreatePasscodeViewModel(lock: self.lock)
+        let createPasscodeVC = CreatePasscodeVC( viewModel, type: lock.isPasscodeSet() == true ? CreatePasscodeType.edit : CreatePasscodeType.initial)
+        createPasscodeVC.delegate = self
+        createPasscodeVC.willFinishWithResult = willFinishWithResult
+        self.navigationController.viewControllers = [createPasscodeVC]
     }
-    
     
 }
 extension CreatePasscodeCoordinator: CreatePasscodeVC_Delegate{

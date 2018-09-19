@@ -13,10 +13,6 @@ protocol LockInterface {
     func isPasscodeSet() -> Bool
     func shouldShowProtection() -> Bool
 }
-enum LockType {
-    case UnlockWallet
-    case AcceptTransfer
-}
 final class Lock: LockInterface{
     private struct Keys {
         static let service = "tomo.lock"
@@ -41,7 +37,7 @@ final class Lock: LockInterface{
     }
     
     func isPasscodeSet() -> Bool {
-        return  currentPasscode() != nil
+        return currentPasscode() != nil
     }
     
     func shouldShowProtection() -> Bool {

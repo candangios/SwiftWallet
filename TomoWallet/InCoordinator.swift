@@ -73,8 +73,6 @@ class InCoordinator: Coordinator {
     
     func showMainController(account: WalletInfo){
    
-        
-        
         let sharedMigration = SharedMigrationInitializer()
         sharedMigration.perform()
         

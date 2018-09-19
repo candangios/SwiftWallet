@@ -11,6 +11,7 @@ import UIKit
 class CalculatorButton: UIButton {
     override func awakeFromNib() {
         self.layer.borderColor = UIColor(hex: "E8E5E5").cgColor
+        self.layer.cornerRadius = self.frame.width/2
         self.layer.borderWidth = 1
     }
     

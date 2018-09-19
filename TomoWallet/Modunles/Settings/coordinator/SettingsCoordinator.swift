@@ -17,12 +17,14 @@ class SettingsCoordinator:NSObject, Coordinator {
     var navigationController: NavigationController
     var childCoordinators = [Coordinator]()
     let session: WalletSession
+    let lock = Lock()
     weak var delegate: SettingsCoordinator_Delegate?
     var coordinators: [Coordinator] = []
     
     lazy var rootViewController: SettingsVC = {
         let controller = SettingsVC(
-            session: session
+            session: session,
+            lock: lock
         )
         controller.delegate = self
         return controller
@@ -38,18 +40,20 @@ class SettingsCoordinator:NSObject, Coordinator {
     }
     
     func setPasscodeCoordinator(completion: ((Bool) -> Void)? = .none) {
-        let coordinator = CreatePasscodeCoordinator()
-        coordinator.delegate = self
-        coordinator.start()
-//        coordinator.lockViewController.willFinishWithResult = { [weak self] result in
-//            if result {
+        let coordinator = CreatePasscodeCoordinator(lock: self.lock)
+        coordinator.willFinishWithResult = { [weak self] result in
+            if result {
+                self?.rootViewController.reload()
 //                let type = AutoLock.immediate
 //                self?.lock.setAutoLockType(type: type)
 //                self?.updateAutoLockRow(with: type)
-//            }
-//            completion?(result)
-//            self?.navigationController?.dismiss(animated: true, completion: nil)
-//        }
+            }
+            completion?(result)
+            self?.navigationController.dismiss(animated: true, completion: nil)
+            self?.removeCoordinator(coordinator)
+        }
+        coordinator.delegate = self
+        coordinator.start()
         addCoordinator(coordinator)
         navigationController.present(coordinator.navigationController, animated: true, completion: nil)
     }

@@ -165,6 +165,9 @@
 		86C0DDBD21253A410096CB30 /* PassphraseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0DDBB21253A410096CB30 /* PassphraseVC.xib */; };
 		86C0DDC021253C2C0096CB30 /* VerifyPassphraseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0DDBE21253C2C0096CB30 /* VerifyPassphraseVC.swift */; };
 		86C0DDC121253C2C0096CB30 /* VerifyPassphraseVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0DDBF21253C2C0096CB30 /* VerifyPassphraseVC.xib */; };
+		86C17A052152086A00398DC8 /* CreatePasscodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C17A042152086A00398DC8 /* CreatePasscodeViewModel.swift */; };
+		86C17A1621525A7700398DC8 /* DeleteWalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C17A1421525A7700398DC8 /* DeleteWalletCell.swift */; };
+		86C17A1721525A7700398DC8 /* DeleteWalletCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C17A1521525A7700398DC8 /* DeleteWalletCell.xib */; };
 		86C22BFB213F7D0400020085 /* GasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C22BFA213F7D0400020085 /* GasViewModel.swift */; };
 		86C22C02213FEC2800020085 /* TransactionDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C22C00213FEC2800020085 /* TransactionDetailVC.swift */; };
 		86C22C03213FEC2800020085 /* TransactionDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C22C01213FEC2800020085 /* TransactionDetailVC.xib */; };
@@ -182,9 +185,8 @@
 		86CE2E032150EAEA0030C984 /* CreatePasscodeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE2E022150EAEA0030C984 /* CreatePasscodeCoordinator.swift */; };
 		86CE2E052150ED660030C984 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE2E042150ED660030C984 /* LockView.swift */; };
 		86CE2E082150EE2B0030C984 /* PasscodeCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE2E072150EE2B0030C984 /* PasscodeCharacterView.swift */; };
-		86CE2E0A2150F0590030C984 /* LockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE2E092150F0590030C984 /* LockViewModel.swift */; };
 		86CE2E0D215108AD0030C984 /* NumberPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE2E0C215108AD0030C984 /* NumberPageView.swift */; };
-		86CE2E0F215108FF0030C984 /* NumberpageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86CE2E0E215108FF0030C984 /* NumberpageView.xib */; };
+		86CE2E0F215108FF0030C984 /* NumberPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86CE2E0E215108FF0030C984 /* NumberPageView.xib */; };
 		86D553F921392FED003CF2B6 /* TransactionsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D553F821392FED003CF2B6 /* TransactionsPageViewModel.swift */; };
 		86D553FB213E271C003CF2B6 /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D553FA213E271C003CF2B6 /* CalculatorButton.swift */; };
 		86D55401213E69EF003CF2B6 /* MonetaryAmountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D55400213E69EF003CF2B6 /* MonetaryAmountViewModel.swift */; };
@@ -389,6 +391,9 @@
 		86C0DDBB21253A410096CB30 /* PassphraseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassphraseVC.xib; sourceTree = "<group>"; };
 		86C0DDBE21253C2C0096CB30 /* VerifyPassphraseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPassphraseVC.swift; sourceTree = "<group>"; };
 		86C0DDBF21253C2C0096CB30 /* VerifyPassphraseVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifyPassphraseVC.xib; sourceTree = "<group>"; };
+		86C17A042152086A00398DC8 /* CreatePasscodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasscodeViewModel.swift; sourceTree = "<group>"; };
+		86C17A1421525A7700398DC8 /* DeleteWalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWalletCell.swift; sourceTree = "<group>"; };
+		86C17A1521525A7700398DC8 /* DeleteWalletCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteWalletCell.xib; sourceTree = "<group>"; };
 		86C22BFA213F7D0400020085 /* GasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasViewModel.swift; sourceTree = "<group>"; };
 		86C22C00213FEC2800020085 /* TransactionDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailVC.swift; sourceTree = "<group>"; };
 		86C22C01213FEC2800020085 /* TransactionDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailVC.xib; sourceTree = "<group>"; };
@@ -406,9 +411,8 @@
 		86CE2E022150EAEA0030C984 /* CreatePasscodeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasscodeCoordinator.swift; sourceTree = "<group>"; };
 		86CE2E042150ED660030C984 /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		86CE2E072150EE2B0030C984 /* PasscodeCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeCharacterView.swift; sourceTree = "<group>"; };
-		86CE2E092150F0590030C984 /* LockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockViewModel.swift; sourceTree = "<group>"; };
 		86CE2E0C215108AD0030C984 /* NumberPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPageView.swift; sourceTree = "<group>"; };
-		86CE2E0E215108FF0030C984 /* NumberpageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumberpageView.xib; sourceTree = "<group>"; };
+		86CE2E0E215108FF0030C984 /* NumberPageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumberPageView.xib; sourceTree = "<group>"; };
 		86D553F821392FED003CF2B6 /* TransactionsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsPageViewModel.swift; sourceTree = "<group>"; };
 		86D553FA213E271C003CF2B6 /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
 		86D55400213E69EF003CF2B6 /* MonetaryAmountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetaryAmountViewModel.swift; sourceTree = "<group>"; };
@@ -820,6 +824,7 @@
 		8653952D211BE51400DB2DDE /* Modunles */ = {
 			isa = PBXGroup;
 			children = (
+				86C17A1821525EAD00398DC8 /* Contact */,
 				869A69432137EE8400642B8B /* Settings */,
 				8698A181212EB33F0016C85D /* Transfer */,
 				86521209212278DB00F79E4D /* Tokens */,
@@ -1163,7 +1168,7 @@
 			isa = PBXGroup;
 			children = (
 				86F45DD2214F8C8C0095AA67 /* SettingsViewModel.swift */,
-				86CE2E092150F0590030C984 /* LockViewModel.swift */,
+				86C17A042152086A00398DC8 /* CreatePasscodeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1185,13 +1190,60 @@
 			path = TransactionPage;
 			sourceTree = "<group>";
 		};
+		86C17A1821525EAD00398DC8 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				86C17A1D21525F0A00398DC8 /* VIews */,
+				86C17A1C21525EF700398DC8 /* Types */,
+				86C17A1B21525EEB00398DC8 /* ViewModels */,
+				86C17A1A21525ED100398DC8 /* ViewControllers */,
+				86C17A1921525EC000398DC8 /* Coordinator */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		86C17A1921525EC000398DC8 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		86C17A1A21525ED100398DC8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		86C17A1B21525EEB00398DC8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		86C17A1C21525EF700398DC8 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		86C17A1D21525F0A00398DC8 /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VIews;
+			sourceTree = "<group>";
+		};
 		86CE2DF42150AD730030C984 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				86CE2E062150EDAB0030C984 /* Lock */,
 				86CE2DF52150AD890030C984 /* UITableviewCell */,
 				86CE2E0C215108AD0030C984 /* NumberPageView.swift */,
-				86CE2E0E215108FF0030C984 /* NumberpageView.xib */,
+				86CE2E0E215108FF0030C984 /* NumberPageView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1203,6 +1255,8 @@
 				86CE2DF72150ADCC0030C984 /* SwitchRowCell.xib */,
 				86CE2DFA2150B0A10030C984 /* PushRowCell.swift */,
 				86CE2DFB2150B0A10030C984 /* PushRowCell.xib */,
+				86C17A1421525A7700398DC8 /* DeleteWalletCell.swift */,
+				86C17A1521525A7700398DC8 /* DeleteWalletCell.xib */,
 			);
 			path = UITableviewCell;
 			sourceTree = "<group>";
@@ -1367,7 +1421,8 @@
 				86C0DDB921251E220096CB30 /* ConfirmVC.xib in Resources */,
 				86CE2E012150E90D0030C984 /* CreatePasscodeVC.xib in Resources */,
 				8698A16D212E5CC70016C85D /* TokenVC.xib in Resources */,
-				86CE2E0F215108FF0030C984 /* NumberpageView.xib in Resources */,
+				86CE2E0F215108FF0030C984 /* NumberPageView.xib in Resources */,
+				86C17A1721525A7700398DC8 /* DeleteWalletCell.xib in Resources */,
 				86B329892130134700C7E57F /* ConfigGasPriceView.xib in Resources */,
 				86D55413213E93D7003CF2B6 /* NewTokenERC20VC.xib in Resources */,
 				84152442213CD9E90058F31F /* ImportWalletVC.xib in Resources */,
@@ -1591,6 +1646,7 @@
 				86B3296D212FE2E700C7E57F /* SendAddressVC.swift in Sources */,
 				8667521A2133FAE200102007 /* BalanceStatus.swift in Sources */,
 				866752152133F82600102007 /* ConfirmPaymentVC.swift in Sources */,
+				86C17A1621525A7700398DC8 /* DeleteWalletCell.swift in Sources */,
 				86CE2DF12150A3D90030C984 /* Styles.swift in Sources */,
 				8643B0D02123E00100F46C21 /* LocalizedOperationObject.swift in Sources */,
 				8653954B211C306400DB2DDE /* UIColor.swift in Sources */,
@@ -1616,6 +1672,7 @@
 				86B32984212FFA2B00C7E57F /* UnconfirmedTransaction.swift in Sources */,
 				8698A169212E4FFB0016C85D /* Account.swift in Sources */,
 				86391B78211442EB0045A610 /* ViewController.swift in Sources */,
+				86C17A052152086A00398DC8 /* CreatePasscodeViewModel.swift in Sources */,
 				8643B0C02123D10500F46C21 /* ApiNetwowk.swift in Sources */,
 				86539531211BE6D800DB2DDE /* WalletNameVC.swift in Sources */,
 				869339BF21428BD200D48936 /* VeryfyWordPhraseView.swift in Sources */,
@@ -1696,7 +1753,6 @@
 				86D5540D213E8F8C003CF2B6 /* NewTokenViewModel.swift in Sources */,
 				86D55407213E8AD2003CF2B6 /* Image.swift in Sources */,
 				8653953C211C2A3A00DB2DDE /* PushNotifilecationsRegistrar.swift in Sources */,
-				86CE2E0A2150F0590030C984 /* LockViewModel.swift in Sources */,
 				86591378212AAB1000440972 /* Realm.swift in Sources */,
 				86879FDB2117F4E70099A2CC /* WalletAddress.swift in Sources */,
 				86591362212A72FC00440972 /* Balance.swift in Sources */,

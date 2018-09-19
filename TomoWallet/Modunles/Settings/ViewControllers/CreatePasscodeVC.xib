@@ -13,6 +13,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreatePasscodeVC" customModule="TomoWallet" customModuleProvider="target">
             <connections>
+                <outlet property="headerView" destination="npP-mr-5rz" id="XUz-Zz-fph"/>
+                <outlet property="numberPageBackgroundView" destination="XJ3-uu-pf9" id="BDU-wS-yzi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

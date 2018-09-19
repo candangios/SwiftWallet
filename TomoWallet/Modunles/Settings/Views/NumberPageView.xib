@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="264" height="355"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wue-2q-lQ9" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wue-2q-lQ9" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="lNW-hC-3jk"/>
@@ -25,82 +25,118 @@
                     <state key="normal" title="1">
                         <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getValueFromNumber:" destination="iN0-l3-epB" eventType="touchUpInside" id="U71-vM-JU7"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYs-ed-wig" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYs-ed-wig" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="97" y="0.0" width="70" height="70"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                     <state key="normal" title="2">
                         <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getValueFromNumber:" destination="iN0-l3-epB" eventType="touchUpInside" id="jHe-dh-Zm5"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gs-oA-Rsn" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gs-oA-Rsn" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="194" y="0.0" width="70" height="70"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                     <state key="normal" title="3">
                         <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getValueFromNumber:" destination="iN0-l3-epB" eventType="touchUpInside" id="RnT-Ee-TIS"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2W-z5-7ub" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2W-z5-7ub" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="95" width="70" height="70"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                     <state key="normal" title="4">
                         <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getValueFromNumber:" destination="iN0-l3-epB" eventType="touchUpInside" id="8AO-W8-Ci1"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUW-g8-UNv" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUW-g8-UNv" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="97" y="95" width="70" height="70"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                     <state key="normal" title="5">
                         <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getValueFromNumber:" destination="iN0-l3-epB" eventType="touchUpInside" id="xTn-0a-AJy"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh0-5z-2aa" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oh0-5z-2aa" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="194" y="95" width="70" height="70"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                     <state key="normal" title="6">
                         <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getValueFromNumber:" destination="iN0-l3-epB" eventType="touchUpInside" id="Nq1-Vo-2P4"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZJ-3D-m19" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZJ-3D-m19" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="190" width="70" height="70"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                     <state key="normal" title="7">
                         <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getValueFromNumber:" destination="iN0-l3-epB" eventType="touchUpInside" id="6bc-8Z-pDD"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kch-jW-KBR" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kch-jW-KBR" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="97" y="190" width="70" height="70"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                     <state key="normal" title="8">
                         <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getValueFromNumber:" destination="iN0-l3-epB" eventType="touchUpInside" id="qXg-Ha-ERZ"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkl-fx-oW9" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkl-fx-oW9" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="194" y="190" width="70" height="70"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                     <state key="normal" title="9">
                         <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getValueFromNumber:" destination="iN0-l3-epB" eventType="touchUpInside" id="Pma-vt-XCg"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Exg-zK-mMV" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Exg-zK-mMV" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="285" width="70" height="70"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                     <state key="normal" title="clear">
                         <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getValueFromNumber:" destination="iN0-l3-epB" eventType="touchUpInside" id="M9F-de-mOl"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5T-Bi-iOV" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5T-Bi-iOV" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="97" y="285" width="70" height="70"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                     <state key="normal" title="0">
                         <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getValueFromNumber:" destination="iN0-l3-epB" eventType="touchUpInside" id="muE-fv-m2y"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUQ-cm-Vxs" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUQ-cm-Vxs" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                     <rect key="frame" x="194" y="285" width="70" height="70"/>
                     <state key="normal" image="DeleteCalculatorButton">
                         <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="getValueFromNumber:" destination="iN0-l3-epB" eventType="touchUpInside" id="5QW-7X-sLb"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

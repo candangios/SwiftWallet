@@ -17,14 +17,17 @@ protocol SettingsVC_Delegate: class {
 
 class SettingsVC: BaseViewController {
     let session: WalletSession
+    let lock: Lock
     weak var delegate: SettingsVC_Delegate?
+    var isSetPasscode = false
     
     @IBOutlet weak var tableView: UITableView!
     lazy var viewModel: SettingsViewModel = {
         return SettingsViewModel()
     }()
-    init(session: WalletSession) {
+    init(session: WalletSession, lock: Lock) {
         self.session = session
+        self.lock = lock
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,20 +42,39 @@ class SettingsVC: BaseViewController {
         self.tableView.delegate = self
         self.tableView.register(UINib(nibName: "SwitchRowCell", bundle: nil), forCellReuseIdentifier: SwitchRowCell.identifier)
         self.tableView.register(UINib(nibName: "PushRowCell", bundle: nil), forCellReuseIdentifier: PushRowCell.identifier)
+        self.tableView.register(UINib(nibName: "DeleteWalletCell", bundle: nil), forCellReuseIdentifier: DeleteWalletCell.identifier)
+        
+        let appVersion = UILabel(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        appVersion.text = "2.2.2"
+        appVersion.textAlignment = .center
+        appVersion.center.x = tableView.center.x
+        self.tableView.tableFooterView = appVersion
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.isSetPasscode = lock.isPasscodeSet()
+        self.tableView.reloadData()
+    }
+    
+    func reload() {
+        self.isSetPasscode = lock.isPasscodeSet()
+        self.tableView.reloadData()
     }
     
     
 }
 extension SettingsVC : UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 6
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:return 3
         case 1:return 1
-        case 2: return 1
-        case 3: return 2
+        case 2: return isSetPasscode == true ? 1 : 0
+        case 3: return isSetPasscode == true ? 2 : 0
+        case 4: return 2
+        case 5: return 1
         default:return 0
         }
     }
@@ -90,7 +112,7 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate{
             }
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: PushRowCell.identifier, for: indexPath) as? PushRowCell
-            cell?.setCell(title: "Create Passcode", image:#imageLiteral(resourceName: "SettingCreatePasscode"), isHighlight: true)
+            cell?.setCell(title: isSetPasscode == true ? "Update Passcode" : "Create Passcode", image:#imageLiteral(resourceName: "SettingCreatePasscode"), isHighlight: !isSetPasscode)
             cell?.onPush = {
                 self.delegate?.didAction(action: SettingsAction.passcode, in: self)
             }
@@ -125,6 +147,16 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate{
             default:
                 break
             }
+        case 4:
+            break
+        case 5:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DeleteWalletCell.identifier, for: indexPath) as? DeleteWalletCell
+            cell?.setCell(title: "Delete Wallet", image:#imageLiteral(resourceName: "SettingDeleteWallet"))
+            cell?.onPush = {
+//                self.delegate?.didAction(action: SettingsAction.passcode, in: self)
+            }
+            cell?.selectionStyle = .none
+            return cell!
         default:
             break
         }
@@ -135,43 +167,50 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
-        case 0,1,3:return 50
+        case 0,1,4:return 50
         case 2: return 0.1
+        case 3: return isSetPasscode == true ? 50 : 0.1
         default:return 0
         }
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
         switch section {
-        case 1,2: return 45
+        case 1: return 45
+        case 2: return isSetPasscode == true ?  45 :  0.1
         default:return 0.1
         }
     }
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = UIColor(hex: "333333")
+        header.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 18)
+        header.textLabel?.frame = CGRect(x: 16, y: 15, width: 320, height: 18)
+        header.textLabel?.textAlignment = .left
         switch section {
-        case 0,1,3:
-            let titleLable = UILabel(frame: CGRect(x: 16, y: 15, width: 320, height: 18))
-            titleLable.text = viewModel.titleForSection(section: section)
-            titleLable.textColor = UIColor(hex: "333333")
-            titleLable.font = UIFont(name: "HelveticaNeue-Light", size: 18)
-            view.addSubview(titleLable)
+        case 0,1,4:
+             header.textLabel?.text = viewModel.titleForSection(section: section)
+        case 3:
+            header.textLabel?.text = isSetPasscode == true ? viewModel.titleForSection(section: section) : ""
         default:
-            break
+            header.textLabel?.text = ""
         }
         view.backgroundColor = UIColor(hex: "F4F4F4")
     }
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = UIColor(hex: "838383")
+        header.textLabel?.font = UIFont(name: "Helvetica Neue", size: 14)
+        header.textLabel?.frame = CGRect(x: 16, y: 5, width: 320, height: 40)
+        header.textLabel?.textAlignment = .left
         switch section {
         case 1,2:
-            let titleLable = UILabel(frame: CGRect(x: 16, y: 5, width: 320, height: 40))
-            titleLable.text = viewModel.footerForSection(section: section)
-            titleLable.textColor = UIColor(hex: "838383")
-            titleLable.font = UIFont(name: "Helvetica Neue", size: 14)
-            titleLable.numberOfLines = 2
-            view.addSubview(titleLable)
+            header.textLabel?.text = isSetPasscode == true ? viewModel.footerForSection(section: section) : ""
         default:
-            break
+            header.textLabel?.text = ""
         }
         view.backgroundColor = UIColor(hex: "F4F4F4")
     }
+    
     
 }

@@ -11,11 +11,11 @@ import UIKit
 final class LockView: UIView{
     var characterView = UIStackView()
     var lockTitle = UILabel()
-    var model: LockViewModel!
+    var quantity: Int = 0
     var characters: [PasscodeCharacterView]!
-    init(_ model: LockViewModel) {
+    init(_ quantity: Int) {
         super.init(frame: CGRect.zero)
-        self.model = model
+        self.quantity = quantity
         self.characters = passcodeCharacters()
         configCharacterView()
         configLabel()
@@ -31,17 +31,20 @@ final class LockView: UIView{
         characterView.translatesAutoresizingMaskIntoConstraints = false
     }
     private func configLabel() {
-        lockTitle.font = UIFont.systemFont(ofSize: 19)
+        lockTitle.font = UIFont.systemFont(ofSize: 30)
+        lockTitle.textColor = .white
         lockTitle.textAlignment = .center
         lockTitle.translatesAutoresizingMaskIntoConstraints = false
     }
     private func applyConstraints() {
-        characterView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        characterView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        characterView.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
         lockTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         lockTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        lockTitle.bottomAnchor.constraint(equalTo: characterView.topAnchor, constant: -20).isActive = true
+        lockTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: 75).isActive = true
+        lockTitle.heightAnchor.constraint(equalToConstant: 35.0).isActive = true
+    
+        characterView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        characterView.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        characterView.topAnchor.constraint(equalTo: lockTitle.bottomAnchor, constant: 43).isActive = true
     }
     private func addUiElements() {
         self.backgroundColor = UIColor.white
@@ -50,7 +53,7 @@ final class LockView: UIView{
     }
     private func passcodeCharacters() -> [PasscodeCharacterView] {
         var characters = [PasscodeCharacterView]()
-        for _ in 0..<model.charCount() {
+        for _ in 0..<quantity {
             let passcodeCharacterView = PasscodeCharacterView()
             passcodeCharacterView.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             passcodeCharacterView.widthAnchor.constraint(equalToConstant: 20).isActive = true

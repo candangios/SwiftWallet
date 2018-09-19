@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.1</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -28,13 +28,13 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>QR Scan</string>
+	<string>The app uses the camera to scan QR code to get Wallet's info</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Access your wallet</string>
+	<string>The app uses access your wallet</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Sending QR Code to your contacts</string>
+	<string>The app uses sending QR Code to your contacts</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Sending QR Code to your contacts</string>
+	<string>The app uses sending QR Code to your contacts</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

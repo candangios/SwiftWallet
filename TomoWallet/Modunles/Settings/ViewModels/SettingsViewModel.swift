@@ -32,6 +32,8 @@ struct SettingsViewModel {
             return "SECURITY"
         case 3:
             return "USE PASSCODE OR TOUCH ID FOR"
+        case 4:
+            return "ABOUT"
         default:
             return .none
         }
