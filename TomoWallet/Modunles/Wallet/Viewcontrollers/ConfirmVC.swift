@@ -27,10 +27,13 @@ enum PassphraseMode {
 
 
 class ConfirmVC: BaseViewController {
+    @IBOutlet weak var heightContrain: NSLayoutConstraint!
+    @IBOutlet weak var scrollview: UIScrollView!
     let account: Wallet
     let words: [String]
     let mode: PassphraseMode
     weak var delegate: ConfrimVC_Delegate?
+    @IBOutlet weak var titleLable: UILabel!
     init(account: Wallet, words:[String], mode: PassphraseMode) {
         self.account = account
         self.words = words
@@ -44,7 +47,13 @@ class ConfirmVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.scrollview.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0 )
+
         self.navigationItem.setHidesBackButton(true, animated: false)
+        let height = UIScreen.main.bounds.height
+        if height > 677{
+            self.heightContrain.constant = height
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -56,3 +65,4 @@ class ConfirmVC: BaseViewController {
         self.delegate?.didPressVerify(in: self, with: account, words: self.words)
     }
 }
+

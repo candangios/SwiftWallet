@@ -54,6 +54,7 @@ class SendAmountVC: BaseViewController {
     @IBOutlet weak var symbolLable: UILabel!
     @IBOutlet weak var descriptionLable: UILabel!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var numberPadView: UIView!
     
     weak var delegate: SendAmountVC_Delegate?
     var operation = true
@@ -87,6 +88,16 @@ class SendAmountVC: BaseViewController {
         self.amountLable.text = viewModel.defaultAmount
         self.amountLable.adjustsFontSizeToFitWidth = true
         self.setHeaderView()
+        if ( UIDevice.current.model.range(of: "iPad") != nil){
+            for view in numberPadView.subviews{
+                if let button = view as? UIButton{
+                    button.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
+                    button.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+                    button.imageView?.contentMode = .scaleAspectFit
+
+                }
+            }
+        }
     }
     func setHeaderView()  {
         self.toAddressLable.text = viewModel.toAddress.description

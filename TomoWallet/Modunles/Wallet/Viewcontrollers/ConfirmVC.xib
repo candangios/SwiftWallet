@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfirmVC" customModule="TomoWallet" customModuleProvider="target">
             <connections>
+                <outlet property="heightContrain" destination="A47-G4-qHs" id="uKc-gb-YuB"/>
+                <outlet property="scrollview" destination="dUZ-ev-qcN" id="N1J-Ut-LOs"/>
+                <outlet property="titleLable" destination="Gbt-Am-wiv" id="vT7-Kk-ixc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,95 +22,135 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7V-Rb-Kq1">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="dUZ-ev-qcN">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbt-Am-wiv">
-                            <rect key="frame" x="50" y="60" width="274" height="97"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="97" id="56A-vr-3Uy"/>
-                                <constraint firstAttribute="width" constant="274" id="x0E-iB-BO2"/>
-                            </constraints>
-                            <string key="text">Created a wallet
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYc-G2-VNW">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7V-Rb-Kq1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbt-Am-wiv">
+                                            <rect key="frame" x="43" y="60" width="290" height="97"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="290" id="sj3-De-vCC"/>
+                                                <constraint firstAttribute="height" constant="97" id="vLt-la-pdp"/>
+                                            </constraints>
+                                            <string key="text">Created a wallet
 for you</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="Gbt-Am-wiv" firstAttribute="centerX" secondItem="A7V-Rb-Kq1" secondAttribute="centerX" id="Kjf-5f-w9w"/>
-                        <constraint firstAttribute="height" constant="185" id="PWy-DU-5DY"/>
-                        <constraint firstItem="Gbt-Am-wiv" firstAttribute="top" secondItem="A7V-Rb-Kq1" secondAttribute="top" constant="60" id="Vff-QK-fZb"/>
-                    </constraints>
-                </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s secure your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gje-p5-IdW">
-                    <rect key="frame" x="66" y="213" width="242" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="24" id="5GX-wm-QO8"/>
-                        <constraint firstAttribute="width" constant="242" id="ZsF-3i-HbA"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcF-C5-Bwd" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
-                    <rect key="frame" x="35" y="561" width="305" height="50"/>
-                    <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="Dxo-yw-gjl"/>
-                    </constraints>
-                    <state key="normal" title="BACK UP MY ACCOUNT">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <connections>
-                        <action selector="backUpMyAccountAction:" destination="-1" eventType="touchUpInside" id="wn6-LM-qIt"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qa9-hi-7b7">
-                    <rect key="frame" x="120" y="612" width="134" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="aPT-aJ-RS0"/>
-                        <constraint firstAttribute="width" constant="134" id="rTl-mo-pwL"/>
-                    </constraints>
-                    <state key="normal" title="I will backup late">
-                        <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="didSkipAction:" destination="-1" eventType="touchUpInside" id="Bc7-9X-ynQ"/>
-                    </connections>
-                </button>
-                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CIf-CK-P5u">
-                    <rect key="frame" x="16" y="245" width="343" height="300"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <string key="text">Storing a recovery phrase will allow you to recover your account if your phone is ever lost or stolen. It’s important to store this recovery phrase securely where nobody else can access it, such as on a piece of paper or in a password manager
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="185" id="GN3-Nh-LXN"/>
+                                        <constraint firstItem="Gbt-Am-wiv" firstAttribute="top" secondItem="A7V-Rb-Kq1" secondAttribute="top" constant="60" id="Ha2-fs-ETd"/>
+                                        <constraint firstItem="Gbt-Am-wiv" firstAttribute="centerX" secondItem="A7V-Rb-Kq1" secondAttribute="centerX" id="Je5-6S-ff2"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MIV-V1-gQ7">
+                                    <rect key="frame" x="0.0" y="185" width="375" height="482"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CIf-CK-P5u">
+                                            <rect key="frame" x="16" y="68" width="343" height="300"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <string key="text">Storing a recovery phrase will allow you to recover your account if your phone is ever lost or stolen. It’s important to store this recovery phrase securely where nobody else can access it, such as on a piece of paper or in a password manager
 
 
 If you lose your recovery phrase, you will be unable to recover access to your account
 </string>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s secure your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gje-p5-IdW">
+                                            <rect key="frame" x="66" y="28" width="242" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="GMF-c2-LAy"/>
+                                                <constraint firstAttribute="width" constant="242" id="dBZ-IQ-Apg"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcF-C5-Bwd" customClass="RadiusButton" customModule="TomoWallet" customModuleProvider="target">
+                                            <rect key="frame" x="35" y="376" width="305" height="50"/>
+                                            <color key="backgroundColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="pMT-X8-egi"/>
+                                            </constraints>
+                                            <state key="normal" title="  BACK UP MY ACCOUNT" image="BackUp">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="backUpMyAccountAction:" destination="-1" eventType="touchUpInside" id="wn6-LM-qIt"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qa9-hi-7b7">
+                                            <rect key="frame" x="120" y="426" width="134" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="QlQ-cv-IY0"/>
+                                                <constraint firstAttribute="width" constant="134" id="dqJ-WK-YE1"/>
+                                            </constraints>
+                                            <state key="normal" title="I will backup late">
+                                                <color key="titleColor" red="0.08235294118" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didSkipAction:" destination="-1" eventType="touchUpInside" id="Bc7-9X-ynQ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="AcF-C5-Bwd" firstAttribute="leading" secondItem="MIV-V1-gQ7" secondAttribute="leading" constant="35" id="7h3-fX-vLq"/>
+                                        <constraint firstItem="AcF-C5-Bwd" firstAttribute="top" secondItem="CIf-CK-P5u" secondAttribute="bottom" constant="8" id="8IX-0X-8jb"/>
+                                        <constraint firstAttribute="trailing" secondItem="CIf-CK-P5u" secondAttribute="trailing" constant="16" id="8dw-ic-WKO"/>
+                                        <constraint firstItem="CIf-CK-P5u" firstAttribute="top" secondItem="gje-p5-IdW" secondAttribute="bottom" constant="16" id="D9k-id-oRf"/>
+                                        <constraint firstItem="CIf-CK-P5u" firstAttribute="leading" secondItem="MIV-V1-gQ7" secondAttribute="leading" constant="16" id="DKy-pE-bcx"/>
+                                        <constraint firstAttribute="trailing" secondItem="AcF-C5-Bwd" secondAttribute="trailing" constant="35" id="GX8-Vl-Rkv"/>
+                                        <constraint firstItem="gje-p5-IdW" firstAttribute="top" secondItem="MIV-V1-gQ7" secondAttribute="top" constant="28" id="Obr-U7-B8u"/>
+                                        <constraint firstItem="Qa9-hi-7b7" firstAttribute="top" secondItem="AcF-C5-Bwd" secondAttribute="bottom" id="aah-cY-NQ2"/>
+                                        <constraint firstItem="gje-p5-IdW" firstAttribute="centerX" secondItem="MIV-V1-gQ7" secondAttribute="centerX" id="lsu-St-qHL"/>
+                                        <constraint firstAttribute="bottom" secondItem="Qa9-hi-7b7" secondAttribute="bottom" constant="8" id="tzT-Yf-6UX"/>
+                                        <constraint firstItem="Qa9-hi-7b7" firstAttribute="centerX" secondItem="MIV-V1-gQ7" secondAttribute="centerX" id="uVP-VH-2Sj"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="667" id="A47-G4-qHs"/>
+                                <constraint firstItem="A7V-Rb-Kq1" firstAttribute="top" secondItem="dYc-G2-VNW" secondAttribute="top" id="GEA-6m-WIK"/>
+                                <constraint firstAttribute="trailing" secondItem="A7V-Rb-Kq1" secondAttribute="trailing" id="XSl-ws-9C4"/>
+                                <constraint firstItem="MIV-V1-gQ7" firstAttribute="leading" secondItem="dYc-G2-VNW" secondAttribute="leading" id="YqZ-YM-ZAK"/>
+                                <constraint firstAttribute="bottom" secondItem="MIV-V1-gQ7" secondAttribute="bottom" id="fEL-6k-x0e"/>
+                                <constraint firstItem="A7V-Rb-Kq1" firstAttribute="leading" secondItem="dYc-G2-VNW" secondAttribute="leading" id="fMb-B8-uLZ"/>
+                                <constraint firstItem="MIV-V1-gQ7" firstAttribute="top" secondItem="A7V-Rb-Kq1" secondAttribute="bottom" id="nBn-Rf-dGr"/>
+                                <constraint firstAttribute="trailing" secondItem="MIV-V1-gQ7" secondAttribute="trailing" id="x2p-Xs-Po4"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="dYc-G2-VNW" firstAttribute="leading" secondItem="dUZ-ev-qcN" secondAttribute="leading" id="0RJ-hg-6ld"/>
+                        <constraint firstAttribute="bottom" secondItem="dYc-G2-VNW" secondAttribute="bottom" id="5qD-dF-xIq"/>
+                        <constraint firstItem="dYc-G2-VNW" firstAttribute="centerX" secondItem="dUZ-ev-qcN" secondAttribute="centerX" id="LGP-eC-Cja"/>
+                        <constraint firstItem="dYc-G2-VNW" firstAttribute="top" secondItem="dUZ-ev-qcN" secondAttribute="top" id="hg5-pg-gzr"/>
+                        <constraint firstAttribute="trailing" secondItem="dYc-G2-VNW" secondAttribute="trailing" id="lFB-bZ-JrW"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Qa9-hi-7b7" secondAttribute="bottom" constant="7" id="2Cs-Z3-mjy"/>
-                <constraint firstItem="CIf-CK-P5u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="4DZ-tV-3Xl"/>
-                <constraint firstAttribute="bottom" secondItem="AcF-C5-Bwd" secondAttribute="bottom" constant="56" id="AL0-TB-q6d"/>
-                <constraint firstAttribute="trailing" secondItem="A7V-Rb-Kq1" secondAttribute="trailing" id="AoM-7v-M3P"/>
-                <constraint firstItem="Qa9-hi-7b7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ck7-Oc-VPY"/>
-                <constraint firstItem="AcF-C5-Bwd" firstAttribute="top" secondItem="CIf-CK-P5u" secondAttribute="bottom" constant="16" id="FWj-NL-Jn3"/>
-                <constraint firstAttribute="trailing" secondItem="CIf-CK-P5u" secondAttribute="trailing" constant="16" id="IHV-eV-bWt"/>
-                <constraint firstItem="CIf-CK-P5u" firstAttribute="top" secondItem="gje-p5-IdW" secondAttribute="bottom" constant="8" id="VZx-7Y-cSa"/>
-                <constraint firstItem="AcF-C5-Bwd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="fAp-wi-JwN"/>
-                <constraint firstItem="gje-p5-IdW" firstAttribute="top" secondItem="A7V-Rb-Kq1" secondAttribute="bottom" constant="28" id="hN2-5m-dZd"/>
-                <constraint firstItem="A7V-Rb-Kq1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jsb-nK-aYy"/>
-                <constraint firstItem="gje-p5-IdW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nj5-8u-e9a"/>
-                <constraint firstItem="A7V-Rb-Kq1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="p4Y-fb-950"/>
-                <constraint firstAttribute="trailing" secondItem="AcF-C5-Bwd" secondAttribute="trailing" constant="35" id="w3h-Tc-rZs"/>
+                <constraint firstItem="dUZ-ev-qcN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0fm-pA-7yg"/>
+                <constraint firstAttribute="bottom" secondItem="dUZ-ev-qcN" secondAttribute="bottom" id="GcK-gg-4z0"/>
+                <constraint firstAttribute="trailing" secondItem="dUZ-ev-qcN" secondAttribute="trailing" id="MzJ-Zq-zrf"/>
+                <constraint firstItem="dUZ-ev-qcN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bKO-t1-fRC"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="BackUp" width="18" height="20"/>
+    </resources>
 </document>

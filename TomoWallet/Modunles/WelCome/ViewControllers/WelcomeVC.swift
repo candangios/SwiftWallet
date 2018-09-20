@@ -15,15 +15,18 @@ protocol WelcomeVC_Delegate: class {
 }
 
 class WelcomeVC: UIViewController {
+    @IBOutlet weak var importWalletButton: UIButton!
+    @IBOutlet weak var createWalletButton: UIButton!
     weak var delegate : WelcomeVC_Delegate?
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    
+    override func viewWillLayoutSubviews()  {
+        print(self.createWalletButton.bounds.size.height)
+        self.createWalletButton.layer.cornerRadius = self.createWalletButton.bounds.size.height/2
+        self.importWalletButton.layer.cornerRadius = self.importWalletButton.bounds.size.height/2
     }
     
     

@@ -55,9 +55,11 @@ class VerifyPassphraseVC: BaseViewController {
     let mode: PassphraseMode
     weak var delegate: VerifyPassphraseVC_Delegate?
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var exitButton: UIButton!
+
+    @IBOutlet weak var heightContrain: NSLayoutConstraint!
     
     @IBOutlet weak var proposalView: UIView!
     
@@ -77,6 +79,11 @@ class VerifyPassphraseVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.scrollView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
+        let height = UIScreen.main.bounds.height
+        if height > 677{
+            self.heightContrain.constant = height
+        }
         setProposalView()
         setContenView()
         let closeButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Close"), style: .plain, target: self, action: #selector(self.didSKipAction))
@@ -87,25 +94,24 @@ class VerifyPassphraseVC: BaseViewController {
     }
     func setContenView() {
         let width = UIScreen.main.bounds.width/3
+ 
         for index in 0..<self.words.count {
             guard let view = Bundle.main.loadNibNamed("VeryfyWordPhraseView", owner: nil, options: nil)?.first as? VeryfyWordPhraseView else{
                 return
             }
-            view.ordinalNumberLable.font = UIFont.systemFont(ofSize: 16)
-            view.wordPhraseLable.font = UIFont.boldSystemFont(ofSize: 16)
             view.tag = index
             if index < 4{
-                view.frame = CGRect(x: 0, y: index * 34, width: Int(width), height: 34)
+                view.frame = CGRect(x: 0, y: CGFloat(index * 34), width:CGFloat(width*2), height: 34)
             }else if(3 < index && index < 8){
-                 view.frame = CGRect(x: Int(width), y: (index - 4) * 34, width: Int(width), height: 34)
+                 view.frame = CGRect(x: width, y: CGFloat((index - 4) * 34), width: CGFloat(width*2), height: 34)
             }
             else{
-                view.frame = CGRect(x: Int(width*2), y: (index - 8) * 34, width: Int(width), height: 34)
+                view.frame = CGRect(x: width*2, y: CGFloat((index - 8) * 34), width: CGFloat(width*2), height: 34)
             }
             view.setView(wordPhrase: "", ordinalNumber: "\(index + 1)")
             let tap = MyTapGesture(target: self, action: #selector(self.unselectedWord(sender:)))
             tap.tag = index
-                view.addGestureRecognizer(tap)
+            view.addGestureRecognizer(tap)
             self.contentView.addSubview(view)
         }
     }
@@ -127,7 +133,7 @@ class VerifyPassphraseVC: BaseViewController {
     
     func setProposalView() {
         for index in 0..<self.shuffledWords.count {
-            if let button = self.proposalView.viewWithTag(index) as? UIButton {
+            if let button = self.proposalView.viewWithTag(index) as? RadiusButton {
                 button.setTitle(shuffledWords[index], for: .normal)
                 button.addTarget(self, action: #selector(self.selectedWord(sender:)), for: .touchUpInside)
             }

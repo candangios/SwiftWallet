@@ -32,6 +32,7 @@ extension WalletInfo {
 }
 
 class ImportWalletVC: BaseViewController {
+    @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var importButton: RadiusButton!
     @IBOutlet weak var qrcodeScanButton: BolderButton!
@@ -65,6 +66,7 @@ class ImportWalletVC: BaseViewController {
         self.qrcodeScanButton.setImage(#imageLiteral(resourceName: "Receive").imageWithColor(color1: UIColor(hex: "333333")), for: .normal)
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.backgroundView.addGestureRecognizer(tap)
+        titleLable.adjustsFontSizeToFitWidth = true
         
         self.inputTextView.text = textViewPlaceholder
         self.inputTextView.textColor = textViewPlaceholderColor

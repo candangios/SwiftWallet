@@ -11,6 +11,9 @@ import UIKit
 class WordPhraseView: UIView {
     @IBOutlet weak var wordPhraseLable: UILabel!
     @IBOutlet weak var ordinalNumberLable: UILabel!
+    override func awakeFromNib() {
+      
+    }
    
 
     func setView(wordPhrase: String, ordinalNumber: String) {

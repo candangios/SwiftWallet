@@ -15,6 +15,7 @@
                 <outlet property="amountLable" destination="q7Q-bn-qjl" id="hVB-hK-ZXD"/>
                 <outlet property="descriptionLable" destination="SuL-fB-WPt" id="ZMz-P3-yue"/>
                 <outlet property="nextButton" destination="1B3-uX-1NN" id="Xu3-ex-66l"/>
+                <outlet property="numberPadView" destination="6Ye-e7-1Dq" id="EBs-Py-VrY"/>
                 <outlet property="symbolLable" destination="G2H-tn-066" id="0Og-8H-iHA"/>
                 <outlet property="toAddressLable" destination="5XJ-KP-oQY" id="CUG-LC-N5e"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -121,6 +122,9 @@
                             <state key="normal" title="1">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adjustFontSizeToWidth" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="getValueFromNumber:" destination="-1" eventType="touchUpInside" id="zAo-sS-ifC"/>
                             </connections>
@@ -235,7 +239,7 @@
                                 <action selector="getValueFromNumber:" destination="-1" eventType="touchUpInside" id="VZg-24-K2f"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwJ-32-ab2" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
+                        <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwJ-32-ab2" customClass="CalculatorButton" customModule="TomoWallet" customModuleProvider="target">
                             <rect key="frame" x="190" y="285" width="70" height="70"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="DeleteCalculatorButton">

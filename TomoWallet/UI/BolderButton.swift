@@ -17,5 +17,8 @@ class BolderButton: UIButton {
         self.imageEdgeInsets = UIEdgeInsets(top: 6, left: 10, bottom: 6, right: 10)
         self.imageView?.contentMode = .scaleAspectFit
     }
+    override func setNeedsLayout() {
+        self.layer.cornerRadius = self.frame.height/2
+    }
     
 }
